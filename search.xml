@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/02/11/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>某szh的博客</title>
-    <url>/2022/02/23/firsttry/</url>
-    <content><![CDATA[<p>为天地立心，为生民立命，为往圣继绝学，为万世开太平</p>
+    <title>碎碎念</title>
+    <url>/2022/02/25/1_%E7%A2%8E%E7%A2%8E%E5%BF%B5/</url>
+    <content><![CDATA[<p> 在szh坚持不懈的摸鱼之下博客勉勉强强搭起来了，一些后续功能就‘明天’(咳咳)再说。</p>
+<p> 这个寒假全程阴间作息，导致对即将到来的网课丝毫没有能好好听课的信心。真是颓废混蛋并且一事无成啊。</p>
+<p> 对人际关系也变得十分懒怠，有时候会无缘无故的消失一整天，自己躲起来干一些浪费时间的事情，看一些无聊的小说或者剧，就好像缩在一个安全的壳里一样。等到开学被迫见到许多人的时候这种情况应该会改善很多，到时候会怎么样大概完全取决于我朋友们的肚量(bushi)。</p>
+<p> 哦对，寒假学会了擀饺子皮儿，这样看也不算一事无成。</p>
+<p> 第二大的遗憾就要数今年冬天没见到雪吧。</p>
 ]]></content>
       <categories>
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>标签1</tag>
-        <tag>标签2</tag>
+        <tag>少年听雨</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>szh的博客</title>
+    <url>/2022/02/25/SZH%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p><em>为天地立心，为生民立命，为往圣继绝学，为万世开太平</em></p>
+]]></content>
   </entry>
 </search>
