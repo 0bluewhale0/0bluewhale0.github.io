@@ -40,7 +40,7 @@
 </ol>
 <p>世界上第一台计算机：ENIAC</p>
 <p>摩尔定律：集成电路芯片中晶体<br>管数量大体上每2年翻一番</p>
-<h4 id="x3D-x3D-计算机的性能指标-x3D-x3D-易考"><a href="#x3D-x3D-计算机的性能指标-x3D-x3D-易考" class="headerlink" title="&#x3D;&#x3D;计算机的性能指标&#x3D;&#x3D;(易考)"></a>&#x3D;&#x3D;计算机的性能指标&#x3D;&#x3D;(易考)</h4><ol>
+<h4 id="计算机的性能指标-易考"><a href="#计算机的性能指标-易考" class="headerlink" title="计算机的性能指标(易考)"></a><mark>计算机的性能指标</mark>(易考)</h4><ol>
 <li>吞吐量</li>
 <li>响应时间</li>
 <li>利用率</li>
@@ -49,11 +49,11 @@
 <li>吞吐量：通常用KB、MB、GB和TB表示。B表示Byte(字节)，b表示bit</li>
 <li>存储器带宽：一般用字节数&#x2F;秒表示</li>
 <li>主频&#x2F;时钟周期:CPU的工作节拍受主时钟控制，主时钟不断产生固定频率的时钟，主时钟的频率f称为CPU的主频。度量单位是MHz、GHz<br>主频的倒数称为CPU时钟周期T，T&#x3D;1&#x2F;f，度量单位是微秒，纳秒。</li>
-<li>CPU执行时间:表示CPU执行一段程序所占用的CPU时间<br> &#x3D;&#x3D;$\tiny CPU执行时间&#x3D;程序的指令数\times CPI\times CPU时钟周期时间$&#x3D;&#x3D;</li>
-<li><strong>CPI（Clock Cycles Per Instruction）</strong>:表示每条指令执行所需要的时钟周期数，或执行一条指令所需的平均时钟周期数。<br>&#x3D;&#x3D;$\tiny CPI&#x3D;程序执行所需的CPU时钟周期总数÷程序的指令总数$&#x3D;&#x3D;</li>
-<li>MIPS：每秒百万指令数。<u>M:百万million，I:instruction指令，PS:per second每秒</u><br>&#x3D;&#x3D;$\tiny MIPS&#x3D;（指令总数 \div 程序执行时间）\times 10^{-6}$&#x3D;&#x3D;</li>
-<li>MFLOPS：每秒百万次浮点操作次数。<u>FLO：浮点操作</u><br>   &#x3D;&#x3D;$\tiny MFLOPS&#x3D;（程序中的浮点运算次数\div程序执行时间)\times 10^{-6}$&#x3D;&#x3D;</li>
-<li>TFLOPS：每秒万亿浮点操作次数。T:trillion兆，也就是万亿，$10^{12}$<br>&#x3D;&#x3D;$\tiny TFLOPS&#x3D;（程序中的浮点运算次数\div程序执行时间)\times 10^{-12}$&#x3D;&#x3D;</li>
+<li>CPU执行时间:表示CPU执行一段程序所占用的CPU时间<br> <mark>$\tiny CPU执行时间&#x3D;程序的指令数\times CPI\times CPU时钟周期时间$</mark></li>
+<li><strong>CPI（Clock Cycles Per Instruction）</strong>:表示每条指令执行所需要的时钟周期数，或执行一条指令所需的平均时钟周期数。<br><mark>$\tiny CPI&#x3D;程序执行所需的CPU时钟周期总数÷程序的指令总数$</mark></li>
+<li>MIPS：每秒百万指令数。<u>M:百万million，I:instruction指令，PS:per second每秒</u><br><mark>$\tiny MIPS&#x3D;（指令总数 \div 程序执行时间）\times 10^{-6}$</mark></li>
+<li>MFLOPS：每秒百万次浮点操作次数。<u>FLO：浮点操作</u><br>   <mark>$\tiny MFLOPS&#x3D;（程序中的浮点运算次数\div程序执行时间)\times 10^{-6}$</mark></li>
+<li>TFLOPS：每秒万亿浮点操作次数。T:trillion兆，也就是万亿，$10^{12}$<br><mark>$\tiny TFLOPS&#x3D;（程序中的浮点运算次数\div程序执行时间)\times 10^{-12}$</mark></li>
 <li>例题<br><img src="https://api2.mubu.com/v3/document_image/5e55985c-21a8-465c-bb80-b572227826a7-16175743.jpg" alt="例题"><br>题解<img src="https://api2.mubu.com/v3/document_image/1646144690025ebba.jpg" alt="tijie"><br><img src="https://api2.mubu.com/v3/document_image/304a5e77-8917-4021-8b27-adb2d0e25941-16175743.jpg"></li>
 </ol>
 <h3 id="1-3-计算机的硬件"><a href="#1-3-计算机的硬件" class="headerlink" title="1.3 计算机的硬件"></a>1.3 计算机的硬件</h3><h4 id="计算机的组成-五大部分"><a href="#计算机的组成-五大部分" class="headerlink" title="计算机的组成(五大部分)"></a>计算机的组成(五大部分)</h4><ol>
@@ -73,16 +73,17 @@
 <li>浮点表示：见CSAPP</li>
 <li>十进制数格式：</li>
 </ol>
-<p>带有符号表示的二进制数：&#x3D;&#x3D;真值&#x3D;&#x3D;<br>机器中把符号“数字化”的数：&#x3D;&#x3D;机器数&#x3D;&#x3D;或者&#x3D;&#x3D;机器码&#x3D;&#x3D;</p>
+<p>带有符号表示的二进制数：<mark>真值</mark><br>机器中把符号“数字化”的数：<mark>机器数</mark>或者<mark>机器码</mark></p>
 <p>常用的机器码包括：(一般针对有符号数)</p>
 <ul>
 <li>原码：真值的符号位变成0&#x2F;1，0为+。</li>
-<li>反码</li>
+<li>反码:反码就是二进制数<mark>除符号位以外</mark>的的各位数码</mark>0变为1，1变为0</mark></li>
 <li>补码</li>
 <li>移码</li>
 </ul>
 <p>补码整数表示略，记住按位取反再加一就可以<br>补码的定点小数表示如下：<br><img src="https://api2.mubu.com/v3/document_image/535cd946-0888-4aa0-98f7-2b4c95267e57-16175743.jpg" alt="定点小数表示"><br>这里注意，two’s complement是补码的英文，直译为2的补足部分，这里的模的意思和时钟的模为12相同，意为正数负数的补码表示相加就是模值。</p>
-<h2 id="课程概要"><a href="#课程概要" class="headerlink" title="课程概要"></a>课程概要</h2><p><img src="https://api2.mubu.com/v3/document_image/5b9257b0-af72-46f3-9bf1-c75e55e111da-16175743.jpg" alt="课程要求嘿嘿嘿"></p>
+<p>反码和补码的关系：定点小数也满足整数的“按位取反再加一”的规则。<br><img src="https://api2.mubu.com/v3/document_image/82299582-3a0e-4d14-92cf-7d23426ff4ad-16175743.jpg" alt="关系"><br>特别的，+0的反码为：00000000(8位)<br>-0的反码为：11111111(8位)</p>
+<h2 id="补充：课程概要"><a href="#补充：课程概要" class="headerlink" title="补充：课程概要"></a>补充：课程概要</h2><p><img src="https://api2.mubu.com/v3/document_image/5b9257b0-af72-46f3-9bf1-c75e55e111da-16175743.jpg" alt="课程要求嘿嘿嘿"></p>
 <p>课程内容，左边是期中前学的，右边是期中后学的。</p>
 <p><img src="https://api2.mubu.com/v3/document_image/d40960c4-d339-42d5-9d88-6b1c4d2cd975-16175743.jpg" alt="课程内容哈哈哈"></p>
 <p>实验内容<br><img src="https://api2.mubu.com/v3/document_image/02f22f78-2b45-4c0e-8823-06862639af5d-16175743.jpg" alt="实验内容"></p>
