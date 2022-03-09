@@ -96,6 +96,7 @@
       </categories>
       <tags>
         <tag>course</tag>
+        <tag>计组</tag>
       </tags>
   </entry>
   <entry>
@@ -160,6 +161,7 @@
       </categories>
       <tags>
         <tag>course</tag>
+        <tag>计网</tag>
       </tags>
   </entry>
   <entry>
@@ -210,6 +212,111 @@
       </categories>
       <tags>
         <tag>course</tag>
+        <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计网笔记_1.4参考模型Reference Models</title>
+    <url>/2022/03/09/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0_1-4%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h2 id="1-4-参考模型Reference-Models"><a href="#1-4-参考模型Reference-Models" class="headerlink" title="1.4 参考模型Reference Models"></a>1.4 参考模型Reference Models</h2><h3 id="OSI参考模型-The-OSI-Reference-Model"><a href="#OSI参考模型-The-OSI-Reference-Model" class="headerlink" title="OSI参考模型 The OSI Reference Model"></a>OSI参考模型 The OSI Reference Model</h3><ul>
+<li>OSI体系结构是要求记住的，因为计算机网络的核心是计算机体系结构。但是OSI结构在日常生活中也不咋见到，用的人少。</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/ba8267b6-e3d1-404d-a27e-4811a15b006f-16175743.jpg" alt="OSI体系结构"></p>
+<p>对应的中文对照：<br><img src="https://api2.mubu.com/v3/document_image/89804771-1c92-46b4-b0eb-a65599fe34c4-16175743.jpg" alt="OSI体系结构-zh"></p>
+<p>一般的，在网络里的路由设备只需要完成1，2，3层的协议就可以(如框框里圈起来的part)</p>
+<ol>
+<li>物理层：使用通信的信道传输原始的bit流</li>
+</ol>
+<ul>
+<li>使用多少伏特表示1，多少伏特表示0</li>
+<li>每个比特持续多长时间</li>
+<li>传输是否能够双向同时(simultaneously)发送信息</li>
+<li>初始链接是如何链接以及如何释放的，比如打电话，挂断，一般链接是按时间计费的</li>
+</ul>
+<ol start="2">
+<li>数据链路层：把原始的传输转化成逻辑的信道。一句话总结，就是(可靠的)数据帧的传输 <mark><strong>Point To Point点到点</strong></mark></li>
+</ol>
+<ul>
+<li>将到达的数据变成一块一块的frame(帧）(这个功能仅部分的数据链路层拥有)</li>
+<li>如果要求可靠的传输，要对正确的数据帧发送comfirm</li>
+<li>流量控制：保持快速传输，防止数据传输缓慢</li>
+<li>广播网络：管理共享信道的使用权力(access)</li>
+</ul>
+<ol start="3">
+<li><p>网络层：主要控制的是路由和转发的问题，控制子网的运行</p>
+<ul>
+<li>传递forwarding</li>
+<li>路由router：静态路由；规划路由；<strong>动态路由highly dynamic</strong>；</li>
+<li>拥塞控制congestion</li>
+<li>QoS：delay延迟，transit time传输时间，jitter抖动, 带宽，丢包率etc.</li>
+<li>异构网络互联Heterogeneous networks interconnection</li>
+<li>广播网络 routing is simple</li>
+</ul>
+</li>
+<li><p>传输层：<mark>End To End端到端</mark></p>
+<ul>
+<li>从上层接受数据，把这些数据分成小的数据单元(if needed)，把这些数据单元</li>
+<li>决定向会话层提供何种服务</li>
+<li>控制拥塞</li>
+</ul>
+</li>
+<li><p>会话层：通信的双方(虚拟层面的不同机器)建立会话链接</p>
+<ul>
+<li>对话控制</li>
+<li>令牌Token管理</li>
+<li>同步：断点重传</li>
+</ul>
+</li>
+<li><p>表示层：信息传递的 <em>语法和语义</em></p>
+<ul>
+<li>抽象定义被传输的信息。比如大端小端。</li>
+</ul>
+</li>
+<li><p>应用层：包括通常被用户使用的各种协议</p>
+</li>
+</ol>
+<h3 id="TCP-x2F-IP参考模型-The-TCP-x2F-IP-Reference-Model"><a href="#TCP-x2F-IP参考模型-The-TCP-x2F-IP-Reference-Model" class="headerlink" title="TCP&#x2F;IP参考模型 The TCP&#x2F;IP Reference Model"></a>TCP&#x2F;IP参考模型 The TCP&#x2F;IP Reference Model</h3><p>TCP&#x2F;IP参考模型：<strong>右侧</strong><br><img src="https://api2.mubu.com/v3/document_image/1823c7c6-b736-4899-8148-728753f9aeaa-16175743.jpg" alt="TCP/IP参考模型"></p>
+<ul>
+<li><p>网络接口层(PPT)，中文书上叫链路层，这不是一个真正意义上的层，而是主机与传输路线之间的一个接口。</p>
+</li>
+<li><p>互联网层：一个基于无连接互联网络的数据包交换网络</p>
+<ul>
+<li>定义了一种官方的数据包和协议格式，叫做IP(Internet Protocol)</li>
+<li>网络层的工作是把IP数据包发送到他们应该去往的地方，这里面又包括了路由问题，避免拥塞问题</li>
+</ul>
+</li>
+<li><p>传输层：</p>
+<ol>
+<li><p><strong>传输控制协议TCP (Transmission Control Protocol)</strong></p>
+<ul>
+<li>面向连接的、可靠的、字节流</li>
+<li>碎片化fragment字节流</li>
+<li>重新组装接收到的信息到输出流(保证了传输顺序)</li>
+<li>流量控制，避免淹没</li>
+</ul>
+</li>
+<li><p><strong>用户数据报协议: The UDP(User Datagram Protocol)</strong></p>
+<ul>
+<li>无连接的、不可靠的、消息流(一块一块的发送消息)</li>
+<li>适用于不想要TCP有序控制和流量控制，而宁可自己提供这些功能的应用程序。比如及时交付比准确交付更重要的应用，比如语音和视频通话</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>应用层：略<br>TCP&#x2F;IP模型以及各种需要学习的协议<br><img src="https://api2.mubu.com/v3/document_image/4eba9cfd-9f3d-4a91-9fec-d12fdf829f32-16175743.jpg" alt="一览表"><br>中文简化版：<br><img src="https://api2.mubu.com/v3/document_image/53465012-ec7b-4b4b-9891-e2637d5dbbbc-16175743.jpg" alt="中文简化版："></p>
+</li>
+</ul>
+<h3 id="OSI参考模型与TCP-x2F-IP参考模型的比较"><a href="#OSI参考模型与TCP-x2F-IP参考模型的比较" class="headerlink" title="OSI参考模型与TCP&#x2F;IP参考模型的比较"></a>OSI参考模型与TCP&#x2F;IP参考模型的比较</h3><p>略，gzc没细讲，有兴趣让看书。</p>
+<h3 id="OSI模型和协议的评判"><a href="#OSI模型和协议的评判" class="headerlink" title="OSI模型和协议的评判"></a>OSI模型和协议的评判</h3><p>gzc没讲，书上骂了一通，可以看个乐。截个图感受下。<br><img src="https://api2.mubu.com/v3/document_image/e13d23a0-3431-4a4b-8f63-d2118c9b9c80-16175743.jpg" alt="乐"></p>
+<h3 id="TCP-x2F-IP参考模型的评判"><a href="#TCP-x2F-IP参考模型的评判" class="headerlink" title="TCP&#x2F;IP参考模型的评判"></a>TCP&#x2F;IP参考模型的评判</h3><p>没讲，没看</p>
+<h2 id="1-5网络实例"><a href="#1-5网络实例" class="headerlink" title="1.5网络实例"></a>1.5网络实例</h2><p>没咋讲，没啥要记的东西，略</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计网</tag>
       </tags>
   </entry>
 </search>
