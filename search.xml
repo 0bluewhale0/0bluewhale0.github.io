@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>szh的博客</title>
-    <url>/2024/04/11/SZH%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p><em>为天地立心，为生民立命，为往圣继绝学，为万世开太平</em></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>【share】毛概教材2021</title>
-    <url>/2022/03/01/%E6%AF%9B%E6%A6%82%E6%95%99%E6%9D%90/</url>
-    <content><![CDATA[<p><a href="https://pan.baidu.com/s/1CsdIdIfRZiUktfCOGZgixg">2021新版毛概教材带跳转目录</a><br>提取码：hhhh</p>
-<p>若分享链接失效请留言，会及时更新。</p>
-]]></content>
-      <categories>
-        <category>source</category>
-      </categories>
-      <tags>
-        <tag>course</tag>
-        <tag>source share</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计组笔记_chapter1</title>
     <url>/2022/03/02/1_%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>纯纯进行一个课件的CTRL+C、CTRL+V，根本不知道是什么意思，哭。</p>
@@ -100,6 +80,126 @@
       </tags>
   </entry>
   <entry>
+    <title>szh的博客</title>
+    <url>/2024/04/11/SZH%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p><em>为天地立心，为生民立命，为往圣继绝学，为万世开太平</em></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>睡了一整天，头疼</title>
+    <url>/2022/03/12/%E7%9D%A1%E4%BA%86%E4%B8%80%E6%95%B4%E5%A4%A9%EF%BC%8C%E5%A4%B4%E7%96%BC/</url>
+    <content><![CDATA[<p>又睡了一整天<br>脑壳疼<br>醒着的时间都在无所事事<br>中午喝粥把粥打翻了<br>十九岁了还没学会吃饭，简直比小时候还没用<br>明明知道规律的作息才能让人快乐<br>还是沉溺于一时的安逸，招致更大的痛苦<br>瘫着睡觉的时间出去逛街也好，给影姐姐攒石头也罢<br>总比神志不清的浪费要强<br>以此记录，下不为例。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>少年听雨</tag>
+        <tag>废物言论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【share】毛概教材2021</title>
+    <url>/2022/03/01/%E6%AF%9B%E6%A6%82%E6%95%99%E6%9D%90/</url>
+    <content><![CDATA[<p><a href="https://pan.baidu.com/s/1CsdIdIfRZiUktfCOGZgixg">2021新版毛概教材带跳转目录</a><br>提取码：hhhh</p>
+<p>若分享链接失效请留言，会及时更新。</p>
+]]></content>
+      <categories>
+        <category>source</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>source share</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计网笔记_2物理层</title>
+    <url>/2022/03/10/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0-2%E7%89%A9%E7%90%86%E5%B1%82/</url>
+    <content><![CDATA[<p>学不会了，单纯进行一个复制粘贴<br>可能应该去信通蹭蹭课了 <font size="7">悲</font></p>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><ul>
+<li>Channel<strong>信道</strong>：传输信息的媒体</li>
+<li>Bit Rate<strong>数据率</strong>：数据传输速率（bps）</li>
+<li>Baud<strong>波特</strong>：符号&#x2F;码元传输速率 $1Baud &#x3D;(\log_2{V})bps$，其中V是信号的电平级数(理解为<strong>进制数</strong>，每一个电平级数用一个符号表示，换成二进制位数就是这个公式)，比如电平级数为2时，波特速率等于比特速率。大部分情况下，波特速率大于bit速率。<br><img src="https://api2.mubu.com/v3/document_image/164707928280699fe.jpg" alt="111"></li>
+<li>Propagation Speed<strong>传播速度</strong>：通信线路上，信号单位时间内传送的距离(m&#x2F;s)。光速：$3\times10^8m&#x2F;s$。</li>
+<li>Bandwidth<strong>带宽</strong>：<mark>在单位时间里，能发送的最大比特数</mark>PPT上写“信号占用的频率范围(HZ)不知道是什么意思。但是HZ本身就是($s^{-1}$)，和bps($\tiny\cfrac{比特数}{传输这些比特所用的时间}$)的单位一样。<br>补充↑：带宽的两种意思<br><img src="https://api2.mubu.com/v3/document_image/58cded3d-2107-41e9-8fd9-f601dcece668-16175743.jpg" alt="补充：带宽的两种意思"></li>
+<li>Channel Capacity信道容量：信道的<strong>最大</strong>数据率</li>
+<li>Throughput吞吐量：网络容量的度量，表示单位时间内网络可以传送的数据位数(bps)</li>
+<li>Bit Error Rate误码率(BER):信道传输可靠性指标，可能会很低，如$10^{-12}$等<br>$P&#x3D;\cfrac{传送错误的位数}{传输总位数}$</li>
+<li>Delay时延：<mark>从向网络中发送数据块的第一比特开始，到最后一位数据被接收所经历的时间</mark>。包括发送时间+传播时间+处理时间+排队时间，</li>
+<li>时延的组成<ul>
+<li>传播时延：信号通过传输介质的时间</li>
+<li>发送时延：设备发送一个数据块所需要的时间<br>$发送时延&#x3D;\cfrac{数据块长度}{信道带宽}$，这里的带宽指的是<mark>单位时间内能发送的最大比特数</mark>。注意二者单位的统一。</li>
+<li>处理时间：交换机&#x2F;路由器检查数据、选路的时间</li>
+<li>排队时延：在交换机&#x2F;路由器中排队等待的时间</li>
+</ul>
+</li>
+<li>几种通信方式：Simplex【单工链路】, Half-duplex【半双工链路】, Full-duplex【全双工】，其中，全双工是最常见的。<ul>
+<li>Simplex【单工链路】：只能单向，腾讯课堂这样的</li>
+<li>Half-duplex【半双工链路】：双方都可发送可接受，但不能同时发送和接受，对讲机</li>
+<li>Full-duplex【全双工】：双车道一样的，可以同时发送和接受</li>
+</ul>
+</li>
+<li>并行通信Parallel$\tiny平行的并行的$ transmission<img src="https://api2.mubu.com/v3/document_image/4e3e79a4-f002-46e0-8a92-1c0805542a31-16175743.jpg"></li>
+<li>串行通信Serial transmission(在不同机器之间的通信较为常见)<img src="https://api2.mubu.com/v3/document_image/284a2a06-99a7-47f1-9a85-b9c144192557-16175743.jpg"><ul>
+<li>同步Synchronous</li>
+<li>异步Asynchronous，始终不需要同步，仅需三条线路（一来一回+地线）便可以完成，（同步需要五条线，一来一回需要两个时钟信号）但收发双方的时钟可能出现偏差，一般应用于短距离通信。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-1数据通信的理论基础"><a href="#2-1数据通信的理论基础" class="headerlink" title="2.1数据通信的理论基础"></a>2.1数据通信的理论基础</h2><h3 id="傅里叶分析"><a href="#傅里叶分析" class="headerlink" title="傅里叶分析"></a>傅里叶分析</h3><p>高数学到狗肚子里去了，根本看不懂(大草)。</p>
+<h3 id="带宽有限的信号"><a href="#带宽有限的信号" class="headerlink" title="带宽有限的信号"></a>带宽有限的信号</h3><p>不要求会算，但是要求理解带宽对速率的限制。(我不理解，哭哭)</p>
+<ul>
+<li><p>没有设备能够不损耗能量地传输信号</p>
+</li>
+<li><p>所有的传输设施对于不同傅里叶分量的衰减程度并不相同，从而导致接收端收到的结果信号发生也就是说，如果等量的衰减，是不会变形的。</p>
+</li>
+<li><p><strong>带宽的定义</strong>：课本和ppt是这样说的</p>
+<blockquote>
+<p>一般情况下对导线而言，在0到某个频率$f_c$的这段范围内，振幅在传输过程中不会衰减(这里$f_c$可以用Hz(赫兹)来度量)，而在此截止频率$f_c$之上的所有频率的振幅都将有不同程度的减弱。这段在传输过程中振幅不会明显减弱的频率的宽度就称为带宽(bandwidth)。通常引用的带宽是指从0到使得接收能量保留一半的那个频率位置。ps:滤波器一般可用来进一步限制信号的带宽。</p>
+</blockquote>
+</li>
+<li><p>决定带宽的因素：<strong>带宽是传输介质的一种物理性质</strong>，由以下决定</p>
+<ul>
+<li>介质的构成</li>
+<li>介质的厚度</li>
+<li>电线或者光纤(也就是介质 阿巴阿巴)的长度</li>
+</ul>
+</li>
+</ul>
+<h3 id="信道的最大数据速率"><a href="#信道的最大数据速率" class="headerlink" title="信道的最大数据速率"></a>信道的最大数据速率</h3><blockquote>
+<p>待补充，回头写</p>
+</blockquote>
+<ol>
+<li><p>Nyquist’s theorem (1924)<br>If a signal has been run through a low-pass filter of bandwidth H,  the signal can be completely reconstructed by making 2H samples per second<br>  C&#x3D;2Hlog2V</p>
+</li>
+<li><p>Shannon’s Theorem (1948)</p>
+</li>
+</ol>
+<h2 id="2-2引导性传输介质Guided-Transmission-Media"><a href="#2-2引导性传输介质Guided-Transmission-Media" class="headerlink" title="2.2引导性传输介质Guided Transmission Media"></a>2.2引导性传输介质Guided Transmission Media</h2><p>这块儿懒得记，应该是兴趣性了解即可，书上还有点儿笑话看。<br>这儿就记个大纲</p>
+<h3 id="磁介质-Manetic-Media"><a href="#磁介质-Manetic-Media" class="headerlink" title="磁介质 Manetic Media"></a>磁介质 Manetic Media</h3><h3 id="双绞线-Twisted-Pair"><a href="#双绞线-Twisted-Pair" class="headerlink" title="双绞线 Twisted Pair"></a>双绞线 Twisted Pair</h3><h3 id="同轴电缆-coaxial-cable-钢索，电缆"><a href="#同轴电缆-coaxial-cable-钢索，电缆" class="headerlink" title="同轴电缆 coaxial cable(钢索，电缆)"></a>同轴电缆 coaxial cable<font size="2">(钢索，电缆)</font></h3><h3 id="电线-Power-line"><a href="#电线-Power-line" class="headerlink" title="电线 Power line"></a>电线 Power line</h3><h3 id="光纤-Fiber-Cables"><a href="#光纤-Fiber-Cables" class="headerlink" title="光纤 Fiber Cables"></a>光纤 Fiber Cables</h3><!---
+## 2.3无线传输
+
+## 2.4通信卫星
+
+## 2.5数字调制与多路复用
+
+## 2.6公共电话交换网络
+
+## 2.7移动电话系统
+
+## 2.8有线电视
+
+--->
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>碎碎念</title>
     <url>/2022/02/25/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</url>
     <content><![CDATA[<p> 在szh坚持不懈的摸鱼之下博客勉勉强强搭起来了，一些后续功能就‘明天’(咳咳)再说。</p>
@@ -113,55 +213,6 @@
       </categories>
       <tags>
         <tag>少年听雨</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计网笔记_1.3网络软件</title>
-    <url>/2022/03/09/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0_1-3%E7%BD%91%E7%BB%9C%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="1-3网络软件"><a href="#1-3网络软件" class="headerlink" title="1.3网络软件"></a>1.3网络软件</h2><h3 id="协议层次结构Protocol-Hierarchies"><a href="#协议层次结构Protocol-Hierarchies" class="headerlink" title="协议层次结构Protocol Hierarchies"></a>协议层次结构Protocol Hierarchies</h3><ul>
-<li>为了降低网络设计的复杂性，绝大多数网络都组成了层次栈(a stack of layer)或(a stack of level)。从某种意义上来说，每一层都是一种虚拟机，第n层向第n+1层提供服务。</li>
-<li><strong>协议protocol</strong>：通信双方的一种约定</li>
-<li><strong>对等体peers</strong>：不同机器上同一层的实体</li>
-<li><strong>物理层次Physical medium</strong>：铜线，光纤</li>
-<li><strong>接口interface</strong>：Defines which <mark>primitive operations原语操作</mark> and services the lower layer makes available to the upper one，类似于函数调用的接口</li>
-<li><strong>网络体系结构</strong>&#x3D;层+协议A set of layers and protocols 网络体系结构<strong>不包括</strong>协议内部的实现细节，也不包括接口的规范。</li>
-<li><img src="https://api2.mubu.com/v3/document_image/3f2c4521-c474-4228-8629-b682619c7f09-16175743.jpg"></li>
-<li>支持第五层虚拟通信的信息流：假设在第5层上运行的一个应用进程产生了一.条消息M,并且将它传递给第4层以便传给对等进程;第4层在消息的前面加上一一个头(header)， 用来标识该消息，并且把结果传给第3层;该头包含了一些控制信息，例如地址，主要被目标机器的第4层用来递交消息。某些层次所用的控制信息还可以包含消息序号(以防下层不保留消息顺序)、消息大小、时间等。<br><img src="https://api2.mubu.com/v3/document_image/4bd06528-60a8-4049-8fb3-63709fa51e26-16175743.jpg" alt="支持第五层虚拟通信的信息流"><br>在许多网络中，对于第4层上传递的消息<strong>大小</strong>没有任何限制，但是几乎所有第3层协议对此总会强加一个限制。因此，第3层必须把入境消息分割成较小的单元，即数据包或包(packet)，并且在每个数据包前面加上第3层的头。在这个例子中，M被分割成两部分：M1和M2，这两部分内容是被单独传输的。</li>
-</ul>
-<p><strong>第3层</strong>决定使用哪些<strong>输出线路</strong>，并且把分组传递给第2层；<strong>第2层不仅在每一个信息上加上一个头信息还要加上一个尾</strong>，然后将结果传输单元送给第1层以便进行物理传输。在接收端的机器上，消息自底向上逐层传递，<strong>在传递过程中各个头被逐层剥离</strong>。没有一个第n层以下的头会被传递到第n层。</p>
-<h3 id="层次设计问题Design-Issues-for-the-Layers"><a href="#层次设计问题Design-Issues-for-the-Layers" class="headerlink" title="层次设计问题Design Issues for the Layers"></a>层次设计问题Design Issues for the Layers</h3><ul>
-<li>可靠性Reliability</li>
-<li>网络发展Network evolution：可拓展性，网络互通性</li>
-<li>资源分配Resource allocation：统计复用，流量控制</li>
-<li>QoS（服务质量）：quality of service，包括的指标有 带宽bandwidth、延迟delay&#x2F;latency、抖动（Jitter）</li>
-<li>安全Security</li>
-</ul>
-<h3 id="面向连接的服务和无连接的服务"><a href="#面向连接的服务和无连接的服务" class="headerlink" title="面向连接的服务和无连接的服务"></a>面向连接的服务和无连接的服务</h3><ul>
-<li>面向连接Connection-oriented: telephone system，需要建立连接</li>
-<li>无连接Connection-less: postal system，不需要事先建立连接</li>
-</ul>
-<p><img src="https://api2.mubu.com/v3/document_image/79af3961-0095-4781-b7a7-31ed1b3022a9-16175743.jpg" alt="Six different types of service"><br><img src="https://api2.mubu.com/v3/document_image/848bcef7-4baa-40fb-a356-7d14ac0f211e-16175743.jpg" alt="Six different types of service"></p>
-<p><mark>Point：有链接的服务<strong>不一定</strong>是可靠的！</mark></p>
-<h3 id="服务原语Service-Primitives"><a href="#服务原语Service-Primitives" class="headerlink" title="服务原语Service Primitives"></a>服务原语Service Primitives</h3><ul>
-<li>原语可能看起来像函数调用中的函数名字</li>
-<li>PDU: Protocol Data Unit协议数据单元：信息在对等体之间交换</li>
-</ul>
-<h3 id="服务与协议之间的关系"><a href="#服务与协议之间的关系" class="headerlink" title="服务与协议之间的关系"></a>服务与协议之间的关系</h3><p>服务和协议是两个截然不同的概念，它们之间的区别非常重要。</p>
-<ul>
-<li><p><strong><mark>服务是指</mark>某一层向它上一层提供的一-组原语(操作)。服务定义了该层准备代表其用户执行哪些操作，但是它并不涉及如何实现这些操作。</strong> 服务与两层之间的接口有关，<strong>低层是服务提供者，而上层是服务用户</strong>。</p>
-</li>
-<li><p>与此不同的是，**<mark>协议是</mark>一组规则，规定了同一层上对等实体之间所交换的数据包或者报文的格式和含义<strong>。对等实体利用协议来实现它们的服务定义，它们可以自由地改变协议，只要不改变呈现给它们用户的服务即可。按照这种方式，</strong>服务和协议是完全相分离的**，这是任何一个网络设计者应该很好理解的关键概念。</p>
-</li>
-<li><p>不改变服务，可以随意改变协议。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>course</tag>
-        <tag>计网</tag>
       </tags>
   </entry>
   <entry>
@@ -269,16 +320,52 @@
       </tags>
   </entry>
   <entry>
-    <title>睡了一整天，头疼</title>
-    <url>/2022/03/12/%E7%9D%A1%E4%BA%86%E4%B8%80%E6%95%B4%E5%A4%A9%EF%BC%8C%E5%A4%B4%E7%96%BC/</url>
-    <content><![CDATA[<p>又睡了一整天<br>脑壳疼<br>醒着的时间都在无所事事<br>中午喝粥把粥打翻了<br>十九岁了还没学会吃饭，简直比小时候还没用<br>明明知道规律的作息才能让人快乐<br>还是沉溺于一时的安逸，招致更大的痛苦<br>瘫着睡觉的时间出去逛街也好，给影姐姐攒石头也罢<br>总比神志不清的浪费要强<br>以此记录，下不为例。</p>
+    <title>计网笔记_1.3网络软件</title>
+    <url>/2022/03/09/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0_1-3%E7%BD%91%E7%BB%9C%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="1-3网络软件"><a href="#1-3网络软件" class="headerlink" title="1.3网络软件"></a>1.3网络软件</h2><h3 id="协议层次结构Protocol-Hierarchies"><a href="#协议层次结构Protocol-Hierarchies" class="headerlink" title="协议层次结构Protocol Hierarchies"></a>协议层次结构Protocol Hierarchies</h3><ul>
+<li>为了降低网络设计的复杂性，绝大多数网络都组成了层次栈(a stack of layer)或(a stack of level)。从某种意义上来说，每一层都是一种虚拟机，第n层向第n+1层提供服务。</li>
+<li><strong>协议protocol</strong>：通信双方的一种约定</li>
+<li><strong>对等体peers</strong>：不同机器上同一层的实体</li>
+<li><strong>物理层次Physical medium</strong>：铜线，光纤</li>
+<li><strong>接口interface</strong>：Defines which <mark>primitive operations原语操作</mark> and services the lower layer makes available to the upper one，类似于函数调用的接口</li>
+<li><strong>网络体系结构</strong>&#x3D;层+协议A set of layers and protocols 网络体系结构<strong>不包括</strong>协议内部的实现细节，也不包括接口的规范。</li>
+<li><img src="https://api2.mubu.com/v3/document_image/3f2c4521-c474-4228-8629-b682619c7f09-16175743.jpg"></li>
+<li>支持第五层虚拟通信的信息流：假设在第5层上运行的一个应用进程产生了一.条消息M,并且将它传递给第4层以便传给对等进程;第4层在消息的前面加上一一个头(header)， 用来标识该消息，并且把结果传给第3层;该头包含了一些控制信息，例如地址，主要被目标机器的第4层用来递交消息。某些层次所用的控制信息还可以包含消息序号(以防下层不保留消息顺序)、消息大小、时间等。<br><img src="https://api2.mubu.com/v3/document_image/4bd06528-60a8-4049-8fb3-63709fa51e26-16175743.jpg" alt="支持第五层虚拟通信的信息流"><br>在许多网络中，对于第4层上传递的消息<strong>大小</strong>没有任何限制，但是几乎所有第3层协议对此总会强加一个限制。因此，第3层必须把入境消息分割成较小的单元，即数据包或包(packet)，并且在每个数据包前面加上第3层的头。在这个例子中，M被分割成两部分：M1和M2，这两部分内容是被单独传输的。</li>
+</ul>
+<p><strong>第3层</strong>决定使用哪些<strong>输出线路</strong>，并且把分组传递给第2层；<strong>第2层不仅在每一个信息上加上一个头信息还要加上一个尾</strong>，然后将结果传输单元送给第1层以便进行物理传输。在接收端的机器上，消息自底向上逐层传递，<strong>在传递过程中各个头被逐层剥离</strong>。没有一个第n层以下的头会被传递到第n层。</p>
+<h3 id="层次设计问题Design-Issues-for-the-Layers"><a href="#层次设计问题Design-Issues-for-the-Layers" class="headerlink" title="层次设计问题Design Issues for the Layers"></a>层次设计问题Design Issues for the Layers</h3><ul>
+<li>可靠性Reliability</li>
+<li>网络发展Network evolution：可拓展性，网络互通性</li>
+<li>资源分配Resource allocation：统计复用，流量控制</li>
+<li>QoS（服务质量）：quality of service，包括的指标有 带宽bandwidth、延迟delay&#x2F;latency、抖动（Jitter）</li>
+<li>安全Security</li>
+</ul>
+<h3 id="面向连接的服务和无连接的服务"><a href="#面向连接的服务和无连接的服务" class="headerlink" title="面向连接的服务和无连接的服务"></a>面向连接的服务和无连接的服务</h3><ul>
+<li>面向连接Connection-oriented: telephone system，需要建立连接</li>
+<li>无连接Connection-less: postal system，不需要事先建立连接</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/79af3961-0095-4781-b7a7-31ed1b3022a9-16175743.jpg" alt="Six different types of service"><br><img src="https://api2.mubu.com/v3/document_image/848bcef7-4baa-40fb-a356-7d14ac0f211e-16175743.jpg" alt="Six different types of service"></p>
+<p><mark>Point：有链接的服务<strong>不一定</strong>是可靠的！</mark></p>
+<h3 id="服务原语Service-Primitives"><a href="#服务原语Service-Primitives" class="headerlink" title="服务原语Service Primitives"></a>服务原语Service Primitives</h3><ul>
+<li>原语可能看起来像函数调用中的函数名字</li>
+<li>PDU: Protocol Data Unit协议数据单元：信息在对等体之间交换</li>
+</ul>
+<h3 id="服务与协议之间的关系"><a href="#服务与协议之间的关系" class="headerlink" title="服务与协议之间的关系"></a>服务与协议之间的关系</h3><p>服务和协议是两个截然不同的概念，它们之间的区别非常重要。</p>
+<ul>
+<li><p><strong><mark>服务是指</mark>某一层向它上一层提供的一-组原语(操作)。服务定义了该层准备代表其用户执行哪些操作，但是它并不涉及如何实现这些操作。</strong> 服务与两层之间的接口有关，<strong>低层是服务提供者，而上层是服务用户</strong>。</p>
+</li>
+<li><p>与此不同的是，**<mark>协议是</mark>一组规则，规定了同一层上对等实体之间所交换的数据包或者报文的格式和含义<strong>。对等实体利用协议来实现它们的服务定义，它们可以自由地改变协议，只要不改变呈现给它们用户的服务即可。按照这种方式，</strong>服务和协议是完全相分离的**，这是任何一个网络设计者应该很好理解的关键概念。</p>
+</li>
+<li><p>不改变服务，可以随意改变协议。</p>
+</li>
+</ul>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>笔记</category>
       </categories>
       <tags>
-        <tag>少年听雨</tag>
-        <tag>废物言论</tag>
+        <tag>course</tag>
+        <tag>计网</tag>
       </tags>
   </entry>
   <entry>
@@ -352,93 +439,6 @@
 <li>而广播网络上：通信信道被网络上的所有机器共享，一般只要特定的一个机器对其响应，无线网络是一个常见例子。特别的，如果地址字段使用一组特殊的编码，所有机器(Broadcasting广播)或者一组机器(multicasting组播)都会对其响应。</li>
 <li>互联网络：两个或多个网络的链接，Internet是最著名的互联网络实例。</li>
 </ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>course</tag>
-        <tag>计网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计网笔记_2物理层</title>
-    <url>/2022/03/10/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0-2%E7%89%A9%E7%90%86%E5%B1%82/</url>
-    <content><![CDATA[<p>学不会了，单纯进行一个复制粘贴<br>可能应该去信通蹭蹭课了 <font size="7">悲</font></p>
-<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><ul>
-<li>Channel<strong>信道</strong>：传输信息的媒体</li>
-<li>Bit Rate<strong>数据率</strong>：数据传输速率（bps）</li>
-<li>Baud<strong>波特</strong>：符号&#x2F;码元传输速率 $1Baud &#x3D;(\log_2{V})bps$，其中V是信号的电平级数(理解为<strong>进制数</strong>，每一个电平级数用一个符号表示，换成二进制位数就是这个公式)，比如电平级数为2时，波特速率等于比特速率。大部分情况下，波特速率大于bit速率。<br><img src="https://api2.mubu.com/v3/document_image/164707928280699fe.jpg" alt="111"></li>
-<li>Propagation Speed<strong>传播速度</strong>：通信线路上，信号单位时间内传送的距离(m&#x2F;s)。光速：$3\times10^8m&#x2F;s$。</li>
-<li>Bandwidth<strong>带宽</strong>：<mark>在单位时间里，能发送的最大比特数</mark>PPT上写“信号占用的频率范围(HZ)不知道是什么意思。但是HZ本身就是($s^{-1}$)，和bps($\tiny\cfrac{比特数}{传输这些比特所用的时间}$)的单位一样。<br>补充↑：带宽的两种意思<br><img src="https://api2.mubu.com/v3/document_image/58cded3d-2107-41e9-8fd9-f601dcece668-16175743.jpg" alt="补充：带宽的两种意思"></li>
-<li>Channel Capacity信道容量：信道的<strong>最大</strong>数据率</li>
-<li>Throughput吞吐量：网络容量的度量，表示单位时间内网络可以传送的数据位数(bps)</li>
-<li>Bit Error Rate误码率(BER):信道传输可靠性指标，可能会很低，如$10^{-12}$等<br>$P&#x3D;\cfrac{传送错误的位数}{传输总位数}$</li>
-<li>Delay时延：<mark>从向网络中发送数据块的第一比特开始，到最后一位数据被接收所经历的时间</mark>。包括发送时间+传播时间+处理时间+排队时间，</li>
-<li>时延的组成<ul>
-<li>传播时延：信号通过传输介质的时间</li>
-<li>发送时延：设备发送一个数据块所需要的时间<br>$发送时延&#x3D;\cfrac{数据块长度}{信道带宽}$，这里的带宽指的是<mark>单位时间内能发送的最大比特数</mark>。注意二者单位的统一。</li>
-<li>处理时间：交换机&#x2F;路由器检查数据、选路的时间</li>
-<li>排队时延：在交换机&#x2F;路由器中排队等待的时间</li>
-</ul>
-</li>
-<li>几种通信方式：Simplex【单工链路】, Half-duplex【半双工链路】, Full-duplex【全双工】，其中，全双工是最常见的。<ul>
-<li>Simplex【单工链路】：只能单向，腾讯课堂这样的</li>
-<li>Half-duplex【半双工链路】：双方都可发送可接受，但不能同时发送和接受，对讲机</li>
-<li>Full-duplex【全双工】：双车道一样的，可以同时发送和接受</li>
-</ul>
-</li>
-<li>并行通信Parallel$\tiny平行的并行的$ transmission<img src="https://api2.mubu.com/v3/document_image/4e3e79a4-f002-46e0-8a92-1c0805542a31-16175743.jpg"></li>
-<li>串行通信Serial transmission(在不同机器之间的通信较为常见)<img src="https://api2.mubu.com/v3/document_image/284a2a06-99a7-47f1-9a85-b9c144192557-16175743.jpg"><ul>
-<li>同步Synchronous</li>
-<li>异步Asynchronous，始终不需要同步，仅需三条线路（一来一回+地线）便可以完成，（同步需要五条线，一来一回需要两个时钟信号）但收发双方的时钟可能出现偏差，一般应用于短距离通信。</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-1数据通信的理论基础"><a href="#2-1数据通信的理论基础" class="headerlink" title="2.1数据通信的理论基础"></a>2.1数据通信的理论基础</h2><h3 id="傅里叶分析"><a href="#傅里叶分析" class="headerlink" title="傅里叶分析"></a>傅里叶分析</h3><p>高数学到狗肚子里去了，根本看不懂(大草)。</p>
-<h3 id="带宽有限的信号"><a href="#带宽有限的信号" class="headerlink" title="带宽有限的信号"></a>带宽有限的信号</h3><p>不要求会算，但是要求理解带宽对速率的限制。(我不理解，哭哭)</p>
-<ul>
-<li><p>没有设备能够不损耗能量地传输信号</p>
-</li>
-<li><p>所有的传输设施对于不同傅里叶分量的衰减程度并不相同，从而导致接收端收到的结果信号发生也就是说，如果等量的衰减，是不会变形的。</p>
-</li>
-<li><p><strong>带宽的定义</strong>：课本和ppt是这样说的</p>
-<blockquote>
-<p>一般情况下对导线而言，在0到某个频率$f_c$的这段范围内，振幅在传输过程中不会衰减(这里$f_c$可以用Hz(赫兹)来度量)，而在此截止频率$f_c$之上的所有频率的振幅都将有不同程度的减弱。这段在传输过程中振幅不会明显减弱的频率的宽度就称为带宽(bandwidth)。通常引用的带宽是指从0到使得接收能量保留一半的那个频率位置。ps:滤波器一般可用来进一步限制信号的带宽。</p>
-</blockquote>
-</li>
-<li><p>决定带宽的因素：<strong>带宽是传输介质的一种物理性质</strong>，由以下决定</p>
-<ul>
-<li>介质的构成</li>
-<li>介质的厚度</li>
-<li>电线或者光纤(也就是介质 阿巴阿巴)的长度</li>
-</ul>
-</li>
-</ul>
-<h3 id="信道的最大数据速率"><a href="#信道的最大数据速率" class="headerlink" title="信道的最大数据速率"></a>信道的最大数据速率</h3><blockquote>
-<p>待补充，回头写</p>
-</blockquote>
-<ol>
-<li><p>Nyquist’s theorem (1924)<br>If a signal has been run through a low-pass filter of bandwidth H,  the signal can be completely reconstructed by making 2H samples per second<br>  C&#x3D;2Hlog2V</p>
-</li>
-<li><p>Shannon’s Theorem (1948)</p>
-</li>
-</ol>
-<h2 id="2-2引导性传输介质Guided-Transmission-Media"><a href="#2-2引导性传输介质Guided-Transmission-Media" class="headerlink" title="2.2引导性传输介质Guided Transmission Media"></a>2.2引导性传输介质Guided Transmission Media</h2><p>这块儿懒得记，应该是兴趣性了解即可，书上还有点儿笑话看。<br>这儿就记个大纲</p>
-<h3 id="磁介质-Manetic-Media"><a href="#磁介质-Manetic-Media" class="headerlink" title="磁介质 Manetic Media"></a>磁介质 Manetic Media</h3><h3 id="双绞线-Twisted-Pair"><a href="#双绞线-Twisted-Pair" class="headerlink" title="双绞线 Twisted Pair"></a>双绞线 Twisted Pair</h3><h3 id="同轴电缆-coaxial-cable-钢索，电缆"><a href="#同轴电缆-coaxial-cable-钢索，电缆" class="headerlink" title="同轴电缆 coaxial cable(钢索，电缆)"></a>同轴电缆 coaxial cable<font size="2">(钢索，电缆)</font></h3><h3 id="电线-Power-line"><a href="#电线-Power-line" class="headerlink" title="电线 Power line"></a>电线 Power line</h3><h3 id="光纤-Fiber-Cables"><a href="#光纤-Fiber-Cables" class="headerlink" title="光纤 Fiber Cables"></a>光纤 Fiber Cables</h3><!---
-## 2.3无线传输
-
-## 2.4通信卫星
-
-## 2.5数字调制与多路复用
-
-## 2.6公共电话交换网络
-
-## 2.7移动电话系统
-
-## 2.8有线电视
-
---->
 ]]></content>
       <categories>
         <category>笔记</category>
