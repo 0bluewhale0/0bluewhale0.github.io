@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>计网笔记_2物理层 - SZH&#39;s blog</title>
+    <title>计网笔记_物理层1 - SZH&#39;s blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -24,7 +24,7 @@ Baud波特：符号&amp;#x2F;码元传输速率 $,">
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="计网笔记_2物理层 - SZH&#39;s blog"/>
+    <meta name="twitter:title" content="计网笔记_物理层1 - SZH&#39;s blog"/>
     <meta name="twitter:description" content="一生所求是做个温柔又强大的人,学不会了，单纯进行一个复制粘贴可能应该去信通蹭蹭课了 悲
 基础概念
 Channel信道：传输信息的媒体
@@ -36,7 +36,7 @@ Baud波特：符号&amp;#x2F;码元传输速率 $,"/>
     
     <meta property="og:site_name" content="SZH&#39;s blog"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="计网笔记_2物理层 - SZH&#39;s blog"/>
+    <meta property="og:title" content="计网笔记_物理层1 - SZH&#39;s blog"/>
     <meta property="og:description" content="一生所求是做个温柔又强大的人,学不会了，单纯进行一个复制粘贴可能应该去信通蹭蹭课了 悲
 基础概念
 Channel信道：传输信息的媒体
@@ -55,7 +55,7 @@ Baud波特：符号&amp;#x2F;码元传输速率 $,"/>
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">计网笔记_2物理层</h3>
+    <h3 class="subtitle">计网笔记_物理层1</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -70,7 +70,7 @@ Baud波特：符号&amp;#x2F;码元传输速率 $,"/>
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">计网笔记_2物理层</h1>
+        <h1 class="title">计网笔记_物理层1</h1>
         <div class="stuff">
             <span>三月 10, 2022</span>
             
@@ -83,7 +83,7 @@ Baud波特：符号&amp;#x2F;码元传输速率 $,"/>
 <h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><ul>
 <li>Channel<strong>信道</strong>：传输信息的媒体</li>
 <li>Bit Rate<strong>数据率</strong>：数据传输速率（bps）</li>
-<li>Baud<strong>波特</strong>：符号&#x2F;码元传输速率 $1Baud &#x3D;(\log_2{V})bps$，其中V是信号的电平级数(理解为<strong>进制数</strong>，每一个电平级数用一个符号表示，换成二进制位数就是这个公式)，比如电平级数为2时，波特速率等于比特速率。大部分情况下，波特速率大于bit速率。<br><img src="https://api2.mubu.com/v3/document_image/164707928280699fe.jpg" alt="111"></li>
+<li>Baud<strong>波特</strong>：符号&#x2F;码元传输速率 $1Baud &#x3D;(\log_2{V})bps$，其中V是信号的电平级数(理解为<strong>进制数</strong>，每一个电平级数用一个符号表示，换成二进制位数就是这个公式)，比如电平级数为2时，波特速率等于比特速率。如果在数字传输过程中，0V、2V、4V和6V分别表示00、01、10和11，那么每个码元有四种状态00、01、10和11。每个码元代表两个二进制数字。大部分情况下，波特速率&gt; bit速率。<br><img src="https://api2.mubu.com/v3/document_image/164707928280699fe.jpg" alt="111"></li>
 <li>Propagation Speed<strong>传播速度</strong>：通信线路上，信号单位时间内传送的距离(m&#x2F;s)。光速：$3\times10^8m&#x2F;s$。</li>
 <li>Bandwidth<strong>带宽</strong>：<mark>在单位时间里，能发送的最大比特数</mark>PPT上写“信号占用的频率范围(HZ)不知道是什么意思。但是HZ本身就是($s^{-1}$)，和bps($\tiny\cfrac{比特数}{传输这些比特所用的时间}$)的单位一样。<br>补充↑：带宽的两种意思<br><img src="https://api2.mubu.com/v3/document_image/58cded3d-2107-41e9-8fd9-f601dcece668-16175743.jpg" alt="补充：带宽的两种意思"></li>
 <li>Channel Capacity信道容量：信道的<strong>最大</strong>数据率</li>
@@ -139,10 +139,27 @@ Baud波特：符号&amp;#x2F;码元传输速率 $,"/>
 <li><p>Shannon’s Theorem (1948)</p>
 </li>
 </ol>
+<blockquote>
+<p>$\tiny摘自百度百科$<br>类比：城市道路上的汽车的车速（业务速率）和什么有关系？<br>除了和自己车的动力有关之外，主要还受限于道路的宽度（带宽）和车辆多少、红灯疏密等其他干扰因素（信噪比）。<br>俗话说：“<strong>有线的资源是无限的，而无线的资源却是有限的。</strong>”无线信道并不是可以任意增加传送信息的速率，它受其固有规律的制约，就像城市道路上的车一样不能想开多快就开多快，还受到道路宽度、其他车辆数量等因素影响。这个规律就是香农定理。香农定理是所有通信制式最基本的原理，它描述了有限带宽、有随机热噪声信道的最大传输速率与信道带宽、信号噪声功率比之间的关系。</p>
+</blockquote>
+<p>香农定理由如下的公式给出: <mark><br>$C&#x3D;W\times\log_2{(1+\frac{S}{N})}$<br></mark>其中C是可得到的链路速度，W是链路的带宽，S是平均信号<strong>功率</strong>,N是平均噪声<strong>功率</strong>，信噪比（S&#x2F;N）通常用分贝（dB）表示，<mark>$分贝数&#x3D;10\times\log_{10}{(\frac{S}{N})}$</mark>,这里的分贝不同于平时认为的声音大小的单位，而在实际上，声音大小的单位也并不是分贝(分贝本身是一个同单位比值),而是用声压大小反映，由于分贝取对数的特性符合日常表达需要，所以用声压对应的分贝来表示声音大小。真正的分贝分为两种，功率之比和幅值之比，香农公式这里采用的是功率之比的定义。详见 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22821588">这里</a> 以及<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E8%B4%9D/553473">这里</a>(后者为百度百科)。</p>
 <h2 id="2-2引导性传输介质Guided-Transmission-Media"><a href="#2-2引导性传输介质Guided-Transmission-Media" class="headerlink" title="2.2引导性传输介质Guided Transmission Media"></a>2.2引导性传输介质Guided Transmission Media</h2><p>这块儿懒得记，应该是兴趣性了解即可，书上还有点儿笑话看。<br>这儿就记个大纲</p>
-<h3 id="磁介质-Manetic-Media"><a href="#磁介质-Manetic-Media" class="headerlink" title="磁介质 Manetic Media"></a>磁介质 Manetic Media</h3><h3 id="双绞线-Twisted-Pair"><a href="#双绞线-Twisted-Pair" class="headerlink" title="双绞线 Twisted Pair"></a>双绞线 Twisted Pair</h3><h3 id="同轴电缆-coaxial-cable-钢索，电缆"><a href="#同轴电缆-coaxial-cable-钢索，电缆" class="headerlink" title="同轴电缆 coaxial cable(钢索，电缆)"></a>同轴电缆 coaxial cable<font size="2">(钢索，电缆)</font></h3><h3 id="电线-Power-line"><a href="#电线-Power-line" class="headerlink" title="电线 Power line"></a>电线 Power line</h3><h3 id="光纤-Fiber-Cables"><a href="#光纤-Fiber-Cables" class="headerlink" title="光纤 Fiber Cables"></a>光纤 Fiber Cables</h3><!---
-## 2.3无线传输
-
+<ol>
+<li><p>磁介质 Manetic Media<br>“永远不要低估一辆满载着磁带在高速公路上飞驰的旅行车的带宽”<br>高带宽高延迟</p>
+</li>
+<li><p>双绞线 Twisted Pair<br>  到6类为止，所有的双绞线都成为<strong>非屏蔽双绞线(UTP)</strong>(unsheild twisted pair)<br>  7类双绞线在每对、整个线缆外加一个屏蔽层</p>
+</li>
+<li><p>同轴电缆 coaxial cable<br>  <font size="2">cable(钢索，电缆)</font><br>  <img src="https://api2.mubu.com/v3/document_image/7fdd5fef-512e-438a-8002-5c152f02f95d-16175743.jpg" alt="1"></p>
+</li>
+<li><p>电线 Power line</p>
+</li>
+<li><p>光纤 （Fiber Cables）&amp; 光缆<br>根据中心光纤的直径，分为多模、单模<br>多模以不同的角度来回反射着前进，单模直径只有几光波，几乎沿直线传输</p>
+</li>
+</ol>
+<blockquote>
+<p>参考链接<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/350152827#:~:text=%E5%88%86%E8%B4%9D%E4%B8%8E%E4%BF%A1%E5%99%AA%E6%AF%94%E7%9A%84%E5%85%B3%E7%B3%BB%E4%B8%BA%20%3A%20db%3D10lg%EF%BC%88s%2Fn%EF%BC%89%20%E4%BF%A1%E5%99%AA%E6%AF%94%E6%98%AF%E4%BF%A1%E5%8F%B7%E7%94%B5%E5%8E%8B%E5%AF%B9%E4%BA%8E%20%E5%99%AA%E5%A3%B0%E7%94%B5%E5%8E%8B%20%E7%9A%84%E6%AF%94%E5%80%BC%EF%BC%8C%E9%80%9A%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%20s%2Fn%20%E6%9D%A5%E8%A1%A8%E7%A4%BA%E3%80%82,%E4%B8%BA45~55db%EF%BC%8C%E8%8B%A5%E4%B8%BA50db%EF%BC%8C%E5%88%99%E5%9B%BE%E5%83%8F%E6%9C%89%E5%B0%91%E9%87%8F%E5%99%AA%E5%A3%B0%EF%BC%8C%E4%BD%86%E5%9B%BE%E5%83%8F%E8%B4%A8%E9%87%8F%E8%89%AF%E5%A5%BD%EF%BC%9B%E8%8B%A5%E4%B8%BA60db%EF%BC%8C%E5%88%99%E5%9B%BE%E5%83%8F%E8%B4%A8%E9%87%8F%E4%BC%98%E8%89%AF%EF%BC%8C%E4%B8%8D%E5%87%BA%E7%8E%B0%E5%99%AA%E5%A3%B0%E3%80%82%20%E7%BD%91%E9%A1%B5%E4%BF%A1%E5%99%AA%E6%AF%94%20%E6%9F%A5%E8%AF%A2%E4%BF%A1%E5%99%AA%E6%AF%94%20%28Signal%2FNoise%29%EF%BC%8C%E5%8E%9F%E6%98%AF%E7%94%B5%20%E5%A3%B0%E5%AD%A6%20%E9%A2%86%E5%9F%9F%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E6%A6%82%E5%BF%B5%EF%BC%8C%E6%8C%87%E5%A3%B0%20%E9%9F%B3%E6%BA%90%20%E4%BA%A7%E7%94%9F%E6%9C%80%E5%A4%A7%E4%B8%8D%E5%A4%B1%E7%9C%9F%E5%A3%B0%E9%9F%B3%E4%BF%A1%E5%8F%B7%E5%BC%BA%E5%BA%A6%E4%B8%8E%E5%90%8C%E6%97%B6%E5%8F%91%E5%87%BA%E5%99%AA%E9%9F%B3%E5%BC%BA%E5%BA%A6%E4%B9%8B%E9%97%B4%E7%9A%84%E6%AF%94%E7%8E%87%E3%80%82">信噪比</a></p>
+</blockquote>
+<!---
 ## 2.4通信卫星
 
 ## 2.5数字调制与多路复用
@@ -225,7 +242,7 @@ Baud波特：符号&amp;#x2F;码元传输速率 $,"/>
     </div>
     
         <div class="side">
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%9A%84%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">2.</span> <span class="toc-text">2.1数据通信的理论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">傅里叶分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD%E6%9C%89%E9%99%90%E7%9A%84%E4%BF%A1%E5%8F%B7"><span class="toc-number">2.2.</span> <span class="toc-text">带宽有限的信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%80%9F%E7%8E%87"><span class="toc-number">2.3.</span> <span class="toc-text">信道的最大数据速率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2%E5%BC%95%E5%AF%BC%E6%80%A7%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8Guided-Transmission-Media"><span class="toc-number">3.</span> <span class="toc-text">2.2引导性传输介质Guided Transmission Media</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E4%BB%8B%E8%B4%A8-Manetic-Media"><span class="toc-number">3.1.</span> <span class="toc-text">磁介质 Manetic Media</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E7%BB%9E%E7%BA%BF-Twisted-Pair"><span class="toc-number">3.2.</span> <span class="toc-text">双绞线 Twisted Pair</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E8%BD%B4%E7%94%B5%E7%BC%86-coaxial-cable-%E9%92%A2%E7%B4%A2%EF%BC%8C%E7%94%B5%E7%BC%86"><span class="toc-number">3.3.</span> <span class="toc-text">同轴电缆 coaxial cable(钢索，电缆)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E7%BA%BF-Power-line"><span class="toc-number">3.4.</span> <span class="toc-text">电线 Power line</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%89%E7%BA%A4-Fiber-Cables"><span class="toc-number">3.5.</span> <span class="toc-text">光纤 Fiber Cables</span></a></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%9A%84%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">2.</span> <span class="toc-text">2.1数据通信的理论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">傅里叶分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD%E6%9C%89%E9%99%90%E7%9A%84%E4%BF%A1%E5%8F%B7"><span class="toc-number">2.2.</span> <span class="toc-text">带宽有限的信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%80%9F%E7%8E%87"><span class="toc-number">2.3.</span> <span class="toc-text">信道的最大数据速率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2%E5%BC%95%E5%AF%BC%E6%80%A7%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8Guided-Transmission-Media"><span class="toc-number">3.</span> <span class="toc-text">2.2引导性传输介质Guided Transmission Media</span></a></li></ol>	
         </div>
     
 </div>
