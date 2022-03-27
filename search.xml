@@ -533,6 +533,44 @@
   <entry>
     <title>计组笔记chapter2</title>
     <url>/2022/03/23/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0chapter2/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id="IEEE浮点表示"><a href="#IEEE浮点表示" class="headerlink" title="IEEE浮点表示"></a>IEEE浮点表示</h2><p>规格化表示：<br><img src="https://api2.mubu.com/v3/document_image/edff1550-2019-44d5-94b3-a8bca0ca4809-16175743.jpg" alt="规格化"></p>
+<p>特殊的浮点数<br><img src="https://api2.mubu.com/v3/document_image/42891536-e62d-4cd9-b358-64b73d22d52e-16175743.jpg" alt="特殊的浮点数"></p>
+<p>浮点数表示的范围<br><img src="https://api2.mubu.com/v3/document_image/1bca8a53-b91b-4811-b0f9-799f3261da15-16175743.jpg" alt="浮点数表示的范围"></p>
+<p>小结：<br>对32位浮点数N：<br>◼ 若0 &lt; E &lt; 255，则<br>N ＝ (-1)s ×1.M ×2<br>E-127 ，规格化数表示<br>◼ 若E &#x3D; 0且M ＝ 0，则<br>N ＝ (-1)s 0，机器+0、-0表示<br>◼ 若E &#x3D; 0且M ≠ 0，则<br>N ＝ (-1)s × 0.M× 2<br>1-127 ，非规格化数表示<br>◼ 若E&#x3D; 255且M ＝ 0，则<br>N＝(-1)s∞（正无穷大，负无穷大）<br>◼ 若E &#x3D; 255且M ≠ 0，则<br>N ＝ NaN，非数NaN(Not a Number)</p>
+<blockquote>
+<p>十进制小数转二进制：<br>十进制的小数转换为二进制，主要是小数部分乘以2，取整数部分依次从左往右放在小数点后，直至小数点后为0。</p>
+</blockquote>
+<h2 id="ACSII码"><a href="#ACSII码" class="headerlink" title="ACSII码"></a>ACSII码</h2><p>数字：48（0011 0000）~ 57（0011 1001）   +10-1<br>大写字母：65（0100 0001）～90（0101 1010）   +26-1<br>小写字母：97（0110 0001）～122（0111 1010）   +26-1</p>
+<h2 id="存储器中的字节序"><a href="#存储器中的字节序" class="headerlink" title="存储器中的字节序"></a>存储器中的字节序</h2><p>每个字节内部的顺序都是固定的，仅需考虑多个字节的字节间关系</p>
+<ul>
+<li>小端方式Little Endian<ul>
+<li>低字节存放在小地址处，即低字节在前高字节后<br>x86处理器</li>
+</ul>
+</li>
+<li>大端方式Big Endian<ul>
+<li>低字节存放在大地址处，即高字节在前低字节后<br>SPARC处理器，IBM Power处理器</li>
+</ul>
+</li>
+</ul>
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><!---图片，手写笔记--->
+
+<h2 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h2><h3 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h3><p>正溢：运算结果为正，且超出机器所能表示的范围<br>负溢：运算结果为负，且超出机器所能表示的范围<br><img src="https://api2.mubu.com/v3/document_image/32378a93-fd0e-418c-932b-209ba715160d-16175743.jpg" alt="整数溢出"></p>
+<h3 id="小数溢出"><a href="#小数溢出" class="headerlink" title="小数溢出"></a>小数溢出</h3><p>上溢：结果的绝对值大于机器所能表示的最大绝对值（+∞，－∞）<br>（overflow）<br>下溢：结果的绝对值小于机器所能表示的最小绝对值 （ 机器零 ）<br>（underflow）<br><img src="https://api2.mubu.com/v3/document_image/f3691e63-d615-4caa-9043-dbb945ed07bc-16175743.jpg" alt="小数溢出"></p>
+<h3 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h3><ol>
+<li><p><strong>双符号位</strong>法，又称<strong>变形补码</strong>，或者模四补码<br> 双符号位的补码也遵循加法法则。<br> 在计算中：<br> 两个符号位均参加运算<br> 最高符号位上产生的进位要丢掉</p>
+<p> 溢出检测规则：<br> ◆两数相加后，结果的符号位出现“01”或“10”两种情况时，表示发生溢出（也就是<strong>最高的两位异或</strong>）<br> ◆最高符号位永远表示结果的正确符号</p>
+</li>
+<li><p><strong>单符号位</strong>法<br> 溢出的逻辑表达式为<br> $V&#x3D;C_f⊕C_0$<br> $C_f$为符号位产生的进位，$C_0$为最高有效位产生的进位</p>
+</li>
+</ol>
+<h2 id="定点乘法运算算法"><a href="#定点乘法运算算法" class="headerlink" title="定点乘法运算算法"></a>定点乘法运算算法</h2><h3 id="原码一位乘法运算"><a href="#原码一位乘法运算" class="headerlink" title="原码一位乘法运算"></a>原码一位乘法运算</h3><h3 id="无符号的阵列乘法"><a href="#无符号的阵列乘法" class="headerlink" title="无符号的阵列乘法"></a>无符号的阵列乘法</h3><h3 id="有符号的阵列乘法"><a href="#有符号的阵列乘法" class="headerlink" title="有符号的阵列乘法"></a>有符号的阵列乘法</h3><p>补码一位乘法运算（不要求）<br>原码两位乘法运算（不要求）<br>直接补码并行乘法（不要求）</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计组</tag>
+      </tags>
   </entry>
 </search>
