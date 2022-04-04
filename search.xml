@@ -1,85 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>计组笔记_chapter1</title>
-    <url>/2022/03/02/1_%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>纯纯进行一个课件的CTRL+C、CTRL+V，根本不知道是什么意思，哭。</p>
-<h2 id="第1章-计算机概述"><a href="#第1章-计算机概述" class="headerlink" title="第1章  计算机概述"></a>第1章  计算机概述</h2><h3 id="计算机的分类和应用"><a href="#计算机的分类和应用" class="headerlink" title="计算机的分类和应用"></a>计算机的分类和应用</h3><p>通用计算机分类<br><img src="https://api2.mubu.com/v3/document_image/bb50f260-a398-4bd2-9a97-d6af00a88dff-16175743.jpg" alt="通用计算机分类"></p>
-<p>面向应用的分类</p>
-<ol>
-<li>通用计算机</li>
-<li>专用计算机&#x2F;嵌入式计算机(Embedded)</li>
-</ol>
-<p>计算机的应用<br>略</p>
-<h3 id="计算机发展简史"><a href="#计算机发展简史" class="headerlink" title="计算机发展简史"></a>计算机发展简史</h3><h4 id="计算机的演进"><a href="#计算机的演进" class="headerlink" title="计算机的演进"></a>计算机的演进</h4><ol>
-<li>第0代 机械时代（BC-1940</li>
-<li>第1代 电子管时代（1943-1959）</li>
-<li>第2代 晶体管时代（1960-1968）</li>
-<li>第4代 超大规模集成电路时代（1978－现在）</li>
-<li>第5代 量子计算机、光计算机、生物计算机？</li>
-</ol>
-<p>世界上第一台计算机：ENIAC</p>
-<p>摩尔定律：集成电路芯片中晶体<br>管数量大体上每2年翻一番</p>
-<h4 id="计算机的性能指标-易考"><a href="#计算机的性能指标-易考" class="headerlink" title="计算机的性能指标(易考)"></a><mark>计算机的性能指标</mark>(易考)</h4><p><img src="https://api2.mubu.com/v3/document_image/7ec2da4e-3831-44cd-b68a-6509f0314ac3-16175743.jpg"></p>
-<p><img src="https://api2.mubu.com/v3/document_image/099dd094-3f03-436f-afde-e0e84afb42d6-16175743.jpg"></p>
-<ol>
-<li>响应时间</li>
-<li>利用率</li>
-<li>处理机字长</li>
-<li>总线宽度</li>
-<li>吞吐量：通常用KB、MB、GB(gigabit吉比特)和TB表示。B表示Byte(字节)，b表示bit。 $K\equiv2^{10},M\equiv2^{20},G\equiv2^{30}$</li>
-<li>存储器带宽：一般用字节数&#x2F;秒表示</li>
-<li>主频&#x2F;时钟周期:CPU的工作节拍受主时钟控制，主时钟不断产生固定频率的时钟，主时钟的频率f称为CPU的主频。<mark>度量单位是MHz（$10^6$）、GHz($10^9$)。</mark>可以理解为每秒有几个CPU时钟周期。<br>主频的倒数称为CPU时钟周期T，T&#x3D;1&#x2F;f，度量单位是微秒，纳秒。</li>
-<li>CPU执行时间:表示CPU执行一段程序所占用的CPU时间，也可以用指令数目x每条指令的平均执行时间。而每条指令的平均执行时间可以用每条指令所需的平均时钟周期数目x时钟周期时间。<br> <mark>$\tiny CPU执行时间&#x3D;程序的指令数\times CPI\times CPU时钟周期时间$</mark></li>
-<li><strong>CPI（Clock Cycles Per Instruction）</strong>:表示每条指令执行所需要的时钟周期数，或执行一条指令所需的平均时钟周期数。<br><mark>$\tiny CPI&#x3D;程序执行所需的CPU时钟周期总数÷程序的指令总数$</mark></li>
-<li>MIPS：每秒百万指令数。<u>M:百万million ($\tiny\underline{10^6}$) ，I:instruction指令，PS:per second每秒</u><br><mark>$\tiny MIPS&#x3D;（指令总数 \div 程序执行时间）\times 10^{-6}$</mark></li>
-<li>MFLOPS：每秒百万次浮点操作次数。<u>FLO：浮点操作</u><br>   <mark>$\tiny MFLOPS&#x3D;（程序中的浮点运算次数\div程序执行时间)\times 10^{-6}$</mark></li>
-<li>TFLOPS：每秒万亿浮点操作次数。T:trillion兆，也就是万亿，$10^{12}$<br><mark>$\tiny TFLOPS&#x3D;（程序中的浮点运算次数\div程序执行时间)\times 10^{-12}$</mark></li>
-<li>例题<br><img src="https://api2.mubu.com/v3/document_image/5e55985c-21a8-465c-bb80-b572227826a7-16175743.jpg" alt="例题"><br>题解<img src="https://api2.mubu.com/v3/document_image/1646144690025ebba.jpg" alt="tijie"><br><img src="https://api2.mubu.com/v3/document_image/304a5e77-8917-4021-8b27-adb2d0e25941-16175743.jpg"></li>
-</ol>
-<h3 id="计算机的硬件"><a href="#计算机的硬件" class="headerlink" title="计算机的硬件"></a>计算机的硬件</h3><h4 id="计算机的组成-五大部分"><a href="#计算机的组成-五大部分" class="headerlink" title="计算机的组成(五大部分)"></a>计算机的组成(五大部分)</h4><ol>
-<li>存储器</li>
-<li>运算器</li>
-<li>控制器</li>
-<li>输入输出设备</li>
-</ol>
-<ul>
-<li>计算机内部，指令和数据均以二进制的形式存储，其中，指令包括操作码和地址码（对谁进行该操作）</li>
-<li>关于rax,eax,ax,al:AL是低八位，AX是本名，16位，EAX是extended即扩展的意思，32bits，而RAX则是re-extended，再拓展，64位</li>
-</ul>
-<h3 id="计算机系统的层次结构"><a href="#计算机系统的层次结构" class="headerlink" title="计算机系统的层次结构"></a>计算机系统的层次结构</h3><p><img src="https://api2.mubu.com/v3/document_image/a3c75fab-9dd4-41bb-9fa5-53a7d99b2edf-16175743.jpg" alt="层次结构2"></p>
-<p><img src="https://api2.mubu.com/v3/document_image/714d08ad-abe7-4606-8270-1b2566e12ba7-16175743.jpg" alt="层次结构3"></p>
-<p>软件与硬件的逻辑等价性,理论上讲，任何软件算法都可以用硬件实现，反之亦然。<br><img src="https://api2.mubu.com/v3/document_image/9bbf4121-a5d0-441c-af82-a56e3781eb3a-16175743.jpg" alt="软件与硬件的逻辑等价性"></p>
-<h2 id="第2章-运算方法和运算器I"><a href="#第2章-运算方法和运算器I" class="headerlink" title="第2章 运算方法和运算器I"></a>第2章 运算方法和运算器I</h2><h3 id="数据与文字的表示方法"><a href="#数据与文字的表示方法" class="headerlink" title="数据与文字的表示方法"></a>数据与文字的表示方法</h3><h4 id="常用的数据表示格式"><a href="#常用的数据表示格式" class="headerlink" title="常用的数据表示格式"></a>常用的数据表示格式</h4><ol>
-<li>定点表示：小数点的位置是固定的，可以表示纯小数或者纯整数</li>
-<li>浮点表示：见CSAPP</li>
-<li>十进制数格式：</li>
-</ol>
-<p>带有符号表示的二进制数：<mark>真值</mark><br>机器中把符号“数字化”的数：<mark>机器数</mark>或者<mark>机器码</mark></p>
-<p>常用的机器码包括：(一般针对有符号数)</p>
-<ul>
-<li>原码：真值的符号位变成0&#x2F;1，0为+。</li>
-<li>反码:反码就是二进制数<mark>除符号位以外</mark>的的各位数码</mark>0变为1，1变为0</mark></li>
-<li>补码</li>
-<li>移码</li>
-</ul>
-<p>补码整数表示略，记住按位取反再加一就可以<br>补码的定点小数表示如下：<br><img src="https://api2.mubu.com/v3/document_image/535cd946-0888-4aa0-98f7-2b4c95267e57-16175743.jpg" alt="定点小数表示"><br>这里注意，two’s complement是补码的英文，直译为2的补足部分，这里的模的意思和时钟的模为12相同，意为正数负数的补码表示相加就是模值。</p>
-<p>反码和补码的关系：定点小数也满足整数的“按位取反再加一”的规则。<br><img src="https://api2.mubu.com/v3/document_image/82299582-3a0e-4d14-92cf-7d23426ff4ad-16175743.jpg" alt="关系"><br>特别的，+0的反码为：00000000(8位)<br>-0的反码为：11111111(8位)</p>
-<p>关于移位运算，这是C语言中的<br><a href="https://blog.csdn.net/heiniaoyuyouling/article/details/4696586">C语言中的位移位运算</a></p>
-<h2 id="补充：课程概要"><a href="#补充：课程概要" class="headerlink" title="补充：课程概要"></a>补充：课程概要</h2><p><img src="https://api2.mubu.com/v3/document_image/5b9257b0-af72-46f3-9bf1-c75e55e111da-16175743.jpg" alt="课程要求嘿嘿嘿"></p>
-<p>课程内容，左边是期中前学的，右边是期中后学的。</p>
-<p><img src="https://api2.mubu.com/v3/document_image/d40960c4-d339-42d5-9d88-6b1c4d2cd975-16175743.jpg" alt="课程内容哈哈哈"></p>
-<p>实验内容<br><img src="https://api2.mubu.com/v3/document_image/02f22f78-2b45-4c0e-8823-06862639af5d-16175743.jpg" alt="实验内容"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>course</tag>
-        <tag>计组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>szh的博客</title>
     <url>/2024/04/11/SZH%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p><em>为天地立心，为生民立命，为往圣继绝学，为万世开太平</em></p>
@@ -126,188 +47,6 @@
       </categories>
       <tags>
         <tag>少年听雨</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计网笔记_1.4参考模型</title>
-    <url>/2022/03/09/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0_1-4%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<h2 id="1-4-参考模型Reference-Models"><a href="#1-4-参考模型Reference-Models" class="headerlink" title="1.4 参考模型Reference Models"></a>1.4 参考模型Reference Models</h2><h3 id="OSI参考模型-The-OSI-Reference-Model"><a href="#OSI参考模型-The-OSI-Reference-Model" class="headerlink" title="OSI参考模型 The OSI Reference Model"></a>OSI参考模型 The OSI Reference Model</h3><ul>
-<li>OSI体系结构是要求记住的，因为计算机网络的核心是计算机体系结构。但是OSI结构在日常生活中也不咋见到，用的人少。</li>
-</ul>
-<p><img src="https://api2.mubu.com/v3/document_image/ba8267b6-e3d1-404d-a27e-4811a15b006f-16175743.jpg" alt="OSI体系结构"></p>
-<p>对应的中文对照：<br><img src="https://api2.mubu.com/v3/document_image/89804771-1c92-46b4-b0eb-a65599fe34c4-16175743.jpg" alt="OSI体系结构-zh"></p>
-<p>一般的，在网络里的路由设备只需要完成1，2，3层的协议就可以(如框框里圈起来的part)</p>
-<ol>
-<li>物理层：使用通信的信道传输原始的bit流</li>
-</ol>
-<ul>
-<li>使用多少伏特表示1，多少伏特表示0</li>
-<li>每个比特持续多长时间</li>
-<li>传输是否能够双向同时(simultaneously)发送信息</li>
-<li>初始链接是如何链接以及如何释放的，比如打电话，挂断，一般链接是按时间计费的</li>
-</ul>
-<ol start="2">
-<li>数据链路层：把原始的传输转化成逻辑的信道。一句话总结，就是(可靠的)数据帧的传输 <mark><strong>Point To Point点到点</strong></mark></li>
-</ol>
-<ul>
-<li>将到达的数据变成一块一块的frame(帧）(这个功能仅部分的数据链路层拥有)</li>
-<li>如果要求可靠的传输，要对正确的数据帧发送comfirm</li>
-<li>流量控制：保持快速传输，防止数据传输缓慢</li>
-<li>广播网络：管理共享信道的使用权力(access)</li>
-</ul>
-<ol start="3">
-<li><p>网络层：主要控制的是路由和转发的问题，控制子网的运行</p>
-<ul>
-<li>传递forwarding</li>
-<li>路由router：静态路由；规划路由；<strong>动态路由highly dynamic</strong>；</li>
-<li>拥塞控制congestion</li>
-<li>QoS：delay延迟，transit time传输时间，jitter抖动, 带宽，丢包率etc.</li>
-<li>异构网络互联Heterogeneous networks interconnection</li>
-<li>广播网络 routing is simple</li>
-</ul>
-</li>
-<li><p>传输层：<mark>End To End端到端</mark></p>
-<ul>
-<li>从上层接受数据，把这些数据分成小的数据单元(if needed)，把这些数据单元</li>
-<li>决定向会话层提供何种服务</li>
-<li>控制拥塞</li>
-</ul>
-</li>
-<li><p>会话层：通信的双方(虚拟层面的不同机器)建立会话链接</p>
-<ul>
-<li>对话控制</li>
-<li>令牌Token管理</li>
-<li>同步：断点重传</li>
-</ul>
-</li>
-<li><p>表示层：信息传递的 <em>语法和语义</em></p>
-<ul>
-<li>抽象定义被传输的信息。比如大端小端。</li>
-</ul>
-</li>
-<li><p>应用层：包括通常被用户使用的各种协议</p>
-</li>
-</ol>
-<h3 id="TCP-x2F-IP参考模型-The-TCP-x2F-IP-Reference-Model"><a href="#TCP-x2F-IP参考模型-The-TCP-x2F-IP-Reference-Model" class="headerlink" title="TCP&#x2F;IP参考模型 The TCP&#x2F;IP Reference Model"></a>TCP&#x2F;IP参考模型 The TCP&#x2F;IP Reference Model</h3><p>TCP&#x2F;IP参考模型：<strong>右侧</strong><br><img src="https://api2.mubu.com/v3/document_image/1823c7c6-b736-4899-8148-728753f9aeaa-16175743.jpg" alt="TCP/IP参考模型"></p>
-<ul>
-<li><p>网络接口层(PPT)，中文书上叫链路层，这不是一个真正意义上的层，而是主机与传输路线之间的一个接口。</p>
-</li>
-<li><p>互联网层：一个基于无连接互联网络的数据包交换网络</p>
-<ul>
-<li>定义了一种官方的数据包和协议格式，叫做IP(Internet Protocol)</li>
-<li>网络层的工作是把IP数据包发送到他们应该去往的地方，这里面又包括了路由问题，避免拥塞问题</li>
-</ul>
-</li>
-<li><p>传输层：</p>
-<ol>
-<li><p><strong>传输控制协议TCP (Transmission Control Protocol)</strong></p>
-<ul>
-<li>面向连接的、可靠的、字节流</li>
-<li>碎片化fragment字节流</li>
-<li>重新组装接收到的信息到输出流(保证了传输顺序)</li>
-<li>流量控制，避免淹没</li>
-</ul>
-</li>
-<li><p><strong>用户数据报协议: The UDP(User Datagram Protocol)</strong></p>
-<ul>
-<li>无连接的、不可靠的、消息流(一块一块的发送消息)</li>
-<li>适用于不想要TCP有序控制和流量控制，而宁可自己提供这些功能的应用程序。比如及时交付比准确交付更重要的应用，比如语音和视频通话</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>应用层：略<br>TCP&#x2F;IP模型以及各种需要学习的协议<br><img src="https://api2.mubu.com/v3/document_image/4eba9cfd-9f3d-4a91-9fec-d12fdf829f32-16175743.jpg" alt="一览表"><br>中文简化版：<br><img src="https://api2.mubu.com/v3/document_image/53465012-ec7b-4b4b-9891-e2637d5dbbbc-16175743.jpg" alt="中文简化版："></p>
-</li>
-</ul>
-<h3 id="OSI参考模型与TCP-x2F-IP参考模型的比较"><a href="#OSI参考模型与TCP-x2F-IP参考模型的比较" class="headerlink" title="OSI参考模型与TCP&#x2F;IP参考模型的比较"></a>OSI参考模型与TCP&#x2F;IP参考模型的比较</h3><p>略，gzc没细讲，有兴趣让看书。</p>
-<h3 id="OSI模型和协议的评判"><a href="#OSI模型和协议的评判" class="headerlink" title="OSI模型和协议的评判"></a>OSI模型和协议的评判</h3><p>gzc没讲，书上骂了一通，可以看个乐。截个图感受下。<br><img src="https://api2.mubu.com/v3/document_image/e13d23a0-3431-4a4b-8f63-d2118c9b9c80-16175743.jpg" alt="乐"></p>
-<h3 id="TCP-x2F-IP参考模型的评判"><a href="#TCP-x2F-IP参考模型的评判" class="headerlink" title="TCP&#x2F;IP参考模型的评判"></a>TCP&#x2F;IP参考模型的评判</h3><p>没讲，没看</p>
-<h2 id="1-5网络实例"><a href="#1-5网络实例" class="headerlink" title="1.5网络实例"></a>1.5网络实例</h2><p>没咋讲，没啥要记的东西，略</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>course</tag>
-        <tag>计网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计网笔记_1.3网络软件</title>
-    <url>/2022/03/09/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0_1-3%E7%BD%91%E7%BB%9C%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="1-3网络软件"><a href="#1-3网络软件" class="headerlink" title="1.3网络软件"></a>1.3网络软件</h2><h3 id="协议层次结构Protocol-Hierarchies"><a href="#协议层次结构Protocol-Hierarchies" class="headerlink" title="协议层次结构Protocol Hierarchies"></a>协议层次结构Protocol Hierarchies</h3><ul>
-<li>为了降低网络设计的复杂性，绝大多数网络都组成了层次栈(a stack of layer)或(a stack of level)。从某种意义上来说，每一层都是一种虚拟机，第n层向第n+1层提供服务。</li>
-<li><strong>协议protocol</strong>：通信双方的一种约定</li>
-<li><strong>对等体peers</strong>：不同机器上同一层的实体</li>
-<li><strong>物理层次Physical medium</strong>：铜线，光纤</li>
-<li><strong>接口interface</strong>：Defines which <mark>primitive operations原语操作</mark> and services the lower layer makes available to the upper one，类似于函数调用的接口</li>
-<li><strong>网络体系结构</strong>&#x3D;层+协议A set of layers and protocols 网络体系结构<strong>不包括</strong>协议内部的实现细节，也不包括接口的规范。</li>
-<li><img src="https://api2.mubu.com/v3/document_image/3f2c4521-c474-4228-8629-b682619c7f09-16175743.jpg"></li>
-<li>支持第五层虚拟通信的信息流：假设在第5层上运行的一个应用进程产生了一.条消息M,并且将它传递给第4层以便传给对等进程;第4层在消息的前面加上一一个头(header)， 用来标识该消息，并且把结果传给第3层;该头包含了一些控制信息，例如地址，主要被目标机器的第4层用来递交消息。某些层次所用的控制信息还可以包含消息序号(以防下层不保留消息顺序)、消息大小、时间等。<br><img src="https://api2.mubu.com/v3/document_image/4bd06528-60a8-4049-8fb3-63709fa51e26-16175743.jpg" alt="支持第五层虚拟通信的信息流"><br>在许多网络中，对于第4层上传递的消息<strong>大小</strong>没有任何限制，但是几乎所有第3层协议对此总会强加一个限制。因此，第3层必须把入境消息分割成较小的单元，即数据包或包(packet)，并且在每个数据包前面加上第3层的头。在这个例子中，M被分割成两部分：M1和M2，这两部分内容是被单独传输的。</li>
-</ul>
-<p><strong>第3层</strong>决定使用哪些<strong>输出线路</strong>，并且把分组传递给第2层；<strong>第2层不仅在每一个信息上加上一个头信息还要加上一个尾</strong>，然后将结果传输单元送给第1层以便进行物理传输。在接收端的机器上，消息自底向上逐层传递，<strong>在传递过程中各个头被逐层剥离</strong>。没有一个第n层以下的头会被传递到第n层。</p>
-<h3 id="层次设计问题Design-Issues-for-the-Layers"><a href="#层次设计问题Design-Issues-for-the-Layers" class="headerlink" title="层次设计问题Design Issues for the Layers"></a>层次设计问题Design Issues for the Layers</h3><ul>
-<li>可靠性Reliability</li>
-<li>网络发展Network evolution：可拓展性，网络互通性</li>
-<li>资源分配Resource allocation：统计复用，流量控制</li>
-<li>QoS（服务质量）：quality of service，包括的指标有 带宽bandwidth、延迟delay&#x2F;latency、抖动（Jitter）</li>
-<li>安全Security</li>
-</ul>
-<h3 id="面向连接的服务和无连接的服务"><a href="#面向连接的服务和无连接的服务" class="headerlink" title="面向连接的服务和无连接的服务"></a>面向连接的服务和无连接的服务</h3><ul>
-<li>面向连接Connection-oriented: telephone system，需要建立连接</li>
-<li>无连接Connection-less: postal system，不需要事先建立连接</li>
-</ul>
-<p><img src="https://api2.mubu.com/v3/document_image/79af3961-0095-4781-b7a7-31ed1b3022a9-16175743.jpg" alt="Six different types of service"><br><img src="https://api2.mubu.com/v3/document_image/848bcef7-4baa-40fb-a356-7d14ac0f211e-16175743.jpg" alt="Six different types of service"></p>
-<p><mark>Point：有链接的服务<strong>不一定</strong>是可靠的！</mark></p>
-<h3 id="服务原语Service-Primitives"><a href="#服务原语Service-Primitives" class="headerlink" title="服务原语Service Primitives"></a>服务原语Service Primitives</h3><ul>
-<li>原语可能看起来像函数调用中的函数名字</li>
-<li>PDU: Protocol Data Unit协议数据单元：信息在对等体之间交换</li>
-</ul>
-<h3 id="服务与协议之间的关系"><a href="#服务与协议之间的关系" class="headerlink" title="服务与协议之间的关系"></a>服务与协议之间的关系</h3><p>服务和协议是两个截然不同的概念，它们之间的区别非常重要。</p>
-<ul>
-<li><p><strong><mark>服务是指</mark>某一层向它上一层提供的一-组原语(操作)。服务定义了该层准备代表其用户执行哪些操作，但是它并不涉及如何实现这些操作。</strong> 服务与两层之间的接口有关，<strong>低层是服务提供者，而上层是服务用户</strong>。</p>
-</li>
-<li><p>与此不同的是，**<mark>协议是</mark>一组规则，规定了同一层上对等实体之间所交换的数据包或者报文的格式和含义<strong>。对等实体利用协议来实现它们的服务定义，它们可以自由地改变协议，只要不改变呈现给它们用户的服务即可。按照这种方式，</strong>服务和协议是完全相分离的**，这是任何一个网络设计者应该很好理解的关键概念。</p>
-</li>
-<li><p>不改变服务，可以随意改变协议。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>course</tag>
-        <tag>计网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计网笔记_1-6网络标准化</title>
-    <url>/2022/03/09/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0_1-6%E7%BD%91%E7%BB%9C%E6%A0%87%E5%87%86%E5%8C%96/</url>
-    <content><![CDATA[<h2 id="网络标准化1-6-Network-Standardization"><a href="#网络标准化1-6-Network-Standardization" class="headerlink" title="网络标准化1.6 Network Standardization"></a>网络标准化1.6 Network Standardization</h2><h3 id="电信领域有影响力的组织"><a href="#电信领域有影响力的组织" class="headerlink" title="电信领域有影响力的组织"></a>电信领域有影响力的组织</h3><p><strong>国际电信联盟ITU (International Telecommunication Union)</strong></p>
-<p>主要部门：</p>
-<ul>
-<li>Radio communications(ITU-R)</li>
-<li>Telecommunications Standardization(ITU-T)<br>$\tiny CCITT, Comité Consultatif International Télégraphique et Téléphonique (1956-1993)$</li>
-<li>Development(ITU-D)</li>
-</ul>
-<h3 id="国际标准有影响力的组织"><a href="#国际标准有影响力的组织" class="headerlink" title="国际标准有影响力的组织"></a>国际标准有影响力的组织</h3><ul>
-<li>国际标准化组织ISO (International Standards Organization):OSI是在计算机网络里的一个例子</li>
-<li>ANSI (American National Standards Institute)</li>
-<li>IEEE (Institute of Electrical and Electronics Engineers)<br><img src="https://api2.mubu.com/v3/document_image/8f845344-a835-4a69-8c8f-7cb3557ed8cf-16175743.jpg"><br>TCP&#x2F;IP是属于IETF的</li>
-</ul>
-<h3 id="计算机网络中的单位换算"><a href="#计算机网络中的单位换算" class="headerlink" title="计算机网络中的单位换算"></a>计算机网络中的单位换算</h3><p>不同于计算内存的KB,MB,GB(2的幂次)，因为内存总是2的幂次。</p>
-<p>此外，这种情况下用大写的B表示Byte字节，而小写的b表示bit比特。</p>
-<p><img src="https://api2.mubu.com/v3/document_image/50180420-6d48-47d4-ae7c-9647d65a4d18-16175743.jpg" alt="单位"></p>
-<p>由于$milli和micro$都以字母m开头，所以两者必须进行区分。通常情况下，$m$ 代表毫(milli),而$μ$ (希腊字母)代表微(micro)。</p>
-<p>在本书中，为了避免二义性，我们将使用符号KB、MB、GB和TB分别代表$2^{l0}、2^{20}、2^{30}$ 和 $2^{40}$ 字节;用符号 $kbps、Mbps、Gbps$ 和 $Tbps$分别代表$10^3,10^6,10^9和10^{12}$位&#x2F;秒。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>course</tag>
-        <tag>计网</tag>
       </tags>
   </entry>
   <entry>
@@ -552,8 +291,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><!---图片，手写笔记--->
-
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p><img src="https://api2.mubu.com/v3/document_image/16483863477285a79.jpg" alt="证明补码减法"></p>
 <h2 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h2><h3 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h3><p>正溢：运算结果为正，且超出机器所能表示的范围<br>负溢：运算结果为负，且超出机器所能表示的范围<br><img src="https://api2.mubu.com/v3/document_image/32378a93-fd0e-418c-932b-209ba715160d-16175743.jpg" alt="整数溢出"></p>
 <h3 id="小数溢出"><a href="#小数溢出" class="headerlink" title="小数溢出"></a>小数溢出</h3><p>上溢：结果的绝对值大于机器所能表示的最大绝对值（+∞，－∞）<br>（overflow）<br>下溢：结果的绝对值小于机器所能表示的最小绝对值 （ 机器零 ）<br>（underflow）<br><img src="https://api2.mubu.com/v3/document_image/f3691e63-d615-4caa-9043-dbb945ed07bc-16175743.jpg" alt="小数溢出"></p>
 <h3 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h3><ol>
@@ -571,6 +309,395 @@
       <tags>
         <tag>course</tag>
         <tag>计组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计网笔记-1综述</title>
+    <url>/2022/03/09/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0-1%E7%BB%BC%E8%BF%B0/</url>
+    <content><![CDATA[<h2 id="1-3网络软件"><a href="#1-3网络软件" class="headerlink" title="1.3网络软件"></a>1.3网络软件</h2><h3 id="协议层次结构Protocol-Hierarchies"><a href="#协议层次结构Protocol-Hierarchies" class="headerlink" title="协议层次结构Protocol Hierarchies"></a>协议层次结构Protocol Hierarchies</h3><ul>
+<li>为了降低网络设计的复杂性，绝大多数网络都组成了层次栈(a stack of layer)或(a stack of level)。从某种意义上来说，每一层都是一种虚拟机，第n层向第n+1层提供服务。</li>
+<li><strong>协议protocol</strong>：通信双方的一种约定</li>
+<li><strong>对等体peers</strong>：不同机器上同一层的实体</li>
+<li><strong>物理层次Physical medium</strong>：铜线，光纤</li>
+<li><strong>接口interface</strong>：Defines which <mark>primitive operations原语操作</mark> and services the lower layer makes available to the upper one，类似于函数调用的接口</li>
+<li><strong>网络体系结构</strong>&#x3D;层+协议A set of layers and protocols 网络体系结构<strong>不包括</strong>协议内部的实现细节，也不包括接口的规范。</li>
+<li><img src="https://api2.mubu.com/v3/document_image/3f2c4521-c474-4228-8629-b682619c7f09-16175743.jpg"></li>
+<li>支持第五层虚拟通信的信息流：假设在第5层上运行的一个应用进程产生了一.条消息M,并且将它传递给第4层以便传给对等进程;第4层在消息的前面加上一一个头(header)， 用来标识该消息，并且把结果传给第3层;该头包含了一些控制信息，例如地址，主要被目标机器的第4层用来递交消息。某些层次所用的控制信息还可以包含消息序号(以防下层不保留消息顺序)、消息大小、时间等。<br><img src="https://api2.mubu.com/v3/document_image/4bd06528-60a8-4049-8fb3-63709fa51e26-16175743.jpg" alt="支持第五层虚拟通信的信息流"><br>在许多网络中，对于第4层上传递的消息<strong>大小</strong>没有任何限制，但是几乎所有第3层协议对此总会强加一个限制。因此，第3层必须把入境消息分割成较小的单元，即数据包或包(packet)，并且在每个数据包前面加上第3层的头。在这个例子中，M被分割成两部分：M1和M2，这两部分内容是被单独传输的。</li>
+</ul>
+<p><strong>第3层</strong>决定使用哪些<strong>输出线路</strong>，并且把分组传递给第2层；<strong>第2层不仅在每一个信息上加上一个头信息还要加上一个尾</strong>，然后将结果传输单元送给第1层以便进行物理传输。在接收端的机器上，消息自底向上逐层传递，<strong>在传递过程中各个头被逐层剥离</strong>。没有一个第n层以下的头会被传递到第n层。</p>
+<h3 id="层次设计问题Design-Issues-for-the-Layers"><a href="#层次设计问题Design-Issues-for-the-Layers" class="headerlink" title="层次设计问题Design Issues for the Layers"></a>层次设计问题Design Issues for the Layers</h3><ul>
+<li>可靠性Reliability</li>
+<li>网络发展Network evolution：可拓展性，网络互通性</li>
+<li>资源分配Resource allocation：统计复用，流量控制</li>
+<li>QoS（服务质量）：quality of service，包括的指标有 带宽bandwidth、延迟delay&#x2F;latency、抖动（Jitter）</li>
+<li>安全Security</li>
+</ul>
+<h3 id="面向连接的服务和无连接的服务"><a href="#面向连接的服务和无连接的服务" class="headerlink" title="面向连接的服务和无连接的服务"></a>面向连接的服务和无连接的服务</h3><ul>
+<li>面向连接Connection-oriented: telephone system，需要建立连接</li>
+<li>无连接Connection-less: postal system，不需要事先建立连接</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/79af3961-0095-4781-b7a7-31ed1b3022a9-16175743.jpg" alt="Six different types of service"><br><img src="https://api2.mubu.com/v3/document_image/848bcef7-4baa-40fb-a356-7d14ac0f211e-16175743.jpg" alt="Six different types of service"></p>
+<p><mark>Point：有链接的服务<strong>不一定</strong>是可靠的！</mark></p>
+<h3 id="服务原语Service-Primitives"><a href="#服务原语Service-Primitives" class="headerlink" title="服务原语Service Primitives"></a>服务原语Service Primitives</h3><ul>
+<li>原语可能看起来像函数调用中的函数名字</li>
+<li>PDU: Protocol Data Unit协议数据单元：信息在对等体之间交换</li>
+</ul>
+<h3 id="服务与协议之间的关系"><a href="#服务与协议之间的关系" class="headerlink" title="服务与协议之间的关系"></a>服务与协议之间的关系</h3><p>服务和协议是两个截然不同的概念，它们之间的区别非常重要。</p>
+<ul>
+<li><p><strong><mark>服务是指</mark>某一层向它上一层提供的一-组原语(操作)。服务定义了该层准备代表其用户执行哪些操作，但是它并不涉及如何实现这些操作。</strong> 服务与两层之间的接口有关，<strong>低层是服务提供者，而上层是服务用户</strong>。</p>
+</li>
+<li><p>与此不同的是，**<mark>协议是</mark>一组规则，规定了同一层上对等实体之间所交换的数据包或者报文的格式和含义<strong>。对等实体利用协议来实现它们的服务定义，它们可以自由地改变协议，只要不改变呈现给它们用户的服务即可。按照这种方式，</strong>服务和协议是完全相分离的**，这是任何一个网络设计者应该很好理解的关键概念。</p>
+</li>
+<li><p>不改变服务，可以随意改变协议。</p>
+</li>
+</ul>
+<h2 id="1-4-参考模型Reference-Models"><a href="#1-4-参考模型Reference-Models" class="headerlink" title="1.4 参考模型Reference Models"></a>1.4 参考模型Reference Models</h2><h3 id="OSI参考模型-The-OSI-Reference-Model"><a href="#OSI参考模型-The-OSI-Reference-Model" class="headerlink" title="OSI参考模型 The OSI Reference Model"></a>OSI参考模型 The OSI Reference Model</h3><ul>
+<li>OSI体系结构是要求记住的，因为计算机网络的核心是计算机体系结构。但是OSI结构在日常生活中也不咋见到，用的人少。</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/ba8267b6-e3d1-404d-a27e-4811a15b006f-16175743.jpg" alt="OSI体系结构"></p>
+<p>对应的中文对照：<br><img src="https://api2.mubu.com/v3/document_image/89804771-1c92-46b4-b0eb-a65599fe34c4-16175743.jpg" alt="OSI体系结构-zh"></p>
+<p>一般的，在网络里的路由设备只需要完成1，2，3层的协议就可以(如框框里圈起来的part)</p>
+<ol>
+<li>物理层：使用通信的信道传输原始的bit流</li>
+</ol>
+<ul>
+<li>使用多少伏特表示1，多少伏特表示0</li>
+<li>每个比特持续多长时间</li>
+<li>传输是否能够双向同时(simultaneously)发送信息</li>
+<li>初始链接是如何链接以及如何释放的，比如打电话，挂断，一般链接是按时间计费的</li>
+</ul>
+<ol start="2">
+<li>数据链路层：把原始的传输转化成逻辑的信道。一句话总结，就是(可靠的)数据帧的传输 <mark><strong>Point To Point点到点</strong></mark></li>
+</ol>
+<ul>
+<li>将到达的数据变成一块一块的frame(帧）(这个功能仅部分的数据链路层拥有)</li>
+<li>如果要求可靠的传输，要对正确的数据帧发送comfirm</li>
+<li>流量控制：保持快速传输，防止数据传输缓慢</li>
+<li>广播网络：管理共享信道的使用权力(access)</li>
+</ul>
+<ol start="3">
+<li><p>网络层：主要控制的是路由和转发的问题，控制子网的运行</p>
+<ul>
+<li>传递forwarding</li>
+<li>路由router：静态路由；规划路由；<strong>动态路由highly dynamic</strong>；</li>
+<li>拥塞控制congestion</li>
+<li>QoS：delay延迟，transit time传输时间，jitter抖动, 带宽，丢包率etc.</li>
+<li>异构网络互联Heterogeneous networks interconnection</li>
+<li>广播网络 routing is simple</li>
+</ul>
+</li>
+<li><p>传输层：<mark>End To End端到端</mark></p>
+<ul>
+<li>从上层接受数据，把这些数据分成小的数据单元(if needed)，把这些数据单元</li>
+<li>决定向会话层提供何种服务</li>
+<li>控制拥塞</li>
+</ul>
+</li>
+<li><p>会话层：通信的双方(虚拟层面的不同机器)建立会话链接</p>
+<ul>
+<li>对话控制</li>
+<li>令牌Token管理</li>
+<li>同步：断点重传</li>
+</ul>
+</li>
+<li><p>表示层：信息传递的 <em>语法和语义</em></p>
+<ul>
+<li>抽象定义被传输的信息。比如大端小端。</li>
+</ul>
+</li>
+<li><p>应用层：包括通常被用户使用的各种协议</p>
+</li>
+</ol>
+<h3 id="TCP-x2F-IP参考模型-The-TCP-x2F-IP-Reference-Model"><a href="#TCP-x2F-IP参考模型-The-TCP-x2F-IP-Reference-Model" class="headerlink" title="TCP&#x2F;IP参考模型 The TCP&#x2F;IP Reference Model"></a>TCP&#x2F;IP参考模型 The TCP&#x2F;IP Reference Model</h3><p>TCP&#x2F;IP参考模型：<strong>右侧</strong><br><img src="https://api2.mubu.com/v3/document_image/1823c7c6-b736-4899-8148-728753f9aeaa-16175743.jpg" alt="TCP/IP参考模型"></p>
+<ul>
+<li><p>网络接口层(PPT)，中文书上叫链路层，这不是一个真正意义上的层，而是主机与传输路线之间的一个接口。</p>
+</li>
+<li><p>互联网层：一个基于无连接互联网络的数据包交换网络</p>
+<ul>
+<li>定义了一种官方的数据包和协议格式，叫做IP(Internet Protocol)</li>
+<li>网络层的工作是把IP数据包发送到他们应该去往的地方，这里面又包括了路由问题，避免拥塞问题</li>
+</ul>
+</li>
+<li><p>传输层：</p>
+<ol>
+<li><p><strong>传输控制协议TCP (Transmission Control Protocol)</strong></p>
+<ul>
+<li>面向连接的、可靠的、字节流</li>
+<li>碎片化fragment字节流</li>
+<li>重新组装接收到的信息到输出流(保证了传输顺序)</li>
+<li>流量控制，避免淹没</li>
+</ul>
+</li>
+<li><p><strong>用户数据报协议: The UDP(User Datagram Protocol)</strong></p>
+<ul>
+<li>无连接的、不可靠的、消息流(一块一块的发送消息)</li>
+<li>适用于不想要TCP有序控制和流量控制，而宁可自己提供这些功能的应用程序。比如及时交付比准确交付更重要的应用，比如语音和视频通话</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>应用层：略<br>TCP&#x2F;IP模型以及各种需要学习的协议<br><img src="https://api2.mubu.com/v3/document_image/4eba9cfd-9f3d-4a91-9fec-d12fdf829f32-16175743.jpg" alt="一览表"><br>中文简化版：<br><img src="https://api2.mubu.com/v3/document_image/53465012-ec7b-4b4b-9891-e2637d5dbbbc-16175743.jpg" alt="中文简化版："></p>
+</li>
+</ul>
+<h3 id="OSI参考模型与TCP-x2F-IP参考模型的比较"><a href="#OSI参考模型与TCP-x2F-IP参考模型的比较" class="headerlink" title="OSI参考模型与TCP&#x2F;IP参考模型的比较"></a>OSI参考模型与TCP&#x2F;IP参考模型的比较</h3><p>略，gzc没细讲，有兴趣让看书。</p>
+<h3 id="OSI模型和协议的评判"><a href="#OSI模型和协议的评判" class="headerlink" title="OSI模型和协议的评判"></a>OSI模型和协议的评判</h3><p>gzc没讲，书上骂了一通，可以看个乐。截个图感受下。<br><img src="https://api2.mubu.com/v3/document_image/e13d23a0-3431-4a4b-8f63-d2118c9b9c80-16175743.jpg" alt="乐"></p>
+<h3 id="TCP-x2F-IP参考模型的评判"><a href="#TCP-x2F-IP参考模型的评判" class="headerlink" title="TCP&#x2F;IP参考模型的评判"></a>TCP&#x2F;IP参考模型的评判</h3><p>没讲，没看</p>
+<h2 id="1-5网络实例"><a href="#1-5网络实例" class="headerlink" title="1.5网络实例"></a>1.5网络实例</h2><p>没咋讲，没啥要记的东西，略</p>
+<h2 id="网络标准化1-6-Network-Standardization"><a href="#网络标准化1-6-Network-Standardization" class="headerlink" title="网络标准化1.6 Network Standardization"></a>网络标准化1.6 Network Standardization</h2><h3 id="电信领域有影响力的组织"><a href="#电信领域有影响力的组织" class="headerlink" title="电信领域有影响力的组织"></a>电信领域有影响力的组织</h3><p><strong>国际电信联盟ITU (International Telecommunication Union)</strong></p>
+<p>主要部门：</p>
+<ul>
+<li>Radio communications(ITU-R)</li>
+<li>Telecommunications Standardization(ITU-T)<br>$\tiny CCITT, Comité Consultatif International Télégraphique et Téléphonique (1956-1993)$</li>
+<li>Development(ITU-D)</li>
+</ul>
+<h3 id="国际标准有影响力的组织"><a href="#国际标准有影响力的组织" class="headerlink" title="国际标准有影响力的组织"></a>国际标准有影响力的组织</h3><ul>
+<li>国际标准化组织ISO (International Standards Organization):OSI是在计算机网络里的一个例子</li>
+<li>ANSI (American National Standards Institute)</li>
+<li>IEEE (Institute of Electrical and Electronics Engineers)<br><img src="https://api2.mubu.com/v3/document_image/8f845344-a835-4a69-8c8f-7cb3557ed8cf-16175743.jpg"><br>TCP&#x2F;IP是属于IETF的</li>
+</ul>
+<h3 id="计算机网络中的单位换算"><a href="#计算机网络中的单位换算" class="headerlink" title="计算机网络中的单位换算"></a>计算机网络中的单位换算</h3><p>不同于计算内存的KB,MB,GB(2的幂次)，因为内存总是2的幂次。</p>
+<p>此外，这种情况下用大写的B表示Byte字节，而小写的b表示bit比特。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/50180420-6d48-47d4-ae7c-9647d65a4d18-16175743.jpg" alt="单位"></p>
+<p>由于$milli和micro$都以字母m开头，所以两者必须进行区分。通常情况下，$m$ 代表毫(milli),而$μ$ (希腊字母)代表微(micro)。</p>
+<p>在本书中，为了避免二义性，我们将使用符号KB、MB、GB和TB分别代表$2^{l0}、2^{20}、2^{30}$ 和 $2^{40}$ 字节;用符号 $kbps、Mbps、Gbps$ 和 $Tbps$分别代表$10^3,10^6,10^9和10^{12}$位&#x2F;秒。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计组笔记_chapter1</title>
+    <url>/2022/03/02/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_chapter1/</url>
+    <content><![CDATA[<p>纯纯进行一个课件的CTRL+C、CTRL+V，根本不知道是什么意思，哭。</p>
+<h2 id="第1章-计算机概述"><a href="#第1章-计算机概述" class="headerlink" title="第1章  计算机概述"></a>第1章  计算机概述</h2><h3 id="计算机的分类和应用"><a href="#计算机的分类和应用" class="headerlink" title="计算机的分类和应用"></a>计算机的分类和应用</h3><p>通用计算机分类<br><img src="https://api2.mubu.com/v3/document_image/bb50f260-a398-4bd2-9a97-d6af00a88dff-16175743.jpg" alt="通用计算机分类"></p>
+<p>面向应用的分类</p>
+<ol>
+<li>通用计算机</li>
+<li>专用计算机&#x2F;嵌入式计算机(Embedded)</li>
+</ol>
+<p>计算机的应用<br>略</p>
+<h3 id="计算机发展简史"><a href="#计算机发展简史" class="headerlink" title="计算机发展简史"></a>计算机发展简史</h3><h4 id="计算机的演进"><a href="#计算机的演进" class="headerlink" title="计算机的演进"></a>计算机的演进</h4><ol>
+<li>第0代 机械时代（BC-1940</li>
+<li>第1代 电子管时代（1943-1959）</li>
+<li>第2代 晶体管时代（1960-1968）</li>
+<li>第4代 超大规模集成电路时代（1978－现在）</li>
+<li>第5代 量子计算机、光计算机、生物计算机？</li>
+</ol>
+<p>世界上第一台计算机：ENIAC</p>
+<p>摩尔定律：集成电路芯片中晶体<br>管数量大体上每2年翻一番</p>
+<h4 id="计算机的性能指标-易考"><a href="#计算机的性能指标-易考" class="headerlink" title="计算机的性能指标(易考)"></a><mark>计算机的性能指标</mark>(易考)</h4><p><img src="https://api2.mubu.com/v3/document_image/7ec2da4e-3831-44cd-b68a-6509f0314ac3-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/099dd094-3f03-436f-afde-e0e84afb42d6-16175743.jpg"></p>
+<ol>
+<li>响应时间</li>
+<li>利用率</li>
+<li>处理机字长</li>
+<li>总线宽度</li>
+<li>吞吐量：通常用KB、MB、GB(gigabit吉比特)和TB表示。B表示Byte(字节)，b表示bit。 $K\equiv2^{10},M\equiv2^{20},G\equiv2^{30}$</li>
+<li>存储器带宽：一般用字节数&#x2F;秒表示</li>
+<li>主频&#x2F;时钟周期:CPU的工作节拍受主时钟控制，主时钟不断产生固定频率的时钟，主时钟的频率f称为CPU的主频。<mark>度量单位是MHz（$10^6$）、GHz($10^9$)。</mark>可以理解为每秒有几个CPU时钟周期。<br>主频的倒数称为CPU时钟周期T，T&#x3D;1&#x2F;f，度量单位是微秒，纳秒。</li>
+<li>CPU执行时间:表示CPU执行一段程序所占用的CPU时间，也可以用指令数目x每条指令的平均执行时间。而每条指令的平均执行时间可以用每条指令所需的平均时钟周期数目x时钟周期时间。<br> <mark>$\tiny CPU执行时间&#x3D;程序的指令数\times CPI\times CPU时钟周期时间$</mark></li>
+<li><strong>CPI（Clock Cycles Per Instruction）</strong>:表示每条指令执行所需要的时钟周期数，或执行一条指令所需的平均时钟周期数。<br><mark>$\tiny CPI&#x3D;程序执行所需的CPU时钟周期总数÷程序的指令总数$</mark></li>
+<li>MIPS：每秒百万指令数。<u>M:百万million ($\tiny\underline{10^6}$) ，I:instruction指令，PS:per second每秒</u><br><mark>$\tiny MIPS&#x3D;（指令总数 \div 程序执行时间）\times 10^{-6}$</mark></li>
+<li>MFLOPS：每秒百万次浮点操作次数。<u>FLO：浮点操作</u><br>   <mark>$\tiny MFLOPS&#x3D;（程序中的浮点运算次数\div程序执行时间)\times 10^{-6}$</mark></li>
+<li>TFLOPS：每秒万亿浮点操作次数。T:trillion兆，也就是万亿，$10^{12}$<br><mark>$\tiny TFLOPS&#x3D;（程序中的浮点运算次数\div程序执行时间)\times 10^{-12}$</mark></li>
+<li>例题<br><img src="https://api2.mubu.com/v3/document_image/5e55985c-21a8-465c-bb80-b572227826a7-16175743.jpg" alt="例题"><br>题解<img src="https://api2.mubu.com/v3/document_image/1646144690025ebba.jpg" alt="tijie"><br><img src="https://api2.mubu.com/v3/document_image/304a5e77-8917-4021-8b27-adb2d0e25941-16175743.jpg"></li>
+</ol>
+<h3 id="计算机的硬件"><a href="#计算机的硬件" class="headerlink" title="计算机的硬件"></a>计算机的硬件</h3><h4 id="计算机的组成-五大部分"><a href="#计算机的组成-五大部分" class="headerlink" title="计算机的组成(五大部分)"></a>计算机的组成(五大部分)</h4><ol>
+<li>存储器</li>
+<li>运算器</li>
+<li>控制器</li>
+<li>输入输出设备</li>
+</ol>
+<ul>
+<li>计算机内部，指令和数据均以二进制的形式存储，其中，指令包括操作码和地址码（对谁进行该操作）</li>
+<li>关于rax,eax,ax,al:AL是低八位，AX是本名，16位，EAX是extended即扩展的意思，32bits，而RAX则是re-extended，再拓展，64位</li>
+</ul>
+<h3 id="计算机系统的层次结构"><a href="#计算机系统的层次结构" class="headerlink" title="计算机系统的层次结构"></a>计算机系统的层次结构</h3><p><img src="https://api2.mubu.com/v3/document_image/a3c75fab-9dd4-41bb-9fa5-53a7d99b2edf-16175743.jpg" alt="层次结构2"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/714d08ad-abe7-4606-8270-1b2566e12ba7-16175743.jpg" alt="层次结构3"></p>
+<p>软件与硬件的逻辑等价性,理论上讲，任何软件算法都可以用硬件实现，反之亦然。<br><img src="https://api2.mubu.com/v3/document_image/9bbf4121-a5d0-441c-af82-a56e3781eb3a-16175743.jpg" alt="软件与硬件的逻辑等价性"></p>
+<h2 id="第2章-运算方法和运算器I"><a href="#第2章-运算方法和运算器I" class="headerlink" title="第2章 运算方法和运算器I"></a>第2章 运算方法和运算器I</h2><h3 id="数据与文字的表示方法"><a href="#数据与文字的表示方法" class="headerlink" title="数据与文字的表示方法"></a>数据与文字的表示方法</h3><h4 id="常用的数据表示格式"><a href="#常用的数据表示格式" class="headerlink" title="常用的数据表示格式"></a>常用的数据表示格式</h4><ol>
+<li>定点表示：小数点的位置是固定的，可以表示纯小数或者纯整数</li>
+<li>浮点表示：见CSAPP</li>
+<li>十进制数格式：</li>
+</ol>
+<p>带有符号表示的二进制数：<mark>真值</mark><br>机器中把符号“数字化”的数：<mark>机器数</mark>或者<mark>机器码</mark></p>
+<p>常用的机器码包括：(一般针对有符号数)</p>
+<ul>
+<li>原码：真值的符号位变成0&#x2F;1，0为+。</li>
+<li>反码:反码就是二进制数<mark>除符号位以外</mark>的的各位数码</mark>0变为1，1变为0</mark></li>
+<li>补码</li>
+<li>移码</li>
+</ul>
+<p>补码整数表示略，记住按位取反再加一就可以<br>补码的定点小数表示如下：<br><img src="https://api2.mubu.com/v3/document_image/535cd946-0888-4aa0-98f7-2b4c95267e57-16175743.jpg" alt="定点小数表示"><br>这里注意，two’s complement是补码的英文，直译为2的补足部分，这里的模的意思和时钟的模为12相同，意为正数负数的补码表示相加就是模值。</p>
+<p>反码和补码的关系：定点小数也满足整数的“按位取反再加一”的规则。<br><img src="https://api2.mubu.com/v3/document_image/82299582-3a0e-4d14-92cf-7d23426ff4ad-16175743.jpg" alt="关系"><br>特别的，+0的反码为：00000000(8位)<br>-0的反码为：11111111(8位)</p>
+<p>关于移位运算，这是C语言中的<br><a href="https://blog.csdn.net/heiniaoyuyouling/article/details/4696586">C语言中的位移位运算</a></p>
+<h2 id="补充：课程概要"><a href="#补充：课程概要" class="headerlink" title="补充：课程概要"></a>补充：课程概要</h2><p><img src="https://api2.mubu.com/v3/document_image/5b9257b0-af72-46f3-9bf1-c75e55e111da-16175743.jpg" alt="课程要求嘿嘿嘿"></p>
+<p>课程内容，左边是期中前学的，右边是期中后学的。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/d40960c4-d339-42d5-9d88-6b1c4d2cd975-16175743.jpg" alt="课程内容哈哈哈"></p>
+<p>实验内容<br><img src="https://api2.mubu.com/v3/document_image/02f22f78-2b45-4c0e-8823-06862639af5d-16175743.jpg" alt="实验内容"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计网笔记-数据链路层1</title>
+    <url>/2022/03/30/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%821/</url>
+    <content><![CDATA[<p>开头👴先抄一个gzc的思维导图：<br><img src="https://api2.mubu.com/v3/document_image/f9fae159-374d-41e5-99cf-6bee7b25ccc9-16175743.jpg" alt="思维导图"></p>
+<h2 id="3-1数据链路层的设计问题"><a href="#3-1数据链路层的设计问题" class="headerlink" title="3.1数据链路层的设计问题"></a>3.1数据链路层的设计问题</h2><h3 id="3-1-1提供给网络层的服务"><a href="#3-1-1提供给网络层的服务" class="headerlink" title="3.1.1提供给网络层的服务"></a>3.1.1提供给网络层的服务</h3><ol>
+<li><p>数据链路层的功能</p>
+<ol>
+<li>向网络层提供一个定义良好的服务接口。</li>
+<li>处理传输错误。</li>
+<li>调节数据流,确保慢速的接收方不会被快速的发送方淹没。</li>
+</ol>
+</li>
+<li><p>提供给网络层的服务</p>
+<ol>
+<li><p>Unacknowledged connectionless service.<br> Most LANs局域网 use unacknowledged connectionless service </p>
+</li>
+<li><p>Acknowledged connectionless无连接的，也就是不用事先建立通路 service.<br>  This service is useful over unreliable channels, such as wireless  systems。给一个ACK，有确认的服务</p>
+</li>
+<li><p>Acknowledged connection-oriented service</p>
+<pre><code>- Connection establishment
+- Timer
+- Sequence number 若ACKnumber丢了，防止重复
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<p>当使用面向连接的服务时，数据传输必须经过三个不同的阶段。在第一个阶段,要建立连接，双方初始化各种变量和计数器，这些变量和计数器记录了哪些帧已经接收到，哪些帧还没有收到。在第二个阶段，才真正传输一个或者多个数据帧。在第三个也是最后一个阶段中，连接被释放，所有的变量、缓冲区以及其他用于维护该连接的资源也随之被释放。</p>
+<h3 id="3-1-2成帧Framing"><a href="#3-1-2成帧Framing" class="headerlink" title="3.1.2成帧Framing"></a>3.1.2成帧Framing</h3><h4 id="字符计数"><a href="#字符计数" class="headerlink" title="字符计数"></a>字符计数</h4><p><img src="https://api2.mubu.com/v3/document_image/8ed3423d-ef66-42da-aea0-416c2fee6873-16175743.jpg" alt="字符计数"><br>一旦出错：运气不好的话所有的帧都不能正确识别</p>
+<h4 id="字符填充法（byte-stuffing）"><a href="#字符填充法（byte-stuffing）" class="headerlink" title="字符填充法（byte stuffing）"></a>字符填充法（byte stuffing）</h4><p><img src="https://api2.mubu.com/v3/document_image/9d9674ff-e6e8-46a2-ae6c-1851829cbd44-16175743.jpg" alt="字符填充法"></p>
+<p>帧标志出错了：每两个帧之间至少有一个帧标志，仅影响当前帧。<br>问题：发送的信息含有很多控制字符，需要转译的字符大大增加<br><strong>开销：overhead</strong>，跟需要发送的数据相比，额外添加的转义字符所占的比例，比如全是需要转译的字符的信息，overhead就是100%。</p>
+<h4 id="比特填充（bit-stuffing）"><a href="#比特填充（bit-stuffing）" class="headerlink" title="比特填充（bit stuffing）"></a>比特填充（bit stuffing）</h4><p>每个帧的开头结尾都是一个special bit pattern, 01111110 ，也就是16进制的7EH，当数据内容出现连续的1时，每遇到五个1添加一个0（硬件不管这5个1后面是0还是1），接收方做相反的工作。另外在<br><img src="https://api2.mubu.com/v3/document_image/c7e3cce3-443d-4224-b633-bc6f9cefff4b-16175743.jpg" alt="bit stuffing"><br>(a) The original data.<br>(b) The data as they appear on the line.<br>(c) The data as they are stored in receiver’s memory after destuffing.<br>就是每隔五个1插入一个0</p>
+<h4 id="物理层编码违例"><a href="#物理层编码违例" class="headerlink" title="物理层编码违例"></a>物理层编码违例</h4><p>Physical layer coding violation （n. 违反, 冒犯, 侵害）<br>对于曼彻斯特Manchester编码，两个跳变表示一个bit，所以当出现长高电平，常低电平，就属于物理层违例了，可以作为帧的边界。</p>
+<h3 id="3-1-3差错控制（ERROR-control）"><a href="#3-1-3差错控制（ERROR-control）" class="headerlink" title="3.1.3差错控制（ERROR control）"></a>3.1.3差错控制（ERROR control）</h3><p>可靠的传输：不能少，不能多，顺序不能错</p>
+<h3 id="3-1-4流量控制"><a href="#3-1-4流量控制" class="headerlink" title="3.1.4流量控制"></a>3.1.4流量控制</h3><h4 id="两种流量控制"><a href="#两种流量控制" class="headerlink" title="两种流量控制"></a>两种流量控制</h4><ol>
+<li>基于反馈信息的流量控制 feedback</li>
+<li>基于速率的流量控制（主要是网络层，一种内嵌的机制，浅显的理解是限制速率）rate-based</li>
+</ol>
+<h4 id="流量控制协议"><a href="#流量控制协议" class="headerlink" title="流量控制协议"></a>流量控制协议</h4><ol>
+<li>停等 Stop Aan Wait</li>
+<li>滑动窗口 Sliding Window</li>
+</ol>
+<h2 id="3-2差错检验和纠正"><a href="#3-2差错检验和纠正" class="headerlink" title="3.2差错检验和纠正"></a>3.2差错检验和纠正</h2><ol>
+<li><p>错误分类</p>
+<ul>
+<li>lost frames：一个数据帧完全没能传过去，常常是因为噪音或者掉队</li>
+<li>damaged frames：一些bit错了</li>
+</ul>
+</li>
+<li><p>差错检测</p>
+<ol>
+<li>奇偶校验码(parity):检测单比特错误</li>
+<li>Cyclic Redundancy Check:CRC</li>
+<li>Atuomatic Repeat reQuest:ARQ</li>
+</ol>
+</li>
+<li><p>差错纠正</p>
+<ul>
+<li>前向纠错（forward error correction）FEC</li>
+</ul>
+</li>
+</ol>
+<h3 id="纠错码"><a href="#纠错码" class="headerlink" title="纠错码"></a>纠错码</h3><blockquote>
+<p>补充：海明距离Hamming<br>   两个编码异或之后为1的位数<br>   检测到d个errors，需要distance为d+1的编码<br>   纠正d个errors，需要distance为2d+1的编码<br>   这里的距离指的是码表上任意两个编码之间的hamming距离，取最小。对于已知的检错方法，要确定能够检测出几个error应该考虑最坏的情况。</p>
+</blockquote>
+<h3 id="海明码"><a href="#海明码" class="headerlink" title="海明码"></a>海明码</h3><p>一个公式：<br>$m+r+1 \le 2^r$<br>m:数据位数<br>r：所需的校验位<br>由该式可以解出需要的最少校验位</p>
+<p>海明码的构造：<br><img src="https://api2.mubu.com/v3/document_image/164890187785875d5.jpg" alt="海明码"><br><font size=1>为什么这个人字这么难看啊吐…大概是自己也知道不会再看第二遍了吧…（orz）</font></p>
+<p>海明码的作用：<br>可以校验一位差错，并纠正。<br>假如第5位发生了错误，那么第1和4位的校验位会出错，计算1+4可得第5位出错，取反即可纠正。而如果是校验位发生了错误，那么只有那一个校验位错了，就可以知道是校验位出错了。（所有这些都是建立在仅仅发生一个bit的错误上的）<br><img src="https://api2.mubu.com/v3/document_image/1158e3b6-3b70-4032-ae21-3c36c36602e7-16175743.jpg" alt="示例"></p>
+<p>如果发生了多位差错呢？<br>correct burst errors：<br>这里👴没懂具体咋搞的，回头机缘巧合懂了再来补文字解释（🕊🕊🕊咕咕咕）<br><img src="https://api2.mubu.com/v3/document_image/c126bef4-a95d-473b-bcbe-27208a333a10-16175743.jpg" alt="correct burst errors："></p>
+<p>其他的一些纠错码：<br>卷积码（convolutional code）<br>里德所罗门码（Reed-Solomon code）<br>低密度奇偶校验码（Low-Density Parity Check codes）</p>
+<h3 id="检错码"><a href="#检错码" class="headerlink" title="检错码"></a>检错码</h3><p>关于用检错码划算还是用纠错码划算的问题：<br>gzc给了一个Example<br> (<strong>single-bit error</strong>)</p>
+<ul>
+<li>比特错误率 BER&#x3D;10-6, 1Block&#x3D;1000bits, Data&#x3D;1M bits，也就是说传1M（$10^6$）的数据，每1000bits分一个块块er，然后一共有1000个块块er。</li>
+<li>The overhead（开销）<ul>
+<li>检错码Error detection + retransmission: 2001 bits （1000+1001）多的那个1是重传的时候的奇偶校验位啦（</li>
+<li>纠错码Hamming code : 10,000 bits(1000块*10位校验位)</li>
+</ul>
+</li>
+</ul>
+<h4 id="奇偶校验码Parity"><a href="#奇偶校验码Parity" class="headerlink" title="奇偶校验码Parity"></a>奇偶校验码Parity</h4><p>略</p>
+<h4 id="校验和Checksums"><a href="#校验和Checksums" class="headerlink" title="校验和Checksums"></a>校验和Checksums</h4><p>gzc说从网上抄了段代码给👴们👀👀</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Word <span class="title">Cksum</span><span class="params">(Word *Buf, Word Num_Words)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	    Dword Sum;</span><br><span class="line">  	    <span class="keyword">for</span>  ( Sum=<span class="number">0</span>; Num_Words&gt;<span class="number">0</span>;  Num_Words--)</span><br><span class="line">	         Sum+=*Buf++;</span><br><span class="line">	    Sum = ( Sum &gt;&gt; <span class="number">16</span> ) + ( Sum &amp; <span class="number">0xffff</span> ); </span><br><span class="line">	    Sum += Sum &gt;&gt; <span class="number">16</span>;</span><br><span class="line">	    <span class="keyword">return</span> ~Sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="CRC循环冗余校验"><a href="#CRC循环冗余校验" class="headerlink" title="CRC循环冗余校验"></a><mark>CRC循环冗余校验</mark></h4><p><font size=1>这玩意儿是个重点</font><br>名字：Ploynomial code多项式编码，也就是CRC<br>计算CRC：<br>Frame:要传输的数据帧<br>Generator:生成多项式，可以和二进制串一一对应，（一般第一位是1）如$x^4+x+1$对应串10011，<strong>最高幂次r&#x3D;4，对应r+1&#x3D;5位二进制串</strong>，从低位开始写不容易出错。<br>在计算过程中的法则是模2加法，也就是异或运算，在该运算中，加减等价。<br>计算过程：</p>
+<ol>
+<li>把Frame左移r位，也就是$\times2^r$</li>
+<li>用（1）得到是数模二除Generator（注意这个过程所有的加和减也都是异或运算）</li>
+<li>除到（1）得到的数的最后一位得到余数，用（1）中数-余数，但是这里也是模二减，相当于异或“+”，且不产生进位er。</li>
+<li>如果最终得到的余数不是刚好r位:就直接当数加上去的，详见例2.</li>
+<li>然后算完之后就看gcz说的power，👴就发现，加上余数之后恰好整除Generator</li>
+</ol>
+<p>一个例子1：<br><img src="https://api2.mubu.com/v3/document_image/66a3abff-51ac-47b2-bdf7-145961822f15-16175743.jpg" alt="例子"><br>例子2：<br><img src="https://api2.mubu.com/v3/document_image/08fdf2e9-eb53-46b8-8baf-2fd57268ceb0-16175743.jpg" alt="例子2"></p>
+<p>the power of CRC</p>
+<ul>
+<li>若不出现差错：收到T(X)</li>
+<li>若出现了一些差错：收到E(X)，由于模二加法，0-&gt;1和1-&gt;0都可以用“+”表示</li>
+<li>计算[T(X)+E(X)]&#x2F;G(X) &#x3D; E(X)&#x2F;G(X)，所以在E(X)&#x2F;G(X)&#x3D;&#x3D;0的时候，差错不能被检查出来</li>
+<li>由此推论：<ol>
+<li>添加了r bit的冗余信息的码，一定能检测出$\le r$bit的差错，因为rbit冗余信息意味着最高幂次为r，也就是说G(X)有r+1位。</li>
+<li>若让（x+1）是G(X)的一个因子（factor），则所有的奇数位都可以检测出来，<font size=1>这玩意儿可以证，但根据速通理论的高质高效原则，👴忍住了，没去看怎么证。</font></li>
+<li>若触发差错的bits长度为（r+1），则检测不出来的概率为$\cfrac{1}{2^{r-1}}$，因为出错长度为r+1个bit,则第一个和最后一个一定是错了也就是E(X)的第一位和最后一位都是1，而剩下的中间r-1位不知道是0（没错）还是1（错了）。</li>
+<li>而若触发差错的bits长度更长的时候，触发差错的可能就是$\cfrac{1}{2^r}$</li>
+</ol>
+</li>
+</ul>
+<p>生成多项式：</p>
+<blockquote>
+<ul>
+<li>CRC-16<br>$x^{16}+x^{15}+x^2+1$</li>
+<li>CRC-CCITT  (HDLC)<br>$x^{16}+x^{12}+x^5+1$</li>
+<li>CRC-32 (IEEE802)<br>$x^{32}+x^{26}+x^{23}+x^{22}+x^{16}+x^{12}+x^{11}+x^{10}+x^{8}+x^{7}+x^{5}+x^{4}+x^{2}+x^{1}+1$</li>
+</ul>
+</blockquote>
+<h2 id="3-3基本-elementary-数据链路层协议"><a href="#3-3基本-elementary-数据链路层协议" class="headerlink" title="3.3基本(elementary)数据链路层协议"></a>3.3基本(elementary)数据链路层协议</h2><p>几种单工协议：<br>An Unrestricted Simplex Protocol <strong>乌托邦</strong>，Unrestricted没有限制的<br>A Simplex Stop-and-Wait Protocol <strong>停等协议</strong><br>A Simplex Protocol for a Noisy Channel <strong>噪音</strong></p>
+<h3 id="Protocol-1-乌托邦Utopia"><a href="#Protocol-1-乌托邦Utopia" class="headerlink" title="Protocol 1: 乌托邦Utopia"></a>Protocol 1: 乌托邦Utopia</h3><p>无差错的channel，完美的接收者，源源不断的发送<br><img src="https://api2.mubu.com/v3/document_image/f2466881-7f1b-498d-b4d2-da1a258399da-16175743.jpg" alt="utopia"></p>
+<h3 id="Protocol-2-停等协议"><a href="#Protocol-2-停等协议" class="headerlink" title="Protocol 2:停等协议"></a>Protocol 2:停等协议</h3><p><strong>Stop-and-Wait Protocol for a Error-free Channel</strong><br>考虑flow control，仍然是完美的信道<br><img src="https://api2.mubu.com/v3/document_image/631de808-d162-41ae-a8d0-d198cddf5c7a-16175743.jpg" alt="flow control"><br>↑对于短距离的通信完全是没有问题的，效率很高，远距离就不行了</p>
+<h3 id="Protocol-3-有噪音的"><a href="#Protocol-3-有噪音的" class="headerlink" title="Protocol 3:有噪音的"></a>Protocol 3:有噪音的</h3><p><strong>A Simplex Protocol for a Noisy Channel</strong><br><img src="https://api2.mubu.com/v3/document_image/b7928813-66a6-4f48-8c86-023db3689df9-16175743.jpg" alt="Noisy"><br>ACK:<strong>ack</strong>nowledgement character命令正确应答<br>NAK：<strong>n</strong>agative a<strong>ck</strong>nowladge否定应答<br>前3种情况都没有问题，但是第4种，ACK丢了，就可能导致重复发送，这就引入了序列号的使用。<br>此外，一个晚到的ACK也可能导致发送重复的数据</p>
+<h4 id="Sequence-Number"><a href="#Sequence-Number" class="headerlink" title="Sequence Number"></a>Sequence Number</h4><p>对于数据链路层的<strong>停等协议，一个bit（0&#x2F;1）就足够了</strong>，可以做到判断是新的还是旧的帧<br>对于传输层，1bit就不够了，需要较大的编号空间使得在编号回卷时，保证同编号的旧帧不可能被缓冲在网络中，如：TFTP<br>protocol3：</p>
+<ul>
+<li>sender 伪代码<br>课本上的代码见<a href="https://api2.mubu.com/v3/document_image/bb4f22d1-ddb4-42de-b363-789775f057f3-16175743.jpg">这里</a></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">从网络层获取一个分组放入buffer</span><br><span class="line">发送buffer中的数据，新启动定时器</span><br><span class="line">label1:</span><br><span class="line"><span class="built_in">wait_for_event</span>()</span><br><span class="line"><span class="keyword">switch</span> (event) &#123;</span><br><span class="line"><span class="keyword">case</span> 收到了坏帧(校验和错):</span><br><span class="line">     重发缓冲在buffer里的数据，重新启动定时器</span><br><span class="line">     <span class="comment">//这里的&quot;重新&quot;和&quot;新&quot;都是指从头开始启动计时器</span></span><br><span class="line"><span class="keyword">case</span> 定时器超时：</span><br><span class="line">     重发缓冲在buffer里的数据，新启动定时器</span><br><span class="line"><span class="keyword">case</span> 收到校验和正确的帧：</span><br><span class="line">     <span class="keyword">if</span>（ack序号正确） &#123;</span><br><span class="line">        关闭旧定时器</span><br><span class="line">        从网络层获取下一个分组放入buffer</span><br><span class="line">        发送buffer中的数据，新启动定时器</span><br><span class="line">     &#125; <span class="keyword">else</span> </span><br><span class="line">         重发缓冲在buffer里的数据，重新启动定时器</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">goto</span> label1</span><br></pre></td></tr></table></figure>
+
+<p>简化版：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">从网络层获取一个分组放入<span class="function">buffer</span></span><br><span class="line"><span class="function"><span class="title">while</span><span class="params">(<span class="literal">true</span>)</span> </span>&#123;</span><br><span class="line">   发送buffer中的数据，启动定时器</span><br><span class="line">   <span class="built_in">wait_for_event</span>()</span><br><span class="line">   <span class="keyword">if</span> (收到校验和正确的帧) &#123;</span><br><span class="line">      <span class="keyword">if</span>（ack序号正确） &#123;</span><br><span class="line">         关闭旧定时器</span><br><span class="line">         从网络层获取下一个分组放入buffer</span><br><span class="line">         &#125; </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>receiver伪代码<br>课本上的代码见<a href="https://api2.mubu.com/v3/document_image/fa67061a-f013-4c8f-9c3f-9fea1dff167d-16175743.jpg">这里</a></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">frame_expected=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">   <span class="built_in">wait_for_event</span>()</span><br><span class="line">   <span class="keyword">switch</span>(event) &#123;</span><br><span class="line">   <span class="keyword">case</span> 坏帧：</span><br><span class="line">      do_nothing</span><br><span class="line">   <span class="keyword">case</span> 收到校验和正确的数据帧:</span><br><span class="line">      <span class="keyword">if</span>（序号==frame_expected） &#123;</span><br><span class="line">         向网络层上交分组</span><br><span class="line">         回ACK（序号为frame_expected)</span><br><span class="line">         <span class="built_in">inc</span>(frame_expected)</span><br><span class="line">      &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">         回ACK（序号为frame_expected<span class="number">-1</span>)</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="计时器Timer"><a href="#计时器Timer" class="headerlink" title="计时器Timer"></a>计时器Timer</h4><p>gzc说计时器的间隔是个比较精细的活儿，短了可能收不到，然后每个帧都得发俩遍，间隔长了效率低。实际上设计的比较保守（因为错误实在比较少），但是自己做的实验里面就整个比较合适的值就完了（500ms差不多就完了，这世间卫星都跑到了）。<br><font size=1>👴居然听懂了</font></p>
+<h2 id="3-4滑动窗口协议"><a href="#3-4滑动窗口协议" class="headerlink" title="3.4滑动窗口协议"></a>3.4滑动窗口协议</h2><p>英文是：<br><strong>Sliding Window</strong></p>
+<h3 id="捎带应答Piggy-backing"><a href="#捎带应答Piggy-backing" class="headerlink" title="捎带应答Piggy backing"></a>捎带应答Piggy backing</h3><p><font size=1>查了一下piggy的意思是贪心的，🐷🐷风评被害</font><br>就是说俩边不停的来回发，（全双工），就可以把ACK信息放在sck field里面，跟着另一方的回复发回去。</p>
+<h3 id="发送-x2F-接收窗口Sending-window-amp-Receiving-window"><a href="#发送-x2F-接收窗口Sending-window-amp-Receiving-window" class="headerlink" title="发送&#x2F;接收窗口Sending window &amp; Receiving window"></a>发送&#x2F;接收窗口Sending window &amp; Receiving window</h3><p>发送窗口维护一组序号，一个时间对应一组可以发送的序号<br>接收窗口同理，维护的是一组可以接受的信号。接收窗口大于1的时候，落在接收窗口的帧不能马上接受，需要把没按顺序到达的帧先存起来。</p>
+<p>几种协议：（由简到繁，由最简单的调整参数就可以依次实现）</p>
+<ul>
+<li>A <strong>One-Bit</strong> Sliding Window Protocol 实际上就是停等协议</li>
+<li>A Protocol Using <strong>Go Back N</strong>  GBN协议</li>
+<li>A Protocol Using <strong>Selective Repeat</strong> SR协议</li>
+</ul>
+<h4 id="单bit的滑动窗口协议"><a href="#单bit的滑动窗口协议" class="headerlink" title="单bit的滑动窗口协议"></a>单bit的滑动窗口协议</h4><p>发送窗口&#x3D;&#x3D;接收窗口<br><img src="https://api2.mubu.com/v3/document_image/88477f43-1e79-488e-8992-db2a956bad4a-16175743.jpg" alt="单bit"><br>A sliding window of size 1, with a 3-bit sequence number.<br>窗口关闭的意思是没有帧在发送<br>(a) 初始状态<br>(b) 第一个帧发送完成<br>(c) 第一个帧已经被接收<br>(d) 第一个ACK被接收</p>
+<p>课本上的代码在<a href="https://api2.mubu.com/v3/document_image/9d4c339e-0bfa-4e7d-9f5e-d9b655f187a5-16175743.jpg">这里1</a>以及<a href="https://api2.mubu.com/v3/document_image/b9392d86-a6db-4331-968c-4a485dca220f-16175743.jpg">这里2</a><br><font size=1>gzc说实际工程里的发送方的序号是期望收到的序号，但是课本上不是，whatever，👴不懂</font></p>
+<h2 id="3-5数据链路层协议实例"><a href="#3-5数据链路层协议实例" class="headerlink" title="3.5数据链路层协议实例"></a>3.5数据链路层协议实例</h2>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计网</tag>
       </tags>
   </entry>
 </search>
