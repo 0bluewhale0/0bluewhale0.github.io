@@ -732,9 +732,10 @@
       </tags>
   </entry>
   <entry>
-    <title>计网笔记-数据链路层1</title>
+    <title>计网笔记-数据链路层2</title>
     <url>/2022/04/06/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%822/</url>
-    <content><![CDATA[<h2 id="3-4滑动窗口协议"><a href="#3-4滑动窗口协议" class="headerlink" title="3.4滑动窗口协议"></a>3.4滑动窗口协议</h2><p>英文是：<br><strong>Sliding Window</strong></p>
+    <content><![CDATA[<p>上一个太长了，再分一个</p>
+<h2 id="3-4滑动窗口协议"><a href="#3-4滑动窗口协议" class="headerlink" title="3.4滑动窗口协议"></a>3.4滑动窗口协议</h2><p>英文是：<br><strong>Sliding Window</strong></p>
 <h3 id="捎带应答Piggy-backing"><a href="#捎带应答Piggy-backing" class="headerlink" title="捎带应答Piggy backing"></a>捎带应答Piggy backing</h3><p><font size=1>查了一下piggy的意思是贪心的，🐷🐷风评被害</font><br>就是说俩边不停的来回发，（全双工），就可以把ACK信息放在sck field里面，跟着另一方的回复发回去。</p>
 <h3 id="发送-x2F-接收窗口Sending-window-amp-Receiving-window"><a href="#发送-x2F-接收窗口Sending-window-amp-Receiving-window" class="headerlink" title="发送&#x2F;接收窗口Sending window &amp; Receiving window"></a>发送&#x2F;接收窗口Sending window &amp; Receiving window</h3><p>发送窗口维护一组序号，一个时间对应一组可以发送的序号<br>接收窗口同理，维护的是一组可以接受的信号。接收窗口大于1的时候，落在接收窗口的帧不能马上接受，需要把没按顺序到达的帧先存起来。</p>
 <p>几种协议：（由简到繁，由最简单的调整参数就可以依次实现）</p>

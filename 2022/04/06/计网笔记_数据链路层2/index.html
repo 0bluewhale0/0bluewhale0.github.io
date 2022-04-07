@@ -5,13 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>计网笔记-数据链路层1 - SZH&#39;s blog</title>
+    <title>计网笔记-数据链路层2 - SZH&#39;s blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="shanzhihan&#39;s blog,"> 
-    <meta name="description" content="一生所求是做个温柔又强大的人,3.4滑动窗口协议英文是：Sliding Window
-捎带应答Piggy backing查了一下piggy的意思是贪心的，🐷🐷风评被害就是说俩边不停的来回发，（全双工），就可以把ACK信息放在,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,上一个太长了，再分一个
+3.4滑动窗口协议英文是：Sliding Window
+捎带应答Piggy backing查了一下piggy的意思是贪心的，🐷🐷风评被害就是说俩边不停的来回发，（全双工）,"> 
     <meta name="author" content="szh"> 
     <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/icoon.png"> 
@@ -21,18 +22,20 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="计网笔记-数据链路层1 - SZH&#39;s blog"/>
-    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,3.4滑动窗口协议英文是：Sliding Window
-捎带应答Piggy backing查了一下piggy的意思是贪心的，🐷🐷风评被害就是说俩边不停的来回发，（全双工），就可以把ACK信息放在,"/>
+    <meta name="twitter:title" content="计网笔记-数据链路层2 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,上一个太长了，再分一个
+3.4滑动窗口协议英文是：Sliding Window
+捎带应答Piggy backing查了一下piggy的意思是贪心的，🐷🐷风评被害就是说俩边不停的来回发，（全双工）,"/>
     
     
     
     
     <meta property="og:site_name" content="SZH&#39;s blog"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="计网笔记-数据链路层1 - SZH&#39;s blog"/>
-    <meta property="og:description" content="一生所求是做个温柔又强大的人,3.4滑动窗口协议英文是：Sliding Window
-捎带应答Piggy backing查了一下piggy的意思是贪心的，🐷🐷风评被害就是说俩边不停的来回发，（全双工），就可以把ACK信息放在,"/>
+    <meta property="og:title" content="计网笔记-数据链路层2 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,上一个太长了，再分一个
+3.4滑动窗口协议英文是：Sliding Window
+捎带应答Piggy backing查了一下piggy的意思是贪心的，🐷🐷风评被害就是说俩边不停的来回发，（全双工）,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -46,7 +49,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">计网笔记-数据链路层1</h3>
+    <h3 class="subtitle">计网笔记-数据链路层2</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -61,7 +64,7 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">计网笔记-数据链路层1</h1>
+        <h1 class="title">计网笔记-数据链路层2</h1>
         <div class="stuff">
             <span>四月 06, 2022</span>
             
@@ -70,7 +73,8 @@
 
         </div>
         <div class="content markdown">
-            <h2 id="3-4滑动窗口协议"><a href="#3-4滑动窗口协议" class="headerlink" title="3.4滑动窗口协议"></a>3.4滑动窗口协议</h2><p>英文是：<br><strong>Sliding Window</strong></p>
+            <p>上一个太长了，再分一个</p>
+<h2 id="3-4滑动窗口协议"><a href="#3-4滑动窗口协议" class="headerlink" title="3.4滑动窗口协议"></a>3.4滑动窗口协议</h2><p>英文是：<br><strong>Sliding Window</strong></p>
 <h3 id="捎带应答Piggy-backing"><a href="#捎带应答Piggy-backing" class="headerlink" title="捎带应答Piggy backing"></a>捎带应答Piggy backing</h3><p><font size=1>查了一下piggy的意思是贪心的，🐷🐷风评被害</font><br>就是说俩边不停的来回发，（全双工），就可以把ACK信息放在sck field里面，跟着另一方的回复发回去。</p>
 <h3 id="发送-x2F-接收窗口Sending-window-amp-Receiving-window"><a href="#发送-x2F-接收窗口Sending-window-amp-Receiving-window" class="headerlink" title="发送&#x2F;接收窗口Sending window &amp; Receiving window"></a>发送&#x2F;接收窗口Sending window &amp; Receiving window</h3><p>发送窗口维护一组序号，一个时间对应一组可以发送的序号<br>接收窗口同理，维护的是一组可以接受的信号。接收窗口大于1的时候，落在接收窗口的帧不能马上接受，需要把没按顺序到达的帧先存起来。</p>
 <p>几种协议：（由简到繁，由最简单的调整参数就可以依次实现）</p>
