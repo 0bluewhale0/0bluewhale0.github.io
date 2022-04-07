@@ -627,6 +627,7 @@
 </ul>
 </li>
 </ul>
+<p>一道👴不理解的题<br>Suppose that data are transmitted in blocks of sizes 1000 bits. What is the maximum error rate under which error detection and retransmission mechanism (1 parity bit per block) is better than using Hamming code? Assume that bit errors are independent of one another and no bit error occurs during retransmission.<br><a href="https://api2.mubu.com/v3/document_image/5bbff850-5b07-4bc4-b927-def84152dbb8-16175743.jpg"></a></p>
 <h4 id="奇偶校验码Parity"><a href="#奇偶校验码Parity" class="headerlink" title="奇偶校验码Parity"></a>奇偶校验码Parity</h4><p>略</p>
 <h4 id="校验和Checksums"><a href="#校验和Checksums" class="headerlink" title="校验和Checksums"></a>校验和Checksums</h4><p>gzc说从网上抄了段代码给👴们👀👀</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Word <span class="title">Cksum</span><span class="params">(Word *Buf, Word Num_Words)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	    Dword Sum;</span><br><span class="line">  	    <span class="keyword">for</span>  ( Sum=<span class="number">0</span>; Num_Words&gt;<span class="number">0</span>;  Num_Words--)</span><br><span class="line">	         Sum+=*Buf++;</span><br><span class="line">	    Sum = ( Sum &gt;&gt; <span class="number">16</span> ) + ( Sum &amp; <span class="number">0xffff</span> ); </span><br><span class="line">	    Sum += Sum &gt;&gt; <span class="number">16</span>;</span><br><span class="line">	    <span class="keyword">return</span> ~Sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -680,7 +681,60 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">frame_expected=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">   <span class="built_in">wait_for_event</span>()</span><br><span class="line">   <span class="keyword">switch</span>(event) &#123;</span><br><span class="line">   <span class="keyword">case</span> 坏帧：</span><br><span class="line">      do_nothing</span><br><span class="line">   <span class="keyword">case</span> 收到校验和正确的数据帧:</span><br><span class="line">      <span class="keyword">if</span>（序号==frame_expected） &#123;</span><br><span class="line">         向网络层上交分组</span><br><span class="line">         回ACK（序号为frame_expected)</span><br><span class="line">         <span class="built_in">inc</span>(frame_expected)</span><br><span class="line">      &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">         回ACK（序号为frame_expected<span class="number">-1</span>)</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="计时器Timer"><a href="#计时器Timer" class="headerlink" title="计时器Timer"></a>计时器Timer</h4><p>gzc说计时器的间隔是个比较精细的活儿，短了可能收不到，然后每个帧都得发俩遍，间隔长了效率低。实际上设计的比较保守（因为错误实在比较少），但是自己做的实验里面就整个比较合适的值就完了（500ms差不多就完了，这世间卫星都跑到了）。<br><font size=1>👴居然听懂了</font></p>
-<h2 id="3-4滑动窗口协议"><a href="#3-4滑动窗口协议" class="headerlink" title="3.4滑动窗口协议"></a>3.4滑动窗口协议</h2><p>英文是：<br><strong>Sliding Window</strong></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>凌晨2点，👴未眠</title>
+    <url>/2022/04/08/%E5%87%8C%E6%99%A82%E7%82%B9%EF%BC%8C%E7%88%B7%E6%9C%AA%E7%9C%A0/</url>
+    <content><![CDATA[<p>先说说没睡的原因。<br>👴从下午开始睡大觉，十点多睡醒了，以至于到现在还是睡不着。另外的一个现在仍旧非常精神的原因是睡醒之后胃不舒服不想喝纯白开，随便搞了点咖啡让自己好受点。<br>睡醒之后看了会儿美人。<br>跟<a href="https://mushroom323.github.io/">🍄神</a>讨论了点儿计网，由于躺着脑子根本不动所以爬起来了。<br>之后听了听歌，发现<a href="https://www.axsl.site/">老板</a>亦未寝。</p>
+<p>老板给👴发了关于“大和抚子”的废话。<br>👴发表了非常<del>喜爱</del>欣赏明艳大气美女子的言论。</p>
+<p>👴开始看闲书（某z姓大佬推荐的好书）。</p>
+<blockquote>
+<p>👴：<br><img src="https://s3.bmp.ovh/imgs/2022/04/08/e949dd6f6bd556cd.png" alt="闲书"><br>老板：你可以把自己🧠，拿出来。</p>
+</blockquote>
+<p>👴们讨论了大脑的跳跃性思维导致我们无法控制自己的大脑去做什么这件事。<br>接着就讨论起到底有没有“真正喜欢的事情”这个话题。（相关性并不强的俩话题，或许佐证了大脑自己愿意想什么是不怎么受👴们控制的）<br>👴本来以为自己没有什么喜欢做的事情。<br>然后发现满足“因为喜欢所以可以一直做下去不产生任何反感兴趣和不耐烦的事情”条件的<br>👴还是有的<br>至少在看美人这件事上👴完全满足这个条件（</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="https://s3.bmp.ovh/imgs/2022/04/08/887278b873c108fc.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">美人论</div>
+</center>
+
+<p>最后来点闲书的摘抄</p>
+<ul>
+<li>记得过去老师讲解《论语》中曾子说的“吾日三省吾身”，有两种解释，第<br>一种是我每一天都自我反省三（多）次；第二种是我每一天都以下列三件事来自我反省；管他每天到底是“反省三次”，还是“列出三件事来反省”，都并不重要。</li>
+</ul>
+<p><strong>重要的是，他每天都在“反省”</strong>。<br>作为一个真正意义上的人，好像没有什么比这个更重要了。</p>
+<ul>
+<li>长期来看，我们都是要死的。————约翰·梅纳德·凯恩斯</li>
+<li>即使是在极端恶劣的环境里，人们也会拥有一种最后的自由，那就是选择自己的态度的自由。————维克托·弗兰克</li>
+<li>最常见的误解就是，当我们觉得自己痛苦时，总是不自觉的把自己想象成全世界最痛苦的人。这是非常自然的，因为我们自己的痛苦我们亲身感受，而别人的痛苦我们又很难真正做到感同身受。</li>
+<li>所以说，怀旧是一种错觉。甚至它更可能只不过是幻觉。有人用过这么一个比喻：如果说记忆本身是葡萄，那么回忆的过程就是发酵。</li>
+<li>因为人生苦短，如果成功太慢那么幸福必然减半。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>少年听雨</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计网笔记-数据链路层1</title>
+    <url>/2022/04/06/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%822/</url>
+    <content><![CDATA[<h2 id="3-4滑动窗口协议"><a href="#3-4滑动窗口协议" class="headerlink" title="3.4滑动窗口协议"></a>3.4滑动窗口协议</h2><p>英文是：<br><strong>Sliding Window</strong></p>
 <h3 id="捎带应答Piggy-backing"><a href="#捎带应答Piggy-backing" class="headerlink" title="捎带应答Piggy backing"></a>捎带应答Piggy backing</h3><p><font size=1>查了一下piggy的意思是贪心的，🐷🐷风评被害</font><br>就是说俩边不停的来回发，（全双工），就可以把ACK信息放在sck field里面，跟着另一方的回复发回去。</p>
 <h3 id="发送-x2F-接收窗口Sending-window-amp-Receiving-window"><a href="#发送-x2F-接收窗口Sending-window-amp-Receiving-window" class="headerlink" title="发送&#x2F;接收窗口Sending window &amp; Receiving window"></a>发送&#x2F;接收窗口Sending window &amp; Receiving window</h3><p>发送窗口维护一组序号，一个时间对应一组可以发送的序号<br>接收窗口同理，维护的是一组可以接受的信号。接收窗口大于1的时候，落在接收窗口的帧不能马上接受，需要把没按顺序到达的帧先存起来。</p>
 <p>几种协议：（由简到繁，由最简单的调整参数就可以依次实现）</p>
@@ -689,8 +743,23 @@
 <li>A Protocol Using <strong>Go Back N</strong>  GBN协议</li>
 <li>A Protocol Using <strong>Selective Repeat</strong> SR协议</li>
 </ul>
-<h4 id="单bit的滑动窗口协议"><a href="#单bit的滑动窗口协议" class="headerlink" title="单bit的滑动窗口协议"></a>单bit的滑动窗口协议</h4><p>发送窗口&#x3D;&#x3D;接收窗口<br><img src="https://api2.mubu.com/v3/document_image/88477f43-1e79-488e-8992-db2a956bad4a-16175743.jpg" alt="单bit"><br>A sliding window of size 1, with a 3-bit sequence number.<br>窗口关闭的意思是没有帧在发送<br>(a) 初始状态<br>(b) 第一个帧发送完成<br>(c) 第一个帧已经被接收<br>(d) 第一个ACK被接收</p>
+<h3 id="单bit的滑动窗口协议"><a href="#单bit的滑动窗口协议" class="headerlink" title="单bit的滑动窗口协议"></a>单bit的滑动窗口协议</h3><p><strong>Protocol 4</strong><br>发送窗口&#x3D;&#x3D;接收窗口<br><img src="https://api2.mubu.com/v3/document_image/88477f43-1e79-488e-8992-db2a956bad4a-16175743.jpg" alt="单bit"><br>A sliding window of size 1, with a 3-bit sequence number.<br>窗口关闭的意思是没有帧在发送<br>(a) 初始状态<br>(b) 第一个帧发送完成<br>(c) 第一个帧已经被接收<br>(d) 第一个ACK被接收</p>
 <p>课本上的代码在<a href="https://api2.mubu.com/v3/document_image/9d4c339e-0bfa-4e7d-9f5e-d9b655f187a5-16175743.jpg">这里1</a>以及<a href="https://api2.mubu.com/v3/document_image/b9392d86-a6db-4331-968c-4a485dca220f-16175743.jpg">这里2</a><br><font size=1>gzc说实际工程里的发送方的序号是期望收到的序号，但是课本上不是，whatever，👴不懂</font></p>
+<ul>
+<li>关于line utilization（线路利用）<br>👴自己的理解大概就是<font color=blue><br>$\frac{发送端在发送消息的时间}{消息到达并收到ACK的时间}$</font><br>其中<br><font size=2 color=blue>消息到达并收到ACK的时间&#x3D;发送消息的时间+传播(propagation)延迟$\times2$</font></li>
+<li>单bit滑动窗口协议的问题就在于<u>线路利用率太低了</u></li>
+</ul>
+<h3 id="Go-Back-N-协议"><a href="#Go-Back-N-协议" class="headerlink" title="Go Back N 协议"></a>Go Back N 协议</h3><p><strong>Protocol 5</strong><br><img src="https://api2.mubu.com/v3/document_image/70054526-d907-4673-b4b6-1088c625507a-16175743.jpg"></p>
+<h3 id="SR协议Selective-Repeat-x2F-Reject"><a href="#SR协议Selective-Repeat-x2F-Reject" class="headerlink" title="SR协议Selective Repeat&#x2F;Reject"></a>SR协议Selective Repeat&#x2F;Reject</h3><p><strong>Protocol 6</strong></p>
+<h4 id="关于滑动窗口的数量"><a href="#关于滑动窗口的数量" class="headerlink" title="关于滑动窗口的数量"></a>关于滑动窗口的数量</h4><p>Ws：sender window<br>Wr: reciver window<br>他们的数量关系满足以下式子：</p>
+<blockquote>
+<p>Ws+Wr &lt;&#x3D;2n<br> Ws&gt;&#x3D;Wr<br>可以推出：<br> Ws,Wr&lt;&#x3D; 2n -1</p>
+</blockquote>
+<p>课本上的代码在<a href="https://api2.mubu.com/v3/document_image/596a271d-196c-44b1-acbc-ca15be42618d-16175743.jpg">这里1</a>,<a href="https://api2.mubu.com/v3/document_image/89628c93-471f-411e-923b-7df2be7b36bc-16175743.jpg">这里2</a>,<a href="https://api2.mubu.com/v3/document_image/7a115cd0-ad06-4e6b-8d04-d797d631eeee-16175743.jpg">这里3</a>以及<a href="https://api2.mubu.com/v3/document_image/d601ad65-c489-47e6-8273-f64e9c9ba542-16175743.jpg">这里4</a></p>
+<h4 id="关于line-utilization（gzc的official理解）"><a href="#关于line-utilization（gzc的official理解）" class="headerlink" title="关于line utilization（gzc的official理解）"></a>关于line utilization（gzc的official理解）</h4><p>当sender只有一个窗口时，也就是单bit的滑动窗口时，示意图如下。（分为a，b两种情况，从上往下为时间推进方向）<br><img src="https://api2.mubu.com/v3/document_image/6679fb30-043e-4701-8fef-a1b044dfd208-16175743.jpg" alt="official理解"></p>
+<p>$\alpha&#x3D;\cfrac{t_p}{t_f}$ ，  $t_p$即propagation time，传输时延，$t_f$是发送时延。<br>这里的$\alpha$其实就是sender和reciver之间可以放得下几个Frame。</p>
+<p>当sender有W个窗口的时候就是这么个状态<br><img src="https://api2.mubu.com/v3/document_image/9b174992-5855-4a4e-b9e7-57f4c0ea5def-16175743.jpg" alt="W个窗口"><br>常见介质中的信号传播速度<br><img src="https://api2.mubu.com/v3/document_image/750a9a07-002d-4976-aa20-024e882846e0-16175743.jpg"></p>
+<p>throughput:吞吐量&#x3D;利用率*带宽</p>
 <h2 id="3-5数据链路层协议实例"><a href="#3-5数据链路层协议实例" class="headerlink" title="3.5数据链路层协议实例"></a>3.5数据链路层协议实例</h2>]]></content>
       <categories>
         <category>笔记</category>

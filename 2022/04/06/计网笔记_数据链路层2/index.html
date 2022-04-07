@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计网笔记-数据链路层1 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,3.4滑动窗口协议英文是：Sliding Window
+捎带应答Piggy backing查了一下piggy的意思是贪心的，🐷🐷风评被害就是说俩边不停的来回发，（全双工），就可以把ACK信息放在,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="计网笔记-数据链路层1 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,3.4滑动窗口协议英文是：Sliding Window
+捎带应答Piggy backing查了一下piggy的意思是贪心的，🐷🐷风评被害就是说俩边不停的来回发，（全双工），就可以把ACK信息放在,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="计网笔记-数据链路层1 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,3.4滑动窗口协议英文是：Sliding Window
+捎带应答Piggy backing查了一下piggy的意思是贪心的，🐷🐷风评被害就是说俩边不停的来回发，（全双工），就可以把ACK信息放在,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计网笔记-数据链路层1</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计网笔记-数据链路层1</h1>
+        <div class="stuff">
+            <span>四月 06, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%AE%A1%E7%BD%91/" rel="tag">计网</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="3-4滑动窗口协议"><a href="#3-4滑动窗口协议" class="headerlink" title="3.4滑动窗口协议"></a>3.4滑动窗口协议</h2><p>英文是：<br><strong>Sliding Window</strong></p>
+<h3 id="捎带应答Piggy-backing"><a href="#捎带应答Piggy-backing" class="headerlink" title="捎带应答Piggy backing"></a>捎带应答Piggy backing</h3><p><font size=1>查了一下piggy的意思是贪心的，🐷🐷风评被害</font><br>就是说俩边不停的来回发，（全双工），就可以把ACK信息放在sck field里面，跟着另一方的回复发回去。</p>
+<h3 id="发送-x2F-接收窗口Sending-window-amp-Receiving-window"><a href="#发送-x2F-接收窗口Sending-window-amp-Receiving-window" class="headerlink" title="发送&#x2F;接收窗口Sending window &amp; Receiving window"></a>发送&#x2F;接收窗口Sending window &amp; Receiving window</h3><p>发送窗口维护一组序号，一个时间对应一组可以发送的序号<br>接收窗口同理，维护的是一组可以接受的信号。接收窗口大于1的时候，落在接收窗口的帧不能马上接受，需要把没按顺序到达的帧先存起来。</p>
+<p>几种协议：（由简到繁，由最简单的调整参数就可以依次实现）</p>
+<ul>
+<li>A <strong>One-Bit</strong> Sliding Window Protocol 实际上就是停等协议</li>
+<li>A Protocol Using <strong>Go Back N</strong>  GBN协议</li>
+<li>A Protocol Using <strong>Selective Repeat</strong> SR协议</li>
+</ul>
+<h3 id="单bit的滑动窗口协议"><a href="#单bit的滑动窗口协议" class="headerlink" title="单bit的滑动窗口协议"></a>单bit的滑动窗口协议</h3><p><strong>Protocol 4</strong><br>发送窗口&#x3D;&#x3D;接收窗口<br><img src="https://api2.mubu.com/v3/document_image/88477f43-1e79-488e-8992-db2a956bad4a-16175743.jpg" alt="单bit"><br>A sliding window of size 1, with a 3-bit sequence number.<br>窗口关闭的意思是没有帧在发送<br>(a) 初始状态<br>(b) 第一个帧发送完成<br>(c) 第一个帧已经被接收<br>(d) 第一个ACK被接收</p>
+<p>课本上的代码在<a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/9d4c339e-0bfa-4e7d-9f5e-d9b655f187a5-16175743.jpg">这里1</a>以及<a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/b9392d86-a6db-4331-968c-4a485dca220f-16175743.jpg">这里2</a><br><font size=1>gzc说实际工程里的发送方的序号是期望收到的序号，但是课本上不是，whatever，👴不懂</font></p>
+<ul>
+<li>关于line utilization（线路利用）<br>👴自己的理解大概就是<font color=blue><br>$\frac{发送端在发送消息的时间}{消息到达并收到ACK的时间}$</font><br>其中<br><font size=2 color=blue>消息到达并收到ACK的时间&#x3D;发送消息的时间+传播(propagation)延迟$\times2$</font></li>
+<li>单bit滑动窗口协议的问题就在于<u>线路利用率太低了</u></li>
+</ul>
+<h3 id="Go-Back-N-协议"><a href="#Go-Back-N-协议" class="headerlink" title="Go Back N 协议"></a>Go Back N 协议</h3><p><strong>Protocol 5</strong><br><img src="https://api2.mubu.com/v3/document_image/70054526-d907-4673-b4b6-1088c625507a-16175743.jpg"></p>
+<h3 id="SR协议Selective-Repeat-x2F-Reject"><a href="#SR协议Selective-Repeat-x2F-Reject" class="headerlink" title="SR协议Selective Repeat&#x2F;Reject"></a>SR协议Selective Repeat&#x2F;Reject</h3><p><strong>Protocol 6</strong></p>
+<h4 id="关于滑动窗口的数量"><a href="#关于滑动窗口的数量" class="headerlink" title="关于滑动窗口的数量"></a>关于滑动窗口的数量</h4><p>Ws：sender window<br>Wr: reciver window<br>他们的数量关系满足以下式子：</p>
+<blockquote>
+<p>Ws+Wr &lt;&#x3D;2n<br> Ws&gt;&#x3D;Wr<br>可以推出：<br> Ws,Wr&lt;&#x3D; 2n -1</p>
+</blockquote>
+<p>课本上的代码在<a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/596a271d-196c-44b1-acbc-ca15be42618d-16175743.jpg">这里1</a>,<a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/89628c93-471f-411e-923b-7df2be7b36bc-16175743.jpg">这里2</a>,<a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/7a115cd0-ad06-4e6b-8d04-d797d631eeee-16175743.jpg">这里3</a>以及<a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/d601ad65-c489-47e6-8273-f64e9c9ba542-16175743.jpg">这里4</a></p>
+<h4 id="关于line-utilization（gzc的official理解）"><a href="#关于line-utilization（gzc的official理解）" class="headerlink" title="关于line utilization（gzc的official理解）"></a>关于line utilization（gzc的official理解）</h4><p>当sender只有一个窗口时，也就是单bit的滑动窗口时，示意图如下。（分为a，b两种情况，从上往下为时间推进方向）<br><img src="https://api2.mubu.com/v3/document_image/6679fb30-043e-4701-8fef-a1b044dfd208-16175743.jpg" alt="official理解"></p>
+<p>$\alpha&#x3D;\cfrac{t_p}{t_f}$ ，  $t_p$即propagation time，传输时延，$t_f$是发送时延。<br>这里的$\alpha$其实就是sender和reciver之间可以放得下几个Frame。</p>
+<p>当sender有W个窗口的时候就是这么个状态<br><img src="https://api2.mubu.com/v3/document_image/9b174992-5855-4a4e-b9e7-57f4c0ea5def-16175743.jpg" alt="W个窗口"><br>常见介质中的信号传播速度<br><img src="https://api2.mubu.com/v3/document_image/750a9a07-002d-4976-aa20-024e882846e0-16175743.jpg"></p>
+<p>throughput:吞吐量&#x3D;利用率*带宽</p>
+<h2 id="3-5数据链路层协议实例"><a href="#3-5数据链路层协议实例" class="headerlink" title="3.5数据链路层协议实例"></a>3.5数据链路层协议实例</h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/【钢琴】《你离开的事实 》The Truth that You Leave 罗曼耶卓 Oskar R - 1.truth_POST(Av586020664,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/【钢琴】《大雾》(demo版）张一乔 - 1.dawu(Av417516306,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/【钢琴】《晴天》Oskar Roman Jezior 周杰伦 - 1.qingtian_POST(Av331213171,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/【钢琴】《撒野》罗曼耶卓 - 1.saye_POST(Av459374452,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/【钢琴】坂本龙一《圣诞快乐 劳伦斯先生》 罗曼耶卓 Oskar Roman Jezior - 1.mr_lawrence_POST(Av885864226,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】陈奕迅《富士山下》罗曼耶卓 Oskar Roman Jezior - 1.fuji_POST(Av288674149,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】花之舞 《Flower Dance》罗曼耶卓 Oskar Roman Jezior - 1.flower_dance_POST(Av331481248,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】暮光之城《A Thousand Years》罗曼耶卓 - 1.thousand_years_POST(Av289839694,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/Young and Beautiful.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/错位时空.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.</span> <span class="toc-text">3.4滑动窗口协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%8E%E5%B8%A6%E5%BA%94%E7%AD%94Piggy-backing"><span class="toc-number">1.1.</span> <span class="toc-text">捎带应答Piggy backing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E9%80%81-x2F-%E6%8E%A5%E6%94%B6%E7%AA%97%E5%8F%A3Sending-window-amp-Receiving-window"><span class="toc-number">1.2.</span> <span class="toc-text">发送&#x2F;接收窗口Sending window &amp; Receiving window</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95bit%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.3.</span> <span class="toc-text">单bit的滑动窗口协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go-Back-N-%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.4.</span> <span class="toc-text">Go Back N 协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SR%E5%8D%8F%E8%AE%AESelective-Repeat-x2F-Reject"><span class="toc-number">1.5.</span> <span class="toc-text">SR协议Selective Repeat&#x2F;Reject</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%95%B0%E9%87%8F"><span class="toc-number">1.5.1.</span> <span class="toc-text">关于滑动窗口的数量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Eline-utilization%EF%BC%88gzc%E7%9A%84official%E7%90%86%E8%A7%A3%EF%BC%89"><span class="toc-number">1.5.2.</span> <span class="toc-text">关于line utilization（gzc的official理解）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">3.5数据链路层协议实例</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>
