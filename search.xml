@@ -270,7 +270,7 @@
       </tags>
   </entry>
   <entry>
-    <title>计组笔记chapter2</title>
+    <title>计组笔记_chapter2</title>
     <url>/2022/03/23/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0chapter2/</url>
     <content><![CDATA[<h2 id="IEEE浮点表示"><a href="#IEEE浮点表示" class="headerlink" title="IEEE浮点表示"></a>IEEE浮点表示</h2><p>规格化表示：<br><img src="https://api2.mubu.com/v3/document_image/edff1550-2019-44d5-94b3-a8bca0ca4809-16175743.jpg" alt="规格化"></p>
 <p>特殊的浮点数<br><img src="https://api2.mubu.com/v3/document_image/42891536-e62d-4cd9-b358-64b73d22d52e-16175743.jpg" alt="特殊的浮点数"></p>
@@ -821,6 +821,123 @@
       </categories>
       <tags>
         <tag>少年听雨</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CPP_命名空间</title>
+    <url>/2022/04/22/CPP_%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</url>
+    <content><![CDATA[<p>纯纯速通一下-2，全是截图，留着忘了基础操作的时候看</p>
+<p><img src="https://api2.mubu.com/v3/document_image/ede93f00-ada6-41c0-930b-f99eddb7bba8-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/d1c188d6-5b72-4b6f-8073-e5a9c51f6a90-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/e169c701-afc7-4445-b015-3319774c6982-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/a9e0498b-65e6-49b8-be39-149317a08fa1-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/9aceefe5-7399-4b4a-b253-8aebe74febf3-16175743.jpg">    </p>
+<p>全局命名空间<br><img src="https://api2.mubu.com/v3/document_image/e88d9228-e936-4813-902d-32db60e057f3-16175743.jpg"></p>
+<p>嵌套命名空间<br><img src="https://api2.mubu.com/v3/document_image/3107728d-9a4d-43c3-b85c-2772611f04a4-16175743.jpg"></p>
+<p>无名命名空间<br><img src="https://api2.mubu.com/v3/document_image/3983c0d9-1c52-4f4c-bafa-bf7e8f244157-16175743.jpg"><br><img src="https://api2.mubu.com/v3/document_image/e61473b4-efc8-4bb5-976c-95b1052ec63c-16175743.jpg"></p>
+<p>命名空间内名字的查找类似于作用域，先小后大</p>
+<p><img src="https://api2.mubu.com/v3/document_image/ff8ca296-7ad1-4e12-b2da-0ca7c582d88f-16175743.jpg"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CPP_容器类和模板</title>
+    <url>/2022/04/22/CPP_%E5%AE%B9%E5%99%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p>纯纯速通一下-3，全是截图，留着忘了基础操作的时候看</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>为什么要有模板？<br>比如比较大小的函数，仅仅是参数类型不同，而操作一样，能不能只写一个函数？</p>
+<p>模板定义<br><img src="https://api2.mubu.com/v3/document_image/63229055-16fb-4237-821a-750f793ce906-16175743.jpg"></p>
+<p>模板分类<br><img src="https://api2.mubu.com/v3/document_image/8a649085-a9a2-46cd-bd88-83c418baddc2-16175743.jpg"><br>使用例子：<br><img src="https://api2.mubu.com/v3/document_image/fe2eaa0b-d5fb-4a43-97d0-3d071ed9f103-16175743.jpg"><br>例子2：<br><img src="https://api2.mubu.com/v3/document_image/5b47f3d4-9855-45f9-8b66-2b36938ff18f-16175743.jpg"></p>
+<h2 id="容器类"><a href="#容器类" class="headerlink" title="容器类"></a>容器类</h2><p><img src="https://api2.mubu.com/v3/document_image/d5499771-36c0-4c5b-95f8-b371bab6f55a-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/d74c7e2e-0031-478a-98d2-ebc0b013356f-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/715754da-d46e-436c-9279-293b7ccdde99-16175743.jpg"></p>
+<p>使用条件：<br><img src="https://api2.mubu.com/v3/document_image/04b709f7-45d7-4f50-8b0d-c0dc3a1dd478-16175743.jpg"></p>
+<p>使用格式<br><img src="https://api2.mubu.com/v3/document_image/911599db-e41f-4eab-9ef7-78f7aab5f297-16175743.jpg"></p>
+<p>初始化方式：<br><img src="https://api2.mubu.com/v3/document_image/77d9cb0b-d50f-4ca3-82a6-844be0582c1b-16175743.jpg"><br><img src="https://api2.mubu.com/v3/document_image/b6db9fe6-4faf-41aa-a7c2-a52a2aaf9029-16175743.jpg"><br><img src="https://api2.mubu.com/v3/document_image/0fdd07cd-813a-4190-9bee-6c6c8fb03941-16175743.jpg"><br><img src="https://api2.mubu.com/v3/document_image/8d434ba7-9a65-4cfc-a6ea-ae94736a8893-16175743.jpg"></p>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p><img src="https://api2.mubu.com/v3/document_image/9b589e00-7f69-4393-932b-ec079764afa2-16175743.jpg"></p>
+<p>迭代器的范围<br><img src="https://api2.mubu.com/v3/document_image/b8073103-2d90-46bb-8443-7a853d92cce8-16175743.jpg"></p>
+<p>迭代器失效<br><img src="https://api2.mubu.com/v3/document_image/0d66ce77-28ab-4460-b308-469981a67987-16175743.jpg"><br><img src="https://api2.mubu.com/v3/document_image/7d05d222-5e5e-4873-8dbb-e253bb724e84-16175743.jpg"><br>不同标准的C++的迭代器遍历<br>！<a href="https://api2.mubu.com/v3/document_image/727574aa-ef3b-4dc9-9a47-a7d2d761f12a-16175743.jpg"></a></p>
+<h3 id="顺序容器的典型操作"><a href="#顺序容器的典型操作" class="headerlink" title="顺序容器的典型操作"></a>顺序容器的典型操作</h3><p><img src="https://api2.mubu.com/v3/document_image/ac2fc968-1f95-4ed9-a99f-ef026a32d566-16175743.jpg"><br><img src="https://api2.mubu.com/v3/document_image/ae5b3b87-2df3-48eb-9def-aff039ea8746-16175743.jpg"></p>
+<ol>
+<li>vector<br><img src="https://api2.mubu.com/v3/document_image/4b87d4d4-55c1-4f3c-b1da-ba5f6a3ced25-16175743.jpg"></li>
+<li>list<br>list的erase操作的参数与vector类似，这里没截到<br><img src="https://api2.mubu.com/v3/document_image/e86767e6-b274-4100-ace0-1ab0bc2922a1-16175743.jpg"></li>
+<li>比较<br><img src="https://api2.mubu.com/v3/document_image/a0cbe200-e687-475f-ba2a-93183c68f2ed-16175743.jpg"></li>
+</ol>
+<h3 id="关联容器"><a href="#关联容器" class="headerlink" title="关联容器"></a>关联容器</h3><p><img src="https://api2.mubu.com/v3/document_image/515e9d9d-2735-4f1a-be29-5ac5823e5a05-16175743.jpg"><br><img src="https://api2.mubu.com/v3/document_image/26ab10b8-d08f-4186-b8d8-661b8b20d372-16175743.jpg"></p>
+<p>map:<br><img src="https://api2.mubu.com/v3/document_image/9cfa2a79-901f-47ab-b5c3-8eba59d58bf9-16175743.jpg"></p>
+<h3 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h3><p><img src="https://api2.mubu.com/v3/document_image/2cf1a1b7-abbf-457d-9e76-34b384383ad6-16175743.jpg"><br>用法<br><img src="https://api2.mubu.com/v3/document_image/cce292c3-6fa2-4edc-a90d-ed92b3a31fcb-16175743.jpg"></p>
+<p>模板是泛型编程的基础</p>
+<p><img src="https://api2.mubu.com/v3/document_image/8c1036c4-842f-4972-ada3-d0926aa47927-16175743.jpg"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CPP_对象指针和数组</title>
+    <url>/2022/04/22/CPP_%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<p>纯纯速通一下，全是截图，留着忘了基础操作的时候看</p>
+<p>对象数组<br><img src="https://api2.mubu.com/v3/document_image/31a5c70e-fae8-4056-a1bf-f4793606ceed-16175743.jpg"></p>
+<p>指针<br><img src="https://api2.mubu.com/v3/document_image/832744f0-a8e1-4136-8ccd-93a8e5eed05b-16175743.jpg"><br><img src="https://api2.mubu.com/v3/document_image/342bb47d-6079-4e1b-b963-ac04f0ddde60-16175743.jpg"></p>
+<p>对象指针<br><img src="https://api2.mubu.com/v3/document_image/11342eea-5baa-4e40-ba8a-e409b148f2c5-16175743.jpg"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>形式语言与自动机_3(part)</title>
+    <url>/2022/04/17/%E5%BD%A2%E5%BC%8F%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA_chapter3/</url>
+    <content><![CDATA[<h2 id="3-9-右线性语言的性质"><a href="#3-9-右线性语言的性质" class="headerlink" title="3.9 右线性语言的性质"></a>3.9 右线性语言的性质</h2><ol>
+<li><p>等价和可区分的概念<br> 设DFA  M &#x3D; (Q，T，δ，q0，F)<br> 对不同的状态q１， q２∈Q 和<mark>每个</mark>ω∈T<em>，<br> 如果有<br> $(q_１,\omega)┣</em> (q，ε)$ 和 $(q２,\omega)┣* (q，ε)$ 且$q\in F$，<br> 则称q１与q２状态等价. 记为$q_１\equiv q_２$<br> 否则，称$q_１$， $q_２$可区分。</p>
+</li>
+<li><p>不可达状态<br>如果不存在任何$\omega \in T^*$，使$(q_０,\omega)┣* (q,\varepsilon)$，<br>则称状态q∈Q为不可达状态。</p>
+</li>
+<li><p>最小化<br>若DFA Ｍ不存在互为等价状态及不可达状态，则称DFA Ｍ是最小化的。</p>
+</li>
+</ol>
+<h2 id="最小化算法"><a href="#最小化算法" class="headerlink" title="最小化算法"></a>最小化算法</h2><p>一个DFA Ｍ的最小化，是把Ｍ的状态集Ｑ构成一个划分。即: 任何两个子集的状态都是可区分的；同一子集中的任何两个状态都是等价的。之后，每个子集用一个状态代表，并取一个状态名。<br>构成划分的步骤:<br>  构成基本划分 $\Pi$&#x3D;{$\Pi^{‘}$, $\Pi^{‘’}$}， ($\Pi^{‘}$为终态集， $\Pi^{‘’}$为非终态集)<br>  细分 $\Pi$ &#x3D;{$\Pi^1$，$\Pi^2$,….., $\Pi^n$}，　　 $\forall \Pi^i$  ∈ $\Pi$<br> 　　　 $\Pi^i &#x3D;{ q_１， q_２，…， q_ｍ}$<br>    当输入任意字符a时，若$\Pi^i$中的状态经标a的边可到达的状态集的元素分属于两个不同的子集中，则将$\Pi^i$细分为两个子集.<br>重复步骤(2)，直至不可再细分，得到Ｍ1.<br>若Ｍ1中有不可达状态，将其删除，Ｍ1便是最小化的.</p>
+<p>优化步骤：<br><img src="https://api2.mubu.com/v3/document_image/bbf4f270-d234-4327-a011-da023cfb52bd-16175743.jpg"></p>
+<p>一个例子：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/6815aa4e-3004-48c2-bc91-7665a8a27768-16175743.jpg"></p>
+<p>填表法的例子：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/7220baf0-ae6a-4d6e-a687-5675b31cdcc5-16175743.jpg"></p>
+<!---解释见[视频]()(还没上传)--->
+
+<h2 id="针对正则语言的-Pumping-引理"><a href="#针对正则语言的-Pumping-引理" class="headerlink" title="针对正则语言的 Pumping 引理"></a>针对正则语言的 Pumping 引理</h2><p>中文是 泵浦</p>
+<p>泵浦引理的性质和地位：</p>
+<ul>
+<li>正则语言应满足的一个<strong>必要条件</strong></li>
+<li>用于<strong>判定</strong>给定的语言<strong>不是正则集</strong>。</li>
+</ul>
+<p>物理意义：当给定一个正则集和该集合上一个足够长的字符串时，在该字符串中能找到一个非空的子串，并使子串重复，从而组成新的字符串。该新串必在同一个正则集内。</p>
+<p>定理：<br>设L是正则集，存在常数k，对字符串$ω\in Ｌ$ 且$｜ω｜≥ｋ$，<br>则ω可写成$ω_1ω_0ω_２$，其中$｜ω_1ω_0｜≤ｋ$，$｜ω_0｜＞０$，<br>对所有的ｉ≥0有$ω_1ω_0^iω_２$∈Ｌ。</p>
+<p>证明：<br>运用了鸽巢原理<br>pumping特性：<br>任一长度不小于状态数目的字符串所标记的路径上，必然出现重复的状态.</p>
+<p><img src="https://api2.mubu.com/v3/document_image/6bb5920c-c175-4d29-89e6-c4e8f5261102-16175743.jpg"></p>
+<p>泵浦引理的应用</p>
+<p><img src="https://api2.mubu.com/v3/document_image/13461ce8-7fa2-4175-ba03-0965e5837558-16175743.jpg"></p>
+<p>注意：ω的取法有技巧， 一定要能推出矛盾才可以。<br>如：<br><img src="https://api2.mubu.com/v3/document_image/51cb931e-caac-4349-b905-3ce69bc8ce2c-16175743.jpg"></p>
+<p>右线性语言的封闭性 (已经忘光光了草哦)</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>形式语言与自动机</tag>
       </tags>
   </entry>
 </search>
