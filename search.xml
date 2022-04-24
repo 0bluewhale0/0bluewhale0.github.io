@@ -902,7 +902,11 @@
     <title>形式语言与自动机_3(part)</title>
     <url>/2022/04/17/%E5%BD%A2%E5%BC%8F%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA_chapter3/</url>
     <content><![CDATA[<h2 id="3-9-右线性语言的性质"><a href="#3-9-右线性语言的性质" class="headerlink" title="3.9 右线性语言的性质"></a>3.9 右线性语言的性质</h2><ol>
-<li><p>等价和可区分的概念<br> 设DFA  M &#x3D; (Q，T，δ，q0，F)<br> 对不同的状态q１， q２∈Q 和<mark>每个</mark>ω∈T<em>，<br> 如果有<br> $(q_１,\omega)┣</em> (q，ε)$ 和 $(q２,\omega)┣* (q，ε)$ 且$q\in F$，<br> 则称q１与q２状态等价. 记为$q_１\equiv q_２$<br> 否则，称$q_１$， $q_２$可区分。</p>
+<li><p>等价和可区分的概念<br> 设DFA  M &#x3D; (Q，T，δ，q0，F)<br> 对不同的状态q１， q２∈Q 和<mark>每个</mark>ω∈T*，<br> 如果有</p>
+ <!---$(q_１,\omega)┣* (q，ε)$ 和 $(q２,\omega)┣* (q，ε)$ 且 $q\in F$ ，
+ 则称q１与q２状态等价. 记为 $q_１\equiv q_２$  
+ 否则，称 $q_１$， $q_２$ 可区分。--->
+<p> <img src="https://api2.mubu.com/v3/document_image/3811e33a-5ed3-496b-a7d1-6236a065d13e-16175743.jpg"></p>
 </li>
 <li><p>不可达状态<br>如果不存在任何$\omega \in T^*$，使$(q_０,\omega)┣* (q,\varepsilon)$，<br>则称状态q∈Q为不可达状态。</p>
 </li>
