@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计网笔记_MAC1 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,咕咕咕咕咕咕鸽了很久的笔记主要是每天躺着根本不想听课就想着玩儿了
+MAC:The Medium Access Control Sublayer 介质访问控制子层
+4.1 信道分配问题The Chan,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="计网笔记_MAC1 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,咕咕咕咕咕咕鸽了很久的笔记主要是每天躺着根本不想听课就想着玩儿了
+MAC:The Medium Access Control Sublayer 介质访问控制子层
+4.1 信道分配问题The Chan,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="计网笔记_MAC1 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,咕咕咕咕咕咕鸽了很久的笔记主要是每天躺着根本不想听课就想着玩儿了
+MAC:The Medium Access Control Sublayer 介质访问控制子层
+4.1 信道分配问题The Chan,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计网笔记_MAC1</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计网笔记_MAC1</h1>
+        <div class="stuff">
+            <span>四月 13, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%AE%A1%E7%BD%91/" rel="tag">计网</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>咕咕咕咕咕咕<br>鸽了很久的笔记<br>主要是每天躺着根本不想听课<br>就想着玩儿了</p>
+<p>MAC:The Medium Access Control Sublayer 介质访问控制子层</p>
+<h2 id="4-1-信道分配问题"><a href="#4-1-信道分配问题" class="headerlink" title="4.1 信道分配问题"></a>4.1 信道分配问题</h2><p>The Channel Allocation Problem</p>
+<!---网桥是重点--->
+<!---路由是网络层的--->
+<!---VLAN虚拟的局域网，是为了安全--->
+<h3 id="M-x2F-M-x2F-1-system"><a href="#M-x2F-M-x2F-1-system" class="headerlink" title="M&#x2F;M&#x2F;1 system"></a>M&#x2F;M&#x2F;1 system</h3><p>信道到达信息的概率服从泊松分布<br><img src="https://api2.mubu.com/v3/document_image/db416156-5a59-4ad2-9cd8-e066d232d4a6-16175743.jpg" alt="泊松分布"><br>其中，λ 是 arrival rate (frames&#x2F;sec)<br>标准排队理论的结果是<br>$T&#x3D;\cfrac{1}{\mu C-\lambda}$<br><img src="https://api2.mubu.com/v3/document_image/16501209178869b8a.jpg" alt="标准排队理论"><br>就是说，信道越小，<u>该信道上</u>发送一个帧的平均时延越小。（或许可以考虑一大群黄鳝源源不断的从一段管道中通过？（如果这样想能想明白的话）总之这个T是针对某个信道而言的）</p>
+<p>$$信道分配问题\left{<br>\begin{matrix}<br>    静态信道分配Static\<br>    动态信道分配Dynamic<br>\end{matrix}<br>\right.$$</p>
+<h3 id="动态信道分配"><a href="#动态信道分配" class="headerlink" title="动态信道分配"></a>动态信道分配</h3><ol>
+<li>受控的多路通道<ol>
+<li>中心化的：polling，投票，挨个询问</li>
+<li>无中心的：token，令牌，谁拿到谁发</li>
+</ol>
+</li>
+<li>随机的多路access<ol>
+<li>ALOHA</li>
+<li>CSMA, CSMA&#x2F;CD, CSMA&#x2F;CA</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-2-多路访问协议"><a href="#4-2-多路访问协议" class="headerlink" title="4.2 多路访问协议"></a>4.2 多路访问协议</h2><h3 id="ALOHA协议（读作allow）"><a href="#ALOHA协议（读作allow）" class="headerlink" title="ALOHA协议（读作allow）"></a>ALOHA协议（读作<del>allow</del>）</h3><h4 id="pure-ALOHA"><a href="#pure-ALOHA" class="headerlink" title="pure ALOHA"></a>pure ALOHA</h4><ol>
+<li>数据帧被传输在完全的随机时间，如果有冲突，就等一个随机的时间再发<br><img src="https://api2.mubu.com/v3/document_image/cbafc61d-5bd0-4657-b7dd-0c21070ad96c-16175743.jpg" alt="pure ALOHA"></li>
+<li>这里的冲突是指的只要有一个bit的重叠，就被毁掉了，因为是电信号一旦重叠就肯定被毁了。</li>
+<li>Collision Demo：<img src="https://api2.mubu.com/v3/document_image/329188b8-47f6-41a0-be49-5333580eb2eb-16175743.jpg" alt="Collision Demo："></li>
+<li>Vulnerable period for the shaded frame.就是说在灰色帧发送的t0时刻前后的t时间里，不能有别的帧发送。<img src="https://api2.mubu.com/v3/document_image/b519b5f4-7125-47ec-b943-62f6267d564c-16175743.jpg" alt="11"></li>
+<li>假设：帧长固定，帧发送时间也固定</li>
+</ol>
+<h4 id="Sloted-ALOHA"><a href="#Sloted-ALOHA" class="headerlink" title="Sloted ALOHA"></a>Sloted ALOHA</h4><p>一个重点是S&#x2F;G</p>
+<h3 id="CMA-x2F-CD"><a href="#CMA-x2F-CD" class="headerlink" title="CMA&#x2F;CD"></a>CMA&#x2F;CD</h3><p>没写，回头补，咕咕咕</p>
+<h2 id="4-4-无线局域网"><a href="#4-4-无线局域网" class="headerlink" title="4.4 无线局域网"></a>4.4 无线局域网</h2><p>Wireless LAN Protocols</p>
+<p>需要解决的问题：<br>Hidden station problem<br>Exposed station problem<br>解决方法：</p>
+<ul>
+<li>PCF (Point Coordination Function)</li>
+<li>DCF (Distributed Coordination Function)：<ul>
+<li>CSMA&#x2F;CA:CSMA with Collision Avoidance</li>
+<li>MACA(Multiple Access with Collision Avoidance)  protocol<br>MACA: Collision Avoidance</li>
+</ul>
+</li>
+<li>A发给B一个RTS（request to send）（30 bytes长，包含将要发送的数据的长度）</li>
+<li>B回复一个CTS（clear to send）（contains data length from RTS）</li>
+<li>当收到CTS的时候，A开始发送数据</li>
+<li>听到RTS的其他站点保持足够长的沉默时间（C,E）</li>
+<li>听到CTS的其他站点在即将到来的（upcoming）数据传输中保持沉默。<br><img src="https://api2.mubu.com/v3/document_image/7719c78a-d525-4c61-9d83-1e1033423609-16175743.jpg" alt="传输范围"></li>
+</ul>
+<h2 id="4-3-以太网Ethernet"><a href="#4-3-以太网Ethernet" class="headerlink" title="4.3 以太网Ethernet"></a>4.3 以太网Ethernet</h2><ol>
+<li>以太网cable<br><img src="https://api2.mubu.com/v3/document_image/d4080a82-a43c-40a7-bae6-86dee8e91d33-16175743.jpg" alt="以太网cable"></li>
+<li>以太网Topologies(拓扑)</li>
+</ol>
+<h3 id="Ethernet-MAC-Sublayer-Protocol"><a href="#Ethernet-MAC-Sublayer-Protocol" class="headerlink" title="Ethernet MAC Sublayer Protocol"></a>Ethernet MAC Sublayer Protocol</h3><p>帧的格式（needrem）<br><img src="https://api2.mubu.com/v3/document_image/69a402c2-a4d7-4fad-8f60-83f849e2c4c4-16175743.jpg" alt="frame fromat"></p>
+<p>（a）DIX 以太网标准<br>（b）IEEE 802.3标准<br>Preamble:前导&#x2F;序言，同步时钟信号。<br>Type：发送的数据是什么类型的，网上递交交到哪里去<br>Pad：填充字段，保证Data+Pad&gt;&#x3D;46，防止帧长过小<br><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/16518386874381ff3.jpg">click</a></p>
+<ol>
+<li>以太网地址，6字节<br>在往上就是IP，然后就是DNS了<br><img src="https://api2.mubu.com/v3/document_image/783326c4-4a41-43e5-819b-3eed68ae5aa0-16175743.jpg" alt="IEEE802"><br>前面3个字节是厂家的标识，后面是厂家给用户分配的地址（网口）<br>这个属于Unicast，其他的还有Multicast，Broadcast（全1）。</li>
+<li>帧长<br>最大的帧长是<mark>1514</mark>bytes（<mark>数据是1500bytes</mark>）<br>1514:1500+6+6+2(type)<br>1518:1500+6+6+2+4(CRC)<br>最小帧长是<mark>64bytes</mark>&#x3D;46(pad)+18(跟上面那个一样)<br>也就是 64x8&#x3D;512 bits<br>为什么需要有帧长的下限：<br>Collision Detect Can take as long as 2$\tau$<br><img src="https://api2.mubu.com/v3/document_image/6dca1935-e996-411d-a4aa-3cc560bd73a1-16175743.jpg" alt="为什么需要有帧长的下限"></li>
+</ol>
+<h3 id="二进制指数退避算法"><a href="#二进制指数退避算法" class="headerlink" title="二进制指数退避算法"></a>二进制指数退避算法</h3><p>Binary Exponential Backoff Algorithm<br>在CMA&#x2F;CD协议中，会等一个随机数，生成这个随机数的时候会需要一个上限<br>随着冲突次数的增加，随机数的上限以2的指数次增加，一直到1024个时间片，就不再增加比如：<br><img src="https://api2.mubu.com/v3/document_image/670fceab-f222-4966-8634-00c372fe590a-16175743.jpg" alt="以2的指数次增加"><br>这个算法是分布式的，即仅考虑自己是第几次冲突</p>
+<h3 id="IEEE-802-3-Performance（Ethernet）"><a href="#IEEE-802-3-Performance（Ethernet）" class="headerlink" title="IEEE 802.3 Performance（Ethernet）"></a>IEEE 802.3 Performance（Ethernet）</h3><p>Frame length: F<br>Bandwith: B<br>Cable length: L<br>Speed of signal propagation: c<br>e:就是2.71828那个e<br>channel efficency &#x3D; $\cfrac{1}{1+\cfrac{2BLe}{cF}}$</p>
+<p>Efficiency of Ethernet at 10 Mbps with 512-bit slot times<br><img src="https://api2.mubu.com/v3/document_image/3ac99641-5886-4176-93ff-cda58e5c3dcd-16175743.jpg" alt="Efficiency"></p>
+<h3 id="Fast-Ethernet-快速以太网"><a href="#Fast-Ethernet-快速以太网" class="headerlink" title="Fast Ethernet 快速以太网"></a>Fast Ethernet 快速以太网</h3><p>所有之前的帧的格式，接口，程序都没有改变<br>减少bit time（100ns-&gt;10ns）<br>减少最大电缆长度为原来的十分之一<br>Cabling:<br><img src="https://api2.mubu.com/v3/document_image/b4c1f47d-ee1a-409f-bdda-379dd76a256d-16175743.jpg" alt="Fast Ethernet cabling"></p>
+<p>100Basw-T4:<mark>不用曼彻斯特编码</mark>了<br><img src="https://api2.mubu.com/v3/document_image/7e3c5430-0d8b-4a75-a174-a5cc6bbd862c-16175743.jpg" alt="100Basw-T4"></p>
+<h3 id="Gabit-Ethernet"><a href="#Gabit-Ethernet" class="headerlink" title="Gabit Ethernet"></a>Gabit Ethernet</h3><p>千兆的标准仍然向后兼容<br>网络半径变为25米，（速率提高10倍，距离一定缩小）<br>解决方法</p>
+<ol>
+<li>添加padding，用于填充</li>
+<li>让几个短帧拼接在一起</li>
+<li>总之就是让帧的尺寸&gt;&#x3D;512bytes<br>最终让网络工作的半径保持在200米<br>Cabling:<br><img src="https://api2.mubu.com/v3/document_image/1c9bce00-30ac-4e23-9335-2565ad825b8b-16175743.jpg" alt="Cabling"><br>Flow Control:(新增功能，因为千兆太快了)</li>
+</ol>
+<h3 id="10Gabit-Ethernet"><a href="#10Gabit-Ethernet" class="headerlink" title="10Gabit Ethernet"></a>10Gabit Ethernet</h3><p>一般在数据中心内部</p>
+<h2 id="4-5-宽带无线"><a href="#4-5-宽带无线" class="headerlink" title="4.5 宽带无线"></a>4.5 宽带无线</h2><h3 id="IEEE802-11-x2F-wifi"><a href="#IEEE802-11-x2F-wifi" class="headerlink" title="IEEE802.11&#x2F;wifi"></a>IEEE802.11&#x2F;wifi</h3><p>All use CSMA&#x2F;CA for multiple access(多路访问采用冲突避免)<br>All have base-station and ad-hoc network versions</p>
+<p>尽量避免冲突<br>CSMA：在发送之前sense<br>是一个无线环境，咩办法像在有线的里面一样弄CD（冲突检测），而且也没办法监听到所有的冲突（站隐藏）<br>CSMA&#x2F;CA：用协议来避免冲突叫做CSMA&#x2F;CA,C(ollision)A(voidance)</p>
+<p>当一个站点有frame要发送时</p>
+<ul>
+<li>监听信道直到空闲为止，等一个时间片（DIFS:分布式的帧间隔,一个比较小的时间）</li>
+<li>Random backoff：可能要等一个随机的时间（0~15 time slots），这东西是个倒计时，假如是13，就13–。</li>
+<li>如果帧发过去了，终点发一个简短的ACK，几乎不等待，认为是立刻发回来</li>
+<li>缺少ACK会被推测为显示了一个冲突或者别的错误，把backoff的时间片翻倍，再次尝试。(类似二进制退避算法)<br><img src="https://api2.mubu.com/v3/document_image/46566387-ba5a-4f85-8821-80e5a215ec27-16175743.jpg" alt="CSMA/CA"></li>
+</ul>
+<p>Chanel sensing:</p>
+<ul>
+<li>物理监听：check媒介，看有没有信号</li>
+<li>虚拟监听：每个站点维护一个逻辑的记录，记录什么时候信道被占用，通过追踪<strong>NAV（network allocation vector）</strong>；每个帧都carries一个NAV，一个数据帧的NAV包含发送一个ack所需的时间</li>
+</ul>
+<p>RTS:request to send<br>CTS:clear to send<br><img src="https://api2.mubu.com/v3/document_image/23ddd9f5-7de1-4626-8822-b8b2fb2f359c-16175743.jpg" alt="NAV"></p>
+<p>802.11 reliability</p>
+<ul>
+<li>降低传输速度（rate）</li>
+<li>fragment burst：碎片突发，将一个大的帧切成小的碎片，帧的尺寸没变。这就好比有一定的误码率，一个很大的帧怎么发都发不出去。</li>
+</ul>
+<p>802.11 省电<br>就是不定期的让客户端睡觉。然后AP在client睡着的时候，缓存发送的信息</p>
+<ul>
+<li>Beason frames信标帧<ul>
+<li>客户端可以进入省电模式</li>
+<li>AP会buffer发送的帧</li>
+<li>睡醒之后发送一个poll的信息给AP（就时不时睡醒一下）</li>
+</ul>
+</li>
+<li>APSD（automatic power save delivery）<br>当客户端发数据给AP的时候，AP把buffer的数据发给客户端。</li>
+</ul>
+<p>802.11 QOS：interframe Spacing(IFS,帧间隔)</p>
+<blockquote>
+<p>QOS:quality of sevice</p>
+</blockquote>
+<ul>
+<li>DIFS:regular data frames</li>
+<li>SIFS:<ul>
+<li>ACK</li>
+<li>其他的控制帧，比如RTS,CTS</li>
+<li>a burst of fragment（碎片突发）</li>
+</ul>
+</li>
+<li>AIFS1:适用于PDF方式，就是语音或者其他优先级较高的传输</li>
+<li>AIFS4：后台通信，不太重要</li>
+<li>EIFS：异常时间<br><img src="https://api2.mubu.com/v3/document_image/064c30a1-ab7c-4ad0-b669-841bb55fdae1-16175743.jpg" alt="interframe Spacing"></li>
+</ul>
+<p>QOS：TXOP 传输机会<br>TX:transmit OP:opportunity<br><img src="https://api2.mubu.com/v3/document_image/162edab3-5d51-4133-ab69-abfc80ca1eb9-16175743.jpg" alt="QOS：TXOP"><br>无线局域网中，一个站点发送完了之后其他的站点会抢信道，然后抢到的就接着发。<br>在这个例子中，发送同样长的一个帧，6Mbps的站点花费的时间是54Mbps的站点发送时间的9倍，也就是说，在单位1的时间里，有0.9的时间是6Mbps的站点在发送，0.1的时间是54Mbps的站点在发送，这段时间针对每个站点的平均速率都为5.4Mbps。对于6Mbps的站点：发0.9的时间，等0.1的时间，相当于只发了6x0.9&#x3D;5.4,对于54Mbps的站点，发0.1的时间，等0.9的时间，也相当于只发了54x0.1&#x3D;5.4。<br>用了TXOP之后，两个站点占用的时间一样，都是一半，这样带宽也就降为原来的一半。<br>这样比较公平。</p>
+<blockquote>
+<p>关于计算多个站点的平均速率：<br> 有公式<br> $\cfrac{1}{\cfrac{n_1}{B_1}+\cfrac{n_2}{B_2}+\cfrac{n_3}{B_3}+…}$<br> 其中，Bi是速率，ni是具有Bi速率的站点的个数。这样算出来的所有站点的速率是一样的。<br> 如果能整除就不要添了，不能整除保留两位。</p>
+</blockquote>
+<p>802.11的帧格式</p>
+<p><img src="https://api2.mubu.com/v3/document_image/b0a79323-b67a-4b67-8176-3e81822aacd4-16175743.jpg" alt="format"></p>
+<p>地址1：目的，host或者AP的地址，也就是接受的站点的地址<br>地址2：源，发送站点的地址<br>地址3：router的地址，这个router是AP链接的那个路由器<br><img src="https://api2.mubu.com/v3/document_image/f2d22197-dd21-4b51-9abd-be84897e4c93-16175743.jpg" alt="为啥还得有地址3捏"><br>就是说，AP在发送的时候，不知道router的地址，所以把地址3读出来，作为这个小过程的目的地址，而原本的AP的地址是源地址。在这个小过程中，就相当于是802.3协议了。</p>
+<p>802.2：LLC，逻辑电路控制子层<br>是在802.3或者其他802协议上面跑的，就是在MAC上面，使得向网络层提供的服务是单一的，统一的服务。但是大部分设备都是没这一层玩意的。DIX是不需要的，但是802.3一般是要加上这个的。<br>提供3个服务选择<br>（懒得自己写了，抄一个：）</p>
+<ul>
+<li>Unreliable datagram service 不可考的数据报<br>   (best-efforts datagram service)</li>
+<li>Acknowledged datagram service 可靠的数据报<br>   (Error-controlled)</li>
+<li>Reliable connection-oriented service 面向链接的<br>   (Error-controlled &amp;  flow-controlled)</li>
+</ul>
+<blockquote>
+<p>LLC头里面有个header，来控制交给上面一层的哪一个模块儿</p>
+</blockquote>
+<h2 id="4-8-数据链路层交换"><a href="#4-8-数据链路层交换" class="headerlink" title="4.8 数据链路层交换"></a>4.8 数据链路层交换</h2><p>DLLS：Data Link Layer Switching</p>
+<h3 id="不同802协议之间的桥接"><a href="#不同802协议之间的桥接" class="headerlink" title="不同802协议之间的桥接"></a>不同802协议之间的桥接</h3><h3 id="本地互联Local-Internetworking"><a href="#本地互联Local-Internetworking" class="headerlink" title="本地互联Local Internetworking"></a>本地互联Local Internetworking</h3><p><img src="https://api2.mubu.com/v3/document_image/610f9006-61fb-4320-8614-5283f9f2dbaa-16175743.jpg"><br>左边那个是通过一个桥接设备连接起两个网络<br>右边那个相当于二层交换机<br><img src="https://api2.mubu.com/v3/document_image/48fe4bcd-5734-496e-8e9b-cf667fe5019d-16175743.jpg" alt="Protocol processing"><br>如果左右两侧的协议不同，那么需要生成一个新的帧头，网桥是工作在数据链路层的。</p>
+<p>Bridges from 802.x to 802.y</p>
+<p>可能遇到的一些问题</p>
+<p>帧格式不一样<br><img src="https://api2.mubu.com/v3/document_image/b21a25c8-afe1-4895-918b-364bd0fd1ac4-16175743.jpg" alt="帧格式不一样"><br>数据速率不同（缓存）<br>最大帧长度不一样<br>安全问题：无限局域网支持加密，以太网不支持<br>QOS问题：802.11支持，以太网不支持</p>
+<h3 id="Learning-Bridge-自学习网桥"><a href="#Learning-Bridge-自学习网桥" class="headerlink" title="Learning Bridge 自学习网桥"></a>Learning Bridge 自学习网桥</h3><p>又名Transparent，咩有CPU，便宜。</p>
+<blockquote>
+<p>bridge和Switch的差别：switch的端口只有以太网，但是bridge上面可能有不同的端口（不同的局域网之间桥接）,其他的工作原理一毛一样。</p>
+</blockquote>
+<ul>
+<li>工作在混杂的mode下<br>不同于仅接受特定地址或者广播的帧，接收所有的帧</li>
+<li>站点（转发点）表格<br>自学列出来每个可能的目的地址和应该转发的线路</li>
+<li>针对一个正在发过来的帧的路由过程<br>检索站表<br>如果目的LAN和源LAN一样，discard<br>如果目的LAN和源LAN不一样，forward<br>如果目的LAN不知道或者multicast&#x2F;broadcast<br>采用flooding algorithm<blockquote>
+<p>所以如果站表是空的，那就把除了输入端口以外的所有端口复制一份。<br>如何判断LAN一样与否？看有咩有网桥在中间做桥接</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="Station-Table：Backward-Learning"><a href="#Station-Table：Backward-Learning" class="headerlink" title="Station Table：Backward Learning"></a>Station Table：Backward Learning</h4><p>初始情况是空的<br>因为可以看到所有的帧，然后偷偷看一下某个端口收到的帧是从哪里来的，然后记住想到这里去要从哪个端口走。</p>
+<h4 id="Dynamic-topologies-动态拓扑"><a href="#Dynamic-topologies-动态拓扑" class="headerlink" title="Dynamic topologies 动态拓扑"></a>Dynamic topologies 动态拓扑</h4><p>无论最初的hash表有没有建立，都会记录arrival time<br>如果长时间（一般是20min）左右，没有更新，那么就把这东西给删了。</p>
+<blockquote>
+<p>交换机的站表满了之后，整个网上的数据就处于一个扩散的状态，这也是黑客攻击的一种手段。<br>俩个构造station table 的例子<br><img src="https://api2.mubu.com/v3/document_image/50525ea3-4613-4e02-8d29-4f06d1e3d5fd-16175743.jpg" alt="例子"><br><img src="https://api2.mubu.com/v3/document_image/5cf3f19a-060a-490a-99a3-d56cabbb0888-16175743.jpg" alt="例子"></p>
+</blockquote>
+<h3 id="spanning-tree-生成树的网桥"><a href="#spanning-tree-生成树的网桥" class="headerlink" title="spanning tree 生成树的网桥"></a>spanning tree 生成树的网桥</h3><p>贵。<br>上面的结构没有环路，生成树网桥是为了解决环路问题的。<br>关于环路的问题：<br>有时候，为了增加可靠性，会多家几条路径<br>这个就导致了拓扑结构中出现环路<br>协议：802.1d: Constructing the Spanning Tree<br>过程：（了解即可）</p>
+<ul>
+<li>Bridge periodically multicast a message out all of its ports, this message is not forwarded, it includes:<ul>
+<li>an ID based on its MAC address</li>
+<li>ID of the root it  believe to be</li>
+<li>the distance to root</li>
+</ul>
+</li>
+<li>Chose the bridge with the lowest ID to be the root, after enough messages exchanged, all bridges will agree on the root</li>
+<li>Remembers the shortest path to root, if there are multiple equivalent paths, the path via bridge with lowest ID is chosen</li>
+<li>Turn off ports that are not part of the shortest path</li>
+<li>Algorithm continues to run during normal operation to automatically detect topology changes and update the tree</li>
+</ul>
+<p>Dynamic Topologies</p>
+<ul>
+<li>BPDU (Bridge Protocol Data Unit)<br>Bridge periodically multicast a message (MAC 01:80:c2:00:00:00) out all of its ports, this message is not forwarded, it includes:<br>an ID based on its MAC address<br>ID of the root it  believe to be<br>the distance to root</li>
+<li>Root Bridge of Whole Net<br>Chose the bridge with lowest ID to be the root, after enough messages exchanged, all bridges will agree on the root</li>
+<li>Root Port of Every Bridge<br>Remembers the shortest path to root, if there are multiple equivalent paths, the path via bridge with lowest ID is chosen</li>
+<li>Algorithm continues to run during normal operation to automatically detect topology changes and update the tree</li>
+</ul>
+<h3 id="几个设备"><a href="#几个设备" class="headerlink" title="几个设备"></a>几个设备</h3><ol>
+<li>物理层：<ol>
+<li>repeaters</li>
+<li>Hub（纯物理层，长得像switch，将一个设备的输入接口和其他设备的输出接口接起来）</li>
+</ol>
+</li>
+<li>数据链路层<ol>
+<li>bridges</li>
+<li>Switches（提及一个3层交换机，但不懂）</li>
+</ol>
+</li>
+<li>网络层<ol>
+<li>Routers</li>
+<li>Gateways（网关）</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://api2.mubu.com/v3/document_image/54276143-0987-40c4-857c-ba52f417f484-16175743.jpg" alt="几个设备"><br>(a)不同层对应的设备<br>(b)frames，packet and headers<br><img src="https://api2.mubu.com/v3/document_image/d62cc695-8518-4578-bc8f-85c70fd596db-16175743.jpg" alt="hub，bridge，switch"><br>从左到右：hub，bridge，switch<br>bridge和switch：<br>几个微秒就可以构造出来站表<br>因为速率可能不同，还得有buffer<br>cut-through switch：直通式的交换机（拿到目的地址之后直接就开始转发）</p>
+<h3 id="虚拟局域网"><a href="#虚拟局域网" class="headerlink" title="虚拟局域网"></a>虚拟局域网</h3><p>人事部，财务部，研发部的设备通过VLan划分开，不允许互相通信<br><img src="https://api2.mubu.com/v3/document_image/69387a3e-a977-4a97-8926-da5df6b88d87-16175743.jpg" alt="长这样"><br>为啥整VLAN捏？</p>
+<ol>
+<li>广播风暴<ol>
+<li>当LAN规模比较大的时候，广播帧太多的时候，所有的设备都需要处理</li>
+<li>机器们就残废了</li>
+</ol>
+</li>
+<li>安全问题<ol>
+<li>一些部门有不想让别的部门知道的信息<br><img src="https://api2.mubu.com/v3/document_image/0082b05a-9203-4354-a146-19dd170df9f1-16175743.jpg" alt="VLAN"><br>(a)是总线链接的，所以A收发的时候BCD也能听到<br>(b)是交换机型，可以做到仅同组听到</li>
+</ol>
+</li>
+</ol>
+<p>VLAN ID</p>
+<ol>
+<li>用端口号（most方便most常见）</li>
+<li>用MAC地址</li>
+<li>根据第三层的协议</li>
+</ol>
+<p><img src="https://api2.mubu.com/v3/document_image/6190f69b-1689-45bd-b4e7-51b3d3e31e87-16175743.jpg" alt="802.1Q"><br>VLAN protocol ID (16 bits): 0x8100<br>Pri (3 bits)<br>CFI (1 bit)<br>VLAN Identifier (12 Bits)<br>802.1Q Max frame length: 1522 bytes</p>
+<h2 id="WordTable"><a href="#WordTable" class="headerlink" title="WordTable"></a>WordTable</h2><blockquote>
+<p>capicity<br> overlap 重叠，重复<br> garble 混淆，模糊<br> idle 空的<br> carrier sense 载波监听<br> arbitrary 随意的，任意的<br> Vulnerable  adj.易受伤的, 脆弱的, 敏感的<br> Throughout 吞吐量&#x3D;利用率*带宽<br> Beason （啥呀这是草）<br> fragment 碎片<br> promiscuous 混杂的<br> crippled 残废的<br> legacy 遗产，遗留之物。legacy end domain 传统域，翻译为传统的<br> exclude vt. 排除；排斥；拒绝接纳；逐出<br> reserved adj. 保留的，预订的；缄默的，冷淡的；包租的</p>
+</blockquote>
+<!-- 课听到MAC(6)的一小时多了，不想听了，下次补上（ -->
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/【钢琴】《你离开的事实 》The Truth that You Leave 罗曼耶卓 Oskar R - 1.truth_POST(Av586020664,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/【钢琴】《大雾》(demo版）张一乔 - 1.dawu(Av417516306,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/【钢琴】《晴天》Oskar Roman Jezior 周杰伦 - 1.qingtian_POST(Av331213171,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/【钢琴】《撒野》罗曼耶卓 - 1.saye_POST(Av459374452,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/【钢琴】坂本龙一《圣诞快乐 劳伦斯先生》 罗曼耶卓 Oskar Roman Jezior - 1.mr_lawrence_POST(Av885864226,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】陈奕迅《富士山下》罗曼耶卓 Oskar Roman Jezior - 1.fuji_POST(Av288674149,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】花之舞 《Flower Dance》罗曼耶卓 Oskar Roman Jezior - 1.flower_dance_POST(Av331481248,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】暮光之城《A Thousand Years》罗曼耶卓 - 1.thousand_years_POST(Av289839694,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/Young and Beautiful.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/错位时空.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E4%BF%A1%E9%81%93%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">4.1 信道分配问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#M-x2F-M-x2F-1-system"><span class="toc-number">1.1.</span> <span class="toc-text">M&#x2F;M&#x2F;1 system</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%BF%A1%E9%81%93%E5%88%86%E9%85%8D"><span class="toc-number">1.2.</span> <span class="toc-text">动态信道分配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">4.2 多路访问协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ALOHA%E5%8D%8F%E8%AE%AE%EF%BC%88%E8%AF%BB%E4%BD%9Callow%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">ALOHA协议（读作allow）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pure-ALOHA"><span class="toc-number">2.1.1.</span> <span class="toc-text">pure ALOHA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sloted-ALOHA"><span class="toc-number">2.1.2.</span> <span class="toc-text">Sloted ALOHA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMA-x2F-CD"><span class="toc-number">2.2.</span> <span class="toc-text">CMA&#x2F;CD</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">3.</span> <span class="toc-text">4.4 无线局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E4%BB%A5%E5%A4%AA%E7%BD%91Ethernet"><span class="toc-number">4.</span> <span class="toc-text">4.3 以太网Ethernet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ethernet-MAC-Sublayer-Protocol"><span class="toc-number">4.1.</span> <span class="toc-text">Ethernet MAC Sublayer Protocol</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">二进制指数退避算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IEEE-802-3-Performance%EF%BC%88Ethernet%EF%BC%89"><span class="toc-number">4.3.</span> <span class="toc-text">IEEE 802.3 Performance（Ethernet）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fast-Ethernet-%E5%BF%AB%E9%80%9F%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">4.4.</span> <span class="toc-text">Fast Ethernet 快速以太网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gabit-Ethernet"><span class="toc-number">4.5.</span> <span class="toc-text">Gabit Ethernet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10Gabit-Ethernet"><span class="toc-number">4.6.</span> <span class="toc-text">10Gabit Ethernet</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E5%AE%BD%E5%B8%A6%E6%97%A0%E7%BA%BF"><span class="toc-number">5.</span> <span class="toc-text">4.5 宽带无线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IEEE802-11-x2F-wifi"><span class="toc-number">5.1.</span> <span class="toc-text">IEEE802.11&#x2F;wifi</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E4%BA%A4%E6%8D%A2"><span class="toc-number">6.</span> <span class="toc-text">4.8 数据链路层交换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C802%E5%8D%8F%E8%AE%AE%E4%B9%8B%E9%97%B4%E7%9A%84%E6%A1%A5%E6%8E%A5"><span class="toc-number">6.1.</span> <span class="toc-text">不同802协议之间的桥接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BA%92%E8%81%94Local-Internetworking"><span class="toc-number">6.2.</span> <span class="toc-text">本地互联Local Internetworking</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Learning-Bridge-%E8%87%AA%E5%AD%A6%E4%B9%A0%E7%BD%91%E6%A1%A5"><span class="toc-number">6.3.</span> <span class="toc-text">Learning Bridge 自学习网桥</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Station-Table%EF%BC%9ABackward-Learning"><span class="toc-number">6.3.1.</span> <span class="toc-text">Station Table：Backward Learning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dynamic-topologies-%E5%8A%A8%E6%80%81%E6%8B%93%E6%89%91"><span class="toc-number">6.3.2.</span> <span class="toc-text">Dynamic topologies 动态拓扑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spanning-tree-%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E7%BD%91%E6%A1%A5"><span class="toc-number">6.4.</span> <span class="toc-text">spanning tree 生成树的网桥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E8%AE%BE%E5%A4%87"><span class="toc-number">6.5.</span> <span class="toc-text">几个设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">6.6.</span> <span class="toc-text">虚拟局域网</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WordTable"><span class="toc-number">7.</span> <span class="toc-text">WordTable</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>
