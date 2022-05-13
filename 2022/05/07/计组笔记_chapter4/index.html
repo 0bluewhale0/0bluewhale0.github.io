@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计组笔记_chapter4 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,[TOC]
+总述指令系统ISA（Instruction Set Architecture）指令分类：
+
+微指令：微程序级的命令，它属于硬件
+宏指令：由若干条机器指令组成的软件指令，它属于软件
+机器指,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="计组笔记_chapter4 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,[TOC]
+总述指令系统ISA（Instruction Set Architecture）指令分类：
+
+微指令：微程序级的命令，它属于硬件
+宏指令：由若干条机器指令组成的软件指令，它属于软件
+机器指,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="计组笔记_chapter4 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,[TOC]
+总述指令系统ISA（Instruction Set Architecture）指令分类：
+
+微指令：微程序级的命令，它属于硬件
+宏指令：由若干条机器指令组成的软件指令，它属于软件
+机器指,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计组笔记_chapter4</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计组笔记_chapter4</h1>
+        <div class="stuff">
+            <span>五月 07, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%AE%A1%E7%BB%84/" rel="tag">计组</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>[TOC]</p>
+<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>指令系统<strong>ISA</strong>（Instruction Set Architecture）<br>指令分类：</p>
+<ul>
+<li>微指令：微程序级的命令，它属于<strong>硬件</strong></li>
+<li>宏指令：由若干条机器指令组成的软件指令，它属于软件</li>
+<li>机器指令：介于微指令与宏指令之间，每条指令可完成一个独立的算术运算或逻辑运算</li>
+</ul>
+<p>复杂指令系统计算机 （<strong>CISC</strong>）： Complex Instruction Set Computer<br>精简指令系统计算机（<strong>RISC</strong>）：Reduced Instruction Set Computer</p>
+<h2 id="4-2指令格式"><a href="#4-2指令格式" class="headerlink" title="4.2指令格式"></a>4.2指令格式</h2><p>指令字（简称指令）即表示一条指令的机器字<br>指令格式则是指令字用二进制代码表示的结构形式<br>指令的构成</p>
+<ul>
+<li>操作码字段：表示指令的操作特性与功能，即指令应进行什么样的操作</li>
+<li>操作数地址字段：指定参与操作的操作数的地址</li>
+</ul>
+<h3 id="操作码"><a href="#操作码" class="headerlink" title="操作码"></a>操作码</h3><p>操作码字段的位数一般取决于计算机指令系统的规模。例如：<br>如果指令系统只有8条指令，则用3位操作码就可表示<br>如果有32条指令，那么就需要5位操作码<br>定长操作码指令格式<br><img src="https://api2.mubu.com/v3/document_image/ebe16a31-c998-4a1f-b0ec-d3eb36d2945e-16175743.jpg" alt="定长"><br>扩展操作码指令格式:<br><img src="https://api2.mubu.com/v3/document_image/f46b1ac4-19a4-42b3-8c85-ff482d434dc3-16175743.jpg" alt="扩展"></p>
+<h3 id="地址码"><a href="#地址码" class="headerlink" title="地址码"></a>地址码</h3><p>按照一条指令中有几个操作数地址，可将该指令称为几操作数指令或几地址指令</p>
+<ul>
+<li>三地址指令格式</li>
+<li>二地址指令格式</li>
+<li>一地址指令格式</li>
+<li>零地址指令格式</li>
+</ul>
+<p>不同地址数目指令的形式：<br><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/6a57c343-2819-4f24-a246-7266f895a1fc-16175743.jpg">零地址码和一地址码</a><br><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/50587f8f-388f-4803-8523-6f8a9fa8fdad-16175743.jpg">二地址码和三地址码</a>  </p>
+<p>根据各个操作数的物理位置不同，地址码可分为3类</p>
+<ul>
+<li>存储器-存储器（SS）型指令</li>
+<li>寄存器-寄存器（RR）型指令</li>
+<li>寄存器-存储器（RS）型指令</li>
+</ul>
+<p>指令字长度：一个指令字中包含二进制代码的位数<br>机器字长：计算机能直接处理的二进制数据的位数，它决定了计算机的运算精度<br><strong>机器字长度通常与寄存器的位数一致</strong><br>指令分类<br>单字长指令：指令字长度等于机器字长度<br>半字长指令：指令字长度等于半个机器字长度<br>双字长指令：指令字长度等于两个机器字<br>使用多字长指令，目的在于ᨀ供更大的地址空间。主要缺点是必须两次或多次访问内存以取出一整条指令，降低了Cpu的运算速度。<br>等长指令字结构：各种指令字长度是相等的。这种指令字结构简单，且指令字长度是不变的。<br>变长指令字结构：各种指令字长度随指令功能而异。结构灵活，代码密度高，能充分利用指令长度，但指令的控制比较复杂。<br>指令助记符：每条指令通常用3个或4个英文缩写字母来表示<br><img src="https://api2.mubu.com/v3/document_image/5a5fe9b9-8f1d-4f8e-81e8-bf254a362157-16175743.jpg" alt="典型助记符"></p>
+<h2 id="4-3指令和数据的寻址方式"><a href="#4-3指令和数据的寻址方式" class="headerlink" title="4.3指令和数据的寻址方式"></a>4.3指令和数据的寻址方式</h2><p>在存储器中，写入或读出操作数&#x2F;指令字的方式有：</p>
+<ul>
+<li><font color=iceblue>地址指定方式</font></li>
+<li>相联存储方式（按内容寻址方式）</li>
+<li>堆栈存取方式</li>
+</ul>
+<p>采用<font color=iceblue>地址指定方式</font>时，形成操作数或指令地址的方式，称为寻址方式。<br>寻址方式分为两类</p>
+<ul>
+<li>指令寻址方式（简单）<ul>
+<li>顺序寻址方式</li>
+<li>跳跃寻址方式</li>
+</ul>
+</li>
+<li>数据寻址方式（复杂）</li>
+</ul>
+<h3 id="指令寻址方式"><a href="#指令寻址方式" class="headerlink" title="指令寻址方式"></a>指令寻址方式</h3><h4 id="顺序寻址"><a href="#顺序寻址" class="headerlink" title="顺序寻址"></a>顺序寻址</h4><p>必须使用程序计数器（又称指令指针寄存器）PC来计数指令的顺序号，该顺序号就是指令在内存中的地址。PC++是指跳过当前指令，到达下一条指令。（PC加几取决于指令长度）<br><img src="https://api2.mubu.com/v3/document_image/9b8210c5-48fb-4e5d-8210-7faef68427a8-16175743.jpg" alt="顺序寻址"></p>
+<h4 id="跳跃寻址"><a href="#跳跃寻址" class="headerlink" title="跳跃寻址"></a>跳跃寻址</h4><p>本条指令给出下一条指令的地址码。<br>一般是条件转移，无条件转移，子程序调用会用到。<br><img src="https://api2.mubu.com/v3/document_image/5cd2947f-fc3b-4023-b9f6-933a2cfb64ac-16175743.jpg" alt="跳跃寻址"></p>
+<h3 id="操作数寻址方式"><a href="#操作数寻址方式" class="headerlink" title="操作数寻址方式"></a><mark>操作数寻址方式</mark></h3><p>形成<strong>操作数的****有效地址</strong>的方法，称为操作数的寻址方式<br>一种单地址指令的结构如下所示，其中用X，I，A各字段组成该指令的操作数地址<br><img src="https://api2.mubu.com/v3/document_image/220a471b-f43a-47ce-b34f-e6ce929dbd98-16175743.jpg" alt="单地址指令结构"><br>指令中操作数字段的地址码是由<strong>形式地址A（也称偏移量）</strong>和<strong>寻址方式特征位</strong>等组合形成。</p>
+<blockquote>
+<p>寻址过程就是把操作数的<strong>形式地址</strong>，变换为操作数的<strong>有效地址</strong>的过程</p>
+</blockquote>
+<h4 id="1-隐含寻址"><a href="#1-隐含寻址" class="headerlink" title="1.隐含寻址"></a>1.隐含寻址</h4><p>在指令中不是显式而是隐含（默认）给出操作数的地址<br><img src="https://api2.mubu.com/v3/document_image/e44225a1-bd09-47db-ac05-81928d4133ef-16175743.jpg" alt="乘法指令"></p>
+<h4 id="2-立即寻址"><a href="#2-立即寻址" class="headerlink" title="2.立即寻址"></a>2.立即寻址</h4><p>指令的地址字段给出的不算操作数的地址，而是操作数本身<br>这种方式的特点是指令执行速度较快，取指令的同时就取到了操作数，<strong>不需要访问内存取操作数</strong>（<font color=iceblue>立即数</font>啦）</p>
+<h4 id="3-直接寻址"><a href="#3-直接寻址" class="headerlink" title="3.直接寻址"></a>3.直接寻址</h4><p>在指令的地址字段中直接给出的是操作数在内存的地址。<br>要按照这个地址去读取内存。<br>用直接寻址方式时，指令字中的形式地址A就是操作数的有效地址EA。因此通常把形式地址A又称为直接地址<br><img src="https://api2.mubu.com/v3/document_image/907b5157-8cd1-4074-9365-771bc842e8f9-16175743.jpg" alt="直接寻址"><br>途中的括号表示取地址。</p>
+<h4 id="4-间接寻址"><a href="#4-间接寻址" class="headerlink" title="4.间接寻址"></a>4.间接寻址</h4><p>在指令的地址字段中直接给出的不是操作数的直接地址，而是操作数地址的地址。</p>
+<blockquote>
+<p>间接寻址方式是早期计算机中经常采用的方式，但由于两次访存，执行速度慢，现在已不太使用<br><img src="https://api2.mubu.com/v3/document_image/7688c0fe-f51f-4296-8214-de2e1e793dcd-16175743.jpg" alt="间接寻址"></p>
+</blockquote>
+<blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/7d846bd8-a82a-430a-aec3-7b1eb3854fc5-16175743.jpg" alt="结合起来的指令格式"></p>
+</blockquote>
+<h4 id="5-寄存器寻址"><a href="#5-寄存器寻址" class="headerlink" title="5.寄存器寻址"></a>5.寄存器寻址</h4><p>在指令的地址字段中直接给出的操作数地址不是内存的地址，而是<strong>寄存器的编号</strong>。<br><img src="https://api2.mubu.com/v3/document_image/71230b43-fbbd-4de0-acb2-3852c90693d0-16175743.jpg" alt="寄存器寻址"></p>
+<h4 id="6-寄存器间接寻址"><a href="#6-寄存器间接寻址" class="headerlink" title="6.寄存器间接寻址"></a>6.寄存器间接寻址</h4><p>类似于上面的间接寻址。<br>在指令的地址字段中直接给出的寄存器不是含有操作数的寄存器编号，而是操作数地址的地址。<br><img src="https://api2.mubu.com/v3/document_image/b9367f6d-0e6e-4803-b961-dd74d7455281-16175743.jpg" alt="jcq间接寻址"></p>
+<h4 id="7-偏移寻址"><a href="#7-偏移寻址" class="headerlink" title="7.偏移寻址"></a>7.偏移寻址</h4><p>是直接寻址和寄存器间接寻址方式的结合。EA是有效地址，A是形式地址,也就是偏移量。R代表寄存器。A（偏移量）是一个有符号数。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/56c81aa7-de35-43b7-b3cf-6aef2fb60d38-16175743.jpg" alt="偏移寻址"></p>
+<ul>
+<li>相对寻址 PC，程序计数器</li>
+<li>基址寻址 基址寄存器</li>
+<li>变址寻址 变址寄存器<br>上面这三者的的不同主要是<strong>寄存器种类不同</strong></li>
+</ul>
+<h5 id="相对寻址"><a href="#相对寻址" class="headerlink" title="相对寻址"></a>相对寻址</h5><ul>
+<li>把<strong>程序计数器PC的内容</strong>加上指令格式中的<strong>偏移量A（有符号数）</strong>而形成<strong>操作数的有效地址</strong>  </li>
+<li><strong>程序计数器的内容就是当前指令的地址</strong>，“相对”寻址，就是<strong>相对于当前的指令地址</strong>而言  </li>
+<li>好处是<u>程序员无须用指令的绝对地址编程，所编程序可以放在内存任何地方</u></li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/19bf348a-f6ee-4c9a-8d77-6f8c68900b07-16175743.jpg" alt="相对寻址"></p>
+<h5 id="基址寻址"><a href="#基址寻址" class="headerlink" title="基址寻址"></a>基址寻址</h5><p>将CPU中<strong>基址寄存器的内容</strong>加上指令格式中的<strong>偏移量A</strong>得到的<strong>操作数有效地址</strong><br>可以<strong>扩大寻址能力</strong>。基址寄存器的位数可以设置得很长，从而可以在较大的存储空间中寻址。<br><img src="https://api2.mubu.com/v3/document_image/70b600ef-a40a-47b6-9a62-4f9312142deb-16175743.jpg" alt="基址寻址"><br>B：基址寄存器</p>
+<h5 id="变址寻址"><a href="#变址寻址" class="headerlink" title="变址寻址"></a>变址寻址</h5><p>将CPU中变址寄存器的内容加上指令格式中的偏移量A得到的操作数有效地址。与基址寻址方式类似。但变址寄存器的内容自动递增或递减。<br><img src="https://api2.mubu.com/v3/document_image/106ecb2b-f3cc-4caf-ac7e-a3a6e6670109-16175743.jpg" alt="自动加/减"><br>使用变址寻址方式的目的不在于扩大寻址空间，而在于实现程序块的规律性变化（自动加1减1、或加2减2）</p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p>例1<br>机器字长16位，<strong>主存按字节编址</strong>，转移指令采用相对寻址，由两个字节组成，第一字节为操作码字段，第二字节为相对位移量字段。假定取指令时，每取一个字节PC自动加1。若Ḁ转移指令所在主存地址为2000H，相对位移量字段的内容为06H，则该转移指令成功转以后的目标地址是<br>A.2006H<br>B.2007H<br>C.2008H<br>D.2009H  </p>
+<p>Ans:C<br><mark>PC中存储的是即将执行的下一条指令的地址，也就是PC自动++之后的结果，PC自动加几是看的指令的字节长度,(与机器字长无关)，本题中的指令长度为2字节，所以PC自加加的是2。也就是此时PC中存放的地址是当前指令地址+2，为2002H，然后再加上06H</mark></p>
+<p>例2<br>计算机有16个通用寄存器，采用32位定长指令字，操作码字段（含寻址方式位）为8位，Store指令的源操作数和目的操作数分别采用寄存器直接寻址和基址寻址方式，若基址寄存器可使用任一通用寄存器，且偏移量用补码表示，则Store指令中偏移量的取值范围是<br>A -32768<del>+32767<br>B -32767</del>+32768<br>C -65536<del>+65535<br>D -65535</del>+65536  </p>
+<p>Ans:A<br><mark>32位定长指令，-8位操作码，还剩24位，16&#x3D;2^4个通用寄存器（基址寄存器），由于<u>源操作数采用寄存器直接寻址</u>，所以一共需要4位，<u>目的操作数采用基址寻址</u>，且基址寄存器&#x3D;&#x3D;通用寄存器，所以也需要4位。此时一共用去了16位。偏移量采用补码表示，即计算16位补码能表示上下限，估算2的15次方，注意下限的绝对值比上限大1即可.</mark></p>
+<h4 id="8-段寻址"><a href="#8-段寻址" class="headerlink" title="8.段寻址"></a>8.段寻址</h4><p>段寻址看这个图就行<br><img src="https://api2.mubu.com/v3/document_image/865d8ac6-738d-43f5-96a0-4b91e788c716-16175743.jpg" alt="段寻址"></p>
+<h4 id="9-堆栈寻址"><a href="#9-堆栈寻址" class="headerlink" title="9.堆栈寻址"></a>9.堆栈寻址</h4><p>所有的操作都是针对栈顶，<strong>后进先出</strong></p>
+<h5 id="寄存器堆栈"><a href="#寄存器堆栈" class="headerlink" title="寄存器堆栈"></a>寄存器堆栈</h5><p>存储区域用若干个寄存器组成<br>CPU中有一组专门的寄存器，有16个或者更多，它们称为串联堆栈。数据的进出是通过栈顶实现的<br>CPU通过“进栈”指令把数据送入堆栈，而通过“出栈”指令把数据从堆栈中取出</p>
+<p>特点：</p>
+<ul>
+<li>入栈和出栈时，栈顶不变，数据移动</li>
+<li>访问速度快</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>寄存器的数目有限，所以堆栈大小受限</li>
+<li><font color=red>数据的读出是破坏性的</font></li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/5f0003bc-a718-436c-8856-7d60754ee5c8-16175743.jpg" alt="寄存器堆栈"></p>
+<h5 id="存储器堆栈"><a href="#存储器堆栈" class="headerlink" title="存储器堆栈"></a>存储器堆栈</h5><p>存储区域是主存的一部分</p>
+<ul>
+<li>需要一个<strong>堆栈指示器</strong>来指示堆栈中栈顶的位置，它通常是CPU中一个专用的寄存器（<strong>SP：Stack Point</strong>）</li>
+<li>比串联堆栈灵活</li>
+<li><strong>栈顶变化，由SP指示</strong>，而数据不动</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>堆栈可以根据需要，任何长度</li>
+<li>堆栈个数可以根据需要而定</li>
+<li>可以用对存储器寻址的任何一条指令来对堆栈进行寻址</li>
+</ul>
+<!-- 看到4-25-3 20：00-->
+<p><img src="https://api2.mubu.com/v3/document_image/bd67a51b-0c26-4107-b371-1dada4bfddb2-16175743.jpg" alt="进栈"></p>
+<blockquote>
+<p>震惊！8进制300-1居然&#x3D;277！</p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/e254dee8-829a-4bc6-a08e-472bb0c6f743-16175743.jpg" alt="出栈"></p>
+<p>在设计处理器的堆栈操作时，有2种选择：</p>
+<ol>
+<li>堆栈指示器 SP始终指向空单元<ul>
+<li>进栈时，先存入数据，后修改堆栈指示器SP</li>
+<li>出栈时，先修改堆栈指示器SP，然后取出数据</li>
+<li>这里修改SP可以是加操作，也可以是减操作</li>
+</ul>
+</li>
+<li>堆栈指示器 SP始终指向满单元<ul>
+<li>进栈时，先修改堆栈指示器SP，后存入数据</li>
+<li>出栈时，先取出数据，然后修改堆栈指示器SP</li>
+</ul>
+</li>
+</ol>
+<h4 id="Pentium寻址方式"><a href="#Pentium寻址方式" class="headerlink" title="Pentium寻址方式"></a>Pentium寻址方式</h4><p>没大仔细听，有9种寻址方式<br><img src="https://api2.mubu.com/v3/document_image/a947242f-88bd-4ec0-933c-2ac7e76b71ec-16175743.jpg" alt="9种"></p>
+<h5 id="PDP-x2F-11系列机寻址方式"><a href="#PDP-x2F-11系列机寻址方式" class="headerlink" title="PDP&#x2F;11系列机寻址方式"></a>PDP&#x2F;11系列机寻址方式</h5><p>↑写个标题证明老师讲了(</p>
+<h5 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h5><p><img src="https://api2.mubu.com/v3/document_image/31d72579-6aba-45e1-8612-f3e2b79dd4da-16175743.jpg" alt="例3"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/27c67e1e-2631-435e-a903-fc3040002636-16175743.jpg" alt="答案"></p>
+<h5 id="例4"><a href="#例4" class="headerlink" title="例4"></a>例4</h5><p><img src="https://api2.mubu.com/v3/document_image/4e292206-4fb5-47e8-b3dd-2c4a35678aae-16175743.jpg" alt="例4"><br><img src="https://api2.mubu.com/v3/document_image/3e524eeb-6f13-4a26-ba22-a92520bc9a10-16175743.jpg" alt="例4.2"><br><img src="https://api2.mubu.com/v3/document_image/e69aeaed-6df4-4b73-ad34-e93f897f8faa-16175743.jpg" alt="答案"></p>
+<h5 id="动手做"><a href="#动手做" class="headerlink" title="动手做"></a>动手做</h5><p><img src="https://api2.mubu.com/v3/document_image/2e5e39ff-8da3-483b-8a35-1bb51b40e76e-16175743.jpg" alt="动手"></p>
+<blockquote>
+<p>基本上所有的CPU都是按字节编址的，因为是冯诺依曼体系结构，所以指令也被丢在主存里面，按字节编址指的就是对存储器按字节编址，就是说指令的长度得是<mark>8的倍数位</mark><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/25689240">编址寻址的概念</a></p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/a1d5abc5-b28f-4841-a4e6-660a501ba001-16175743.jpg" alt="dongshou2"></p>
+<h2 id="4-5-典型指令"><a href="#4-5-典型指令" class="headerlink" title="4.5 典型指令"></a>4.5 典型指令</h2><ul>
+<li>数据传送指令</li>
+<li>算术运算指令</li>
+<li>逻辑运算指令</li>
+<li>程序控制指令</li>
+<li>输入输出指令</li>
+<li>串处理指令</li>
+<li>特权指令</li>
+<li>其他指令</li>
+</ul>
+<h2 id="CISC-RISC计算机"><a href="#CISC-RISC计算机" class="headerlink" title="CISC RISC计算机"></a><mark>CISC RISC计算机</mark></h2><p>CISC:复杂指令计算机的指令系统一般多达二三百条<br>2-8定律：20%的指令在80%的情况下被使用</p>
+<p>复杂指令系统的<strong>特点</strong>:<br><img src="https://api2.mubu.com/v3/document_image/c88812bb-aba7-4617-aa34-6661002d4f45-16175743.jpg" alt="复杂指令系统的特点"></p>
+<p>RISC:RISC计算机</p>
+<p>精简指令系统的<strong>特点</strong><br><img src="https://api2.mubu.com/v3/document_image/61c9c78d-0c5e-40c6-986e-536dd33fe302-16175743.jpg" alt="精简指令系统的特点"></p>
+<p>MIPS指令集被认为是RISC体系中最优雅的一种，DEC的Alpha和惠普的Precision都深受其影响。<br>MIPS指令格式：略</p>
+<blockquote>
+<p>word table<br> complement 补充，互为补充的东西</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/【钢琴】《你离开的事实 》The Truth that You Leave 罗曼耶卓 Oskar R - 1.truth_POST(Av586020664,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/【钢琴】《大雾》(demo版）张一乔 - 1.dawu(Av417516306,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/【钢琴】《晴天》Oskar Roman Jezior 周杰伦 - 1.qingtian_POST(Av331213171,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/【钢琴】《撒野》罗曼耶卓 - 1.saye_POST(Av459374452,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/【钢琴】坂本龙一《圣诞快乐 劳伦斯先生》 罗曼耶卓 Oskar Roman Jezior - 1.mr_lawrence_POST(Av885864226,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】陈奕迅《富士山下》罗曼耶卓 Oskar Roman Jezior - 1.fuji_POST(Av288674149,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】花之舞 《Flower Dance》罗曼耶卓 Oskar Roman Jezior - 1.flower_dance_POST(Av331481248,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】暮光之城《A Thousand Years》罗曼耶卓 - 1.thousand_years_POST(Av289839694,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/Young and Beautiful.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/错位时空.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">总述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">4.2指令格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">操作码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">地址码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3%E6%8C%87%E4%BB%A4%E5%92%8C%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">4.3指令和数据的寻址方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">指令寻址方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%AF%BB%E5%9D%80"><span class="toc-number">3.1.1.</span> <span class="toc-text">顺序寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E8%B7%83%E5%AF%BB%E5%9D%80"><span class="toc-number">3.1.2.</span> <span class="toc-text">跳跃寻址</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">操作数寻址方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%9A%90%E5%90%AB%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.1.</span> <span class="toc-text">1.隐含寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%AB%8B%E5%8D%B3%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.立即寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.3.</span> <span class="toc-text">3.直接寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.4.</span> <span class="toc-text">4.间接寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%AF%84%E5%AD%98%E5%99%A8%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.5.</span> <span class="toc-text">5.寄存器寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%AF%84%E5%AD%98%E5%99%A8%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.6.</span> <span class="toc-text">6.寄存器间接寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%81%8F%E7%A7%BB%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.7.</span> <span class="toc-text">7.偏移寻址</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.7.1.</span> <span class="toc-text">相对寻址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E5%9D%80%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.7.2.</span> <span class="toc-text">基址寻址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%98%E5%9D%80%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.7.3.</span> <span class="toc-text">变址寻址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">3.2.7.4.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E6%AE%B5%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.8.</span> <span class="toc-text">8.段寻址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E5%A0%86%E6%A0%88%E5%AF%BB%E5%9D%80"><span class="toc-number">3.2.9.</span> <span class="toc-text">9.堆栈寻址</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E5%A0%86%E6%A0%88"><span class="toc-number">3.2.9.1.</span> <span class="toc-text">寄存器堆栈</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%A0%86%E6%A0%88"><span class="toc-number">3.2.9.2.</span> <span class="toc-text">存储器堆栈</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pentium%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.10.</span> <span class="toc-text">Pentium寻址方式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#PDP-x2F-11%E7%B3%BB%E5%88%97%E6%9C%BA%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.10.1.</span> <span class="toc-text">PDP&#x2F;11系列机寻址方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B3"><span class="toc-number">3.2.10.2.</span> <span class="toc-text">例3</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B4"><span class="toc-number">3.2.10.3.</span> <span class="toc-text">例4</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A8%E6%89%8B%E5%81%9A"><span class="toc-number">3.2.10.4.</span> <span class="toc-text">动手做</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E5%85%B8%E5%9E%8B%E6%8C%87%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text">4.5 典型指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CISC-RISC%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="toc-number">5.</span> <span class="toc-text">CISC RISC计算机</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

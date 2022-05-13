@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计组笔记_chapter3 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,3.1 存储器概述
+易失性半导体存储器统称为RAM
+静态RAM（SRAM）
+动态RAM（DRAM）
+
+
+非易失性的半导体存储器统称为ROM
+掩膜ROM（MASK ROM）:出厂的时候就写好了，不能改,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="计组笔记_chapter3 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,3.1 存储器概述
+易失性半导体存储器统称为RAM
+静态RAM（SRAM）
+动态RAM（DRAM）
+
+
+非易失性的半导体存储器统称为ROM
+掩膜ROM（MASK ROM）:出厂的时候就写好了，不能改,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="计组笔记_chapter3 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,3.1 存储器概述
+易失性半导体存储器统称为RAM
+静态RAM（SRAM）
+动态RAM（DRAM）
+
+
+非易失性的半导体存储器统称为ROM
+掩膜ROM（MASK ROM）:出厂的时候就写好了，不能改,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计组笔记_chapter3</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计组笔记_chapter3</h1>
+        <div class="stuff">
+            <span>四月 27, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%AE%A1%E7%BB%84/" rel="tag">计组</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="3-1-存储器概述"><a href="#3-1-存储器概述" class="headerlink" title="3.1 存储器概述"></a>3.1 存储器概述</h2><ul>
+<li><strong>易失性</strong>半导体存储器统称为RAM<ul>
+<li>静态RAM（SRAM）</li>
+<li>动态RAM（DRAM）</li>
+</ul>
+</li>
+<li><strong>非易失性</strong>的半导体存储器统称为ROM<ul>
+<li>掩膜ROM（MASK ROM）:出厂的时候就写好了，不能改了捏</li>
+<li>可编程ROM（PROM）<ul>
+<li>一次性可编程ROM（OTP ROM）</li>
+<li>可擦除PROM（EPROM）<ul>
+<li>紫外线擦除EPROM（UV EPROM）</li>
+<li>电擦除EPROM（EEPROM，E2PROM）</li>
+<li>闪速存储器（FLASH ROM)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储器的目标<ul>
+<li>大容量</li>
+<li>高速度</li>
+<li>低价格</li>
+</ul>
+</li>
+<li>现代计算机的层次存储器系统<ul>
+<li>Register</li>
+<li>On-Chip Cache</li>
+<li>Second Level Cache(SRAM)</li>
+<li>Main Memory(DRAM)</li>
+<li>Secondary Storage(Disk)</li>
+<li>Tertiary Stroage(Disk)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>其中，内存&#x3D;Cache+主存</p>
+</blockquote>
+<p>内存的主要技术指标</p>
+<ul>
+<li>访问时间TA：<br>从存储器接收到读写命令道信息被读出或写入完成所需的时间，取决于存储介质的物理特性和寻址部件的结构</li>
+<li>存取周期TM：<br>在存储器连续读写过程中一次完整的存取操作所需的时间（CPU连续两次访问存储器的最小时间间隔）</li>
+<li>功耗</li>
+<li>可靠性</li>
+</ul>
+<p>主存储器的读写过程</p>
+<ul>
+<li>读过程:<ul>
+<li>给出地址</li>
+<li>给出片选与读命令</li>
+<li>保存读出内容</li>
+</ul>
+</li>
+<li>写过程:<ul>
+<li>给出地址</li>
+<li>给出片选与数据</li>
+<li>给出写命令</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-2-随机读写存储器"><a href="#3-2-随机读写存储器" class="headerlink" title="3.2 随机读写存储器"></a>3.2 随机读写存储器</h2><p>存储器芯片的基本结构</p>
+<ul>
+<li>地址线</li>
+<li>数据线（双向）</li>
+<li>片选信号</li>
+<li>读写控制线</li>
+</ul>
+<p>n位存储器芯片的结构<br><img src="https://api2.mubu.com/v3/document_image/32de5b46-4a1e-44a0-9f79-07893d6352e0-16175743.jpg" alt="n位存储器芯片的结构"></p>
+<h3 id="SRAM基本电路"><a href="#SRAM基本电路" class="headerlink" title="SRAM基本电路"></a>SRAM基本电路</h3><blockquote>
+<p>关于MOS管：<br> <img src="https://api2.mubu.com/v3/document_image/9af0e8b2-247c-40d4-8668-44e85d9cc555-16175743.jpg" alt="MOS管"><br> 当G极电压大于导通电压时，DS导通，G极仅有电压而无电流。</p>
+</blockquote>
+<h4 id="SRAM读操作"><a href="#SRAM读操作" class="headerlink" title="SRAM读操作"></a>SRAM读操作</h4><p><img src="https://api2.mubu.com/v3/document_image/ca7d354f-54ce-4fbc-a7ff-68b180d76484-16175743.jpg" alt="读操作"></p>
+<h4 id="SRAM写操作"><a href="#SRAM写操作" class="headerlink" title="SRAM写操作"></a>SRAM写操作</h4><p><img src="https://api2.mubu.com/v3/document_image/4f97314f-340d-414a-ad41-88b706d3ec3a-16175743.jpg" alt="写操作"></p>
+<h4 id="SRAM存储器的结构"><a href="#SRAM存储器的结构" class="headerlink" title="SRAM存储器的结构"></a>SRAM存储器的结构</h4><p><img src="https://api2.mubu.com/v3/document_image/704b1a9d-4bdd-40b6-94e2-2bba8b20768a-16175743.jpg" alt="SRAM存储器的结构"></p>
+<h4 id="SRAM实例"><a href="#SRAM实例" class="headerlink" title="SRAM实例"></a>SRAM实例</h4><p><img src="https://api2.mubu.com/v3/document_image/b63aa862-bd86-4a2d-bfb0-030536d5ccbd-16175743.jpg" alt="实例"></p>
+<h4 id="字扩展-amp-位扩展"><a href="#字扩展-amp-位扩展" class="headerlink" title="字扩展&amp;位扩展"></a>字扩展&amp;位扩展</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq1350975694/article/details/107290348">这位老哥</a>讲的不错，能看懂，就是容易记不住。</p>
+<h3 id="动态存储器DRAM"><a href="#动态存储器DRAM" class="headerlink" title="动态存储器DRAM"></a>动态存储器DRAM</h3><p>可以减少晶体管的数目，但是存储的电荷会泄露，所以需要动态刷新电路。</p>
+<h4 id="四管动态存储单元"><a href="#四管动态存储单元" class="headerlink" title="四管动态存储单元"></a>四管动态存储单元</h4><p>DRAM刷新是对一行进行刷新的。</p>
+<h4 id="单管动态存储单元"><a href="#单管动态存储单元" class="headerlink" title="单管动态存储单元"></a>单管动态存储单元</h4><p><img src="https://api2.mubu.com/v3/document_image/392de6a0-3436-4afc-a57f-fcb955c5e5e7-16175743.jpg" alt="单管动态存储单元"><br>word line是字线，bit line是数据线</p>
+<h4 id="DRAM写操作"><a href="#DRAM写操作" class="headerlink" title="DRAM写操作"></a>DRAM写操作</h4><ul>
+<li>字线高电平，T导通<ul>
+<li>写1: 数据线为高电平，通过T对C充电</li>
+<li>写0: 数据线为低电平，C通过T放电<br><img src="https://api2.mubu.com/v3/document_image/3658afcf-ccf6-49fe-87a9-7dcf1007bd7c-16175743.jpg" alt="写操作"></li>
+</ul>
+</li>
+</ul>
+<h4 id="DRAM读操作-amp-刷新操作"><a href="#DRAM读操作-amp-刷新操作" class="headerlink" title="DRAM读操作&amp;刷新操作"></a>DRAM读操作&amp;刷新操作</h4><ul>
+<li>数据线预充电至VDD&#x2F;2</li>
+<li>当字线为高电平，T导通，若原来C充有电荷，则C放电使数据线电位小幅上升，经放大后读出为1；若原来C上无电荷，则C充电使数据线电位小幅下降，经放大器后读出为0。</li>
+<li>单管DRAM单元的读出是破坏性的，在读出信息后要立即对单元进行“回写”，以恢复原信息。<br><img src="https://api2.mubu.com/v3/document_image/2c510ee9-446e-4aaf-adc4-a55cedbd7002-16175743.jpg" alt="读操作&amp;刷新操作"></li>
+</ul>
+<h3 id="DRAM和SRAM的比较"><a href="#DRAM和SRAM的比较" class="headerlink" title="DRAM和SRAM的比较"></a>DRAM和SRAM的比较</h3><ul>
+<li>DRAM<ul>
+<li>主存</li>
+<li>电容+1晶体管</li>
+<li>需要刷新（2~8ms）</li>
+<li>读操作是破坏性的</li>
+<li>密度高</li>
+<li><font color=red>地址线分时复用</font>:管脚是稀缺资源，通常是行地址和列地址进行分时复用</li>
+</ul>
+</li>
+<li>SRAM<ul>
+<li>Cache</li>
+<li>速度比DRAM快</li>
+</ul>
+</li>
+</ul>
+<h3 id="DRAM读时序"><a href="#DRAM读时序" class="headerlink" title="DRAM读时序"></a>DRAM读时序</h3><p><img src="https://api2.mubu.com/v3/document_image/4de50a3c-bb58-4609-ab18-1d9e66e6fdcc-16175743.jpg" alt="DRAM读时序"><br>OE_L是输出使能信号，WE_L是写使能信号，RAS_L是row 行地址有效，CAS_L是column 列地址有效。_L代表低电平有效。<br>OE_L可以在CAS之前或者之后有效，区别是是否读出一些垃圾数据。<br>了解即可<br><img src="https://api2.mubu.com/v3/document_image/9eeef8a0-7f7c-4e4e-8d6c-0b23c3b37721-16175743.jpg" alt="了解即可"></p>
+<h3 id="DRAM的刷新"><a href="#DRAM的刷新" class="headerlink" title="DRAM的刷新"></a>DRAM的刷新</h3><p>刷新周期一般是几毫秒</p>
+<h4 id="集中式刷新"><a href="#集中式刷新" class="headerlink" title="集中式刷新"></a>集中式刷新</h4><p>在整个刷新间隔里，前大半部分可以读写，后小半部分刷新。<br>在后小半部分里，CPU无法访问存储器，也就是不能执行指令，响应系统紧急事件。</p>
+<h4 id="分散式刷新"><a href="#分散式刷新" class="headerlink" title="分散式刷新"></a>分散式刷新</h4><p>例如：某DRAM有1024行，若刷新周期为8ms，则必须在8ms内把所有1024行刷新一遍。<br>8000µs÷1024≈7.8µs，即每隔7.8µs刷新<strong>一行</strong>。<br>有点像时分复用。<br>需要一些相应的辅助电路，比如记录刷新到第几行了，以及一个额外的计时器etc.</p>
+<p>两种常用的传递刷新信号的方式</p>
+<ol>
+<li>只用RAS刷新操作</li>
+<li>CAS在RAS之前的刷新操作</li>
+</ol>
+<h3 id="DRAM控制器"><a href="#DRAM控制器" class="headerlink" title="DRAM控制器"></a>DRAM控制器</h3><!-- 长[这样]()，感觉不重要。 -->
+
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><img src="https://api2.mubu.com/v3/document_image/7ac2c0db-93d3-4115-9163-c1426997f1b6-16175743.jpg" alt="例子"><br>4Mx8位指的是：<br>一片里面有4M，有8片。<br>所以8位是数据位。<br>1M是2的20次方。<br>4M是2的22次方。<br>也就是行列线一共有22条。<br>因为DRAM是行列地址分时复用，所以地址线仅11条。<br>这里的行地址线和列地址线不一定是一样多的，但是没说的情况下默认平分。</p>
+<h3 id="其他的一些补充"><a href="#其他的一些补充" class="headerlink" title="其他的一些补充"></a>其他的一些补充</h3><ul>
+<li><p>增强型的DRAM：EDRAM（Enhanced）<br>由于CPU的数据经常需要访问某个地址相邻地址的数据，加一个SRAM临时存储读出的这一行，可以加快读取速度。<br>在行地址不变的情况下，连续的变换列地址，称为Brust Mode，这种情况下的增强型DRAM读取速度尤其快。</p>
+</li>
+<li><p>SDRAM：同步DRAM<br>S：synchronous a.同步的<br>添加了一个时钟信号，让CPU和读写存储变成了一个同步的操作。<br>只在时钟的上升沿进行数据的读取<br>为了提升速率：<br>DDR：在上升下降沿都进行读取。<br>DDR2：外部时钟的频率提高一倍，也是在上升下降沿都进行读取。</p>
+</li>
+<li><p>CAS Latency 参数<br>列地址有效时候还要多久才能读取到数据，越小越好。</p>
+</li>
+<li><p>DRAM主存读&#x2F;写的正确性校验<br>为了提高DRAM存储器读写操作的正确性与可靠性，在写入m位数据的同时还需写入k位附加位，即写入的数据是经过纠错码编码的数据。</p>
+</li>
+</ul>
+<h2 id="3-4-只读存储器和闪速存储器"><a href="#3-4-只读存储器和闪速存储器" class="headerlink" title="3.4 只读存储器和闪速存储器"></a>3.4 只读存储器和闪速存储器</h2><h3 id="只读存储器ROM"><a href="#只读存储器ROM" class="headerlink" title="只读存储器ROM"></a>只读存储器ROM</h3><p>Read Only Memory<br>没有易失性</p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li>掩膜ROM（MASK ROM）:出厂的时候就写好了，不能改了捏<br>可靠性高，便宜</li>
+<li>可编程ROM（PROM）<ul>
+<li>一次性可编程ROM（OTP ROM）<br>（双极型PROM，熔断型，PN结击穿型）</li>
+<li>可擦除PROM（EPROM）<ul>
+<li>紫外线擦除EPROM（UV EPROM）</li>
+<li>电擦除EPROM（EEPROM，E2PROM）</li>
+<li>闪速存储器（FLASH ROM）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="EPROM"><a href="#EPROM" class="headerlink" title="EPROM"></a>EPROM</h4><p>原理略<br>举例：<br><img src="https://api2.mubu.com/v3/document_image/7730146f-b3b1-401b-8db7-880d9e220254-16175743.jpg" alt="1"><br><img src="https://api2.mubu.com/v3/document_image/f545b500-4648-4e43-a869-349c29d89aca-16175743.jpg" alt="2"><br><img src="https://api2.mubu.com/v3/document_image/34f620ab-acab-433c-bc7e-ff7ef604db18-16175743.jpg" alt="3"></p>
+<h4 id="EEPROM"><a href="#EEPROM" class="headerlink" title="EEPROM"></a>EEPROM</h4><p>与EPROM相比，集成度低（两个晶体管存一个单位），寿命长。</p>
+<h3 id="闪速存储器"><a href="#闪速存储器" class="headerlink" title="闪速存储器"></a>闪速存储器</h3><p>闪速存储器FLASH是目前唯一的具有大容量、非易失性、低价格、可在线改写和较高速度几个特性共存的存储器。<br>之所以称为FLASH，是因为<strong>擦除速度快</strong>，擦除整个存储矩阵所花时间，与EEPROM擦除一个存储单元的时间相同。<br>FLASH具有<strong>非易失性</strong>，比SRAM成本低<br>但是擦写次数和速度都比DRAM差不少，故不能取代DRAM</p>
+<p>闪存分为两类：</p>
+<ol>
+<li>NOR闪存</li>
+<li>NAND闪存</li>
+</ol>
+<h4 id="NOR闪存"><a href="#NOR闪存" class="headerlink" title="NOR闪存"></a>NOR闪存</h4><ul>
+<li>擦除写入时间比较长</li>
+<li>有完整的地址&#x2F;数据接口，能<strong>随机存取</strong></li>
+<li>存储容量比NAND小很多</li>
+</ul>
+<h4 id="NAND闪存"><a href="#NAND闪存" class="headerlink" title="NAND闪存"></a>NAND闪存</h4><ul>
+<li>擦除写入时间比较快</li>
+<li>与NOR闪存比较具有较高的密度和较低的位成本，10倍的擦除次数。</li>
+<li>没有完整的地址&#x2F;数据接口，I&#x2F;O接口只允许<strong>顺序存取</strong>数据</li>
+</ul>
+<p>闪存特点：<br>可在线写入数据，具有ROM的非易失性<br>可以取代全部的UV EPROM和大部分的E$^2$PRO</p>
+<p>闪存的主要用途：<br>存储监控程序、引导程序等基本不变或不经常改变的程序：可使用NOR闪存<br>保存掉电时需要保持的系统配置等不常改变的数据：可使用NOR闪存<br>固态盘：采用NAND闪存</p>
+<h2 id="3-5-并行存储器"><a href="#3-5-并行存储器" class="headerlink" title="3.5 并行存储器"></a>3.5 并行存储器</h2><h3 id="双端口存储器"><a href="#双端口存储器" class="headerlink" title="双端口存储器"></a>双端口存储器</h3><p>DRRAM:dual port RAM<br>同一个存储器具有两组独立的控制线，地址线和数据线。<br>比其他的线多了一个忙线（busy line），作用是解决读写冲突。<br>实例：<br>IDT7133<br>容量为2K×16位SRAM<br><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/df269406-2bbc-4477-af34-1a6e7c0a846a-16175743.jpg">功能方框图</a><br>当两个端口同时存取存储器同一存储单元时，便发生读写<br>冲突,为了解决读写冲突，设置了<span style="text-decoration:overline">BUSY</span>标志线</p>
+<ul>
+<li>由判断逻辑部件来决定对哪个端口优先进行读写操作，另<br>一个端口的BUSY标志有效，读写操作延迟执行。</li>
+<li>判断逻辑部件的判断方式：<ol>
+<li>CE判断：如果地址匹配且在CE之前有效，片上的控制逻辑在CEL和CER之间进行判断来选择端口</li>
+<li>地址有效判断：如果CE在地址匹配之前变低，片上的控制逻辑在左、右地址间进行判断来选择端口</li>
+</ol>
+</li>
+</ul>
+<h3 id="多模块交叉存储器"><a href="#多模块交叉存储器" class="headerlink" title="多模块交叉存储器"></a>多模块交叉存储器</h3><p>各模块地址安排有2种方式</p>
+<ul>
+<li>顺序方式<br><img src="https://api2.mubu.com/v3/document_image/ff771aed-21ae-4267-8573-0ed40c1edfc5-16175743.jpg" alt="顺序方式"></li>
+<li>交叉方式(Interleaving)也称为多通道方式<br><img src="https://api2.mubu.com/v3/document_image/62967547-6e6e-4d9a-afac-bc1503b863e8-16175743.jpg" alt="交叉模式"></li>
+</ul>
+<p>主存被分成4个独立、容量相同的模块M0&#x2F;M1&#x2F; M2&#x2F;M3<br><img src="https://api2.mubu.com/v3/document_image/b4df61d4-a217-4b4b-9adf-1f7509019ffe-16175743.jpg" alt="基本结构"></p>
+<ol>
+<li>每个模块均有自己的读写控制电路、地址寄存器和数据寄存器，<br>以相同的方式与CPU传送信息</li>
+<li>CPU同时访问四个模块，由存储器控制部件控制它们分时使用<br>数据总线进行信息的传递（读取T相对于数据传递$\tau$要慢很多</li>
+</ol>
+<p><img src="https://api2.mubu.com/v3/document_image/6e562469-71e6-40fc-8571-0328990c5864-16175743.jpg" alt="读取模式"><br>假设模块字长等于数据总线宽度，且模块存取一个字的存储周期为T，总线传送周期为τ，存储器的交叉模块数为m<br>那么，m＝T&#x2F;τ被为交叉存取度，连续读取m个字所需的时间为t1&#x3D;T+(m-1)τ<br>对于顺序方式存储器，连续读取m个字所需的时间为t2&#x3D;mT</p>
+<p>例子：<br><img src="https://api2.mubu.com/v3/document_image/e252126f-ed53-41c0-a0c2-bca3f9cf6bf1-16175743.jpg" alt="例子："><br>解答：<br><img src="https://api2.mubu.com/v3/document_image/16519072863582123.jpg" alt="解答："></p>
+<p>零等待存取<br><img src="https://api2.mubu.com/v3/document_image/8bef93b1-f2ba-4efc-b643-78b5bc768899-16175743.jpg" alt="零等待存取"></p>
+<h2 id="3-6-Cache存储器"><a href="#3-6-Cache存储器" class="headerlink" title="3.6 Cache存储器"></a>3.6 Cache存储器</h2><h3 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h3><p>principle of locality，讨论的就是双重for循环取二维数组那个，执行速度的问题。</p>
+<ul>
+<li>时间局部性 temporal locality<br>在一个具有良好时间局部性的程序中，被引用过一次的内存位置很可能在不远的将来再被多次引用</li>
+<li>空间局部性 spatial locality<br>在一个具有良好空间局部性的程序中，如果一个内存位置被引用了一次，那么程序很可能在近期引用附近的一个内存位置</li>
+</ul>
+<h3 id="存储系统的层次结构"><a href="#存储系统的层次结构" class="headerlink" title="存储系统的层次结构"></a>存储系统的层次结构</h3><p><img src="https://api2.mubu.com/v3/document_image/ef2fd587-0459-41e2-be5c-8a2ba15b4eeb-16175743.jpg" alt="结构"></p>
+<h3 id="高速缓存Cache-x2F-kaeʃ-x2F"><a href="#高速缓存Cache-x2F-kaeʃ-x2F" class="headerlink" title="高速缓存Cache&#x2F;kæʃ&#x2F;"></a>高速缓存Cache&#x2F;kæʃ&#x2F;</h3><p>Cache是一个小而快速的存储设备，它作为存储在更大、也更慢的设备中的数据对象的缓存区域</p>
+<ol>
+<li>Cache通常采用高速SRAM来实现</li>
+<li>利用局部性原理，在Cache中完成大多数访问，从而缩短平均访问时间</li>
+<li>CPU和主存之间的速度差很大通常采用两级或多级Cache系统</li>
+<li>全由硬件调度，对用户透明</li>
+</ol>
+<p>不同层次之间Cache<br><img src="https://api2.mubu.com/v3/document_image/f1187756-8075-42a9-b96a-ff42adf70110-16175743.jpg" alt="基本原理1"></p>
+<p>Cache 命中与缺失<br><img src="https://api2.mubu.com/v3/document_image/abf3fed0-9cde-40f8-8dec-04015df1ae48-16175743.jpg" alt="命中与缺失"></p>
+<blockquote>
+<p>LRU :Least Recently Used最近最少使用</p>
+</blockquote>
+<p>Cache缺失类型</p>
+<ol>
+<li>冷启缺失&#x2F;义务缺失（Cold miss or Compulsory miss）<ul>
+<li>当cache为空时就产生冷启缺失，比如刚开机</li>
+</ul>
+</li>
+<li>冲突缺失（Conflict miss）<ul>
+<li>层k+1的数据块通常只能映射到层k的有限位置上。尽管层k中cache足够大，但层k+1有多个数据块全都映射到层k的同一位置上，则产生冲突缺失</li>
+</ul>
+</li>
+<li>容量缺失（Capacity miss）<ul>
+<li>当活动的cache块的数量超过cache的容量就产生容量缺失</li>
+</ul>
+</li>
+</ol>
+<h3 id="内容可寻址CAM"><a href="#内容可寻址CAM" class="headerlink" title="内容可寻址CAM"></a>内容可寻址CAM</h3><p>（Content Addressable Memory）是一种用内容进行寻址的存储器。将一个输入数据项与存储的所有数据项同时进行比较，若存在匹配，输出该数据项对应的匹配信息（或地<br>址）。同时也能按地址进行读和写。</p>
+<h3 id="主存和Cache的分块"><a href="#主存和Cache的分块" class="headerlink" title="主存和Cache的分块"></a>主存和Cache的分块</h3><p>主存和cache间以数据块为单位进行复制，为便于管理，将主存和cache都划分为大小相等的数据块（也称行）</p>
+<p><img src="https://api2.mubu.com/v3/document_image/27912974-d4e5-482f-a56a-3210c8c23b3e-16175743.jpg" alt="主存&amp;cache容量"><br><img src="https://api2.mubu.com/v3/document_image/2c0711cb-fc8a-4b2a-92f4-3311f88ef522-16175743.jpg" alt="映射方法"><br>总的映射过程<br><img src="https://api2.mubu.com/v3/document_image/0c35d8b0-967a-47b2-82aa-776ab2d01ab9-16175743.jpg" alt="过程"></p>
+<h3 id="主存与Cache的地址映射"><a href="#主存与Cache的地址映射" class="headerlink" title="主存与Cache的地址映射"></a><mark>主存与Cache的地址映射</mark></h3><ol>
+<li>全相联映射（ Fully Associative Mapping）</li>
+<li>直接映射（Direct Mapping）</li>
+<li>组相联映射（Set Associative Mapping）</li>
+</ol>
+<h3 id="全相联映射"><a href="#全相联映射" class="headerlink" title="全相联映射"></a>全相联映射</h3><p><img src="https://api2.mubu.com/v3/document_image/2e922423-4875-4c5f-ab9f-08e313b59c6c-16175743.jpg" alt="1"><br><img src="https://api2.mubu.com/v3/document_image/93b3ef69-428b-4a6f-8942-587a10e2ec58-16175743.jpg" alt="2"></p>
+<p>就是弄个表，其实就是前面那个<a href="#%E5%86%85%E5%AE%B9%E5%8F%AF%E5%AF%BB%E5%9D%80cam">内容可寻址CAM</a><br><img src="https://api2.mubu.com/v3/document_image/a56ec8fa-f145-4baa-9eda-82156e49e5b8-16175743.jpg" alt="示例"><br>例子：<br><img src="https://api2.mubu.com/v3/document_image/5d635f1b-e733-45ff-b34b-98a3fb66bda5-16175743.jpg" alt="例子："></p>
+<h3 id="直接映射"><a href="#直接映射" class="headerlink" title="直接映射"></a>直接映射</h3><p><img src="https://api2.mubu.com/v3/document_image/4737d462-58d4-4288-a61f-fd0484e904ef-16175743.jpg" alt="直接映射"><br>这也是能产生冲突缺失的情况</p>
+<p>直接映射的Cache标签和行号<br><img src="https://api2.mubu.com/v3/document_image/e4592538-4dd4-48a3-8fef-294e7d40c57f-16175743.jpg" alt="直接映射的Cache标签和行号"><br>直接映射Cache的检索过程<br><img src="https://api2.mubu.com/v3/document_image/2c75c351-38df-41c4-a5b1-c032864a55e1-16175743.jpg" alt="检索过程"><br>示例<br><img src="https://api2.mubu.com/v3/document_image/cab14266-1809-4e39-aa54-937d06549bad-16175743.jpg" alt="示例"></p>
+<h3 id="v路（v-way）组相联映射"><a href="#v路（v-way）组相联映射" class="headerlink" title="v路（v-way）组相联映射"></a>v路（v-way）组相联映射</h3><p><img src="https://api2.mubu.com/v3/document_image/f0e63664-1cde-42b8-b783-f5a3a0f306e6-16175743.jpg" alt="v路（v-way）组相联映射"><br><strong>主存块存放到哪个组是固定的，放在组内的哪一行是任意的</strong><br>检索过程<br><img src="https://api2.mubu.com/v3/document_image/6bd4d8f2-75ee-4e35-a527-c126b8b555cf-16175743.jpg" alt="jsgc"><br>2路组相联映射示例1<br><img src="https://api2.mubu.com/v3/document_image/7af08504-1981-4f84-88d6-2feee4d4cbaa-16175743.jpg" alt="shili"><br>2路组相联映射示例2<br><img src="https://api2.mubu.com/v3/document_image/c7af876a-6747-4241-b5f6-c398545c9385-16175743.jpg" alt="shili"></p>
+<h2 id="wordtable"><a href="#wordtable" class="headerlink" title="wordtable"></a>wordtable</h2><blockquote>
+<p>Interleaving 交叉模式<br> Compulsory a.必修做的强制的<br> CAM 内容可寻址存储器</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/【钢琴】《你离开的事实 》The Truth that You Leave 罗曼耶卓 Oskar R - 1.truth_POST(Av586020664,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/【钢琴】《大雾》(demo版）张一乔 - 1.dawu(Av417516306,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/【钢琴】《晴天》Oskar Roman Jezior 周杰伦 - 1.qingtian_POST(Av331213171,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/【钢琴】《撒野》罗曼耶卓 - 1.saye_POST(Av459374452,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/【钢琴】坂本龙一《圣诞快乐 劳伦斯先生》 罗曼耶卓 Oskar Roman Jezior - 1.mr_lawrence_POST(Av885864226,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】陈奕迅《富士山下》罗曼耶卓 Oskar Roman Jezior - 1.fuji_POST(Av288674149,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】花之舞 《Flower Dance》罗曼耶卓 Oskar Roman Jezior - 1.flower_dance_POST(Av331481248,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】暮光之城《A Thousand Years》罗曼耶卓 - 1.thousand_years_POST(Av289839694,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/Young and Beautiful.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/错位时空.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AD%98%E5%82%A8%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">3.1 存储器概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">3.2 随机读写存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SRAM%E5%9F%BA%E6%9C%AC%E7%94%B5%E8%B7%AF"><span class="toc-number">2.1.</span> <span class="toc-text">SRAM基本电路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SRAM%E8%AF%BB%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.1.</span> <span class="toc-text">SRAM读操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SRAM%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.2.</span> <span class="toc-text">SRAM写操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SRAM%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.3.</span> <span class="toc-text">SRAM存储器的结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SRAM%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.1.4.</span> <span class="toc-text">SRAM实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E6%89%A9%E5%B1%95-amp-%E4%BD%8D%E6%89%A9%E5%B1%95"><span class="toc-number">2.1.5.</span> <span class="toc-text">字扩展&amp;位扩展</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8%E5%99%A8DRAM"><span class="toc-number">2.2.</span> <span class="toc-text">动态存储器DRAM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E7%AE%A1%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83"><span class="toc-number">2.2.1.</span> <span class="toc-text">四管动态存储单元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E7%AE%A1%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83"><span class="toc-number">2.2.2.</span> <span class="toc-text">单管动态存储单元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DRAM%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-number">2.2.3.</span> <span class="toc-text">DRAM写操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DRAM%E8%AF%BB%E6%93%8D%E4%BD%9C-amp-%E5%88%B7%E6%96%B0%E6%93%8D%E4%BD%9C"><span class="toc-number">2.2.4.</span> <span class="toc-text">DRAM读操作&amp;刷新操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DRAM%E5%92%8CSRAM%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">2.3.</span> <span class="toc-text">DRAM和SRAM的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DRAM%E8%AF%BB%E6%97%B6%E5%BA%8F"><span class="toc-number">2.4.</span> <span class="toc-text">DRAM读时序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DRAM%E7%9A%84%E5%88%B7%E6%96%B0"><span class="toc-number">2.5.</span> <span class="toc-text">DRAM的刷新</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E5%88%B7%E6%96%B0"><span class="toc-number">2.5.1.</span> <span class="toc-text">集中式刷新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%95%A3%E5%BC%8F%E5%88%B7%E6%96%B0"><span class="toc-number">2.5.2.</span> <span class="toc-text">分散式刷新</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DRAM%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">2.6.</span> <span class="toc-text">DRAM控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">2.7.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A1%A5%E5%85%85"><span class="toc-number">2.8.</span> <span class="toc-text">其他的一些补充</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8%E5%92%8C%E9%97%AA%E9%80%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">3.4 只读存储器和闪速存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8ROM"><span class="toc-number">3.1.</span> <span class="toc-text">只读存储器ROM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EPROM"><span class="toc-number">3.1.2.</span> <span class="toc-text">EPROM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EEPROM"><span class="toc-number">3.1.3.</span> <span class="toc-text">EEPROM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AA%E9%80%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">闪速存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NOR%E9%97%AA%E5%AD%98"><span class="toc-number">3.2.1.</span> <span class="toc-text">NOR闪存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NAND%E9%97%AA%E5%AD%98"><span class="toc-number">3.2.2.</span> <span class="toc-text">NAND闪存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E5%B9%B6%E8%A1%8C%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">3.5 并行存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E7%AB%AF%E5%8F%A3%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">4.1.</span> <span class="toc-text">双端口存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%A8%A1%E5%9D%97%E4%BA%A4%E5%8F%89%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">4.2.</span> <span class="toc-text">多模块交叉存储器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-Cache%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">3.6 Cache存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="toc-number">5.1.</span> <span class="toc-text">局部性原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">5.2.</span> <span class="toc-text">存储系统的层次结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98Cache-x2F-kae%CA%83-x2F"><span class="toc-number">5.3.</span> <span class="toc-text">高速缓存Cache&#x2F;kæʃ&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%8F%AF%E5%AF%BB%E5%9D%80CAM"><span class="toc-number">5.4.</span> <span class="toc-text">内容可寻址CAM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%92%8CCache%E7%9A%84%E5%88%86%E5%9D%97"><span class="toc-number">5.5.</span> <span class="toc-text">主存和Cache的分块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E4%B8%8ECache%E7%9A%84%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84"><span class="toc-number">5.6.</span> <span class="toc-text">主存与Cache的地址映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="toc-number">5.7.</span> <span class="toc-text">全相联映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="toc-number">5.8.</span> <span class="toc-text">直接映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v%E8%B7%AF%EF%BC%88v-way%EF%BC%89%E7%BB%84%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="toc-number">5.9.</span> <span class="toc-text">v路（v-way）组相联映射</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wordtable"><span class="toc-number">6.</span> <span class="toc-text">wordtable</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

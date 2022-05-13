@@ -270,48 +270,6 @@
       </tags>
   </entry>
   <entry>
-    <title>计组笔记_chapter2</title>
-    <url>/2022/03/23/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0chapter2/</url>
-    <content><![CDATA[<h2 id="IEEE浮点表示"><a href="#IEEE浮点表示" class="headerlink" title="IEEE浮点表示"></a>IEEE浮点表示</h2><p>规格化表示：<br><img src="https://api2.mubu.com/v3/document_image/edff1550-2019-44d5-94b3-a8bca0ca4809-16175743.jpg" alt="规格化"></p>
-<p>特殊的浮点数<br><img src="https://api2.mubu.com/v3/document_image/42891536-e62d-4cd9-b358-64b73d22d52e-16175743.jpg" alt="特殊的浮点数"></p>
-<p>浮点数表示的范围<br><img src="https://api2.mubu.com/v3/document_image/1bca8a53-b91b-4811-b0f9-799f3261da15-16175743.jpg" alt="浮点数表示的范围"></p>
-<p>小结：<br>对32位浮点数N：<br>◼ 若0 &lt; E &lt; 255，则<br>N ＝ (-1)s ×1.M ×2<br>E-127 ，规格化数表示<br>◼ 若E &#x3D; 0且M ＝ 0，则<br>N ＝ (-1)s 0，机器+0、-0表示<br>◼ 若E &#x3D; 0且M ≠ 0，则<br>N ＝ (-1)s × 0.M× 2<br>1-127 ，非规格化数表示<br>◼ 若E&#x3D; 255且M ＝ 0，则<br>N＝(-1)s∞（正无穷大，负无穷大）<br>◼ 若E &#x3D; 255且M ≠ 0，则<br>N ＝ NaN，非数NaN(Not a Number)</p>
-<blockquote>
-<p>十进制小数转二进制：<br>十进制的小数转换为二进制，主要是小数部分乘以2，取整数部分依次从左往右放在小数点后，直至小数点后为0。</p>
-</blockquote>
-<h2 id="ACSII码"><a href="#ACSII码" class="headerlink" title="ACSII码"></a>ACSII码</h2><p>数字：48（0011 0000）~ 57（0011 1001）   +10-1<br>大写字母：65（0100 0001）～90（0101 1010）   +26-1<br>小写字母：97（0110 0001）～122（0111 1010）   +26-1</p>
-<h2 id="存储器中的字节序"><a href="#存储器中的字节序" class="headerlink" title="存储器中的字节序"></a>存储器中的字节序</h2><p>每个字节内部的顺序都是固定的，仅需考虑多个字节的字节间关系</p>
-<ul>
-<li>小端方式Little Endian<ul>
-<li>低字节存放在小地址处，即低字节在前高字节后<br>x86处理器</li>
-</ul>
-</li>
-<li>大端方式Big Endian<ul>
-<li>低字节存放在大地址处，即高字节在前低字节后<br>SPARC处理器，IBM Power处理器</li>
-</ul>
-</li>
-</ul>
-<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p><img src="https://api2.mubu.com/v3/document_image/16483863477285a79.jpg" alt="证明补码减法"></p>
-<h2 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h2><h3 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h3><p>正溢：运算结果为正，且超出机器所能表示的范围<br>负溢：运算结果为负，且超出机器所能表示的范围<br><img src="https://api2.mubu.com/v3/document_image/32378a93-fd0e-418c-932b-209ba715160d-16175743.jpg" alt="整数溢出"></p>
-<h3 id="小数溢出"><a href="#小数溢出" class="headerlink" title="小数溢出"></a>小数溢出</h3><p>上溢：结果的绝对值大于机器所能表示的最大绝对值（+∞，－∞）<br>（overflow）<br>下溢：结果的绝对值小于机器所能表示的最小绝对值 （ 机器零 ）<br>（underflow）<br><img src="https://api2.mubu.com/v3/document_image/f3691e63-d615-4caa-9043-dbb945ed07bc-16175743.jpg" alt="小数溢出"></p>
-<h3 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h3><ol>
-<li><p><strong>双符号位</strong>法，又称<strong>变形补码</strong>，或者模四补码<br> 双符号位的补码也遵循加法法则。<br> 在计算中：<br> 两个符号位均参加运算<br> 最高符号位上产生的进位要丢掉</p>
-<p> 溢出检测规则：<br> ◆两数相加后，结果的符号位出现“01”或“10”两种情况时，表示发生溢出（也就是<strong>最高的两位异或</strong>）<br> ◆最高符号位永远表示结果的正确符号</p>
-</li>
-<li><p><strong>单符号位</strong>法<br> 溢出的逻辑表达式为<br> $V&#x3D;C_f⊕C_0$<br> $C_f$为符号位产生的进位，$C_0$为最高有效位产生的进位</p>
-</li>
-</ol>
-<h2 id="定点乘法运算算法"><a href="#定点乘法运算算法" class="headerlink" title="定点乘法运算算法"></a>定点乘法运算算法</h2><h3 id="原码一位乘法运算"><a href="#原码一位乘法运算" class="headerlink" title="原码一位乘法运算"></a>原码一位乘法运算</h3><h3 id="无符号的阵列乘法"><a href="#无符号的阵列乘法" class="headerlink" title="无符号的阵列乘法"></a>无符号的阵列乘法</h3><h3 id="有符号的阵列乘法"><a href="#有符号的阵列乘法" class="headerlink" title="有符号的阵列乘法"></a>有符号的阵列乘法</h3><p>补码一位乘法运算（不要求）<br>原码两位乘法运算（不要求）<br>直接补码并行乘法（不要求）</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>course</tag>
-        <tag>计组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计网笔记-1综述</title>
     <url>/2022/03/09/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0-1%E7%BB%BC%E8%BF%B0/</url>
     <content><![CDATA[<h2 id="1-3网络软件"><a href="#1-3网络软件" class="headerlink" title="1.3网络软件"></a>1.3网络软件</h2><h3 id="协议层次结构Protocol-Hierarchies"><a href="#协议层次结构Protocol-Hierarchies" class="headerlink" title="协议层次结构Protocol Hierarchies"></a>协议层次结构Protocol Hierarchies</h3><ul>
@@ -935,6 +893,9 @@
 <p><img src="https://api2.mubu.com/v3/document_image/13461ce8-7fa2-4175-ba03-0965e5837558-16175743.jpg"></p>
 <p>注意：ω的取法有技巧， 一定要能推出矛盾才可以。<br>如：<br><img src="https://api2.mubu.com/v3/document_image/51cb931e-caac-4349-b905-3ce69bc8ce2c-16175743.jpg"></p>
 <p>右线性语言的封闭性 (已经忘光光了草哦)</p>
+<blockquote>
+<p>自动机到了终态但是串没读完不算到了终态<br> 当从带空的NFA到不带空的NFA转换时，如果状态q0不能接受b，还不能下定论，应该看q0的空闭包能不能接受b</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1195,6 +1156,642 @@
       <tags>
         <tag>course</tag>
         <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>形式语言与自动机_4</title>
+    <url>/2022/05/12/%E5%BD%A2%E5%BC%8F%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA_chapter4/</url>
+    <content><![CDATA[<h1 id="第四章-上下文无关文法与下推自动机"><a href="#第四章-上下文无关文法与下推自动机" class="headerlink" title="第四章  上下文无关文法与下推自动机"></a>第四章  上下文无关文法与下推自动机</h1><p>上下文无关文法：CFG(contex free grammar)<br>2型文法，产生式形如A-&gt;a，A$\in$N</p>
+<p><a href="https://api2.mubu.com/v3/document_image/1647178722462b691.jpg">几种文法的特点整理</a></p>
+<p>对应的识别器：下推自动机<br>PDA（push down Automata）<br>PDA由输入带，有限控制器和下推栈组成<br><img src="https://api2.mubu.com/v3/document_image/24b4fce5-8f87-4dca-84a9-9352955a2392-16175743.jpg" alt="1"></p>
+<h2 id="归约和推导"><a href="#归约和推导" class="headerlink" title="归约和推导"></a>归约和推导</h2><p>推理字符串是否属于文法所定义的语言</p>
+<ul>
+<li>一种是自下而上的方法，称为递归推理(recursive inference），递归推理的过程习称为归约；</li>
+<li>一种是自上而下的方法，称为推导（derivation）.</li>
+<li>归约过程   将产生式的右部（body）替换为产生式的左部（ head ）.</li>
+<li>推导过程   将产生式的左部（ head ）替换为产生式的右部（ body ）</li>
+</ul>
+<p>例子：<br><img src="https://api2.mubu.com/v3/document_image/9bd456a1-7f21-40cb-aec1-055eeccc42b8-16175743.jpg" alt="归约"><br><img src="https://api2.mubu.com/v3/document_image/57a9fc01-11d8-4b9b-a469-09a31d167672-16175743.jpg" alt="推导"></p>
+<ul>
+<li>最左推导(leftmost derivations)<br>若推导过程的每一步总是替换出现在最左边的非终结符。<br><img src="https://api2.mubu.com/v3/document_image/9fb0447a-54b0-4f72-b822-d55cec7336c9-16175743.jpg" alt="l"></li>
+<li>最右推导(rightmost derivations)<br>若推导过程的每一步总是替换出现在最右边的非终结符。<br><img src="https://api2.mubu.com/v3/document_image/bf95a2f6-8124-49c1-bd4c-7a68e69df74f-16175743.jpg" alt="r"></li>
+</ul>
+<h2 id="推导树和文法的二义性"><a href="#推导树和文法的二义性" class="headerlink" title="推导树和文法的二义性"></a>推导树和文法的二义性</h2><h3 id="推导树"><a href="#推导树" class="headerlink" title="推导树"></a>推导树</h3><p>用图的方法表示一个句型的推导，这种图称为推导树（也称语法树或语法分析树）<br>文法的起始符为根，树的枝结点标记是非终结符，叶结点标记为终结符或$\sigma$。<br>若枝结点有直接子孙x1, x2,…, xk，则文法中有生成式A→x1x2…xk<br><img src="https://api2.mubu.com/v3/document_image/378f4ab9-9951-475b-996c-9cc934efc070-16175743.jpg" alt="li"><br><img src="https://api2.mubu.com/v3/document_image/378f4ab9-9951-475b-996c-9cc934efc070-16175743.jpg" alt="tu"><br>推导树是对文法G中一个<u>特定句子形式</u>的派生过程所做的一种自然描述。</p>
+<ul>
+<li>边缘<br>叶子从左向右组成的字符串称为推导树的边缘。</li>
+</ul>
+<h3 id="归约、推导与分析树之间关系"><a href="#归约、推导与分析树之间关系" class="headerlink" title="归约、推导与分析树之间关系"></a>归约、推导与分析树之间关系</h3><p>归约<br><img src="https://api2.mubu.com/v3/document_image/034d00dd-d424-4ef1-a4ed-bf831eb1516f-16175743.jpg" alt="归约"><br>推导<br><img src="https://api2.mubu.com/v3/document_image/bfa38244-02b0-4e7b-97f5-16c4befc3faf-16175743.jpg" alt="推导"><br>关系<br><img src="https://api2.mubu.com/v3/document_image/e9d33c57-17f4-4416-b8a8-63bad4e38309-16175743.jpg" alt="关系"><br>证明2-&gt;5:<br>设2型文法G&#x3D;（N，T，P，S），如果存在S<img src="https://api2.mubu.com/v3/document_image/03811fd1-79b9-46ae-9187-fee25974c922-16175743.jpg" alt="推导出">ω，当且仅当文法G中有一棵边缘为ω的推导树。</p>
+<ul>
+<li>子树：<br>一棵派生树的子树，是树中的某个顶点连同它的全部后裔，以及连接这些后裔的边。<br><a href="https://api2.mubu.com/v3/document_image/09c3c42d-5fd5-415e-983d-4ac2fcbf359e-16175743.jpg">证明</a><br><a href="https://api2.mubu.com/v3/document_image/87352b24-c498-4dae-b762-b8d55e66ec0a-16175743.jpg">证明步骤1</a><br><a href="https://api2.mubu.com/v3/document_image/4650faf7-c73d-46df-aa3d-2f6c57288b96-16175743.jpg">证明步骤2</a></li>
+</ul>
+<h3 id="二义性"><a href="#二义性" class="headerlink" title="二义性"></a>二义性</h3><p>2型文法是二义的,当且仅当对于句子ω∈L(G),存在两棵不同的具有边缘为ω的推导树。<br>(即：如果文法是二义的, 那么它所产生的某个句子必然能从不同的最左(右)推导推出)。</p>
+<ul>
+<li>可有二个文法,一个有二义,一个无二义,但产生相同的语言.</li>
+<li>可否通过变换消除二义性? —— 无一般的算法!</li>
+</ul>
+<h2 id="上下文无关文法的变换"><a href="#上下文无关文法的变换" class="headerlink" title="上下文无关文法的变换"></a>上下文无关文法的变换</h2><ol>
+<li>CFG 的简化<ul>
+<li>消无用符号</li>
+<li>消$\varepsilon$产生式</li>
+<li>消单产生式</li>
+</ul>
+</li>
+<li>对生成式形式进行标准化</li>
+</ol>
+<p>生成式的标准形式:</p>
+<ol>
+<li>Chomsky范式 ：<br>  CNF - Chomsky Normal Form<br>  <img src="https://api2.mubu.com/v3/document_image/0b972e9e-9103-4285-9f11-7f404d2b45d5-16175743.jpg" alt="CNF"></li>
+<li>Greibach范式：(GNF)<br>  <img src="https://api2.mubu.com/v3/document_image/8d0a5097-0bbf-4510-9abb-af14a4c8335e-16175743.jpg" alt="GNF"></li>
+</ol>
+<h3 id="消去无用符号"><a href="#消去无用符号" class="headerlink" title="消去无用符号"></a>消去无用符号</h3><h4 id="有用符号X"><a href="#有用符号X" class="headerlink" title="有用符号X"></a>有用符号X</h4><p><img src="https://api2.mubu.com/v3/document_image/5c46692f-3ba3-4bd6-9dba-7ee1a79a2591-16175743.jpg" alt="X"></p>
+<ul>
+<li>生成符号 generating symbol<br><img src="https://api2.mubu.com/v3/document_image/de1c8e4b-b028-48bf-933f-cd2937e22558-16175743.jpg" alt="生成符号"></li>
+<li>可达符号 reachable symbol<br><img src="https://api2.mubu.com/v3/document_image/5c6aef7e-f00b-4260-9193-b75193bee158-16175743.jpg" alt="可达符号"></li>
+</ul>
+<h4 id="无用符号"><a href="#无用符号" class="headerlink" title="无用符号"></a>无用符号</h4><ul>
+<li>非生成符号</li>
+<li>不可达符号</li>
+</ul>
+<h4 id="消去无用符号的步骤"><a href="#消去无用符号的步骤" class="headerlink" title="消去无用符号的步骤"></a>消去无用符号的步骤</h4><ul>
+<li>计算生成符号集</li>
+<li>计算可达符号集</li>
+<li>消去非生成符号、不可达符号</li>
+<li>消去相关产生式</li>
+</ul>
+<h4 id="计算生成符号"><a href="#计算生成符号" class="headerlink" title="计算生成符号"></a>计算生成符号</h4><p>思路<br><img src="https://api2.mubu.com/v3/document_image/2872eb33-ddb9-4db1-8834-e79814953a22-16175743.jpg" alt="思路"><br>算法1:找出有用非终结符<br><img src="https://api2.mubu.com/v3/document_image/85a050c1-fc53-4c32-8bb9-ad81abfcd396-16175743.jpg" alt="算法1"><br>算法1图示:<br><img src="https://api2.mubu.com/v3/document_image/e8eeb259-84f4-4948-bced-32389df931f8-16175743.jpg" alt="图示"><br>一层层向外扩展，直至最外两层相等为止。所得集合即是算法1的有用符号。</p>
+<h4 id="计算可达符号集"><a href="#计算可达符号集" class="headerlink" title="计算可达符号集"></a>计算可达符号集</h4><p>思路<br><img src="https://api2.mubu.com/v3/document_image/3af1f690-10fa-4b64-b311-f854d46d985c-16175743.jpg" alt="计算可达符号集"><br>算法2：找出有用符号（从S出发可达的符号）<br><img src="https://api2.mubu.com/v3/document_image/e8094e10-e4bf-4ad9-86b2-f034d639b972-16175743.jpg" alt="算法2"><br>图示<br><img src="https://api2.mubu.com/v3/document_image/0f604071-1898-407d-8229-5b6f406f9481-16175743.jpg" alt="图示"></p>
+<h4 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h4><p><img src="https://api2.mubu.com/v3/document_image/c9e673b9-0573-4f99-80d6-bdc67adbdef8-16175743.jpg" alt="lizi"><br>注意：在删除一个无用符号时，要把与它相关的式子也删掉。<br>并且，<mark>一定要先执行算法1，保证每个符号是生成符号，再执行算法2，保证每个符号是可达符号。否则可能会导致一些无用符号无法消除。</mark>（这个例子就是不这么干的反例）</p>
+<p>一个定理：<br>任何非空的上下文无关语言,可由不存在无用符号的上下文无关语言产生(证明略)</p>
+<h3 id="消去-varepsilon-产生式"><a href="#消去-varepsilon-产生式" class="headerlink" title="消去$\varepsilon$产生式"></a>消去$\varepsilon$产生式</h3><p>目的：方便文法的设计, 利于文法规范化.<br>影响：消去$\varepsilon$产生式, 除了文法不能产生字符串$\varepsilon$外，不会影响到原文法相应的语言中其它字符串的产生.</p>
+<h4 id="可致空符号"><a href="#可致空符号" class="headerlink" title="可致空符号"></a>可致空符号</h4><p>nullable symbol<br><img src="https://api2.mubu.com/v3/document_image/daace5c0-2d0f-41d8-a022-f245a90d2803-16175743.jpg" alt="可致空符号"></p>
+<h4 id="算法3-生成无-varepsilon-文法"><a href="#算法3-生成无-varepsilon-文法" class="headerlink" title="算法3: 生成无$\varepsilon$文法"></a>算法3: 生成无$\varepsilon$文法</h4><p>定义：若G的生成式中无任何$\varepsilon$产生式，或只有一个生成式S→$\varepsilon$且S不出现在任何生成式的右边，则称G为无$\varepsilon$文法。</p>
+<p>思路：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/1d6d41c1-729e-4ac4-bf47-4e296f3ec652-16175743.jpg" alt="思路"></p>
+<p><mark>算法步骤</mark></p>
+<p><img src="https://api2.mubu.com/v3/document_image/c2829b36-1400-4476-8955-a96feefca3b5-16175743.jpg" alt="算法步骤"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/c9ff1e87-ea57-4e2f-967d-1afa35baf359-16175743.jpg" alt="2"><br>例子：<br><img src="https://api2.mubu.com/v3/document_image/c9c8141b-bc88-45af-8679-df1b572eaaff-16175743.jpg" alt="lizi"></p>
+<h3 id="消去单产生式"><a href="#消去单产生式" class="headerlink" title="消去单产生式"></a>消去单产生式</h3><p>什么是单产生式<br>单产生式  形如 A-&gt;B 的产生式，其中A、B 为非终结符.<br>目的：<br>可简化某些证明，减少推导步数, 利于文法规范化.</p>
+<h4 id="单元偶对-unit-pairs"><a href="#单元偶对-unit-pairs" class="headerlink" title="单元偶对 unit pairs"></a>单元偶对 unit pairs</h4><p><img src="https://api2.mubu.com/v3/document_image/7f563d59-edfa-4ab2-8303-90203d06e32d-16175743.jpg" alt="unit pairs"></p>
+<h4 id="消去单产生式的算法"><a href="#消去单产生式的算法" class="headerlink" title="消去单产生式的算法"></a>消去单产生式的算法</h4><h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><p><img src="https://api2.mubu.com/v3/document_image/ad2f4c73-516d-47c8-b469-9e1d07a124ce-16175743.jpg" alt="思路"></p>
+<h5 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h5><p><img src="https://api2.mubu.com/v3/document_image/a2717996-4489-4e8c-8a3c-cc250d9a5e94-16175743.jpg" alt="算法步骤"><br>$N_A$可以理解成所有和A是单元偶对的非终结符的集合<br><img src="https://api2.mubu.com/v3/document_image/859f5d77-0587-4525-94b5-da4095c29ca6-16175743.jpg" alt="算法步骤2"></p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p><img src="https://api2.mubu.com/v3/document_image/c7867368-350a-44d0-89e7-3ef3810d6721-16175743.jpg" alt="例子"><br><img src="https://api2.mubu.com/v3/document_image/aeeffb80-9874-4111-a53c-905b59a41550-16175743.jpg" alt="例子2"><br><img src="https://api2.mubu.com/v3/document_image/ca9cfaa9-3519-4113-a5fa-a990f0f8c1cd-16175743.jpg" alt="例子3"></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><img src="https://api2.mubu.com/v3/document_image/0d85c3d2-3151-4d32-8e7b-1e30e8a4adf2-16175743.jpg" alt="小结"><br>注意 以上简化步骤的次序.<br>设 CFG  G 的语言至少包含一个非  的字符串，通过上述步骤从 G 构造 G1 ，则有 L(G1)&#x3D; L(G) - {$\varepsilon$}.<br>必须按照顺序的原因：<br>消去空生成式的时候，可能会引入一些单生成式，而消除单生成式的时候又可能引入一些无用符号。</p>
+<h3 id="消除递归"><a href="#消除递归" class="headerlink" title="消除递归"></a>消除递归</h3><p>递归定义：<br><img src="https://api2.mubu.com/v3/document_image/7e94dd29-a89f-4f69-bd0b-42af73b3f5be-16175743.jpg" alt="dingyi"></p>
+<h4 id="生成式的代换"><a href="#生成式的代换" class="headerlink" title="生成式的代换"></a>生成式的代换</h4><p>引理1：<br><img src="https://api2.mubu.com/v3/document_image/e8952fc6-9135-4689-929b-a8cd7e9763d6-16175743.jpg" alt="引理1"><br>一个小例子：<br><img src="https://api2.mubu.com/v3/document_image/2a7b7faa-e60d-4c0b-a749-5a977b7a2e72-16175743.jpg" alt="一个小例子："></p>
+<h4 id="消除直接左递归"><a href="#消除直接左递归" class="headerlink" title="消除直接左递归"></a>消除直接左递归</h4><p>引理2<br><img src="https://api2.mubu.com/v3/document_image/7a19e78c-c34c-4c0b-8306-e92a46b1cf7f-16175743.jpg" alt="引理2"><br>例子：<br><img src="https://api2.mubu.com/v3/document_image/4e5120d2-63e7-476f-b65e-93b2faccee87-16175743.jpg" alt="例子："></p>
+<h5 id="为什么要消除左递归？"><a href="#为什么要消除左递归？" class="headerlink" title="为什么要消除左递归？"></a>为什么要消除左递归？</h5><ol>
+<li>以后的句法分析算法不适用于左递归,会引起死循环。</li>
+<li>对于给定的2型文法, 该文法不存在无用符号, 无循环且是无ε生成式的文法, 为了消除G中可能存在的左递归, 构成一个等效的无左递归的文法G1, 可用算法5。</li>
+<li>算法5在原理上与求解正规表达式方程组的算法类似.</li>
+</ol>
+<h5 id="算法5"><a href="#算法5" class="headerlink" title="算法5"></a>算法5</h5><p><img src="https://api2.mubu.com/v3/document_image/8b1fcac4-46ff-44bc-add8-e1bbb49e997b-16175743.jpg" alt="算法5"></p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p><img src="https://api2.mubu.com/v3/document_image/7d33cbe8-dd03-4731-a2fc-6cc3662ffef8-16175743.jpg" alt="示例"><br><img src="https://api2.mubu.com/v3/document_image/b7130afb-b6ba-4374-9bc4-b69a79cad139-16175743.jpg" alt="示例2"></p>
+<h2 id="下推自动机"><a href="#下推自动机" class="headerlink" title="下推自动机"></a>下推自动机</h2><h2 id="上下文无关语言的性质"><a href="#上下文无关语言的性质" class="headerlink" title="上下文无关语言的性质"></a>上下文无关语言的性质</h2>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>形式语言与自动机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计组笔记_chapter4</title>
+    <url>/2022/05/07/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_chapter4/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>指令系统<strong>ISA</strong>（Instruction Set Architecture）<br>指令分类：</p>
+<ul>
+<li>微指令：微程序级的命令，它属于<strong>硬件</strong></li>
+<li>宏指令：由若干条机器指令组成的软件指令，它属于软件</li>
+<li>机器指令：介于微指令与宏指令之间，每条指令可完成一个独立的算术运算或逻辑运算</li>
+</ul>
+<p>复杂指令系统计算机 （<strong>CISC</strong>）： Complex Instruction Set Computer<br>精简指令系统计算机（<strong>RISC</strong>）：Reduced Instruction Set Computer</p>
+<h2 id="4-2指令格式"><a href="#4-2指令格式" class="headerlink" title="4.2指令格式"></a>4.2指令格式</h2><p>指令字（简称指令）即表示一条指令的机器字<br>指令格式则是指令字用二进制代码表示的结构形式<br>指令的构成</p>
+<ul>
+<li>操作码字段：表示指令的操作特性与功能，即指令应进行什么样的操作</li>
+<li>操作数地址字段：指定参与操作的操作数的地址</li>
+</ul>
+<h3 id="操作码"><a href="#操作码" class="headerlink" title="操作码"></a>操作码</h3><p>操作码字段的位数一般取决于计算机指令系统的规模。例如：<br>如果指令系统只有8条指令，则用3位操作码就可表示<br>如果有32条指令，那么就需要5位操作码<br>定长操作码指令格式<br><img src="https://api2.mubu.com/v3/document_image/ebe16a31-c998-4a1f-b0ec-d3eb36d2945e-16175743.jpg" alt="定长"><br>扩展操作码指令格式:<br><img src="https://api2.mubu.com/v3/document_image/f46b1ac4-19a4-42b3-8c85-ff482d434dc3-16175743.jpg" alt="扩展"></p>
+<h3 id="地址码"><a href="#地址码" class="headerlink" title="地址码"></a>地址码</h3><p>按照一条指令中有几个操作数地址，可将该指令称为几操作数指令或几地址指令</p>
+<ul>
+<li>三地址指令格式</li>
+<li>二地址指令格式</li>
+<li>一地址指令格式</li>
+<li>零地址指令格式</li>
+</ul>
+<p>不同地址数目指令的形式：<br><a href="https://api2.mubu.com/v3/document_image/6a57c343-2819-4f24-a246-7266f895a1fc-16175743.jpg">零地址码和一地址码</a><br><a href="https://api2.mubu.com/v3/document_image/50587f8f-388f-4803-8523-6f8a9fa8fdad-16175743.jpg">二地址码和三地址码</a>  </p>
+<p>根据各个操作数的物理位置不同，地址码可分为3类</p>
+<ul>
+<li>存储器-存储器（SS）型指令</li>
+<li>寄存器-寄存器（RR）型指令</li>
+<li>寄存器-存储器（RS）型指令</li>
+</ul>
+<p>指令字长度：一个指令字中包含二进制代码的位数<br>机器字长：计算机能直接处理的二进制数据的位数，它决定了计算机的运算精度<br><strong>机器字长度通常与寄存器的位数一致</strong><br>指令分类<br>单字长指令：指令字长度等于机器字长度<br>半字长指令：指令字长度等于半个机器字长度<br>双字长指令：指令字长度等于两个机器字<br>使用多字长指令，目的在于ᨀ供更大的地址空间。主要缺点是必须两次或多次访问内存以取出一整条指令，降低了Cpu的运算速度。<br>等长指令字结构：各种指令字长度是相等的。这种指令字结构简单，且指令字长度是不变的。<br>变长指令字结构：各种指令字长度随指令功能而异。结构灵活，代码密度高，能充分利用指令长度，但指令的控制比较复杂。<br>指令助记符：每条指令通常用3个或4个英文缩写字母来表示<br><img src="https://api2.mubu.com/v3/document_image/5a5fe9b9-8f1d-4f8e-81e8-bf254a362157-16175743.jpg" alt="典型助记符"></p>
+<h2 id="4-3指令和数据的寻址方式"><a href="#4-3指令和数据的寻址方式" class="headerlink" title="4.3指令和数据的寻址方式"></a>4.3指令和数据的寻址方式</h2><p>在存储器中，写入或读出操作数&#x2F;指令字的方式有：</p>
+<ul>
+<li><font color=iceblue>地址指定方式</font></li>
+<li>相联存储方式（按内容寻址方式）</li>
+<li>堆栈存取方式</li>
+</ul>
+<p>采用<font color=iceblue>地址指定方式</font>时，形成操作数或指令地址的方式，称为寻址方式。<br>寻址方式分为两类</p>
+<ul>
+<li>指令寻址方式（简单）<ul>
+<li>顺序寻址方式</li>
+<li>跳跃寻址方式</li>
+</ul>
+</li>
+<li>数据寻址方式（复杂）</li>
+</ul>
+<h3 id="指令寻址方式"><a href="#指令寻址方式" class="headerlink" title="指令寻址方式"></a>指令寻址方式</h3><h4 id="顺序寻址"><a href="#顺序寻址" class="headerlink" title="顺序寻址"></a>顺序寻址</h4><p>必须使用程序计数器（又称指令指针寄存器）PC来计数指令的顺序号，该顺序号就是指令在内存中的地址。PC++是指跳过当前指令，到达下一条指令。（PC加几取决于指令长度）<br><img src="https://api2.mubu.com/v3/document_image/9b8210c5-48fb-4e5d-8210-7faef68427a8-16175743.jpg" alt="顺序寻址"></p>
+<h4 id="跳跃寻址"><a href="#跳跃寻址" class="headerlink" title="跳跃寻址"></a>跳跃寻址</h4><p>本条指令给出下一条指令的地址码。<br>一般是条件转移，无条件转移，子程序调用会用到。<br><img src="https://api2.mubu.com/v3/document_image/5cd2947f-fc3b-4023-b9f6-933a2cfb64ac-16175743.jpg" alt="跳跃寻址"></p>
+<h3 id="操作数寻址方式"><a href="#操作数寻址方式" class="headerlink" title="操作数寻址方式"></a><mark>操作数寻址方式</mark></h3><p>形成<strong>操作数的****有效地址</strong>的方法，称为操作数的寻址方式<br>一种单地址指令的结构如下所示，其中用X，I，A各字段组成该指令的操作数地址<br><img src="https://api2.mubu.com/v3/document_image/220a471b-f43a-47ce-b34f-e6ce929dbd98-16175743.jpg" alt="单地址指令结构"><br>指令中操作数字段的地址码是由<strong>形式地址A（也称偏移量）</strong>和<strong>寻址方式特征位</strong>等组合形成。</p>
+<blockquote>
+<p>寻址过程就是把操作数的<strong>形式地址</strong>，变换为操作数的<strong>有效地址</strong>的过程</p>
+</blockquote>
+<h4 id="1-隐含寻址"><a href="#1-隐含寻址" class="headerlink" title="1.隐含寻址"></a>1.隐含寻址</h4><p>在指令中不是显式而是隐含（默认）给出操作数的地址<br><img src="https://api2.mubu.com/v3/document_image/e44225a1-bd09-47db-ac05-81928d4133ef-16175743.jpg" alt="乘法指令"></p>
+<h4 id="2-立即寻址"><a href="#2-立即寻址" class="headerlink" title="2.立即寻址"></a>2.立即寻址</h4><p>指令的地址字段给出的不算操作数的地址，而是操作数本身<br>这种方式的特点是指令执行速度较快，取指令的同时就取到了操作数，<strong>不需要访问内存取操作数</strong>（<font color=iceblue>立即数</font>啦）</p>
+<h4 id="3-直接寻址"><a href="#3-直接寻址" class="headerlink" title="3.直接寻址"></a>3.直接寻址</h4><p>在指令的地址字段中直接给出的是操作数在内存的地址。<br>要按照这个地址去读取内存。<br>用直接寻址方式时，指令字中的形式地址A就是操作数的有效地址EA。因此通常把形式地址A又称为直接地址<br><img src="https://api2.mubu.com/v3/document_image/907b5157-8cd1-4074-9365-771bc842e8f9-16175743.jpg" alt="直接寻址"><br>途中的括号表示取地址。</p>
+<h4 id="4-间接寻址"><a href="#4-间接寻址" class="headerlink" title="4.间接寻址"></a>4.间接寻址</h4><p>在指令的地址字段中直接给出的不是操作数的直接地址，而是操作数地址的地址。</p>
+<blockquote>
+<p>间接寻址方式是早期计算机中经常采用的方式，但由于两次访存，执行速度慢，现在已不太使用<br><img src="https://api2.mubu.com/v3/document_image/7688c0fe-f51f-4296-8214-de2e1e793dcd-16175743.jpg" alt="间接寻址"></p>
+</blockquote>
+<blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/7d846bd8-a82a-430a-aec3-7b1eb3854fc5-16175743.jpg" alt="结合起来的指令格式"></p>
+</blockquote>
+<h4 id="5-寄存器寻址"><a href="#5-寄存器寻址" class="headerlink" title="5.寄存器寻址"></a>5.寄存器寻址</h4><p>在指令的地址字段中直接给出的操作数地址不是内存的地址，而是<strong>寄存器的编号</strong>。<br><img src="https://api2.mubu.com/v3/document_image/71230b43-fbbd-4de0-acb2-3852c90693d0-16175743.jpg" alt="寄存器寻址"></p>
+<h4 id="6-寄存器间接寻址"><a href="#6-寄存器间接寻址" class="headerlink" title="6.寄存器间接寻址"></a>6.寄存器间接寻址</h4><p>类似于上面的间接寻址。<br>在指令的地址字段中直接给出的寄存器不是含有操作数的寄存器编号，而是操作数地址的地址。<br><img src="https://api2.mubu.com/v3/document_image/b9367f6d-0e6e-4803-b961-dd74d7455281-16175743.jpg" alt="jcq间接寻址"></p>
+<h4 id="7-偏移寻址"><a href="#7-偏移寻址" class="headerlink" title="7.偏移寻址"></a>7.偏移寻址</h4><p>是直接寻址和寄存器间接寻址方式的结合。EA是有效地址，A是形式地址,也就是偏移量。R代表寄存器。A（偏移量）是一个有符号数。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/56c81aa7-de35-43b7-b3cf-6aef2fb60d38-16175743.jpg" alt="偏移寻址"></p>
+<ul>
+<li>相对寻址 PC，程序计数器</li>
+<li>基址寻址 基址寄存器</li>
+<li>变址寻址 变址寄存器<br>上面这三者的的不同主要是<strong>寄存器种类不同</strong></li>
+</ul>
+<h5 id="相对寻址"><a href="#相对寻址" class="headerlink" title="相对寻址"></a>相对寻址</h5><ul>
+<li>把<strong>程序计数器PC的内容</strong>加上指令格式中的<strong>偏移量A（有符号数）</strong>而形成<strong>操作数的有效地址</strong>  </li>
+<li><strong>程序计数器的内容就是当前指令的地址</strong>，“相对”寻址，就是<strong>相对于当前的指令地址</strong>而言  </li>
+<li>好处是<u>程序员无须用指令的绝对地址编程，所编程序可以放在内存任何地方</u></li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/19bf348a-f6ee-4c9a-8d77-6f8c68900b07-16175743.jpg" alt="相对寻址"></p>
+<h5 id="基址寻址"><a href="#基址寻址" class="headerlink" title="基址寻址"></a>基址寻址</h5><p>将CPU中<strong>基址寄存器的内容</strong>加上指令格式中的<strong>偏移量A</strong>得到的<strong>操作数有效地址</strong><br>可以<strong>扩大寻址能力</strong>。基址寄存器的位数可以设置得很长，从而可以在较大的存储空间中寻址。<br><img src="https://api2.mubu.com/v3/document_image/70b600ef-a40a-47b6-9a62-4f9312142deb-16175743.jpg" alt="基址寻址"><br>B：基址寄存器</p>
+<h5 id="变址寻址"><a href="#变址寻址" class="headerlink" title="变址寻址"></a>变址寻址</h5><p>将CPU中变址寄存器的内容加上指令格式中的偏移量A得到的操作数有效地址。与基址寻址方式类似。但变址寄存器的内容自动递增或递减。<br><img src="https://api2.mubu.com/v3/document_image/106ecb2b-f3cc-4caf-ac7e-a3a6e6670109-16175743.jpg" alt="自动加/减"><br>使用变址寻址方式的目的不在于扩大寻址空间，而在于实现程序块的规律性变化（自动加1减1、或加2减2）</p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p>例1<br>机器字长16位，<strong>主存按字节编址</strong>，转移指令采用相对寻址，由两个字节组成，第一字节为操作码字段，第二字节为相对位移量字段。假定取指令时，每取一个字节PC自动加1。若Ḁ转移指令所在主存地址为2000H，相对位移量字段的内容为06H，则该转移指令成功转以后的目标地址是<br>A.2006H<br>B.2007H<br>C.2008H<br>D.2009H  </p>
+<p>Ans:C<br><mark>PC中存储的是即将执行的下一条指令的地址，也就是PC自动++之后的结果，PC自动加几是看的指令的字节长度,(与机器字长无关)，本题中的指令长度为2字节，所以PC自加加的是2。也就是此时PC中存放的地址是当前指令地址+2，为2002H，然后再加上06H</mark></p>
+<p>例2<br>计算机有16个通用寄存器，采用32位定长指令字，操作码字段（含寻址方式位）为8位，Store指令的源操作数和目的操作数分别采用寄存器直接寻址和基址寻址方式，若基址寄存器可使用任一通用寄存器，且偏移量用补码表示，则Store指令中偏移量的取值范围是<br>A -32768<del>+32767<br>B -32767</del>+32768<br>C -65536<del>+65535<br>D -65535</del>+65536  </p>
+<p>Ans:A<br><mark>32位定长指令，-8位操作码，还剩24位，16&#x3D;2^4个通用寄存器（基址寄存器），由于<u>源操作数采用寄存器直接寻址</u>，所以一共需要4位，<u>目的操作数采用基址寻址</u>，且基址寄存器&#x3D;&#x3D;通用寄存器，所以也需要4位。此时一共用去了16位。偏移量采用补码表示，即计算16位补码能表示上下限，估算2的15次方，注意下限的绝对值比上限大1即可.</mark></p>
+<h4 id="8-段寻址"><a href="#8-段寻址" class="headerlink" title="8.段寻址"></a>8.段寻址</h4><p>段寻址看这个图就行<br><img src="https://api2.mubu.com/v3/document_image/865d8ac6-738d-43f5-96a0-4b91e788c716-16175743.jpg" alt="段寻址"></p>
+<h4 id="9-堆栈寻址"><a href="#9-堆栈寻址" class="headerlink" title="9.堆栈寻址"></a>9.堆栈寻址</h4><p>所有的操作都是针对栈顶，<strong>后进先出</strong></p>
+<h5 id="寄存器堆栈"><a href="#寄存器堆栈" class="headerlink" title="寄存器堆栈"></a>寄存器堆栈</h5><p>存储区域用若干个寄存器组成<br>CPU中有一组专门的寄存器，有16个或者更多，它们称为串联堆栈。数据的进出是通过栈顶实现的<br>CPU通过“进栈”指令把数据送入堆栈，而通过“出栈”指令把数据从堆栈中取出</p>
+<p>特点：</p>
+<ul>
+<li>入栈和出栈时，栈顶不变，数据移动</li>
+<li>访问速度快</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>寄存器的数目有限，所以堆栈大小受限</li>
+<li><font color=red>数据的读出是破坏性的</font></li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/5f0003bc-a718-436c-8856-7d60754ee5c8-16175743.jpg" alt="寄存器堆栈"></p>
+<h5 id="存储器堆栈"><a href="#存储器堆栈" class="headerlink" title="存储器堆栈"></a>存储器堆栈</h5><p>存储区域是主存的一部分</p>
+<ul>
+<li>需要一个<strong>堆栈指示器</strong>来指示堆栈中栈顶的位置，它通常是CPU中一个专用的寄存器（<strong>SP：Stack Point</strong>）</li>
+<li>比串联堆栈灵活</li>
+<li><strong>栈顶变化，由SP指示</strong>，而数据不动</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>堆栈可以根据需要，任何长度</li>
+<li>堆栈个数可以根据需要而定</li>
+<li>可以用对存储器寻址的任何一条指令来对堆栈进行寻址</li>
+</ul>
+<!-- 看到4-25-3 20：00-->
+<p><img src="https://api2.mubu.com/v3/document_image/bd67a51b-0c26-4107-b371-1dada4bfddb2-16175743.jpg" alt="进栈"></p>
+<blockquote>
+<p>震惊！8进制300-1居然&#x3D;277！</p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/e254dee8-829a-4bc6-a08e-472bb0c6f743-16175743.jpg" alt="出栈"></p>
+<p>在设计处理器的堆栈操作时，有2种选择：</p>
+<ol>
+<li>堆栈指示器 SP始终指向空单元<ul>
+<li>进栈时，先存入数据，后修改堆栈指示器SP</li>
+<li>出栈时，先修改堆栈指示器SP，然后取出数据</li>
+<li>这里修改SP可以是加操作，也可以是减操作</li>
+</ul>
+</li>
+<li>堆栈指示器 SP始终指向满单元<ul>
+<li>进栈时，先修改堆栈指示器SP，后存入数据</li>
+<li>出栈时，先取出数据，然后修改堆栈指示器SP</li>
+</ul>
+</li>
+</ol>
+<h4 id="Pentium寻址方式"><a href="#Pentium寻址方式" class="headerlink" title="Pentium寻址方式"></a>Pentium寻址方式</h4><p>没大仔细听，有9种寻址方式<br><img src="https://api2.mubu.com/v3/document_image/a947242f-88bd-4ec0-933c-2ac7e76b71ec-16175743.jpg" alt="9种"></p>
+<h5 id="PDP-x2F-11系列机寻址方式"><a href="#PDP-x2F-11系列机寻址方式" class="headerlink" title="PDP&#x2F;11系列机寻址方式"></a>PDP&#x2F;11系列机寻址方式</h5><p>↑写个标题证明老师讲了(</p>
+<h5 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h5><p><img src="https://api2.mubu.com/v3/document_image/31d72579-6aba-45e1-8612-f3e2b79dd4da-16175743.jpg" alt="例3"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/27c67e1e-2631-435e-a903-fc3040002636-16175743.jpg" alt="答案"></p>
+<h5 id="例4"><a href="#例4" class="headerlink" title="例4"></a>例4</h5><p><img src="https://api2.mubu.com/v3/document_image/4e292206-4fb5-47e8-b3dd-2c4a35678aae-16175743.jpg" alt="例4"><br><img src="https://api2.mubu.com/v3/document_image/3e524eeb-6f13-4a26-ba22-a92520bc9a10-16175743.jpg" alt="例4.2"><br><img src="https://api2.mubu.com/v3/document_image/e69aeaed-6df4-4b73-ad34-e93f897f8faa-16175743.jpg" alt="答案"></p>
+<h5 id="动手做"><a href="#动手做" class="headerlink" title="动手做"></a>动手做</h5><p><img src="https://api2.mubu.com/v3/document_image/2e5e39ff-8da3-483b-8a35-1bb51b40e76e-16175743.jpg" alt="动手"></p>
+<blockquote>
+<p>基本上所有的CPU都是按字节编址的，因为是冯诺依曼体系结构，所以指令也被丢在主存里面，按字节编址指的就是对存储器按字节编址，就是说指令的长度得是<mark>8的倍数位</mark><br><a href="https://www.zhihu.com/question/25689240">编址寻址的概念</a></p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/a1d5abc5-b28f-4841-a4e6-660a501ba001-16175743.jpg" alt="dongshou2"></p>
+<h2 id="4-5-典型指令"><a href="#4-5-典型指令" class="headerlink" title="4.5 典型指令"></a>4.5 典型指令</h2><ul>
+<li>数据传送指令</li>
+<li>算术运算指令</li>
+<li>逻辑运算指令</li>
+<li>程序控制指令</li>
+<li>输入输出指令</li>
+<li>串处理指令</li>
+<li>特权指令</li>
+<li>其他指令</li>
+</ul>
+<h2 id="CISC-RISC计算机"><a href="#CISC-RISC计算机" class="headerlink" title="CISC RISC计算机"></a><mark>CISC RISC计算机</mark></h2><p>CISC:复杂指令计算机的指令系统一般多达二三百条<br>2-8定律：20%的指令在80%的情况下被使用</p>
+<p>复杂指令系统的<strong>特点</strong>:<br><img src="https://api2.mubu.com/v3/document_image/c88812bb-aba7-4617-aa34-6661002d4f45-16175743.jpg" alt="复杂指令系统的特点"></p>
+<p>RISC:RISC计算机</p>
+<p>精简指令系统的<strong>特点</strong><br><img src="https://api2.mubu.com/v3/document_image/61c9c78d-0c5e-40c6-986e-536dd33fe302-16175743.jpg" alt="精简指令系统的特点"></p>
+<p>MIPS指令集被认为是RISC体系中最优雅的一种，DEC的Alpha和惠普的Precision都深受其影响。<br>MIPS指令格式：略</p>
+<blockquote>
+<p>word table<br> complement 补充，互为补充的东西</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计组笔记_chapter5</title>
+    <url>/2022/05/09/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_chapter5/</url>
+    <content><![CDATA[<p>处理器的功能</p>
+<ol>
+<li>指令控制</li>
+<li>操作控制</li>
+<li>时间控制</li>
+<li>数据加工</li>
+<li>中断处理</li>
+</ol>
+<p><strong>CPU&#x3D;控制器+运算器+一堆寄存器</strong></p>
+<p>控制器<br><img src="https://api2.mubu.com/v3/document_image/55128aff-1bc5-46c0-8f39-c21df4b6815f-16175743.jpg" alt="组成"><br>主要功能</p>
+<ul>
+<li>从指令cache中<strong>取</strong>出一条<strong>指令</strong>，并<strong>指出下一条指令</strong>在指令cache中的<strong>位置</strong></li>
+<li>对指令进行译码或测试，产生相应的操作控制信号，以便启动规定的动作</li>
+<li>指挥并控制CPU、内存和输入&#x2F;输出设备之间数据流动的方向</li>
+</ul>
+<p>运算器<br>组成：ALU,累加寄存器，数据缓冲寄存器DR，状态条件寄存器PSW<br>主要功能：</p>
+<ul>
+<li>执行所有的算数和逻辑运算</li>
+<li>并进行逻辑测试，如零值测试或两个值的比较</li>
+</ul>
+<p>CPU中的主要寄存器（6种）</p>
+<ul>
+<li>数据缓冲寄存器<strong>DR</strong><br>用来暂时存放：<ol>
+<li>向数据cache写入一个数据时，用DR<strong>暂存</strong></li>
+<li>ALU计算结果<br> 作用</li>
+<li>作为ALU运算结果和通用寄存器之间信息传送中时间上的<strong>缓冲</strong></li>
+<li>补偿CPU和内存、外设之间在操作速度上的差别</li>
+</ol>
+</li>
+<li>指令寄存器<strong>IR</strong>(控制器内部)<br>用来<strong>保存当前正在执行的一条指令</strong><br>指令寄存器中操作码字段的输出就是指令译码器的输入<br>操作码经过译码器译码之后，。。。</li>
+<li>程序计数器<strong>PC</strong>(控制器内部)<br>也称指令计数器，来确定<strong>下一条</strong>指令的地址<br>在程序开始执行之前，将程序的第一条指令所在的内存单元送入PC<br>执行完之后会自加</li>
+<li>地址寄存器<strong>AR</strong><br>用来保存当前处理器所访问的数据cache</li>
+<li>通用寄存器<strong>R0~R3</strong>(一般举例子说是4个)<br>在ALU执行运算时，为其提供一个暂存数据的工作区<br><strong>累加寄存器</strong>暂时存放ALU计算结果</li>
+<li>状态条件寄存器<strong>PSW</strong>（ALU内部）<br>保存进位标志C，溢出标志O，是否为0Z，结果为负N等等<br>就是存汇编语言中标志位的那个。</li>
+</ul>
+<h3 id="操作控制器和时序产生器"><a href="#操作控制器和时序产生器" class="headerlink" title="操作控制器和时序产生器"></a>操作控制器和时序产生器</h3><h4 id="数据通路"><a href="#数据通路" class="headerlink" title="数据通路"></a>数据通路</h4><!-- 等着抄ppt16页 -->
+<h4 id="操作控制器"><a href="#操作控制器" class="headerlink" title="操作控制器"></a>操作控制器</h4><p>功能：  </p>
+<p>根据设计方法的不同分类：</p>
+<ul>
+<li>时序逻辑型 硬布线控制器(RISC也是)</li>
+<li>存储逻辑性 微程序控制器(CISC也是)</li>
+</ul>
+<h4 id="时序产生器"><a href="#时序产生器" class="headerlink" title="时序产生器"></a>时序产生器</h4><h3 id="指令周期"><a href="#指令周期" class="headerlink" title="指令周期"></a>指令周期</h3><p>基本概念</p>
+<ul>
+<li>指令周期：<strong>取指令、分析指令、执行指令</strong>的time<br>由于各种指令的操作功能不同，各种指令的指令周期长度是不同的。<br>指令周期通常包含若干个CPU周期</li>
+<li>CPU周期，也称机器周期<br>内存中读取一个指令字的最短time<br>可以分成若干个时钟周期</li>
+<li>时钟周期<br>处理操作的最基本的单位，也成为节拍脉冲&#x2F;T周期</li>
+</ul>
+<blockquote>
+<p>时钟周期是最基本的周期单位<br>如图<br><img src="https://api2.mubu.com/v3/document_image/2fa84ec0-9a03-4917-af3d-46afef8138e3-16175743.jpg" alt="z"><br>↑图中，分析指令过程被包含在执行指令过程中。时钟周期是最小单位，若干时钟周期组成CPU周期，若干CPU周期组成指令周期。</p>
+</blockquote>
+<p>程序示例<br><img src="https://api2.mubu.com/v3/document_image/936c8718-341d-452a-8b37-fd2951613ea7-16175743.jpg" alt="ex"></p>
+<blockquote>
+<p>Intel 汇编语言的指令与 AT&amp;T 的指令操作数的方向上正好相反：在 Intel 语法中，第一个操作数是目的操作数，第二个操作数源操作数。而在 AT&amp;T 中，第一个数是源操作数，第二个数是目的操作数。<br><mark>这个程序示例里面是AT&amp;T</mark></p>
+</blockquote>
+<p>STO为写数指令</p>
+<p>凡是RR型指令，都是2个CPU周期，RS型指令，都是3个COU周期。<br>每条指令的<strong>取指令阶段</strong>都是一样的，花费<strong>一个CPU周期</strong>，具体步骤是</p>
+<ol>
+<li>根据PC的之（将要执行的指令的地址）从内存中取出指令，送到IR</li>
+<li>取完之后PC就++</li>
+<li>分离操作码和操作数，对指令进行译码</li>
+</ol>
+<p>RS型指令多一个CPU周期的原因是需要送操作数地址。<br>特别的，JMP指令是无条件的转移指令，相当于是把某个立即数送到寄存器PC，并没有访问memory，所以还是2周期。</p>
+<p>最后，检查有无中断的操作也是每条指令都要进行的操作。</p>
+<h4 id="方框图"><a href="#方框图" class="headerlink" title="方框图"></a>方框图</h4><ul>
+<li>方框：<strong>代表一个CPU周期</strong>，方框中的内容表示数据通路的操作或某种控制操作</li>
+<li>菱形：通常用来表示某种判别或测试，在<strong>时间上依附于紧接它的前面一个方框的CPU周期，不单独占用一个CPU周期</strong><br><img src="https://api2.mubu.com/v3/document_image/5e4bf550-24cc-4882-a0c9-18d0c5509a29-16175743.jpg" alt="五条典型指令的周期方框图"></li>
+</ul>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p><img src="https://api2.mubu.com/v3/document_image/5a6fedbd-b29d-4fc9-a1d4-785b38f987d7-16175743.jpg" alt="例子1"><br><img src="https://api2.mubu.com/v3/document_image/ce79b93d-c471-4fea-a2bc-4c35ba366fa7-16175743.jpg" alt="例子2"></p>
+<p>答案<br>（1）：<br><img src="https://api2.mubu.com/v3/document_image/055d35ce-728f-4576-b6c6-a8ddb7febb09-16175743.jpg" alt="1"></p>
+<p>（2）：<br><img src="https://api2.mubu.com/v3/document_image/2b05b876-84ff-40ec-ae72-83b9d1104bda-16175743.jpg" alt="2"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计组笔记_chapter2</title>
+    <url>/2022/03/23/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_chapter2/</url>
+    <content><![CDATA[<h2 id="IEEE浮点表示"><a href="#IEEE浮点表示" class="headerlink" title="IEEE浮点表示"></a>IEEE浮点表示</h2><p>规格化表示：<br><img src="https://api2.mubu.com/v3/document_image/edff1550-2019-44d5-94b3-a8bca0ca4809-16175743.jpg" alt="规格化"></p>
+<p>特殊的浮点数<br><img src="https://api2.mubu.com/v3/document_image/42891536-e62d-4cd9-b358-64b73d22d52e-16175743.jpg" alt="特殊的浮点数"></p>
+<p>浮点数表示的范围<br><img src="https://api2.mubu.com/v3/document_image/1bca8a53-b91b-4811-b0f9-799f3261da15-16175743.jpg" alt="浮点数表示的范围"></p>
+<p>小结：<br>对32位浮点数N：<br>◼ 若0 &lt; E &lt; 255，则<br>N ＝ (-1)s ×1.M ×2<br>E-127 ，规格化数表示<br>◼ 若E &#x3D; 0且M ＝ 0，则<br>N ＝ (-1)s 0，机器+0、-0表示<br>◼ 若E &#x3D; 0且M ≠ 0，则<br>N ＝ (-1)s × 0.M× 2<br>1-127 ，非规格化数表示<br>◼ 若E&#x3D; 255且M ＝ 0，则<br>N＝(-1)s∞（正无穷大，负无穷大）<br>◼ 若E &#x3D; 255且M ≠ 0，则<br>N ＝ NaN，非数NaN(Not a Number)</p>
+<blockquote>
+<p>十进制小数转二进制：<br>十进制的小数转换为二进制，主要是小数部分乘以2，取整数部分依次从左往右放在小数点后，直至小数点后为0。</p>
+</blockquote>
+<h2 id="ACSII码"><a href="#ACSII码" class="headerlink" title="ACSII码"></a>ACSII码</h2><p>数字：48（0011 0000）~ 57（0011 1001）   +10-1<br>大写字母：65（0100 0001）～90（0101 1010）   +26-1<br>小写字母：97（0110 0001）～122（0111 1010）   +26-1</p>
+<h2 id="存储器中的字节序"><a href="#存储器中的字节序" class="headerlink" title="存储器中的字节序"></a>存储器中的字节序</h2><p>每个字节内部的顺序都是固定的，仅需考虑多个字节的字节间关系</p>
+<ul>
+<li>小端方式Little Endian<ul>
+<li>低字节存放在小地址处，即低字节在前高字节后<br>x86处理器</li>
+</ul>
+</li>
+<li>大端方式Big Endian<ul>
+<li>低字节存放在大地址处，即高字节在前低字节后<br>SPARC处理器，IBM Power处理器</li>
+</ul>
+</li>
+</ul>
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p><img src="https://api2.mubu.com/v3/document_image/16483863477285a79.jpg" alt="证明补码减法"></p>
+<h2 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h2><h3 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h3><p>正溢：运算结果为正，且超出机器所能表示的范围<br>负溢：运算结果为负，且超出机器所能表示的范围<br><img src="https://api2.mubu.com/v3/document_image/32378a93-fd0e-418c-932b-209ba715160d-16175743.jpg" alt="整数溢出"></p>
+<h3 id="小数溢出"><a href="#小数溢出" class="headerlink" title="小数溢出"></a>小数溢出</h3><p>上溢：结果的绝对值大于机器所能表示的最大绝对值（+∞，－∞）<br>（overflow）<br>下溢：结果的绝对值小于机器所能表示的最小绝对值 （ 机器零 ）<br>（underflow）<br><img src="https://api2.mubu.com/v3/document_image/f3691e63-d615-4caa-9043-dbb945ed07bc-16175743.jpg" alt="小数溢出"></p>
+<h3 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h3><ol>
+<li><p><strong>双符号位</strong>法，又称<strong>变形补码</strong>，或者模四补码<br> 双符号位的补码也遵循加法法则。<br> 在计算中：<br> 两个符号位均参加运算<br> 最高符号位上产生的进位要丢掉</p>
+<p> 溢出检测规则：<br> ◆两数相加后，结果的符号位出现“01”或“10”两种情况时，表示发生溢出（也就是<strong>最高的两位异或</strong>）<br> ◆最高符号位永远表示结果的正确符号</p>
+</li>
+<li><p><strong>单符号位</strong>法<br> 溢出的逻辑表达式为<br> $V&#x3D;C_f⊕C_0$<br> $C_f$为符号位产生的进位，$C_0$为最高有效位产生的进位</p>
+</li>
+</ol>
+<h2 id="定点乘法运算算法"><a href="#定点乘法运算算法" class="headerlink" title="定点乘法运算算法"></a>定点乘法运算算法</h2><h3 id="原码一位乘法运算"><a href="#原码一位乘法运算" class="headerlink" title="原码一位乘法运算"></a>原码一位乘法运算</h3><h3 id="无符号的阵列乘法"><a href="#无符号的阵列乘法" class="headerlink" title="无符号的阵列乘法"></a>无符号的阵列乘法</h3><h3 id="有符号的阵列乘法"><a href="#有符号的阵列乘法" class="headerlink" title="有符号的阵列乘法"></a>有符号的阵列乘法</h3><p>补码一位乘法运算（不要求）<br>原码两位乘法运算（不要求）<br>直接补码并行乘法（不要求）</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计组笔记_chapter3</title>
+    <url>/2022/04/27/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_chapter3/</url>
+    <content><![CDATA[<h2 id="3-1-存储器概述"><a href="#3-1-存储器概述" class="headerlink" title="3.1 存储器概述"></a>3.1 存储器概述</h2><ul>
+<li><strong>易失性</strong>半导体存储器统称为RAM<ul>
+<li>静态RAM（SRAM）</li>
+<li>动态RAM（DRAM）</li>
+</ul>
+</li>
+<li><strong>非易失性</strong>的半导体存储器统称为ROM<ul>
+<li>掩膜ROM（MASK ROM）:出厂的时候就写好了，不能改了捏</li>
+<li>可编程ROM（PROM）<ul>
+<li>一次性可编程ROM（OTP ROM）</li>
+<li>可擦除PROM（EPROM）<ul>
+<li>紫外线擦除EPROM（UV EPROM）</li>
+<li>电擦除EPROM（EEPROM，E2PROM）</li>
+<li>闪速存储器（FLASH ROM)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储器的目标<ul>
+<li>大容量</li>
+<li>高速度</li>
+<li>低价格</li>
+</ul>
+</li>
+<li>现代计算机的层次存储器系统<ul>
+<li>Register</li>
+<li>On-Chip Cache</li>
+<li>Second Level Cache(SRAM)</li>
+<li>Main Memory(DRAM)</li>
+<li>Secondary Storage(Disk)</li>
+<li>Tertiary Stroage(Disk)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>其中，内存&#x3D;Cache+主存</p>
+</blockquote>
+<p>内存的主要技术指标</p>
+<ul>
+<li>访问时间TA：<br>从存储器接收到读写命令道信息被读出或写入完成所需的时间，取决于存储介质的物理特性和寻址部件的结构</li>
+<li>存取周期TM：<br>在存储器连续读写过程中一次完整的存取操作所需的时间（CPU连续两次访问存储器的最小时间间隔）</li>
+<li>功耗</li>
+<li>可靠性</li>
+</ul>
+<p>主存储器的读写过程</p>
+<ul>
+<li>读过程:<ul>
+<li>给出地址</li>
+<li>给出片选与读命令</li>
+<li>保存读出内容</li>
+</ul>
+</li>
+<li>写过程:<ul>
+<li>给出地址</li>
+<li>给出片选与数据</li>
+<li>给出写命令</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-2-随机读写存储器"><a href="#3-2-随机读写存储器" class="headerlink" title="3.2 随机读写存储器"></a>3.2 随机读写存储器</h2><p>存储器芯片的基本结构</p>
+<ul>
+<li>地址线</li>
+<li>数据线（双向）</li>
+<li>片选信号</li>
+<li>读写控制线</li>
+</ul>
+<p>n位存储器芯片的结构<br><img src="https://api2.mubu.com/v3/document_image/32de5b46-4a1e-44a0-9f79-07893d6352e0-16175743.jpg" alt="n位存储器芯片的结构"></p>
+<h3 id="SRAM基本电路"><a href="#SRAM基本电路" class="headerlink" title="SRAM基本电路"></a>SRAM基本电路</h3><blockquote>
+<p>关于MOS管：<br> <img src="https://api2.mubu.com/v3/document_image/9af0e8b2-247c-40d4-8668-44e85d9cc555-16175743.jpg" alt="MOS管"><br> 当G极电压大于导通电压时，DS导通，G极仅有电压而无电流。</p>
+</blockquote>
+<h4 id="SRAM读操作"><a href="#SRAM读操作" class="headerlink" title="SRAM读操作"></a>SRAM读操作</h4><p><img src="https://api2.mubu.com/v3/document_image/ca7d354f-54ce-4fbc-a7ff-68b180d76484-16175743.jpg" alt="读操作"></p>
+<h4 id="SRAM写操作"><a href="#SRAM写操作" class="headerlink" title="SRAM写操作"></a>SRAM写操作</h4><p><img src="https://api2.mubu.com/v3/document_image/4f97314f-340d-414a-ad41-88b706d3ec3a-16175743.jpg" alt="写操作"></p>
+<h4 id="SRAM存储器的结构"><a href="#SRAM存储器的结构" class="headerlink" title="SRAM存储器的结构"></a>SRAM存储器的结构</h4><p><img src="https://api2.mubu.com/v3/document_image/704b1a9d-4bdd-40b6-94e2-2bba8b20768a-16175743.jpg" alt="SRAM存储器的结构"></p>
+<h4 id="SRAM实例"><a href="#SRAM实例" class="headerlink" title="SRAM实例"></a>SRAM实例</h4><p><img src="https://api2.mubu.com/v3/document_image/b63aa862-bd86-4a2d-bfb0-030536d5ccbd-16175743.jpg" alt="实例"></p>
+<h4 id="字扩展-amp-位扩展"><a href="#字扩展-amp-位扩展" class="headerlink" title="字扩展&amp;位扩展"></a>字扩展&amp;位扩展</h4><p><a href="https://blog.csdn.net/qq1350975694/article/details/107290348">这位老哥</a>讲的不错，能看懂，就是容易记不住。</p>
+<h3 id="动态存储器DRAM"><a href="#动态存储器DRAM" class="headerlink" title="动态存储器DRAM"></a>动态存储器DRAM</h3><p>可以减少晶体管的数目，但是存储的电荷会泄露，所以需要动态刷新电路。</p>
+<h4 id="四管动态存储单元"><a href="#四管动态存储单元" class="headerlink" title="四管动态存储单元"></a>四管动态存储单元</h4><p>DRAM刷新是对一行进行刷新的。</p>
+<h4 id="单管动态存储单元"><a href="#单管动态存储单元" class="headerlink" title="单管动态存储单元"></a>单管动态存储单元</h4><p><img src="https://api2.mubu.com/v3/document_image/392de6a0-3436-4afc-a57f-fcb955c5e5e7-16175743.jpg" alt="单管动态存储单元"><br>word line是字线，bit line是数据线</p>
+<h4 id="DRAM写操作"><a href="#DRAM写操作" class="headerlink" title="DRAM写操作"></a>DRAM写操作</h4><ul>
+<li>字线高电平，T导通<ul>
+<li>写1: 数据线为高电平，通过T对C充电</li>
+<li>写0: 数据线为低电平，C通过T放电<br><img src="https://api2.mubu.com/v3/document_image/3658afcf-ccf6-49fe-87a9-7dcf1007bd7c-16175743.jpg" alt="写操作"></li>
+</ul>
+</li>
+</ul>
+<h4 id="DRAM读操作-amp-刷新操作"><a href="#DRAM读操作-amp-刷新操作" class="headerlink" title="DRAM读操作&amp;刷新操作"></a>DRAM读操作&amp;刷新操作</h4><ul>
+<li>数据线预充电至VDD&#x2F;2</li>
+<li>当字线为高电平，T导通，若原来C充有电荷，则C放电使数据线电位小幅上升，经放大后读出为1；若原来C上无电荷，则C充电使数据线电位小幅下降，经放大器后读出为0。</li>
+<li>单管DRAM单元的读出是破坏性的，在读出信息后要立即对单元进行“回写”，以恢复原信息。<br><img src="https://api2.mubu.com/v3/document_image/2c510ee9-446e-4aaf-adc4-a55cedbd7002-16175743.jpg" alt="读操作&amp;刷新操作"></li>
+</ul>
+<h3 id="DRAM和SRAM的比较"><a href="#DRAM和SRAM的比较" class="headerlink" title="DRAM和SRAM的比较"></a>DRAM和SRAM的比较</h3><ul>
+<li>DRAM<ul>
+<li>主存</li>
+<li>电容+1晶体管</li>
+<li>需要刷新（2~8ms）</li>
+<li>读操作是破坏性的</li>
+<li>密度高</li>
+<li><font color=red>地址线分时复用</font>:管脚是稀缺资源，通常是行地址和列地址进行分时复用</li>
+</ul>
+</li>
+<li>SRAM<ul>
+<li>Cache</li>
+<li>速度比DRAM快</li>
+</ul>
+</li>
+</ul>
+<h3 id="DRAM读时序"><a href="#DRAM读时序" class="headerlink" title="DRAM读时序"></a>DRAM读时序</h3><p><img src="https://api2.mubu.com/v3/document_image/4de50a3c-bb58-4609-ab18-1d9e66e6fdcc-16175743.jpg" alt="DRAM读时序"><br>OE_L是输出使能信号，WE_L是写使能信号，RAS_L是row 行地址有效，CAS_L是column 列地址有效。_L代表低电平有效。<br>OE_L可以在CAS之前或者之后有效，区别是是否读出一些垃圾数据。<br>了解即可<br><img src="https://api2.mubu.com/v3/document_image/9eeef8a0-7f7c-4e4e-8d6c-0b23c3b37721-16175743.jpg" alt="了解即可"></p>
+<h3 id="DRAM的刷新"><a href="#DRAM的刷新" class="headerlink" title="DRAM的刷新"></a>DRAM的刷新</h3><p>刷新周期一般是几毫秒</p>
+<h4 id="集中式刷新"><a href="#集中式刷新" class="headerlink" title="集中式刷新"></a>集中式刷新</h4><p>在整个刷新间隔里，前大半部分可以读写，后小半部分刷新。<br>在后小半部分里，CPU无法访问存储器，也就是不能执行指令，响应系统紧急事件。</p>
+<h4 id="分散式刷新"><a href="#分散式刷新" class="headerlink" title="分散式刷新"></a>分散式刷新</h4><p>例如：某DRAM有1024行，若刷新周期为8ms，则必须在8ms内把所有1024行刷新一遍。<br>8000µs÷1024≈7.8µs，即每隔7.8µs刷新<strong>一行</strong>。<br>有点像时分复用。<br>需要一些相应的辅助电路，比如记录刷新到第几行了，以及一个额外的计时器etc.</p>
+<p>两种常用的传递刷新信号的方式</p>
+<ol>
+<li>只用RAS刷新操作</li>
+<li>CAS在RAS之前的刷新操作</li>
+</ol>
+<h3 id="DRAM控制器"><a href="#DRAM控制器" class="headerlink" title="DRAM控制器"></a>DRAM控制器</h3><!-- 长[这样]()，感觉不重要。 -->
+
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><img src="https://api2.mubu.com/v3/document_image/7ac2c0db-93d3-4115-9163-c1426997f1b6-16175743.jpg" alt="例子"><br>4Mx8位指的是：<br>一片里面有4M，有8片。<br>所以8位是数据位。<br>1M是2的20次方。<br>4M是2的22次方。<br>也就是行列线一共有22条。<br>因为DRAM是行列地址分时复用，所以地址线仅11条。<br>这里的行地址线和列地址线不一定是一样多的，但是没说的情况下默认平分。</p>
+<h3 id="其他的一些补充"><a href="#其他的一些补充" class="headerlink" title="其他的一些补充"></a>其他的一些补充</h3><ul>
+<li><p>增强型的DRAM：EDRAM（Enhanced）<br>由于CPU的数据经常需要访问某个地址相邻地址的数据，加一个SRAM临时存储读出的这一行，可以加快读取速度。<br>在行地址不变的情况下，连续的变换列地址，称为Brust Mode，这种情况下的增强型DRAM读取速度尤其快。</p>
+</li>
+<li><p>SDRAM：同步DRAM<br>S：synchronous a.同步的<br>添加了一个时钟信号，让CPU和读写存储变成了一个同步的操作。<br>只在时钟的上升沿进行数据的读取<br>为了提升速率：<br>DDR：在上升下降沿都进行读取。<br>DDR2：外部时钟的频率提高一倍，也是在上升下降沿都进行读取。</p>
+</li>
+<li><p>CAS Latency 参数<br>列地址有效时候还要多久才能读取到数据，越小越好。</p>
+</li>
+<li><p>DRAM主存读&#x2F;写的正确性校验<br>为了提高DRAM存储器读写操作的正确性与可靠性，在写入m位数据的同时还需写入k位附加位，即写入的数据是经过纠错码编码的数据。</p>
+</li>
+</ul>
+<h2 id="3-4-只读存储器和闪速存储器"><a href="#3-4-只读存储器和闪速存储器" class="headerlink" title="3.4 只读存储器和闪速存储器"></a>3.4 只读存储器和闪速存储器</h2><h3 id="只读存储器ROM"><a href="#只读存储器ROM" class="headerlink" title="只读存储器ROM"></a>只读存储器ROM</h3><p>Read Only Memory<br>没有易失性</p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li>掩膜ROM（MASK ROM）:出厂的时候就写好了，不能改了捏<br>可靠性高，便宜</li>
+<li>可编程ROM（PROM）<ul>
+<li>一次性可编程ROM（OTP ROM）<br>（双极型PROM，熔断型，PN结击穿型）</li>
+<li>可擦除PROM（EPROM）<ul>
+<li>紫外线擦除EPROM（UV EPROM）</li>
+<li>电擦除EPROM（EEPROM，E2PROM）</li>
+<li>闪速存储器（FLASH ROM）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="EPROM"><a href="#EPROM" class="headerlink" title="EPROM"></a>EPROM</h4><p>原理略<br>举例：<br><img src="https://api2.mubu.com/v3/document_image/7730146f-b3b1-401b-8db7-880d9e220254-16175743.jpg" alt="1"><br><img src="https://api2.mubu.com/v3/document_image/f545b500-4648-4e43-a869-349c29d89aca-16175743.jpg" alt="2"><br><img src="https://api2.mubu.com/v3/document_image/34f620ab-acab-433c-bc7e-ff7ef604db18-16175743.jpg" alt="3"></p>
+<h4 id="EEPROM"><a href="#EEPROM" class="headerlink" title="EEPROM"></a>EEPROM</h4><p>与EPROM相比，集成度低（两个晶体管存一个单位），寿命长。</p>
+<h3 id="闪速存储器"><a href="#闪速存储器" class="headerlink" title="闪速存储器"></a>闪速存储器</h3><p>闪速存储器FLASH是目前唯一的具有大容量、非易失性、低价格、可在线改写和较高速度几个特性共存的存储器。<br>之所以称为FLASH，是因为<strong>擦除速度快</strong>，擦除整个存储矩阵所花时间，与EEPROM擦除一个存储单元的时间相同。<br>FLASH具有<strong>非易失性</strong>，比SRAM成本低<br>但是擦写次数和速度都比DRAM差不少，故不能取代DRAM</p>
+<p>闪存分为两类：</p>
+<ol>
+<li>NOR闪存</li>
+<li>NAND闪存</li>
+</ol>
+<h4 id="NOR闪存"><a href="#NOR闪存" class="headerlink" title="NOR闪存"></a>NOR闪存</h4><ul>
+<li>擦除写入时间比较长</li>
+<li>有完整的地址&#x2F;数据接口，能<strong>随机存取</strong></li>
+<li>存储容量比NAND小很多</li>
+</ul>
+<h4 id="NAND闪存"><a href="#NAND闪存" class="headerlink" title="NAND闪存"></a>NAND闪存</h4><ul>
+<li>擦除写入时间比较快</li>
+<li>与NOR闪存比较具有较高的密度和较低的位成本，10倍的擦除次数。</li>
+<li>没有完整的地址&#x2F;数据接口，I&#x2F;O接口只允许<strong>顺序存取</strong>数据</li>
+</ul>
+<p>闪存特点：<br>可在线写入数据，具有ROM的非易失性<br>可以取代全部的UV EPROM和大部分的E$^2$PRO</p>
+<p>闪存的主要用途：<br>存储监控程序、引导程序等基本不变或不经常改变的程序：可使用NOR闪存<br>保存掉电时需要保持的系统配置等不常改变的数据：可使用NOR闪存<br>固态盘：采用NAND闪存</p>
+<h2 id="3-5-并行存储器"><a href="#3-5-并行存储器" class="headerlink" title="3.5 并行存储器"></a>3.5 并行存储器</h2><h3 id="双端口存储器"><a href="#双端口存储器" class="headerlink" title="双端口存储器"></a>双端口存储器</h3><p>DRRAM:dual port RAM<br>同一个存储器具有两组独立的控制线，地址线和数据线。<br>比其他的线多了一个忙线（busy line），作用是解决读写冲突。<br>实例：<br>IDT7133<br>容量为2K×16位SRAM<br><a href="https://api2.mubu.com/v3/document_image/df269406-2bbc-4477-af34-1a6e7c0a846a-16175743.jpg">功能方框图</a><br>当两个端口同时存取存储器同一存储单元时，便发生读写<br>冲突,为了解决读写冲突，设置了<span style="text-decoration:overline">BUSY</span>标志线</p>
+<ul>
+<li>由判断逻辑部件来决定对哪个端口优先进行读写操作，另<br>一个端口的BUSY标志有效，读写操作延迟执行。</li>
+<li>判断逻辑部件的判断方式：<ol>
+<li>CE判断：如果地址匹配且在CE之前有效，片上的控制逻辑在CEL和CER之间进行判断来选择端口</li>
+<li>地址有效判断：如果CE在地址匹配之前变低，片上的控制逻辑在左、右地址间进行判断来选择端口</li>
+</ol>
+</li>
+</ul>
+<h3 id="多模块交叉存储器"><a href="#多模块交叉存储器" class="headerlink" title="多模块交叉存储器"></a>多模块交叉存储器</h3><p>各模块地址安排有2种方式</p>
+<ul>
+<li>顺序方式<br><img src="https://api2.mubu.com/v3/document_image/ff771aed-21ae-4267-8573-0ed40c1edfc5-16175743.jpg" alt="顺序方式"></li>
+<li>交叉方式(Interleaving)也称为多通道方式<br><img src="https://api2.mubu.com/v3/document_image/62967547-6e6e-4d9a-afac-bc1503b863e8-16175743.jpg" alt="交叉模式"></li>
+</ul>
+<p>主存被分成4个独立、容量相同的模块M0&#x2F;M1&#x2F; M2&#x2F;M3<br><img src="https://api2.mubu.com/v3/document_image/b4df61d4-a217-4b4b-9adf-1f7509019ffe-16175743.jpg" alt="基本结构"></p>
+<ol>
+<li>每个模块均有自己的读写控制电路、地址寄存器和数据寄存器，<br>以相同的方式与CPU传送信息</li>
+<li>CPU同时访问四个模块，由存储器控制部件控制它们分时使用<br>数据总线进行信息的传递（读取T相对于数据传递$\tau$要慢很多</li>
+</ol>
+<p><img src="https://api2.mubu.com/v3/document_image/6e562469-71e6-40fc-8571-0328990c5864-16175743.jpg" alt="读取模式"><br>假设模块字长等于数据总线宽度，且模块存取一个字的存储周期为T，总线传送周期为τ，存储器的交叉模块数为m<br>那么，m＝T&#x2F;τ被为交叉存取度，连续读取m个字所需的时间为t1&#x3D;T+(m-1)τ<br>对于顺序方式存储器，连续读取m个字所需的时间为t2&#x3D;mT</p>
+<p>例子：<br><img src="https://api2.mubu.com/v3/document_image/e252126f-ed53-41c0-a0c2-bca3f9cf6bf1-16175743.jpg" alt="例子："><br>解答：<br><img src="https://api2.mubu.com/v3/document_image/16519072863582123.jpg" alt="解答："></p>
+<p>零等待存取<br><img src="https://api2.mubu.com/v3/document_image/8bef93b1-f2ba-4efc-b643-78b5bc768899-16175743.jpg" alt="零等待存取"></p>
+<h2 id="3-6-Cache存储器"><a href="#3-6-Cache存储器" class="headerlink" title="3.6 Cache存储器"></a>3.6 Cache存储器</h2><h3 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h3><p>principle of locality，讨论的就是双重for循环取二维数组那个，执行速度的问题。</p>
+<ul>
+<li>时间局部性 temporal locality<br>在一个具有良好时间局部性的程序中，被引用过一次的内存位置很可能在不远的将来再被多次引用</li>
+<li>空间局部性 spatial locality<br>在一个具有良好空间局部性的程序中，如果一个内存位置被引用了一次，那么程序很可能在近期引用附近的一个内存位置</li>
+</ul>
+<h3 id="存储系统的层次结构"><a href="#存储系统的层次结构" class="headerlink" title="存储系统的层次结构"></a>存储系统的层次结构</h3><p><img src="https://api2.mubu.com/v3/document_image/ef2fd587-0459-41e2-be5c-8a2ba15b4eeb-16175743.jpg" alt="结构"></p>
+<h3 id="高速缓存Cache-x2F-kaeʃ-x2F"><a href="#高速缓存Cache-x2F-kaeʃ-x2F" class="headerlink" title="高速缓存Cache&#x2F;kæʃ&#x2F;"></a>高速缓存Cache&#x2F;kæʃ&#x2F;</h3><p>Cache是一个小而快速的存储设备，它作为存储在更大、也更慢的设备中的数据对象的缓存区域</p>
+<ol>
+<li>Cache通常采用高速SRAM来实现</li>
+<li>利用局部性原理，在Cache中完成大多数访问，从而缩短平均访问时间</li>
+<li>CPU和主存之间的速度差很大通常采用两级或多级Cache系统</li>
+<li>全由硬件调度，对用户透明</li>
+</ol>
+<p>不同层次之间Cache<br><img src="https://api2.mubu.com/v3/document_image/f1187756-8075-42a9-b96a-ff42adf70110-16175743.jpg" alt="基本原理1"></p>
+<p>Cache 命中与缺失<br><img src="https://api2.mubu.com/v3/document_image/abf3fed0-9cde-40f8-8dec-04015df1ae48-16175743.jpg" alt="命中与缺失"></p>
+<blockquote>
+<p>LRU :Least Recently Used最近最少使用</p>
+</blockquote>
+<p>Cache缺失类型</p>
+<ol>
+<li>冷启缺失&#x2F;义务缺失（Cold miss or Compulsory miss）<ul>
+<li>当cache为空时就产生冷启缺失，比如刚开机</li>
+</ul>
+</li>
+<li>冲突缺失（Conflict miss）<ul>
+<li>层k+1的数据块通常只能映射到层k的有限位置上。尽管层k中cache足够大，但层k+1有多个数据块全都映射到层k的同一位置上，则产生冲突缺失</li>
+</ul>
+</li>
+<li>容量缺失（Capacity miss）<ul>
+<li>当活动的cache块的数量超过cache的容量就产生容量缺失</li>
+</ul>
+</li>
+</ol>
+<h3 id="内容可寻址CAM"><a href="#内容可寻址CAM" class="headerlink" title="内容可寻址CAM"></a>内容可寻址CAM</h3><p>（Content Addressable Memory）是一种用内容进行寻址的存储器。将一个输入数据项与存储的所有数据项同时进行比较，若存在匹配，输出该数据项对应的匹配信息（或地<br>址）。同时也能按地址进行读和写。</p>
+<h3 id="主存和Cache的分块"><a href="#主存和Cache的分块" class="headerlink" title="主存和Cache的分块"></a>主存和Cache的分块</h3><p>主存和cache间以数据块为单位进行复制，为便于管理，将主存和cache都划分为大小相等的数据块（也称行）</p>
+<p><img src="https://api2.mubu.com/v3/document_image/27912974-d4e5-482f-a56a-3210c8c23b3e-16175743.jpg" alt="主存&amp;cache容量"><br><img src="https://api2.mubu.com/v3/document_image/2c0711cb-fc8a-4b2a-92f4-3311f88ef522-16175743.jpg" alt="映射方法"><br>总的映射过程<br><img src="https://api2.mubu.com/v3/document_image/0c35d8b0-967a-47b2-82aa-776ab2d01ab9-16175743.jpg" alt="过程"></p>
+<h3 id="主存与Cache的地址映射"><a href="#主存与Cache的地址映射" class="headerlink" title="主存与Cache的地址映射"></a><mark>主存与Cache的地址映射</mark></h3><ol>
+<li>全相联映射（ Fully Associative Mapping）</li>
+<li>直接映射（Direct Mapping）</li>
+<li>组相联映射（Set Associative Mapping）</li>
+</ol>
+<h3 id="全相联映射"><a href="#全相联映射" class="headerlink" title="全相联映射"></a>全相联映射</h3><p><img src="https://api2.mubu.com/v3/document_image/2e922423-4875-4c5f-ab9f-08e313b59c6c-16175743.jpg" alt="1"><br><img src="https://api2.mubu.com/v3/document_image/93b3ef69-428b-4a6f-8942-587a10e2ec58-16175743.jpg" alt="2"></p>
+<p>就是弄个表，其实就是前面那个<a href="#%E5%86%85%E5%AE%B9%E5%8F%AF%E5%AF%BB%E5%9D%80cam">内容可寻址CAM</a><br><img src="https://api2.mubu.com/v3/document_image/a56ec8fa-f145-4baa-9eda-82156e49e5b8-16175743.jpg" alt="示例"><br>例子：<br><img src="https://api2.mubu.com/v3/document_image/5d635f1b-e733-45ff-b34b-98a3fb66bda5-16175743.jpg" alt="例子："></p>
+<h3 id="直接映射"><a href="#直接映射" class="headerlink" title="直接映射"></a>直接映射</h3><p><img src="https://api2.mubu.com/v3/document_image/4737d462-58d4-4288-a61f-fd0484e904ef-16175743.jpg" alt="直接映射"><br>这也是能产生冲突缺失的情况</p>
+<p>直接映射的Cache标签和行号<br><img src="https://api2.mubu.com/v3/document_image/e4592538-4dd4-48a3-8fef-294e7d40c57f-16175743.jpg" alt="直接映射的Cache标签和行号"><br>直接映射Cache的检索过程<br><img src="https://api2.mubu.com/v3/document_image/2c75c351-38df-41c4-a5b1-c032864a55e1-16175743.jpg" alt="检索过程"><br>示例<br><img src="https://api2.mubu.com/v3/document_image/cab14266-1809-4e39-aa54-937d06549bad-16175743.jpg" alt="示例"></p>
+<h3 id="v路（v-way）组相联映射"><a href="#v路（v-way）组相联映射" class="headerlink" title="v路（v-way）组相联映射"></a>v路（v-way）组相联映射</h3><p><img src="https://api2.mubu.com/v3/document_image/f0e63664-1cde-42b8-b783-f5a3a0f306e6-16175743.jpg" alt="v路（v-way）组相联映射"><br><strong>主存块存放到哪个组是固定的，放在组内的哪一行是任意的</strong><br>检索过程<br><img src="https://api2.mubu.com/v3/document_image/6bd4d8f2-75ee-4e35-a527-c126b8b555cf-16175743.jpg" alt="jsgc"><br>2路组相联映射示例1<br><img src="https://api2.mubu.com/v3/document_image/7af08504-1981-4f84-88d6-2feee4d4cbaa-16175743.jpg" alt="shili"><br>2路组相联映射示例2<br><img src="https://api2.mubu.com/v3/document_image/c7af876a-6747-4241-b5f6-c398545c9385-16175743.jpg" alt="shili"></p>
+<h2 id="wordtable"><a href="#wordtable" class="headerlink" title="wordtable"></a>wordtable</h2><blockquote>
+<p>Interleaving 交叉模式<br> Compulsory a.必修做的强制的<br> CAM 内容可寻址存储器</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计组</tag>
       </tags>
   </entry>
 </search>
