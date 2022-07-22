@@ -144,7 +144,8 @@
 </ul>
 </li>
 </ol>
-<h3 id="纠错码"><a href="#纠错码" class="headerlink" title="纠错码"></a>纠错码</h3><blockquote>
+<h3 id="纠错码"><a href="#纠错码" class="headerlink" title="纠错码"></a>纠错码</h3><hr>
+<blockquote>
 <p>补充：海明距离Hamming<br>   两个编码异或之后为1的位数<br>   检测到d个errors，需要distance为d+1的编码<br>   纠正d个errors，需要distance为2d+1的编码<br>   这里的距离指的是码表上任意两个编码之间的hamming距离，取最小。对于已知的检错方法，要确定能够检测出几个error应该考虑最坏的情况。</p>
 </blockquote>
 <h3 id="海明码"><a href="#海明码" class="headerlink" title="海明码"></a>海明码</h3><p>一个公式：<br>$m+r+1 \le 2^r$<br>m:数据位数<br>r：所需的校验位<br>由该式可以解出需要的最少校验位</p>

@@ -171,14 +171,39 @@ CPU&amp;#x3D;控制器+运算器+一堆寄存器
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p><img src="https://api2.mubu.com/v3/document_image/5a6fedbd-b29d-4fc9-a1d4-785b38f987d7-16175743.jpg" alt="例子1"><br><img src="https://api2.mubu.com/v3/document_image/ce79b93d-c471-4fea-a2bc-4c35ba366fa7-16175743.jpg" alt="例子2"></p>
 <p>答案<br>（1）：<br><img src="https://api2.mubu.com/v3/document_image/055d35ce-728f-4576-b6c6-a8ddb7febb09-16175743.jpg" alt="1"></p>
 <p>（2）：<br><img src="https://api2.mubu.com/v3/document_image/2b05b876-84ff-40ec-ae72-83b9d1104bda-16175743.jpg" alt="2"></p>
-<h3 id="时序产生器和控制方式"><a href="#时序产生器和控制方式" class="headerlink" title="时序产生器和控制方式"></a>时序产生器和控制方式</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><h4 id="时序信号产生器"><a href="#时序信号产生器" class="headerlink" title="时序信号产生器"></a>时序信号产生器</h4><h5 id="时钟源"><a href="#时钟源" class="headerlink" title="时钟源"></a>时钟源</h5><h5 id="环形脉冲发生器"><a href="#环形脉冲发生器" class="headerlink" title="环形脉冲发生器"></a>环形脉冲发生器</h5><ul>
-<li>产生一组有序的间隔相等或不等的脉冲序列，以便通过译码电路来产生最后所需的节拍脉冲</li>
-<li>为了在节拍脉冲上不带干扰毛刺，环形脉冲发生器通常采用循环移位寄存器形式</li>
+<p>指令周期参考信号图</p>
+<p><img src="https://api2.mubu.com/v3/document_image/0d66f063-c178-43a9-96da-8820305d3b97-16175743.jpg" alt="图"></p>
+<p>STO指令：<br><img src="https://api2.mubu.com/v3/document_image/2f428f2c-7149-47dc-964a-7c3f019fb45f-16175743.jpg" alt="sto"></p>
+<h3 id="5-3时序产生器和控制方式"><a href="#5-3时序产生器和控制方式" class="headerlink" title="5.3时序产生器和控制方式"></a>5.3时序产生器和控制方式</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>时序 Timing</p>
+<p>计算机以时序信号为基准完成协调动作</p>
+<p>控制器分类：</p>
+<ul>
+<li>硬布线控制器<br>时序信号一般采用主状态周期-节拍电位-节拍脉冲三级体制。节拍电位的时间&#x3D;CPU周期的时间</li>
+<li>微程序控制器<br>时序信号比较简单。一般采用节拍电位-节拍脉冲二级体制</li>
 </ul>
-<h5 id="节拍脉冲和读写时序的译码"><a href="#节拍脉冲和读写时序的译码" class="headerlink" title="节拍脉冲和读写时序的译码"></a>节拍脉冲和读写时序的译码</h5><h5 id="启停控制逻辑"><a href="#启停控制逻辑" class="headerlink" title="启停控制逻辑"></a>启停控制逻辑</h5><p>启动信号保证产生完整的CPU周期信号</p>
+<p>微程序控制器中<strong>时序信号产生器</strong>的组成：</p>
+<ul>
+<li>时钟源</li>
+<li>环形脉冲发生器</li>
+<li>节拍脉冲和读&#x2F;写时序的译码</li>
+<li>启停控制逻辑</li>
+</ul>
+<p>框图：<br><img src="https://api2.mubu.com/v3/document_image/1fe83be4-8442-43f5-80b9-5d8d8ac87ef5-16175743.jpg" alt="kt"></p>
+<h5 id="时钟源"><a href="#时钟源" class="headerlink" title="时钟源"></a>时钟源</h5><h5 id="环形脉冲发生器"><a href="#环形脉冲发生器" class="headerlink" title="环形脉冲发生器"></a>环形脉冲发生器</h5><ul>
+<li>产生一组有序的间隔相等或不等的脉冲序列，以便通过译码电路来产生最后所需的节拍脉冲</li>
+<li>为了在节拍脉冲上不带干扰毛刺，环形脉冲发生器通常采用<strong>循环移位寄存器</strong>形式</li>
+</ul>
+<h5 id="节拍脉冲和读写时序的译码"><a href="#节拍脉冲和读写时序的译码" class="headerlink" title="节拍脉冲和读写时序的译码"></a>节拍脉冲和读写时序的译码</h5><p>译码逻辑：<br>一种环形脉冲发生器：<br><img src="https://api2.mubu.com/v3/document_image/37b5b894-2b32-4972-97de-5ba56743e826-16175743.jpg" alt="图"></p>
+<blockquote>
+<p>关于D触发器：左边的SD端是清零端，右边的RD端是预置端（置1）（）二者都是低电平有效。<br>分析得，上图的电路状态是一个循环。<br>C1,C2,C3–&gt;<font color=blue>000</font>-&gt;100-&gt;110-&gt;111-&gt;<font color=blue>000</font></p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/897c66d7-8382-4b42-a508-d879aa65766f-16175743.jpg" alt="t1-t4"></p>
+<p>节拍电位与节拍脉冲时序关系图<br><img src="https://api2.mubu.com/v3/document_image/1f6a383c-dd98-4e7e-8ba7-c355e4cafd73-16175743.jpg" alt="y"></p>
+<h5 id="启停控制逻辑"><a href="#启停控制逻辑" class="headerlink" title="启停控制逻辑"></a>启停控制逻辑</h5><p>启停控制逻辑<br>u机器一旦接通电源，就会自动产生原始的节拍脉冲信号T1°-T4°。但只有发出启动信号后，才允许时序产生器发出CPU工作所需的完整节拍脉冲</p>
+<p>启动信号保证产生完整的CPU周期信号</p>
 <p>启停控制逻辑</p>
-<p><img src="/" alt="电路图"><br>当触发器Cr的Q端为“1”时，原始节拍脉冲和读写信号通过门电路发送出去，变成CPU真正需要的节拍脉冲信号和读写时序，反之，就关闭时序产生器</p>
-<h4 id="控制方式"><a href="#控制方式" class="headerlink" title="控制方式"></a>控制方式</h4><h5 id="同步控制方式"><a href="#同步控制方式" class="headerlink" title="同步控制方式"></a>同步控制方式</h5><p>在任何情况下，各指令在执行时所需的机器周期数和时钟周期数是固定的</p>
+<p><img src="https://api2.mubu.com/v3/document_image/0dadc9f0-48de-4861-99c1-3c110daaf712-16175743.jpg" alt="电路图"><br>当触发器Cr的Q端为“1”时，原始节拍脉冲和读写信号通过门电路发送出去，变成CPU真正需要的节拍脉冲信号和读写时序，反之，就关闭时序产生器.<br>T4信号取反做时钟信号的原因：<br>保证时序信号以T1,T2,T3,T4的顺序输出。</p>
+<h4 id="控制方式"><a href="#控制方式" class="headerlink" title="控制方式"></a>控制方式</h4><h5 id="同步控制方式"><a href="#同步控制方式" class="headerlink" title="同步控制方式"></a>同步控制方式</h5><p>Def:在任何情况下，各指令在执行时所需的机器周期数和时钟周期数是固定的</p>
 <p>实现方案：</p>
 <ol>
 <li>采用完全统一的机器周期执行不同的指令。简单指令会导致时间浪费</li>
@@ -186,43 +211,122 @@ CPU&amp;#x3D;控制器+运算器+一堆寄存器
 <li>中央控制与局部控制结合，上面俩结合</li>
 </ol>
 <h5 id="异步控制方式"><a href="#异步控制方式" class="headerlink" title="异步控制方式"></a>异步控制方式</h5><ol>
-<li>每条指令，操作按需占用时间</li>
-<li>不采用统一的时序信号，而是根据指令或者部件的具体情况而定。“应答”方式，没有时间上的浪费，但控制比较复杂</li>
+<li>每条指令，操作<strong>按需</strong>占用时间</li>
+<li>不采用统一的时序信号，而是根据指令或者部件的具体情况而定。“应答”方式，没有时间上的浪费，但控制比较复杂.</li>
 </ol>
 <h5 id="联合控制方式"><a href="#联合控制方式" class="headerlink" title="联合控制方式"></a>联合控制方式</h5><p>同步和异步相结合</p>
 <ol>
-<li>打本份操作序列安排在固定的机器周期中，对某些时间难以确定的操作则采用“应答”信号作为本次操作的结束</li>
-<li>机器周期是节拍脉冲数是固定的，但是各条指令的机器周期数不固定</li>
+<li>大部分操作序列安排在固定的机器周期中，对某些时间难以确定的操作则采用“应答”信号作为本次操作的结束</li>
+<li>机器周期的节拍脉冲数是固定的，但是各条指令的机器周期数不固定</li>
 </ol>
-<h3 id="微程序控制器"><a href="#微程序控制器" class="headerlink" title="微程序控制器"></a><mark>微程序控制器</mark></h3><p>微程序设计技术是利用<strong>软件方法</strong>来<strong>设计硬件</strong>的一门技术<br>微程序控制器与硬布线控制器相比较，具有规整性、灵活性、可维护性等一系列优点</p>
+<h3 id="微程序控制器"><a href="#微程序控制器" class="headerlink" title="微程序控制器"></a><mark>微程序控制器</mark></h3><p>微程序设计技术是利用<strong>软件方法</strong>来<strong>设计硬件</strong>的一门技术<br>微程序控制器与硬布线控制器相比较，具有<strong>规整性、灵活性、可维护性</strong>等一系列优点</p>
 <p>基本思想</p>
 <ul>
-<li><p>用多条微指令（即：一个微程序）解释每条指令的执行过程。全部的微程序有机地组合在一起，存储在控制存储器（只读存储器）中。</p>
-</li>
-<li><p>当机器运行时，一条一条地读出这些微指令，从而产生全机所需要的各种操作控制信号，使相应的部件执行特定的操作</p>
-</li>
+<li>用多条微指令（即：一个微程序）解释每条指令的执行过程。全部的微程序有机地组合在一起，存储在控制存储器（只读存储器）中。</li>
+<li>当机器运行时，一条一条地读出这些微指令，从而产生全机所需要的各种操作控制信号，使相应的部件执行特定的操作</li>
 </ul>
 <h4 id="微命令和微操作"><a href="#微命令和微操作" class="headerlink" title="微命令和微操作"></a>微命令和微操作</h4><p>计算机的构成</p>
 <ul>
 <li>控制部件–控制器</li>
 <li>执行部件–运算器、存储器、外围设备</li>
 </ul>
-<p>微命令－控制部件通过控制线向执行部件发出各种控制命令（即：控制信号）<br>微操作－执行部件接受微命令后所进行的特定操作<br>反馈信息<br>通常执行部件使用反馈线向控制部件报告操作情况，控制部件则根据执行部件的“状态”发出新的微命令。</p>
+<p><strong>微命令</strong>－控制部件通过控制线向执行部件发出各种控制命令（<strong>即：控制信号</strong>）<br>微操作－执行部件接受微命令后所进行的特定操作</p>
+<p>反馈信息<br>通常执行部件使用反馈线向控制部件报告操作情况，控制部件则根据执行部件的“状态”发出新的微命令。</p>
 <p>分类：</p>
 <ul>
 <li>相容性操作：同时或在同一个CPU周期内可以并行执行的微操作</li>
 <li>相斥性操作：不能同时或不能在同一个CPU周期内并行执行的微操作</li>
 </ul>
 <h4 id="微指令"><a href="#微指令" class="headerlink" title="微指令"></a>微指令</h4><ul>
-<li>在机器的一个CPU周期中，一组实现一定操作功能的微命令的组合，构成一条微指令<br>或者说</li>
+<li>在机器的一个CPU周期中，一组实现一定操作功能的<strong>微命令的组合</strong>，构成一条微指令<br>或者说</li>
 <li>用一条微指令对应一条机器指令的一个执行步骤</li>
 <li>微指令需要具备的2个功能<ul>
 <li>供一条机器指令的一个执行步骤所需要的控制信号，以实现该执行步骤的操作功能</li>
-<li>供读出下一条待用微指令的地址，以便自动有序地读出每一条微指令，解决机器指令执行步骤之间的正确的接续关系</li>
+<li>提供读出下一条待用微指令的地址，以便自动有序地读出每一条微指令，解决机器指令执行步骤之间的正确的接续关系</li>
 </ul>
 </li>
 </ul>
-<h5 id="微指令基本格式"><a href="#微指令基本格式" class="headerlink" title="微指令基本格式"></a>微指令基本格式</h5><h4 id="微程序控制器-1"><a href="#微程序控制器-1" class="headerlink" title="微程序控制器"></a>微程序控制器</h4><p>微程序控制器<br>u控制存储器<br>u微指令寄存器<br>p 微地址寄存器<br>p 微命令寄存器<br>u地址转移逻辑</p>
+<h5 id="微指令基本格式"><a href="#微指令基本格式" class="headerlink" title="微指令基本格式"></a>微指令基本格式</h5><p><img src="https://api2.mubu.com/v3/document_image/383c97cf-53d9-4d5e-bfd6-2bd0436fcd2b-16175743.jpg" alt="tu"></p>
+<h4 id="微程序控制器-1"><a href="#微程序控制器-1" class="headerlink" title="微程序控制器"></a>微程序控制器</h4><ul>
+<li>控制存储器</li>
+<li>微指令寄存器<ul>
+<li>微地址寄存器</li>
+<li>微命令寄存器</li>
+</ul>
+</li>
+<li>地址转移逻辑</li>
+</ul>
+<p>原理框图：<br><img src="https://api2.mubu.com/v3/document_image/58a90eb4-a580-405a-ad0f-98de5b7bd62f-16175743.jpg" alt="tu"></p>
+<h4 id="微程序的特点"><a href="#微程序的特点" class="headerlink" title="微程序的特点"></a>微程序的特点</h4><ul>
+<li><p>一条<strong>机器指令是若干条微指令组成的序列</strong>来实现的</p>
+</li>
+<li><p>一条机器指令<strong>对应着一段微程序</strong>，而微程序的总和便可实现整个的指令系统</p>
+</li>
+<li><p>微程序设计可以很容易地在不同的微体系结构上实现相同的</p>
+</li>
+<li><p>以十进制加法指令操作码为地址，去查微地址映射部件得到微程序在控制存储器中的地址，就可以调出所需要的微程序（如上图中微程序地址为1010）</p>
+</li>
+<li><p>微地址映射部件是用ROM实现的，地址输入为指令寄存器IR的操作码，输出为该指令对应的微程序段的入口地址</p>
+</li>
+</ul>
+<h4 id="微程序举例"><a href="#微程序举例" class="headerlink" title="微程序举例"></a>微程序举例</h4><p><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/527b8a8b-2c78-4389-bead-b4b2fbf09e07-16175743.jpg">微程序举例，十进制BCD码加法</a></p>
+<h4 id="微指令周期与CPU周期的关系"><a href="#微指令周期与CPU周期的关系" class="headerlink" title="微指令周期与CPU周期的关系"></a>微指令周期与CPU周期的关系</h4><p>微指令周期 &#x3D; 读出微指令的时间 + 执行该条微指令的时间</p>
+<p>为了保证整个机器控制信号的同步，可以将一个微指令周期 时间设计得恰好和CPU周期时间相等</p>
+<p><img src="https://api2.mubu.com/v3/document_image/59fd1ac9-7829-47ef-ade6-61b48707e9ea-16175743.jpg" alt="微指令周期与CPU周期的关系"></p>
+<h4 id="机器指令与微指令的关系"><a href="#机器指令与微指令的关系" class="headerlink" title="机器指令与微指令的关系"></a>机器指令与微指令的关系</h4><p><img src="https://api2.mubu.com/v3/document_image/f617eec9-90f1-48ba-8330-46226f08b2af-16175743.jpg" alt="关系"></p>
+<h3 id="5-4微程序设计技术"><a href="#5-4微程序设计技术" class="headerlink" title="5.4微程序设计技术"></a>5.4微程序设计技术</h3><h4 id="微命令编码"><a href="#微命令编码" class="headerlink" title="微命令编码"></a>微命令编码</h4><p>微指令操作控制字段的微命令表示方法可分为3类</p>
+<ul>
+<li><strong>直接表示</strong>法：操作控制字段中的每一位代表一个微命令</li>
+<li><strong>直接编码</strong>表示法：<br>把一组<strong>相斥性</strong>的微命令信号组成一个小组(即一个字段) ，然后通过小组(字段）译码器对每一个微命令信号进行译码 ，译码输出作为操作控制信号<blockquote>
+<p>编码表示法使微指令字的长度大大缩短。但由于增加译码电路，微程序的执行速度稍稍减慢编码表示法使用较</p>
+</blockquote>
+</li>
+<li><strong>混合</strong>表示法：见图<br><img src="https://api2.mubu.com/v3/document_image/0bf4a4b1-ae5e-44c8-92d9-0614a2408d6b-16175743.jpg" alt="ru"></li>
+</ul>
+<p>在微指令中还可附设一个常数字段</p>
+<ul>
+<li>可作为操作数送入ALU运算</li>
+<li>也可作为计数器初值用来控制微程序循环次数</li>
+</ul>
+<h4 id="微地址的形成方法"><a href="#微地址的形成方法" class="headerlink" title="微地址的形成方法"></a>微地址的形成方法</h4><p>产生后继微地址的方法</p>
+<ul>
+<li>计数器方式(类似PC)</li>
+<li>多路转移方式(跳转)<ul>
+<li>当微程序不产生分支时，后继微地址直接由微指令的顺序控制字段给出</li>
+<li>当微程序出现分支时，有若干“候选”微地址可供选择：即按顺序控制字段P的“判别测试”和“状态条件”标志来选择其中一个微地址</li>
+<li>“状态条件”有n位标志，可实现微程序2n路转移，且涉及微地址寄存器的n位</li>
+</ul>
+</li>
+<li>由指令的操作码转换得到，典型方式为查表方式</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/8d5d9a41-8571-40d9-9b96-e223391e222e-16175743.jpg" alt="例子"></p>
+<h4 id="微指令格式"><a href="#微指令格式" class="headerlink" title="微指令格式"></a>微指令格式</h4><ul>
+<li>水平型微指令</li>
+<li>竖直型微指令</li>
+</ul>
+<p>简单说，水平行比较长，上面那三种译码方式都是针对水平指令的，一次能定义并执行多个并行操作微命令。效率高，灵活性强，但基本别想凭肉眼看懂，因为每一位代表一个操作，然后每条指令就是微操作的组合（位的组合），然后最后写出来的微程序比较短，整体是个躺着的长方形（不恰当的比喻）。</p>
+<p>竖直型指令就有点像经常见的指令了，有操作码，有源地址和目的地址。<br>每条指令完成的功能比较简单，所以最后写出来的微程序比较长，整体看就是个竖着的长方形。特别的，竖直型指令虽然完成的功能简单，这玩意儿执行时间还长。</p>
+<h3 id="5-5硬连线控制器"><a href="#5-5硬连线控制器" class="headerlink" title="5.5硬连线控制器"></a>5.5硬连线控制器</h3><p>基本概念：<br><img src="https://api2.mubu.com/v3/document_image/97adce27-8881-477a-8751-ce093f4cb6a4-16175743.jpg" alt="j"></p>
+<p>硬连线控制器原理框图：<br><img src="https://api2.mubu.com/v3/document_image/11d6c042-cf3a-4b9d-a329-937fc81f0065-16175743.jpg" alt="图"></p>
+<p>写出以下控制信号的逻辑表达式：<br>例子：<br><img src="https://api2.mubu.com/v3/document_image/55d7ec59-90e7-4335-9d91-4f078eb0e28a-16175743.jpg" alt="例子"></p>
+<p>另一个举例：<br>这里需要注意的是T信号的划分：<br><mark>一般一个微操作分配一个时钟周期，读写内存分配两个时钟周期</mark><br><img src="https://api2.mubu.com/v3/document_image/afbb828f-3d6b-4e56-b3af-618153c6d530-16175743.jpg" alt="例子"></p>
+<h3 id="5-6流水CPU"><a href="#5-6流水CPU" class="headerlink" title="5.6流水CPU"></a>5.6流水CPU</h3><p>流水方式CPU：指令部件、指令队列、执行部件</p>
+<ul>
+<li>指令部件</li>
+<li>指令队列：FIFO寄存器栈</li>
+<li>执行部件：可以有多个采用流水线方式构成的算术逻辑部件构成，可以将定点运算部件和浮点运算部件分开</li>
+</ul>
+<p>几个缩写的含义：</p>
+<ul>
+<li>IF（Instruction Fetch取指）</li>
+<li>ID（Instruction Decode指令译码）</li>
+<li>EX（Execution执行）</li>
+<li>WB（Write Back写回</li>
+</ul>
+<p>4级指令流水线<br><img src="https://api2.mubu.com/v3/document_image/e26adf24-76a8-422a-9bdf-c676e98102f3-16175743.jpg" alt="4"></p>
+<p>几个概念：</p>
+<p>线性流水线的时钟周期</p>
+<p>$$<br>\tau&#x3D;\max {\tau_i}+\tau_1&#x3D;\tau+m+\tau_1;<br>$$</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
@@ -294,7 +398,7 @@ CPU&amp;#x3D;控制器+运算器+一堆寄存器
     </div>
     
         <div class="side">
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E6%97%B6%E5%BA%8F%E4%BA%A7%E7%94%9F%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">操作控制器和时序产生器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF"><span class="toc-number">1.1.</span> <span class="toc-text">数据通路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">操作控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E4%BA%A7%E7%94%9F%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">时序产生器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F"><span class="toc-number">2.</span> <span class="toc-text">指令周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%86%E5%9B%BE"><span class="toc-number">2.1.</span> <span class="toc-text">方框图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">2.2.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E4%BA%A7%E7%94%9F%E5%99%A8%E5%92%8C%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">时序产生器和控制方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E4%BF%A1%E5%8F%B7%E4%BA%A7%E7%94%9F%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">时序信号产生器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E6%BA%90"><span class="toc-number">3.2.1.</span> <span class="toc-text">时钟源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%8E%AF%E5%BD%A2%E8%84%89%E5%86%B2%E5%8F%91%E7%94%9F%E5%99%A8"><span class="toc-number">3.2.2.</span> <span class="toc-text">环形脉冲发生器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8A%82%E6%8B%8D%E8%84%89%E5%86%B2%E5%92%8C%E8%AF%BB%E5%86%99%E6%97%B6%E5%BA%8F%E7%9A%84%E8%AF%91%E7%A0%81"><span class="toc-number">3.2.3.</span> <span class="toc-text">节拍脉冲和读写时序的译码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%81%9C%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91"><span class="toc-number">3.2.4.</span> <span class="toc-text">启停控制逻辑</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.3.</span> <span class="toc-text">控制方式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.3.1.</span> <span class="toc-text">同步控制方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.3.2.</span> <span class="toc-text">异步控制方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%81%94%E5%90%88%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.3.3.</span> <span class="toc-text">联合控制方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">微程序控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E5%91%BD%E4%BB%A4%E5%92%8C%E5%BE%AE%E6%93%8D%E4%BD%9C"><span class="toc-number">4.1.</span> <span class="toc-text">微命令和微操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text">微指令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-number">4.2.1.</span> <span class="toc-text">微指令基本格式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8-1"><span class="toc-number">4.3.</span> <span class="toc-text">微程序控制器</span></a></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E6%97%B6%E5%BA%8F%E4%BA%A7%E7%94%9F%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">操作控制器和时序产生器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF"><span class="toc-number">1.1.</span> <span class="toc-text">数据通路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">操作控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E4%BA%A7%E7%94%9F%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">时序产生器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F"><span class="toc-number">2.</span> <span class="toc-text">指令周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%86%E5%9B%BE"><span class="toc-number">2.1.</span> <span class="toc-text">方框图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">2.2.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3%E6%97%B6%E5%BA%8F%E4%BA%A7%E7%94%9F%E5%99%A8%E5%92%8C%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">5.3时序产生器和控制方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E6%BA%90"><span class="toc-number">3.1.1.</span> <span class="toc-text">时钟源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%8E%AF%E5%BD%A2%E8%84%89%E5%86%B2%E5%8F%91%E7%94%9F%E5%99%A8"><span class="toc-number">3.1.2.</span> <span class="toc-text">环形脉冲发生器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8A%82%E6%8B%8D%E8%84%89%E5%86%B2%E5%92%8C%E8%AF%BB%E5%86%99%E6%97%B6%E5%BA%8F%E7%9A%84%E8%AF%91%E7%A0%81"><span class="toc-number">3.1.3.</span> <span class="toc-text">节拍脉冲和读写时序的译码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%81%9C%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91"><span class="toc-number">3.1.4.</span> <span class="toc-text">启停控制逻辑</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">控制方式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.1.</span> <span class="toc-text">同步控制方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.2.</span> <span class="toc-text">异步控制方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%81%94%E5%90%88%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.3.</span> <span class="toc-text">联合控制方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">微程序控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E5%91%BD%E4%BB%A4%E5%92%8C%E5%BE%AE%E6%93%8D%E4%BD%9C"><span class="toc-number">4.1.</span> <span class="toc-text">微命令和微操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text">微指令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-number">4.2.1.</span> <span class="toc-text">微指令基本格式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8-1"><span class="toc-number">4.3.</span> <span class="toc-text">微程序控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">4.4.</span> <span class="toc-text">微程序的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E4%B8%BE%E4%BE%8B"><span class="toc-number">4.5.</span> <span class="toc-text">微程序举例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F%E4%B8%8ECPU%E5%91%A8%E6%9C%9F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">4.6.</span> <span class="toc-text">微指令周期与CPU周期的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%BE%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">4.7.</span> <span class="toc-text">机器指令与微指令的关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4%E5%BE%AE%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF"><span class="toc-number">5.</span> <span class="toc-text">5.4微程序设计技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E5%91%BD%E4%BB%A4%E7%BC%96%E7%A0%81"><span class="toc-number">5.1.</span> <span class="toc-text">微命令编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E5%9C%B0%E5%9D%80%E7%9A%84%E5%BD%A2%E6%88%90%E6%96%B9%E6%B3%95"><span class="toc-number">5.2.</span> <span class="toc-text">微地址的形成方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">5.3.</span> <span class="toc-text">微指令格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5%E7%A1%AC%E8%BF%9E%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">6.</span> <span class="toc-text">5.5硬连线控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6%E6%B5%81%E6%B0%B4CPU"><span class="toc-number">7.</span> <span class="toc-text">5.6流水CPU</span></a></li></ol>	
         </div>
     
 </div>

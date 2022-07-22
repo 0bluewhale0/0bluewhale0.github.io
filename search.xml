@@ -252,7 +252,7 @@
 <ul>
 <li><p>PCM：脉冲编码调制，关于为什么是64bps、125Чsec<br><img src="https://api2.mubu.com/v3/document_image/ebff4d33-7a87-47a8-ae47-d69a7769b288-16175743.jpg" alt="10"></p>
 </li>
-<li><p>TDM时分多路复用<br><img src="https://api2.mubu.com/v3/document_image/b05b3ba8-0d7f-4a62-8e29-adbbc7c44f1a-16175743.jpg" alt="4"><br>The T1 carrier (1.544 Mbps).<br>E1 2.048Mbps</p>
+<li><p>TDM时分多路复用<br><img src="https://api2.mubu.com/v3/document_image/b05b3ba8-0d7f-4a62-8e29-adbbc7c44f1a-16175743.jpg" alt="4"><br>The T1 carrier (1.544 Mbps).<br>E1 2.048<strong>Mbps</strong></p>
 </li>
 <li><p><strong>TDM数据传输</strong><br><img src="https://api2.mubu.com/v3/document_image/9fc8a918-402c-449e-84cc-0f2a53540d7b-16175743.jpg" alt="2-8TDM数据传输"></p>
 </li>
@@ -325,15 +325,14 @@
 <li>初始链接是如何链接以及如何释放的，比如打电话，挂断，一般链接是按时间计费的</li>
 </ul>
 <ol start="2">
-<li>数据链路层：把原始的传输转化成逻辑的信道。一句话总结，就是(可靠的)数据帧的传输 <mark><strong>Point To Point点到点</strong></mark></li>
-</ol>
+<li><p>数据链路层：把原始的传输转化成逻辑的信道。一句话总结，就是(可靠的)数据帧的传输 <mark><strong>Point To Point点到点</strong></mark></p>
 <ul>
 <li>将到达的数据变成一块一块的frame(帧）(这个功能仅部分的数据链路层拥有)</li>
 <li>如果要求可靠的传输，要对正确的数据帧发送comfirm</li>
 <li>流量控制：保持快速传输，防止数据传输缓慢</li>
 <li>广播网络：管理共享信道的使用权力(access)</li>
 </ul>
-<ol start="3">
+</li>
 <li><p>网络层：主要控制的是路由和转发的问题，控制子网的运行</p>
 <ul>
 <li>传递forwarding</li>
@@ -417,7 +416,7 @@
 <p>此外，这种情况下用大写的B表示Byte字节，而小写的b表示bit比特。</p>
 <p><img src="https://api2.mubu.com/v3/document_image/50180420-6d48-47d4-ae7c-9647d65a4d18-16175743.jpg" alt="单位"></p>
 <p>由于$milli和micro$都以字母m开头，所以两者必须进行区分。通常情况下，$m$ 代表毫(milli),而$μ$ (希腊字母)代表微(micro)。</p>
-<p>在本书中，为了避免二义性，我们将使用符号KB、MB、GB和TB分别代表$2^{l0}、2^{20}、2^{30}$ 和 $2^{40}$ 字节;用符号 $kbps、Mbps、Gbps$ 和 $Tbps$分别代表$10^3,10^6,10^9和10^{12}$位&#x2F;秒。</p>
+<p>在本书中，为了避免二义性，我们将使用符号KB、MB、GB和TB分别代表$2^{10}、2^{20}、2^{30}$ 和 $2^{40}$ 字节;用符号 $kbps、Mbps、Gbps$ 和 $Tbps$分别代表$10^3,10^6,10^9和10^{12}$位&#x2F;秒。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -568,7 +567,8 @@
 </ul>
 </li>
 </ol>
-<h3 id="纠错码"><a href="#纠错码" class="headerlink" title="纠错码"></a>纠错码</h3><blockquote>
+<h3 id="纠错码"><a href="#纠错码" class="headerlink" title="纠错码"></a>纠错码</h3><hr>
+<blockquote>
 <p>补充：海明距离Hamming<br>   两个编码异或之后为1的位数<br>   检测到d个errors，需要distance为d+1的编码<br>   纠正d个errors，需要distance为2d+1的编码<br>   这里的距离指的是码表上任意两个编码之间的hamming距离，取最小。对于已知的检错方法，要确定能够检测出几个error应该考虑最坏的情况。</p>
 </blockquote>
 <h3 id="海明码"><a href="#海明码" class="headerlink" title="海明码"></a>海明码</h3><p>一个公式：<br>$m+r+1 \le 2^r$<br>m:数据位数<br>r：所需的校验位<br>由该式可以解出需要的最少校验位</p>
@@ -1246,8 +1246,31 @@
 </ol>
 <h5 id="算法5"><a href="#算法5" class="headerlink" title="算法5"></a>算法5</h5><p><img src="https://api2.mubu.com/v3/document_image/8b1fcac4-46ff-44bc-add8-e1bbb49e997b-16175743.jpg" alt="算法5"></p>
 <h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p><img src="https://api2.mubu.com/v3/document_image/7d33cbe8-dd03-4731-a2fc-6cc3662ffef8-16175743.jpg" alt="示例"><br><img src="https://api2.mubu.com/v3/document_image/b7130afb-b6ba-4374-9bc4-b69a79cad139-16175743.jpg" alt="示例2"></p>
-<h2 id="下推自动机"><a href="#下推自动机" class="headerlink" title="下推自动机"></a>下推自动机</h2><h2 id="上下文无关语言的性质"><a href="#上下文无关语言的性质" class="headerlink" title="上下文无关语言的性质"></a>上下文无关语言的性质</h2><h1 id="Chomsky范式和Greibach范式"><a href="#Chomsky范式和Greibach范式" class="headerlink" title="Chomsky范式和Greibach范式"></a>Chomsky范式和Greibach范式</h1><h2 id="Chomsky-范式"><a href="#Chomsky-范式" class="headerlink" title="Chomsky 范式"></a>Chomsky 范式</h2><p><img src="/" alt="CNF"></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/" alt="GNF"></h2>]]></content>
+<h2 id="下推自动机"><a href="#下推自动机" class="headerlink" title="下推自动机"></a>下推自动机</h2><h2 id="上下文无关语言的性质"><a href="#上下文无关语言的性质" class="headerlink" title="上下文无关语言的性质"></a>上下文无关语言的性质</h2><h1 id="Chomsky范式和Greibach范式"><a href="#Chomsky范式和Greibach范式" class="headerlink" title="Chomsky范式和Greibach范式"></a>Chomsky范式和Greibach范式</h1><h2 id="Chomsky-范式"><a href="#Chomsky-范式" class="headerlink" title="Chomsky 范式"></a>Chomsky 范式</h2><p>2型文法G＝（N，T，P，S）<br>生成式形如：<br>A→BC和A→a<br>称为Chomsky Normal Format<br>特别的，若ε∈L（G），则S→ε是P的一个生成式，但<strong>S不能在任何其它生成式的右边</strong></p>
+<p>构成步骤：</p>
+<ol>
+<li>消除ε生成式、无用符号、单生成式</li>
+<li>引入新的非终结符，凑</li>
+</ol>
+<p><img src="https://api2.mubu.com/v3/document_image/2c0e2f24-d00e-4b33-9077-aa2c92baa578-16175743.jpg" alt="CNF"></p>
+<h2 id="Greibach范式"><a href="#Greibach范式" class="headerlink" title="Greibach范式"></a>Greibach范式</h2><p>2型文法G＝（N，T，P，S）<br>若生成式的形式都是A→aβ，A∈N，a∈T，β∈N*<br>且G不含ε生成式，则称G为Greibach范式，记为GNF</p>
+<p>构成步骤：</p>
+<ol>
+<li>2型文法变换为CNF。（A→a，A→BC形式）</li>
+<li>对非终结符排序</li>
+<li>假如按下标递增，不能出现$A1-&gt;A2\beta$（A2高于A1）<ol>
+<li>把A2的生成式带入，直至满足上述条件</li>
+</ol>
+</li>
+<li>消除左递归（只对最高的Ai进行消除左递归，消除完了之后Ai就会满足GNF形式，即终结符a开头，但会引入新的非终结符Ai’,这些新的非终结符优先级是最低的）</li>
+<li>回代<ol>
+<li>依次回代Ai到Ai-1，Ai-1到Ai-2….一直到右部首字符都为终结符</li>
+</ol>
+</li>
+<li>将消除左递归时候引入的带’的右部进行代换，换成右部首字符都为终结符。</li>
+</ol>
+<p>GNF1：<br><img src="https://api2.mubu.com/v3/document_image/1f5f4619-f44c-4f1d-9120-7cd807e9874c-16175743.jpg" alt="GNF1"><br>GNF2：<br><img src="https://api2.mubu.com/v3/document_image/88f16a4c-5497-4016-b210-fde1e1179f3c-16175743.jpg" alt="GNF2"><br>GNF3：<br><img src="https://api2.mubu.com/v3/document_image/10a971db-617a-4b4f-8153-7db24755a189-16175743.jpg" alt="GNF3"></p>
+]]></content>
       <categories>
         <category>笔记</category>
       </categories>
@@ -1497,14 +1520,39 @@
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p><img src="https://api2.mubu.com/v3/document_image/5a6fedbd-b29d-4fc9-a1d4-785b38f987d7-16175743.jpg" alt="例子1"><br><img src="https://api2.mubu.com/v3/document_image/ce79b93d-c471-4fea-a2bc-4c35ba366fa7-16175743.jpg" alt="例子2"></p>
 <p>答案<br>（1）：<br><img src="https://api2.mubu.com/v3/document_image/055d35ce-728f-4576-b6c6-a8ddb7febb09-16175743.jpg" alt="1"></p>
 <p>（2）：<br><img src="https://api2.mubu.com/v3/document_image/2b05b876-84ff-40ec-ae72-83b9d1104bda-16175743.jpg" alt="2"></p>
-<h3 id="时序产生器和控制方式"><a href="#时序产生器和控制方式" class="headerlink" title="时序产生器和控制方式"></a>时序产生器和控制方式</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><h4 id="时序信号产生器"><a href="#时序信号产生器" class="headerlink" title="时序信号产生器"></a>时序信号产生器</h4><h5 id="时钟源"><a href="#时钟源" class="headerlink" title="时钟源"></a>时钟源</h5><h5 id="环形脉冲发生器"><a href="#环形脉冲发生器" class="headerlink" title="环形脉冲发生器"></a>环形脉冲发生器</h5><ul>
-<li>产生一组有序的间隔相等或不等的脉冲序列，以便通过译码电路来产生最后所需的节拍脉冲</li>
-<li>为了在节拍脉冲上不带干扰毛刺，环形脉冲发生器通常采用循环移位寄存器形式</li>
+<p>指令周期参考信号图</p>
+<p><img src="https://api2.mubu.com/v3/document_image/0d66f063-c178-43a9-96da-8820305d3b97-16175743.jpg" alt="图"></p>
+<p>STO指令：<br><img src="https://api2.mubu.com/v3/document_image/2f428f2c-7149-47dc-964a-7c3f019fb45f-16175743.jpg" alt="sto"></p>
+<h3 id="5-3时序产生器和控制方式"><a href="#5-3时序产生器和控制方式" class="headerlink" title="5.3时序产生器和控制方式"></a>5.3时序产生器和控制方式</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>时序 Timing</p>
+<p>计算机以时序信号为基准完成协调动作</p>
+<p>控制器分类：</p>
+<ul>
+<li>硬布线控制器<br>时序信号一般采用主状态周期-节拍电位-节拍脉冲三级体制。节拍电位的时间&#x3D;CPU周期的时间</li>
+<li>微程序控制器<br>时序信号比较简单。一般采用节拍电位-节拍脉冲二级体制</li>
 </ul>
-<h5 id="节拍脉冲和读写时序的译码"><a href="#节拍脉冲和读写时序的译码" class="headerlink" title="节拍脉冲和读写时序的译码"></a>节拍脉冲和读写时序的译码</h5><h5 id="启停控制逻辑"><a href="#启停控制逻辑" class="headerlink" title="启停控制逻辑"></a>启停控制逻辑</h5><p>启动信号保证产生完整的CPU周期信号</p>
+<p>微程序控制器中<strong>时序信号产生器</strong>的组成：</p>
+<ul>
+<li>时钟源</li>
+<li>环形脉冲发生器</li>
+<li>节拍脉冲和读&#x2F;写时序的译码</li>
+<li>启停控制逻辑</li>
+</ul>
+<p>框图：<br><img src="https://api2.mubu.com/v3/document_image/1fe83be4-8442-43f5-80b9-5d8d8ac87ef5-16175743.jpg" alt="kt"></p>
+<h5 id="时钟源"><a href="#时钟源" class="headerlink" title="时钟源"></a>时钟源</h5><h5 id="环形脉冲发生器"><a href="#环形脉冲发生器" class="headerlink" title="环形脉冲发生器"></a>环形脉冲发生器</h5><ul>
+<li>产生一组有序的间隔相等或不等的脉冲序列，以便通过译码电路来产生最后所需的节拍脉冲</li>
+<li>为了在节拍脉冲上不带干扰毛刺，环形脉冲发生器通常采用<strong>循环移位寄存器</strong>形式</li>
+</ul>
+<h5 id="节拍脉冲和读写时序的译码"><a href="#节拍脉冲和读写时序的译码" class="headerlink" title="节拍脉冲和读写时序的译码"></a>节拍脉冲和读写时序的译码</h5><p>译码逻辑：<br>一种环形脉冲发生器：<br><img src="https://api2.mubu.com/v3/document_image/37b5b894-2b32-4972-97de-5ba56743e826-16175743.jpg" alt="图"></p>
+<blockquote>
+<p>关于D触发器：左边的SD端是清零端，右边的RD端是预置端（置1）（）二者都是低电平有效。<br>分析得，上图的电路状态是一个循环。<br>C1,C2,C3–&gt;<font color=blue>000</font>-&gt;100-&gt;110-&gt;111-&gt;<font color=blue>000</font></p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/897c66d7-8382-4b42-a508-d879aa65766f-16175743.jpg" alt="t1-t4"></p>
+<p>节拍电位与节拍脉冲时序关系图<br><img src="https://api2.mubu.com/v3/document_image/1f6a383c-dd98-4e7e-8ba7-c355e4cafd73-16175743.jpg" alt="y"></p>
+<h5 id="启停控制逻辑"><a href="#启停控制逻辑" class="headerlink" title="启停控制逻辑"></a>启停控制逻辑</h5><p>启停控制逻辑<br>u机器一旦接通电源，就会自动产生原始的节拍脉冲信号T1°-T4°。但只有发出启动信号后，才允许时序产生器发出CPU工作所需的完整节拍脉冲</p>
+<p>启动信号保证产生完整的CPU周期信号</p>
 <p>启停控制逻辑</p>
-<p><img src="/" alt="电路图"><br>当触发器Cr的Q端为“1”时，原始节拍脉冲和读写信号通过门电路发送出去，变成CPU真正需要的节拍脉冲信号和读写时序，反之，就关闭时序产生器</p>
-<h4 id="控制方式"><a href="#控制方式" class="headerlink" title="控制方式"></a>控制方式</h4><h5 id="同步控制方式"><a href="#同步控制方式" class="headerlink" title="同步控制方式"></a>同步控制方式</h5><p>在任何情况下，各指令在执行时所需的机器周期数和时钟周期数是固定的</p>
+<p><img src="https://api2.mubu.com/v3/document_image/0dadc9f0-48de-4861-99c1-3c110daaf712-16175743.jpg" alt="电路图"><br>当触发器Cr的Q端为“1”时，原始节拍脉冲和读写信号通过门电路发送出去，变成CPU真正需要的节拍脉冲信号和读写时序，反之，就关闭时序产生器.<br>T4信号取反做时钟信号的原因：<br>保证时序信号以T1,T2,T3,T4的顺序输出。</p>
+<h4 id="控制方式"><a href="#控制方式" class="headerlink" title="控制方式"></a>控制方式</h4><h5 id="同步控制方式"><a href="#同步控制方式" class="headerlink" title="同步控制方式"></a>同步控制方式</h5><p>Def:在任何情况下，各指令在执行时所需的机器周期数和时钟周期数是固定的</p>
 <p>实现方案：</p>
 <ol>
 <li>采用完全统一的机器周期执行不同的指令。简单指令会导致时间浪费</li>
@@ -1512,43 +1560,122 @@
 <li>中央控制与局部控制结合，上面俩结合</li>
 </ol>
 <h5 id="异步控制方式"><a href="#异步控制方式" class="headerlink" title="异步控制方式"></a>异步控制方式</h5><ol>
-<li>每条指令，操作按需占用时间</li>
-<li>不采用统一的时序信号，而是根据指令或者部件的具体情况而定。“应答”方式，没有时间上的浪费，但控制比较复杂</li>
+<li>每条指令，操作<strong>按需</strong>占用时间</li>
+<li>不采用统一的时序信号，而是根据指令或者部件的具体情况而定。“应答”方式，没有时间上的浪费，但控制比较复杂.</li>
 </ol>
 <h5 id="联合控制方式"><a href="#联合控制方式" class="headerlink" title="联合控制方式"></a>联合控制方式</h5><p>同步和异步相结合</p>
 <ol>
-<li>打本份操作序列安排在固定的机器周期中，对某些时间难以确定的操作则采用“应答”信号作为本次操作的结束</li>
-<li>机器周期是节拍脉冲数是固定的，但是各条指令的机器周期数不固定</li>
+<li>大部分操作序列安排在固定的机器周期中，对某些时间难以确定的操作则采用“应答”信号作为本次操作的结束</li>
+<li>机器周期的节拍脉冲数是固定的，但是各条指令的机器周期数不固定</li>
 </ol>
-<h3 id="微程序控制器"><a href="#微程序控制器" class="headerlink" title="微程序控制器"></a><mark>微程序控制器</mark></h3><p>微程序设计技术是利用<strong>软件方法</strong>来<strong>设计硬件</strong>的一门技术<br>微程序控制器与硬布线控制器相比较，具有规整性、灵活性、可维护性等一系列优点</p>
+<h3 id="微程序控制器"><a href="#微程序控制器" class="headerlink" title="微程序控制器"></a><mark>微程序控制器</mark></h3><p>微程序设计技术是利用<strong>软件方法</strong>来<strong>设计硬件</strong>的一门技术<br>微程序控制器与硬布线控制器相比较，具有<strong>规整性、灵活性、可维护性</strong>等一系列优点</p>
 <p>基本思想</p>
 <ul>
-<li><p>用多条微指令（即：一个微程序）解释每条指令的执行过程。全部的微程序有机地组合在一起，存储在控制存储器（只读存储器）中。</p>
-</li>
-<li><p>当机器运行时，一条一条地读出这些微指令，从而产生全机所需要的各种操作控制信号，使相应的部件执行特定的操作</p>
-</li>
+<li>用多条微指令（即：一个微程序）解释每条指令的执行过程。全部的微程序有机地组合在一起，存储在控制存储器（只读存储器）中。</li>
+<li>当机器运行时，一条一条地读出这些微指令，从而产生全机所需要的各种操作控制信号，使相应的部件执行特定的操作</li>
 </ul>
 <h4 id="微命令和微操作"><a href="#微命令和微操作" class="headerlink" title="微命令和微操作"></a>微命令和微操作</h4><p>计算机的构成</p>
 <ul>
 <li>控制部件–控制器</li>
 <li>执行部件–运算器、存储器、外围设备</li>
 </ul>
-<p>微命令－控制部件通过控制线向执行部件发出各种控制命令（即：控制信号）<br>微操作－执行部件接受微命令后所进行的特定操作<br>反馈信息<br>通常执行部件使用反馈线向控制部件报告操作情况，控制部件则根据执行部件的“状态”发出新的微命令。</p>
+<p><strong>微命令</strong>－控制部件通过控制线向执行部件发出各种控制命令（<strong>即：控制信号</strong>）<br>微操作－执行部件接受微命令后所进行的特定操作</p>
+<p>反馈信息<br>通常执行部件使用反馈线向控制部件报告操作情况，控制部件则根据执行部件的“状态”发出新的微命令。</p>
 <p>分类：</p>
 <ul>
 <li>相容性操作：同时或在同一个CPU周期内可以并行执行的微操作</li>
 <li>相斥性操作：不能同时或不能在同一个CPU周期内并行执行的微操作</li>
 </ul>
 <h4 id="微指令"><a href="#微指令" class="headerlink" title="微指令"></a>微指令</h4><ul>
-<li>在机器的一个CPU周期中，一组实现一定操作功能的微命令的组合，构成一条微指令<br>或者说</li>
+<li>在机器的一个CPU周期中，一组实现一定操作功能的<strong>微命令的组合</strong>，构成一条微指令<br>或者说</li>
 <li>用一条微指令对应一条机器指令的一个执行步骤</li>
 <li>微指令需要具备的2个功能<ul>
 <li>供一条机器指令的一个执行步骤所需要的控制信号，以实现该执行步骤的操作功能</li>
-<li>供读出下一条待用微指令的地址，以便自动有序地读出每一条微指令，解决机器指令执行步骤之间的正确的接续关系</li>
+<li>提供读出下一条待用微指令的地址，以便自动有序地读出每一条微指令，解决机器指令执行步骤之间的正确的接续关系</li>
 </ul>
 </li>
 </ul>
-<h5 id="微指令基本格式"><a href="#微指令基本格式" class="headerlink" title="微指令基本格式"></a>微指令基本格式</h5><h4 id="微程序控制器-1"><a href="#微程序控制器-1" class="headerlink" title="微程序控制器"></a>微程序控制器</h4><p>微程序控制器<br>u控制存储器<br>u微指令寄存器<br>p 微地址寄存器<br>p 微命令寄存器<br>u地址转移逻辑</p>
+<h5 id="微指令基本格式"><a href="#微指令基本格式" class="headerlink" title="微指令基本格式"></a>微指令基本格式</h5><p><img src="https://api2.mubu.com/v3/document_image/383c97cf-53d9-4d5e-bfd6-2bd0436fcd2b-16175743.jpg" alt="tu"></p>
+<h4 id="微程序控制器-1"><a href="#微程序控制器-1" class="headerlink" title="微程序控制器"></a>微程序控制器</h4><ul>
+<li>控制存储器</li>
+<li>微指令寄存器<ul>
+<li>微地址寄存器</li>
+<li>微命令寄存器</li>
+</ul>
+</li>
+<li>地址转移逻辑</li>
+</ul>
+<p>原理框图：<br><img src="https://api2.mubu.com/v3/document_image/58a90eb4-a580-405a-ad0f-98de5b7bd62f-16175743.jpg" alt="tu"></p>
+<h4 id="微程序的特点"><a href="#微程序的特点" class="headerlink" title="微程序的特点"></a>微程序的特点</h4><ul>
+<li><p>一条<strong>机器指令是若干条微指令组成的序列</strong>来实现的</p>
+</li>
+<li><p>一条机器指令<strong>对应着一段微程序</strong>，而微程序的总和便可实现整个的指令系统</p>
+</li>
+<li><p>微程序设计可以很容易地在不同的微体系结构上实现相同的</p>
+</li>
+<li><p>以十进制加法指令操作码为地址，去查微地址映射部件得到微程序在控制存储器中的地址，就可以调出所需要的微程序（如上图中微程序地址为1010）</p>
+</li>
+<li><p>微地址映射部件是用ROM实现的，地址输入为指令寄存器IR的操作码，输出为该指令对应的微程序段的入口地址</p>
+</li>
+</ul>
+<h4 id="微程序举例"><a href="#微程序举例" class="headerlink" title="微程序举例"></a>微程序举例</h4><p><a href="https://api2.mubu.com/v3/document_image/527b8a8b-2c78-4389-bead-b4b2fbf09e07-16175743.jpg">微程序举例，十进制BCD码加法</a></p>
+<h4 id="微指令周期与CPU周期的关系"><a href="#微指令周期与CPU周期的关系" class="headerlink" title="微指令周期与CPU周期的关系"></a>微指令周期与CPU周期的关系</h4><p>微指令周期 &#x3D; 读出微指令的时间 + 执行该条微指令的时间</p>
+<p>为了保证整个机器控制信号的同步，可以将一个微指令周期 时间设计得恰好和CPU周期时间相等</p>
+<p><img src="https://api2.mubu.com/v3/document_image/59fd1ac9-7829-47ef-ade6-61b48707e9ea-16175743.jpg" alt="微指令周期与CPU周期的关系"></p>
+<h4 id="机器指令与微指令的关系"><a href="#机器指令与微指令的关系" class="headerlink" title="机器指令与微指令的关系"></a>机器指令与微指令的关系</h4><p><img src="https://api2.mubu.com/v3/document_image/f617eec9-90f1-48ba-8330-46226f08b2af-16175743.jpg" alt="关系"></p>
+<h3 id="5-4微程序设计技术"><a href="#5-4微程序设计技术" class="headerlink" title="5.4微程序设计技术"></a>5.4微程序设计技术</h3><h4 id="微命令编码"><a href="#微命令编码" class="headerlink" title="微命令编码"></a>微命令编码</h4><p>微指令操作控制字段的微命令表示方法可分为3类</p>
+<ul>
+<li><strong>直接表示</strong>法：操作控制字段中的每一位代表一个微命令</li>
+<li><strong>直接编码</strong>表示法：<br>把一组<strong>相斥性</strong>的微命令信号组成一个小组(即一个字段) ，然后通过小组(字段）译码器对每一个微命令信号进行译码 ，译码输出作为操作控制信号<blockquote>
+<p>编码表示法使微指令字的长度大大缩短。但由于增加译码电路，微程序的执行速度稍稍减慢编码表示法使用较</p>
+</blockquote>
+</li>
+<li><strong>混合</strong>表示法：见图<br><img src="https://api2.mubu.com/v3/document_image/0bf4a4b1-ae5e-44c8-92d9-0614a2408d6b-16175743.jpg" alt="ru"></li>
+</ul>
+<p>在微指令中还可附设一个常数字段</p>
+<ul>
+<li>可作为操作数送入ALU运算</li>
+<li>也可作为计数器初值用来控制微程序循环次数</li>
+</ul>
+<h4 id="微地址的形成方法"><a href="#微地址的形成方法" class="headerlink" title="微地址的形成方法"></a>微地址的形成方法</h4><p>产生后继微地址的方法</p>
+<ul>
+<li>计数器方式(类似PC)</li>
+<li>多路转移方式(跳转)<ul>
+<li>当微程序不产生分支时，后继微地址直接由微指令的顺序控制字段给出</li>
+<li>当微程序出现分支时，有若干“候选”微地址可供选择：即按顺序控制字段P的“判别测试”和“状态条件”标志来选择其中一个微地址</li>
+<li>“状态条件”有n位标志，可实现微程序2n路转移，且涉及微地址寄存器的n位</li>
+</ul>
+</li>
+<li>由指令的操作码转换得到，典型方式为查表方式</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/8d5d9a41-8571-40d9-9b96-e223391e222e-16175743.jpg" alt="例子"></p>
+<h4 id="微指令格式"><a href="#微指令格式" class="headerlink" title="微指令格式"></a>微指令格式</h4><ul>
+<li>水平型微指令</li>
+<li>竖直型微指令</li>
+</ul>
+<p>简单说，水平行比较长，上面那三种译码方式都是针对水平指令的，一次能定义并执行多个并行操作微命令。效率高，灵活性强，但基本别想凭肉眼看懂，因为每一位代表一个操作，然后每条指令就是微操作的组合（位的组合），然后最后写出来的微程序比较短，整体是个躺着的长方形（不恰当的比喻）。</p>
+<p>竖直型指令就有点像经常见的指令了，有操作码，有源地址和目的地址。<br>每条指令完成的功能比较简单，所以最后写出来的微程序比较长，整体看就是个竖着的长方形。特别的，竖直型指令虽然完成的功能简单，这玩意儿执行时间还长。</p>
+<h3 id="5-5硬连线控制器"><a href="#5-5硬连线控制器" class="headerlink" title="5.5硬连线控制器"></a>5.5硬连线控制器</h3><p>基本概念：<br><img src="https://api2.mubu.com/v3/document_image/97adce27-8881-477a-8751-ce093f4cb6a4-16175743.jpg" alt="j"></p>
+<p>硬连线控制器原理框图：<br><img src="https://api2.mubu.com/v3/document_image/11d6c042-cf3a-4b9d-a329-937fc81f0065-16175743.jpg" alt="图"></p>
+<p>写出以下控制信号的逻辑表达式：<br>例子：<br><img src="https://api2.mubu.com/v3/document_image/55d7ec59-90e7-4335-9d91-4f078eb0e28a-16175743.jpg" alt="例子"></p>
+<p>另一个举例：<br>这里需要注意的是T信号的划分：<br><mark>一般一个微操作分配一个时钟周期，读写内存分配两个时钟周期</mark><br><img src="https://api2.mubu.com/v3/document_image/afbb828f-3d6b-4e56-b3af-618153c6d530-16175743.jpg" alt="例子"></p>
+<h3 id="5-6流水CPU"><a href="#5-6流水CPU" class="headerlink" title="5.6流水CPU"></a>5.6流水CPU</h3><p>流水方式CPU：指令部件、指令队列、执行部件</p>
+<ul>
+<li>指令部件</li>
+<li>指令队列：FIFO寄存器栈</li>
+<li>执行部件：可以有多个采用流水线方式构成的算术逻辑部件构成，可以将定点运算部件和浮点运算部件分开</li>
+</ul>
+<p>几个缩写的含义：</p>
+<ul>
+<li>IF（Instruction Fetch取指）</li>
+<li>ID（Instruction Decode指令译码）</li>
+<li>EX（Execution执行）</li>
+<li>WB（Write Back写回</li>
+</ul>
+<p>4级指令流水线<br><img src="https://api2.mubu.com/v3/document_image/e26adf24-76a8-422a-9bdf-c676e98102f3-16175743.jpg" alt="4"></p>
+<p>几个概念：</p>
+<p>线性流水线的时钟周期</p>
+<p>$$<br>\tau&#x3D;\max {\tau_i}+\tau_1&#x3D;\tau+m+\tau_1;<br>$$</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -2145,7 +2272,7 @@
 <h3 id="互联网络的路由"><a href="#互联网络的路由" class="headerlink" title="互联网络的路由"></a>互联网络的路由</h3><p>路由器看作顶点，网络看作路由。<br>内部网关协议 LS,DV<br>外部网关协议 PV</p>
 <h3 id="MTU-最大传输单元"><a href="#MTU-最大传输单元" class="headerlink" title="MTU 最大传输单元"></a>MTU 最大传输单元</h3><p>maximum transmission unit</p>
 <p><img src="https://api2.mubu.com/v3/document_image/f79652c4-50fe-44da-8727-213094823a7f-16175743.jpg" alt="数据包分段"></p>
-<p>MTU是一个<strong>网络****内部</strong>允许（用户）传输的最大尺寸  </p>
+<p>MTU是一个<strong>网络内部</strong>允许（用户）传输的最大尺寸  </p>
 <p>Fragmentation 分片</p>
 <p>来了个大的数据包我就切成小的碎片。</p>
 <ol>
@@ -2158,7 +2285,8 @@
 <h3 id="10大通用设计原则（RFC文档）"><a href="#10大通用设计原则（RFC文档）" class="headerlink" title="10大通用设计原则（RFC文档）"></a>10大通用设计原则（RFC文档）</h3><p>由重要到不重要<br><img src="https://api2.mubu.com/v3/document_image/0c103f9e-0077-4b76-9e77-2f34f06336c3-16175743.jpg" alt="原则"></p>
 <h3 id="IPV4协议"><a href="#IPV4协议" class="headerlink" title="IPV4协议"></a>IPV4协议</h3><p><mark>（各个字段的作用&#x2F;含义是要掌握的）</mark></p>
 <p><img src="https://api2.mubu.com/v3/document_image/28d88ffa-961e-4848-bd87-89f72c438a34-16175743.jpg" alt="字段"></p>
-<p><a href="https://api2.mubu.com/v3/document_image/1653290130860975a.jpg">图片</a></p>
+<p><a href="https://api2.mubu.com/v3/document_image/1653290130860975a.jpg">图片1</a></p>
+<p><a href="https://api2.mubu.com/v3/document_image/7b21e493-d5e7-4a54-9235-3283a7ed1e39-16175743.jpg">图片2</a></p>
 <p>下面是一些option的功能：<br><img src="https://api2.mubu.com/v3/document_image/60a00c2e-65d7-44b2-90dd-d3d38764009b-16175743.jpg" alt="一些option"></p>
 <h3 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a>ip地址</h3><p><img src="https://api2.mubu.com/v3/document_image/b02ef65c-9295-469e-87d0-6a163a5baa76-16175743.jpg" alt="dizhi"></p>
 <p>地址分为5类，其中ABC三种是给用户设备用的，其余的是特定的地址，不是给用户用的。<br>A B C:unioncast，<br>D：分组转发，multicast<br>E: broadcast  </p>
@@ -2174,7 +2302,7 @@
 <p><img src="https://api2.mubu.com/v3/document_image/3cfc998d-0a82-4d16-bf43-0377207fbfec-16175743.jpg" alt="一个例子"></p>
 <p>就有点像切西瓜这样，先切一半，然后对其中一半再切。<br>由于全0全1基本不用，所以一般可用地址的数目要-2。<br>比如 8位，$2^8$个不同的数，但是只有$2^8-2$个有效地址。<br>然后可用的地址范围，拿这道题里面的LAN1来说，写1~95是不对的，因为划分范围是7位数的地址，满足大于95，它不一定是连续的，可以这一个用了，下一个不用这样，地址范围是$2^7-2$，然后写可用范围就是</p>
 <p>$$<br>   192.168.1.1~192.168.1.126<br>$$</p>
-<h4 id="CIDR——无类域间路由"><a href="#CIDR——无类域间路由" class="headerlink" title="CIDR——无类域间路由"></a>CIDR——无类域间路由</h4><p>Route aggregation：路由聚合</p>
+<h4 id="CIDR——无类域间路由（子网划分的逆）"><a href="#CIDR——无类域间路由（子网划分的逆）" class="headerlink" title="CIDR——无类域间路由（子网划分的逆）"></a>CIDR——无类域间路由（子网划分的逆）</h4><p>Route aggregation：路由聚合</p>
 <p>多条路由汇聚成一条路由，跟子网划分是完全相反的一个过程。使得路由表长度减少。</p>
 <p>而且还比子网划分要简单，就找出来这几个路由的前面多少位是一样的就行了（</p>
 <p><img src="https://api2.mubu.com/v3/document_image/d286b872-4f74-4321-a90b-5ae139cce7bf-16175743.jpg" alt="聚合"></p>
@@ -2190,11 +2318,226 @@
 <p>09年一个题<br><img src="https://api2.mubu.com/v3/document_image/47634218-05fb-4475-a67d-a1fb3917824b-16175743.jpg" alt="09年一个题"></p>
 <p>根据已知路由表进行路由选择：</p>
 <p><img src="https://api2.mubu.com/v3/document_image/79b358f5-fe0d-4082-8ba5-74821d3c3da7-16175743.jpg" alt="route选择"></p>
-<h2 id="NAT-Network-address-translation"><a href="#NAT-Network-address-translation" class="headerlink" title="NAT(Network address translation)"></a>NAT(Network address translation)</h2><p><img src="https://api2.mubu.com/v3/document_image/a078a0c3-e306-4e19-a1c2-2825627247e5-16175743.jpg" alt="nat"></p>
+<h2 id="NAT-Network-address-translation"><a href="#NAT-Network-address-translation" class="headerlink" title="NAT(Network address translation)"></a>NAT(Network address translation)</h2><p>是为了解决ip地址不够用的速战速决的一个临时方法。<br><img src="https://api2.mubu.com/v3/document_image/a078a0c3-e306-4e19-a1c2-2825627247e5-16175743.jpg" alt="nat"><br><img src="https://api2.mubu.com/v3/document_image/a72a44f2-47f8-4492-89a6-45fd94fcc32f-16175743.jpg" alt="nat2"></p>
+<h2 id="IPV6"><a href="#IPV6" class="headerlink" title="IPV6"></a>IPV6</h2><p>128位地址，换算成16字节，可以说是永远用不完了。<br>IPV6的固定头：<br><img src="https://api2.mubu.com/v3/document_image/27efd199-d436-4582-923c-987f0cb77fa0-16175743.jpg" alt="ipv6头"><br><img src="https://api2.mubu.com/v3/document_image/53dd55cf-ad4a-4d45-9329-4ef1112ca503-16175743.jpg" alt="头"><br><img src="https://api2.mubu.com/v3/document_image/9039cc76-2ef8-4701-bd80-1027aa81a849-16175743.jpg" alt="解释"></p>
+<p>没有checksum字段了。没有protocol字段了。<br><img src="https://api2.mubu.com/v3/document_image/20074302-05da-4145-8c74-0e28b8cdf64a-16175743.jpg" alt=" "><br>虽然头部精简了很多，但是地址太长了。<br>IPV6还有扩展头，ppt134<br><img src="https://api2.mubu.com/v3/document_image/0c153a46-407e-42c9-bba0-f097b30a8243-16175743.jpg" alt="这样"></p>
+<p>IPV6的地址：<br>IPV4是点分16进制，IPV6叫冒分16进制表示法，两个字节一组，分8组。<br><img src="https://api2.mubu.com/v3/document_image/6aa3c2ea-4013-4c3a-9403-18319c9b0003-16175743.jpg" alt="j"><br>下面是3种简化的表示方法。<br>最后那个是v4地址转换成v6地址的方法，前面全0</p>
+<h2 id="Internet-控制协议"><a href="#Internet-控制协议" class="headerlink" title="Internet 控制协议"></a>Internet 控制协议</h2><h3 id="ICMP-Internet-Control-Message-Protocol"><a href="#ICMP-Internet-Control-Message-Protocol" class="headerlink" title="ICMP (Internet Control Message Protocol)"></a>ICMP (Internet Control Message Protocol)</h3><p>互联网控制消息协议<br>封装在IP packet里面<br>当路由器处理一个数据报出现了意外，可以通过ICMP向源端报告有关事件<br><img src="https://api2.mubu.com/v3/document_image/8089eea0-c411-4589-92d1-39a33fd3aeb8-16175743.jpg" alt="1"></p>
+<p>这里的回显ECHO和回显应答其实就是ping。所以ping是通过ICMP工作的。</p>
+<p>关于Trace route<br><img src="https://api2.mubu.com/v3/document_image/abce1be7-0bb5-4de3-9d8d-1f240fd860e0-16175743.jpg" alt=" "></p>
+<h3 id="ARP-Address-Resolution-Protocol"><a href="#ARP-Address-Resolution-Protocol" class="headerlink" title="ARP Address Resolution Protocol"></a>ARP Address Resolution Protocol</h3><p>地址解析协议<br>需要ARP的原因：<br><img src="https://api2.mubu.com/v3/document_image/4249195d-368f-41c1-9a72-3a3fcd60947c-16175743.jpg" alt=" "><br><img src="https://api2.mubu.com/v3/document_image/f5e07ad5-bee0-47ad-a1fa-537acda58cc6-16175743.jpg" alt=" "><br>路由表，直接交付与间接交付<br><img src="https://api2.mubu.com/v3/document_image/8f880e18-934d-44f5-b105-3e95b9d3a568-16175743.jpg" alt=" "><br>这里是IPi是ip地址，Ei是mac地址<br><img src="https://api2.mubu.com/v3/document_image/4249195d-368f-41c1-9a72-3a3fcd60947c-16175743.jpg" alt=" "><br><img src="https://api2.mubu.com/v3/document_image/f5e07ad5-bee0-47ad-a1fa-537acda58cc6-16175743.jpg" alt=" "></p>
+<p>一个形象的例子：<br><img src="https://api2.mubu.com/v3/document_image/07bb0e82-b88b-4daa-b258-8a5f8c90d867-16175743.jpg" alt=" "></p>
+<p>一些优化：</p>
+<p>找到目的地址之后还会放在缓存里保存一段时间。设置超时时间或者让每台新加入的机器广播他的映射关系。<br><img src="https://api2.mubu.com/v3/document_image/00b95e76-e204-46e2-8c2a-764cff369ea0-16175743.jpg" alt=" "></p>
+<p>ARP 代理：<br><img src="https://api2.mubu.com/v3/document_image/0bdb802d-a7b2-47a3-9d6b-b9d318e188c6-16175743.jpg" alt=" "><br>这个是为了解决早期一些机器的网络掩码不能改变，导致的问题</p>
+<h3 id="DHCP-Dynamic-Host-Configuration-Protocol"><a href="#DHCP-Dynamic-Host-Configuration-Protocol" class="headerlink" title="DHCP (Dynamic Host Configuration Protocol)"></a>DHCP (Dynamic Host Configuration Protocol)</h3><p>动态主机配置协议</p>
+<p>差不多是完成主机配置初始化这样一个工作，然后是自动完成的。<br><img src="https://api2.mubu.com/v3/document_image/30e67667-1f96-445d-9989-6d911d14d8e9-16175743.jpg" alt=" "><br>关键词：计算机初始接入网络没有IP地址，广播DISCOVER 报文，DHCP 转播助手(relay agent) ，DHCP服务器，IP租赁</p>
+<h2 id="OSPF-Open-Shortest-Path-First"><a href="#OSPF-Open-Shortest-Path-First" class="headerlink" title="OSPF (Open Shortest Path First)"></a>OSPF (Open Shortest Path First)</h2><p>开放最短路径优先，是一个普遍使用的 域内路由算法&#x2F;内部网关路由协议 （interior gateway protocol），开放指的是开源。<br><img src="https://api2.mubu.com/v3/document_image/fbf276a7-4c13-4c5b-a85e-18335637e893-16175743.jpg" alt=" "><br>AS（autonomous system）独立网络&#x2F;自治系统</p>
+<p>这个图上的(a)给出的就是一个AS<br><img src="https://api2.mubu.com/v3/document_image/ab361f2a-2394-4bbc-9c6a-50279c14186f-16175743.jpg" alt=" "></p>
+<p>这个图中LAN是虚拟的节点，是从周边的三个路由器中抽象出来的。<br>工作方式：<br><img src="https://api2.mubu.com/v3/document_image/e4de1067-f5cb-4e4a-a411-6c3c56e15ce5-16175743.jpg" alt=" "></p>
+<p>由于OSPF对于规模比较大的网络效率极低，所以需要对区域进行划分。<br><img src="https://api2.mubu.com/v3/document_image/38e72c93-d6f5-4edf-9894-7b034f6afc09-16175743.jpg" alt=" "></p>
+<p>OSPF Routers<br><img src="https://api2.mubu.com/v3/document_image/9ec2ad49-1d73-4364-8386-3ee80fc4ad8e-16175743.jpg" alt=" "></p>
+<p>5 Types of OSPF Messages</p>
+<p>OSPF是使用IP报文承载传送的，IP是不可靠的，尽力而为的报文，丢了就丢了，所以OSPF需要自己确认。RIP（路由信息协议，好像是那个会计数到无穷的）采用的是UDP数据，是不可靠的。<br><img src="https://api2.mubu.com/v3/document_image/8ab8781b-bc60-4246-9eef-d384fa1cdaf5-16175743.jpg" alt=" "><br><img src="https://api2.mubu.com/v3/document_image/199cdcda-15ba-4c32-835d-ac40e73029fe-16175743.jpg" alt=" "></p>
+<h2 id="BGP-Border-Gateway-Protocol"><a href="#BGP-Border-Gateway-Protocol" class="headerlink" title="BGP (Border Gateway Protocol)"></a>BGP (Border Gateway Protocol)</h2><p>边界网关协议，是一种外部网关路由协议，或者说是域间路由算法<br>底层是TCP connection  </p>
+<p><img src="https://api2.mubu.com/v3/document_image/64253129-478e-489c-a862-1aa532c7dc04-16175743.jpg" alt=" "><br><img src="https://api2.mubu.com/v3/document_image/3dc13f1c-4fb4-4f21-a230-b38fd817604a-16175743.jpg" alt=" "></p>
 <h2 id="word-table"><a href="#word-table" class="headerlink" title="word table"></a>word table</h2><blockquote>
-<p>Datagram n.【电脑】数据电报<br> optimality 最优性<br> optimal 最理想的，最佳的<br> adaptive a.适应的，适合的<br> estimate 估计，估价，判断，看法<br> datagram 数据报文<br> anew 重新，再<br> virtual circuits 虚拟电路<br> contradict v.矛盾，抵触<br> metric 公制的，米制的，度量标准<br> artificial adj. 人造的, 人工的, 假的<br> duplicate n. 完全一样的东西, 复制品adj. 完全一样的, 复制的<br> obsolete adj. 老式的；废弃的<br> router down：路由器关闭了，再重启可能造成版本低<br> Refinements n. 精致, 高尚, 精巧<br> <strong>Hierarchical</strong> adj. 分等级的，分层次的<br> Congestion 拥挤，拥塞<br> preventive adj. 预防的,防止的<br> reactive adj. 反应的<br> leaky adj. 漏的；有漏洞的<br> imminent adj. 迫近的；即将来临的<br> throttle 节流n&amp;v<br> utilization n. 利用<br> jitter 抖动<br> Round-robin 循环调度<br> flat 平坦的，平的<br> prefix 前缀<br> circumstances 情况，条件<br> out of order 次序颠倒，无次序的<br> hypothesis 假说，假设<br> hierarchy n. 等级制度<br> clusters 丛，簇<br> vicinity 临近，附近<br> consecutive a.连续的<br> aggregate vt. 总计达…vt. &amp; vi. (使)聚集</p>
+<p>Datagram n.【电脑】数据电报<br> optimality 最优性<br> optimal 最理想的，最佳的<br> adaptive a.适应的，适合的<br> estimate 估计，估价，判断，看法<br> datagram 数据报文<br> anew 重新，再<br> virtual circuits 虚拟电路<br> contradict v.矛盾，抵触<br> metric 公制的，米制的，度量标准<br> artificial adj. 人造的, 人工的, 假的<br> duplicate n. 完全一样的东西, 复制品adj. 完全一样的, 复制的<br> obsolete adj. 老式的；废弃的<br> router down：路由器关闭了，再重启可能造成版本低<br> Refinements n. 精致, 高尚, 精巧<br> <strong>Hierarchical</strong> adj. 分等级的，分层次的<br> Congestion 拥挤，拥塞<br> preventive adj. 预防的,防止的<br> reactive adj. 反应的<br> leaky adj. 漏的；有漏洞的<br> imminent adj. 迫近的；即将来临的<br> throttle 节流n&amp;v<br> utilization n. 利用<br> jitter 抖动<br> Round-robin 循环调度<br> flat 平坦的，平的<br> prefix 前缀<br> circumstances 情况，条件<br> out of order 次序颠倒，无次序的<br> hypothesis 假说，假设<br> hierarchy n. 等级制度<br> clusters 丛，簇<br> vicinity 临近，附近<br> consecutive a.连续的<br> aggregate vt. 总计达…vt. &amp; vi. (使)聚集<br> <mark>NIC</mark> 网卡 Network Interface Card<br> <mark>ISP</mark>一般指网络业务提供商 Internet Service Provider</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android应用取消应用上端显示应用名的bar</title>
+    <url>/2022/07/22/Android%E5%BA%94%E7%94%A8%E5%8F%96%E6%B6%88%E5%BA%94%E7%94%A8%E4%B8%8A%E7%AB%AF%E6%98%BE%E7%A4%BA%E5%BA%94%E7%94%A8%E5%90%8D%E7%9A%84bar/</url>
+    <content><![CDATA[<ol>
+<li><p>打开如图所示的styles.xml文件夹<br><img src="https://api2.mubu.com/v3/document_image/14707d26-cc37-4bf9-b545-9cbac3771492-16175743.jpg" alt="styles"></p>
+</li>
+<li><p>做出如下修改<br>将图示位置改为NoActionBar<br><img src="https://api2.mubu.com/v3/document_image/9fce941f-2bb5-4543-a9fe-d172488d0fe9-16175743.jpg" alt="before"><br><img src="https://api2.mubu.com/v3/document_image/85ce44ca-918d-4473-84fc-6725cee359de-16175743.jpg" alt="after"></p>
+</li>
+<li><p>结果展示<br>修改前：<br><img src="https://api2.mubu.com/v3/document_image/1658490061380387a.jpg" alt="before"><br>修改后：<br><img src="https://api2.mubu.com/v3/document_image/16584900613788107.jpg" alt="after"></p>
+<p><a href="https://blog.csdn.net/minolk/article/details/85053124">参考连接</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计组笔记_chapter6</title>
+    <url>/2022/06/07/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_chapter6/</url>
+    <content><![CDATA[<h1 id="总线系统"><a href="#总线系统" class="headerlink" title="总线系统"></a>总线系统</h1><h2 id="6-1总线概念-amp-基本结构"><a href="#6-1总线概念-amp-基本结构" class="headerlink" title="6.1总线概念&amp;基本结构"></a>6.1总线概念&amp;基本结构</h2><p>总线定义：</p>
+<p>是指在功能部件和功能部件之间或设备与设备之间的一组进行互连和传输信息的信号线，<br>这里信息可以是指令、数据或地址</p>
+<p>总线的优点：</p>
+<ul>
+<li>解决外设多而杂的问题，容易添加新的设备</li>
+<li>降低成本</li>
+<li>简化设计</li>
+</ul>
+<p>总线的缺点：</p>
+<ul>
+<li>总线带宽可能限制整条总线的吞吐量</li>
+</ul>
+<p>总线的最高速度的影响因素：</p>
+<ul>
+<li>总线长度</li>
+<li>负载的设备树</li>
+<li>负载设备的特性：设备的延迟？设备数据传输率？<br>所以我们设计的时候尽量把速度差不多的设备挂在同一条总线上。</li>
+</ul>
+<p>总线分类</p>
+<ul>
+<li>内部总线</li>
+<li>系统总线<ul>
+<li>数据总线DBUS，双向，与机器字长，存储字长有关</li>
+<li>地址总线ABUS，单向，与存储地址，IO字长有关</li>
+<li>控制总线，一般单向</li>
+</ul>
+</li>
+<li>设备总线</li>
+</ul>
+<p>总线的层次结构<br><img src="/7" alt="7"></p>
+<p>总线的内部结构<br><img src="/9" alt="9"></p>
+<p>总线的特性</p>
+<p>总线的性能指标</p>
+<!-- ppt11 -->
+<ul>
+<li>总线宽度<ul>
+<li>数据线的条数，串，并行性</li>
+</ul>
+</li>
+<li>总线传输率（带宽）</li>
+<li>定时协定</li>
+<li>信号线数</li>
+<li>负载能力</li>
+</ul>
+<p><mark>记得换算单位！</mark></p>
+<p>总线的标准化</p>
+<p>目前已经出现了很多总线标准：</p>
+<ul>
+<li>PCI</li>
+<li>ISA</li>
+</ul>
+<p>总线的连接方式</p>
+<p>适配器（又称接口：<!---ppt14---></p>
+<p>单机系统中总线结构的三种基本类型：</p>
+<ul>
+<li>单总线</li>
+<li>双总线</li>
+<li>三总线</li>
+</ul>
+<blockquote>
+<p>这三种总线基本上是按照不同设备的不同速度进行了不同精度的划分</p>
+</blockquote>
+<p>单总线结构：<br><img src="/15" alt="15"><br>双总线结构：<br><img src="/16" alt="16"><br>三总线结构：<br><img src="/17" alt="17"></p>
+<p>典型总线：<br><img src="/18" alt="ppt18"></p>
+<h2 id="6-2总线接口"><a href="#6-2总线接口" class="headerlink" title="6.2总线接口"></a>6.2总线接口</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>信息传送的方式<ul>
+<li>串行</li>
+<li>并行</li>
+</ul>
+</li>
+<li>出于速度和效率上的考虑，一般用并行</li>
+</ul>
+<h3 id="串行传送"><a href="#串行传送" class="headerlink" title="串行传送"></a>串行传送</h3><ul>
+<li>使用一条传输线，成本低，适合长距离传输，但是速度慢</li>
+</ul>
+<h3 id="并行传送"><a href="#并行传送" class="headerlink" title="并行传送"></a>并行传送</h3><p>一般采用电位传送，每一数据位需要一条传输线<br>为了节省线的条数，采用分时复用</p>
+<h3 id="接口的基本概念"><a href="#接口的基本概念" class="headerlink" title="接口的基本概念"></a>接口的基本概念</h3><ul>
+<li>接口是CPU和主存、外设之间通过总线进行连接的逻辑部件</li>
+<li>接口的典型功能：控制、缓冲、状态、转换和程序中断<!-- ppt24 --></li>
+</ul>
+<h2 id="6-3总线的仲裁"><a href="#6-3总线的仲裁" class="headerlink" title="6.3总线的仲裁"></a>6.3总线的仲裁</h2><p>主设备和从设备的交互称为一个总线事务单元，因此总线事务包括两个部分：</p>
+<ul>
+<li>发起命令</li>
+<li>传输数据</li>
+</ul>
+<p>总线占用期：主设备持续控制总线的时间</p>
+<h3 id="集中式仲裁"><a href="#集中式仲裁" class="headerlink" title="集中式仲裁"></a>集中式仲裁</h3><p>有点像交通警察在路口指挥交通</p>
+<h4 id="链式查询"><a href="#链式查询" class="headerlink" title="链式查询"></a>链式查询</h4><p>ppt30<br>总线请求-&gt;转递请求-&gt;总线响应-&gt;总线忙</p>
+<p>总线请求(&#x2F;BR)和总线忙(&#x2F;BB)都是低电平有效。</p>
+<p>链式查询有隐含的优先级，离仲裁器近的优先级高</p>
+<p>优点：</p>
+<ul>
+<li>实现简单</li>
+<li>便于增删</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>故障敏感，有点像电路，前一个模块出现问题后面的都不能工作</li>
+<li>仲裁速度慢</li>
+<li>优先级不能改变，优先级低的设备可能会“饿死”</li>
+</ul>
+<p>电路图：<br><img src="/(https:/api2.mubu.com/v3/document_image/2a959174-a2b1-4d36-bf90-bc432a6f3d63-16175743.jpg)" alt="34"></p>
+<h4 id="计数器定时查询"><a href="#计数器定时查询" class="headerlink" title="计数器定时查询"></a>计数器定时查询</h4><p><img src="https://api2.mubu.com/v3/document_image/b518873e-2241-4b53-817a-9429bd635a59-16175743.jpg" alt="jsq"></p>
+<h4 id="独立请求方式"><a href="#独立请求方式" class="headerlink" title="独立请求方式"></a>独立请求方式</h4><p><img src="https://api2.mubu.com/v3/document_image/2248541b-f7d1-4742-bc69-22614b07b832-16175743.jpg" alt="duli"><br>优点</p>
+<ul>
+<li>响应时间短</li>
+<li>控制相当灵活</li>
+<li>故障不敏感</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>线路复杂</li>
+<li>不易增加设备（总线仲裁器的引脚数是定的）</li>
+</ul>
+<h3 id="分布式仲裁"><a href="#分布式仲裁" class="headerlink" title="分布式仲裁"></a>分布式仲裁</h3><p>分布式仲裁不需要集中的总线仲裁器，每个潜在的主方功能模块都有自己的仲裁号和仲裁器。当它们有总线请求时，把它们唯一的<strong>仲裁号</strong>发送到共享的仲裁总线上，每个仲裁器将仲裁总线上得到的号与自己的号进行比较。如果仲裁总线上的号大，则它的总线请求不予响应，并撤销它的仲裁号。最后，获胜者的仲裁号保留在仲裁总线上。显然，分布式仲裁是以优先级仲裁策略为基础。</p>
+<p>有点像路口没有警察，所有车辆先停下，确认其他方向没有来车之后再通行</p>
+<p>示意图<br><img src="https://api2.mubu.com/v3/document_image/b50c15e8-ead4-48de-b290-aaff1ac0fa23-16175743.jpg" alt="tu"></p>
+<h2 id="6-4-总线的定时和数据传送模式"><a href="#6-4-总线的定时和数据传送模式" class="headerlink" title="6.4 总线的定时和数据传送模式"></a>6.4 总线的定时和数据传送模式</h2><h3 id="总线的定时"><a href="#总线的定时" class="headerlink" title="总线的定时"></a>总线的定时</h3><h4 id="同步定时"><a href="#同步定时" class="headerlink" title="同步定时"></a>同步定时</h4><h4 id="异步定时"><a href="#异步定时" class="headerlink" title="异步定时"></a>异步定时</h4><h3 id="总线数据传送模式"><a href="#总线数据传送模式" class="headerlink" title="总线数据传送模式"></a>总线数据传送模式</h3><ul>
+<li>读写操作<ul>
+<li>读操作是由从方到主方的数据传送</li>
+<li>写操作是由主方到从方的数据传送</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>为了提高总线利用率，减少延时损失，主方完成寻址总线周期后可让出总线控制权，以使其他主方完成更紧迫的操作。然后再重新竞争总线，完成数据传送总线</p>
+</blockquote>
+<ul>
+<li><p>块传送操作</p>
+<ul>
+<li>只需给出块的起始地址，然后对固定块长度的数据逐一地读出或写入。对于CPU（主方）-存储器（从方）而言的块传送，常称为突发式传送，其块长一般固定为数据线宽度（存储器字长）的<strong>4倍</strong></li>
+</ul>
+</li>
+<li><p>写后读、读-修改-写操作<br>这是两种组合操作。只给出地址一次（表示同一地址），或进行先写后读操作，或进行先读后写操作。前者用于校验目的，后者用于多道程序系统中对共享存储资源的保护。这两种操作和突发式操作一样，主方掌管总线直到整个操作完成</p>
+</li>
+<li><p>广播、广集操作</p>
+<ul>
+<li>一般而言，数据传送只在一个主方和一个从方之间进行。</li>
+<li>但有的总线允许<strong>一个主方</strong>对<strong>多个从方</strong>进行写操作，这种操作称为广播。</li>
+<li>与广播相反的操作称为广集，它将选定的<strong>多个从方数据</strong>在总线上完成AND或OR操作，用以检测多个中断源。</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-5HOST总线和PCI总线"><a href="#6-5HOST总线和PCI总线" class="headerlink" title="6.5HOST总线和PCI总线"></a>6.5HOST总线和PCI总线</h2><p><img src="https://api2.mubu.com/v3/document_image/34b2d4d3-23b7-4a78-836e-8817e697b701-16175743.jpg" alt="多总线框图"></p>
+<h3 id="PCI总线"><a href="#PCI总线" class="headerlink" title="PCI总线"></a>PCI总线</h3><p>Peripheral Component Interconnect 周边器件的互联</p>
+<h4 id="PCI总线信号"><a href="#PCI总线信号" class="headerlink" title="PCI总线信号"></a>PCI总线信号</h4><h4 id="总线周期类型"><a href="#总线周期类型" class="headerlink" title="总线周期类型"></a>总线周期类型</h4>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计网笔记_传输层</title>
+    <url>/2022/06/06/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0-%E4%BC%A0%E8%BE%93%E5%B1%82/</url>
+    <content><![CDATA[<h2 id="6-1-传输服务"><a href="#6-1-传输服务" class="headerlink" title="6.1 传输服务"></a>6.1 传输服务</h2><h2 id="6-2-传输协议的要素"><a href="#6-2-传输协议的要素" class="headerlink" title="6.2 传输协议的要素"></a>6.2 传输协议的要素</h2><h2 id="6-3-拥塞控制"><a href="#6-3-拥塞控制" class="headerlink" title="6.3 拥塞控制"></a>6.3 拥塞控制</h2><p>AIMD</p>
+<h2 id="6-4-UDP"><a href="#6-4-UDP" class="headerlink" title="6.4 UDP"></a>6.4 UDP</h2><h2 id="6-5-TCP"><a href="#6-5-TCP" class="headerlink" title="6.5 TCP"></a>6.5 TCP</h2><h3 id="1-TCP概述"><a href="#1-TCP概述" class="headerlink" title="1 TCP概述"></a>1 TCP概述</h3><h3 id="2-TCP服务模型"><a href="#2-TCP服务模型" class="headerlink" title="2 TCP服务模型"></a>2 TCP服务模型</h3><h3 id="3-TCP协议"><a href="#3-TCP协议" class="headerlink" title="3 TCP协议"></a>3 TCP协议</h3><h3 id="4-TCP段的头"><a href="#4-TCP段的头" class="headerlink" title="4 TCP段的头"></a>4 TCP段的头</h3><p><img src="https://api2.mubu.com/v3/document_image/b3a64ccc-3fc0-4b76-9bff-39b0c584a906-16175743.jpg" alt="TCP头"><br>序号seq是计数的字节数，因为TCP是咩有边界的，所以只能以字节计数。<br>ACK号是指的下一个期待的字节，而不是已经正确接收了的字节。并且是累计确认。<br>TCP的数据可以为0，就是说TCP报文段里可以不携带任何信息。<br>MSS(maximum sigment size)</p>
+<p>根据改变发送窗口的尺寸</p>
+<p>分析IP报文，先看协议类型，06是tcp，</p>
+<h3 id="5-TCP连接建立"><a href="#5-TCP连接建立" class="headerlink" title="5 TCP连接建立"></a>5 TCP连接建立</h3><h3 id="6-TCP连接释放"><a href="#6-TCP连接释放" class="headerlink" title="6 TCP连接释放"></a>6 TCP连接释放</h3><h3 id="7-TCP连接管理模型"><a href="#7-TCP连接管理模型" class="headerlink" title="7 TCP连接管理模型"></a>7 TCP连接管理模型</h3><h3 id="8-TCP滑动窗口"><a href="#8-TCP滑动窗口" class="headerlink" title="8 TCP滑动窗口"></a>8 TCP滑动窗口</h3><h3 id="9-TCP计时器管理"><a href="#9-TCP计时器管理" class="headerlink" title="9 TCP计时器管理"></a>9 TCP计时器管理</h3><h3 id="10-TCP拥塞控制"><a href="#10-TCP拥塞控制" class="headerlink" title="10 TCP拥塞控制"></a>10 TCP拥塞控制</h3><h3 id="11-TCP未来"><a href="#11-TCP未来" class="headerlink" title="11 TCP未来"></a>11 TCP未来</h3>]]></content>
       <categories>
         <category>笔记</category>
       </categories>
