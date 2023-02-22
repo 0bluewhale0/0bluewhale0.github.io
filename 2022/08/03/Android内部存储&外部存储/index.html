@@ -83,6 +83,7 @@
 <p>但是从4.4的系统开始，很多的中高端机器都将自己的机身存储扩展到了8G以上，比如有的人的手机是16G的，有的人的手机是32G的，但是这个16G，32G是内部存储吗，不是的！！！，它们依然是外部存储，也就是说4.4系统及以上的手机将机身存储存储（手机自身带的存储叫做机身存储）在概念上分成了”内部存储internal” 和”外部存储external” 两部分。既然16G，32G是外部存储，那有人又有疑惑了，那4.4系统及以上的手机要是插了SD卡呢，SD卡又是什么呢，如果SD卡也是外部存储的话，那怎么区分机身存储的外部存储跟SD卡的外部存储呢？对，SD卡也是外部存储，那怎么区分呢，在4.4以后的系统中，API提供了这样一个方法来遍历手机的外部存储路径：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">File files;</span><br><span class="line">	<span class="keyword">if</span>(Build.Version.sdk_int&gt;=Build.VERSION_CODES.KITKAT)</span><br><span class="line">	&#123;</span><br><span class="line">		files = getExternalFilesDirs(Environment.MEDIA_MOUNTED);</span><br><span class="line">		<span class="keyword">for</span>(File file:files)&#123;</span><br><span class="line">			Log.i(<span class="string">&quot;main&quot;</span>,String.valueOf(file));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<p>$\delta$</p>
 <p>运行结果：</p>
 <p><img src="https://api2.mubu.com/v3/document_image/ceda83d6-8d67-4a76-8dfd-f5c83bdce5cb-16175743.jpg" alt="运行结果"></p>
 <p>图片看区别：</p>

@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Python前瞻学习Notes - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,常用的值的类型
+
+
+类型
+描述
+说明
+
+
+
+Number
+- 整数、浮点数、复数、bool
+复数：4+3j，j结尾表示复数
+
+
+String
+描述文本的一种数据类型
+任意数量的字符，英文引号
+
+
+L,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Python前瞻学习Notes - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,常用的值的类型
+
+
+类型
+描述
+说明
+
+
+
+Number
+- 整数、浮点数、复数、bool
+复数：4+3j，j结尾表示复数
+
+
+String
+描述文本的一种数据类型
+任意数量的字符，英文引号
+
+
+L,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Python前瞻学习Notes - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,常用的值的类型
+
+
+类型
+描述
+说明
+
+
+
+Number
+- 整数、浮点数、复数、bool
+复数：4+3j，j结尾表示复数
+
+
+String
+描述文本的一种数据类型
+任意数量的字符，英文引号
+
+
+L,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Python前瞻学习Notes</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Python前瞻学习Notes</h1>
+        <div class="stuff">
+            <span>九月 04, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="常用的值的类型"><a href="#常用的值的类型" class="headerlink" title="常用的值的类型"></a>常用的值的类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number</td>
+<td>- 整数、浮点数、复数、bool</td>
+<td>复数：4+3j，j结尾表示复数</td>
+</tr>
+<tr>
+<td>String</td>
+<td>描述文本的一种数据类型</td>
+<td>任意数量的字符，英文引号</td>
+</tr>
+<tr>
+<td>List</td>
+<td>有序的可变序列</td>
+<td>Py中使用最频繁的数据类型，可有序记录一堆数据</td>
+</tr>
+<tr>
+<td>Tuple</td>
+<td>有序的不可变序列</td>
+<td>有序记录一堆不可变的Py数据集合</td>
+</tr>
+<tr>
+<td>Set</td>
+<td>无序不重复集合</td>
+<td>无序记录一堆不重复的Py数据集合</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>无序Key-Value集合</td>
+<td>无序记录一堆Key-Value型的Py数据集合</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>单行：#开头</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我是注释</span></span><br><span class="line"><span class="comment"># 通常#和后面的注释之间要空一格空格</span></span><br></pre></td></tr></table></figure>
+
+<p>多行：<br>“””<br>….<br>“””<br>支持换行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    多行注释第一行</span></span><br><span class="line"><span class="string">    多行注释第二行</span></span><br><span class="line"><span class="string">    多行注释第三行</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>type()语句查看数据类型，<br>括号里面可以是变量&#x2F;字面量，返回值是 &lt;class ‘type’&gt;<br>type()方式查看的是数据类型，python中变量没有类型，相当于只是一个盒子。<br>这里存储type的变量也有类型，是“type”类型<br><img src="https://api2.mubu.com/v3/document_image/2d3b970b-3bd0-4404-80bd-bcb873aa1222-16175743.jpg" alt="type"></p>
+<h2 id="数据类型相互转换"><a href="#数据类型相互转换" class="headerlink" title="数据类型相互转换"></a>数据类型相互转换</h2><table>
+<thead>
+<tr>
+<th>语句</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int(x)</td>
+<td>将x转换成一个整数</td>
+</tr>
+<tr>
+<td>float(x)</td>
+<td>将x转换成一个浮点数</td>
+</tr>
+<tr>
+<td>str(x)</td>
+<td>将x转换成一个字符串</td>
+</tr>
+</tbody></table>
+<p>特别的，浮点数转换成整数会丢失精度。</p>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>python是允许中文作为标识符的，大小写敏感。</p>
+<h2 id="python比较特殊的运算符"><a href="#python比较特殊的运算符" class="headerlink" title="python比较特殊的运算符"></a>python比较特殊的运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+、-、*、&#x2F;</td>
+<td>加减乘除</td>
+<td>跟普通的加减乘除一样</td>
+</tr>
+<tr>
+<td>&#x2F;&#x2F;</td>
+<td>取整除</td>
+<td>只要整数部分的除法</td>
+</tr>
+<tr>
+<td>%</td>
+<td>取余</td>
+<td>略</td>
+</tr>
+<tr>
+<td>**</td>
+<td>指数</td>
+<td>2**3&#x3D;8</td>
+</tr>
+</tbody></table>
+<h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><p><img src="https://api2.mubu.com/v3/document_image/3384ba9b-330e-43bf-a437-1d76d5a5584a-16175743.jpg" alt="字符串"></p>
+<h3 id="关于引号问题"><a href="#关于引号问题" class="headerlink" title="关于引号问题"></a>关于引号问题</h3><ul>
+<li>单引号定义法，可以内含双引号</li>
+<li>双引号定义法，可以内含单引号</li>
+<li>可以用转义字符(\)来转义</li>
+</ul>
+<h2 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h2><p>可以用 + 来拼接字符串，但是只能拼接字符串，不能和其他的类型完成拼接。</p>
+<h2 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;szh&quot;</span></span><br><span class="line">school = <span class="string">&quot;BUPT&quot;</span></span><br><span class="line">message =  <span class="string">&quot;我的名字是%s,来自%s&quot;</span>%(name,school)</span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></table></figure>
+
+<p>其中，整数一般用%d，浮点数一般用%f。</p>
+<p>py中还有更加简单的字符串格式化方法，在字符串的前面加上f，后面就可以用大括号的方式往里面填空了，这种方法的特点是不限制数据类型，也不做精度控制。<br>这里的f可以理解为format。<br>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;小明&quot;</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line">job = <span class="string">&quot;大学生&quot;</span></span><br><span class="line">money = <span class="number">18.8</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;name&#125;</span>今年<span class="subst">&#123;age&#125;</span>岁，是<span class="subst">&#123;job&#125;</span>,需要<span class="subst">&#123;money&#125;</span>元灵魂归位。&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串精度控制"><a href="#字符串精度控制" class="headerlink" title="字符串精度控制"></a>字符串精度控制</h2><p>使用%m.n的方式进行精度控制，m是总长度对齐，n是小数精度控制，如果只有一个数就默认是整数部分，即m。</p>
+<h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p>定义：具有明确执行结果的代码语句。</p>
+<h2 id="数据输入"><a href="#数据输入" class="headerlink" title="数据输入"></a>数据输入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入姓名&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>input语句不管写入的是什么东西，统统当作str类型来处理。</p>
+<h2 id="布尔类型和比较运算符"><a href="#布尔类型和比较运算符" class="headerlink" title="布尔类型和比较运算符"></a>布尔类型和比较运算符</h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/【钢琴】《你离开的事实 》The Truth that You Leave 罗曼耶卓 Oskar R - 1.truth_POST(Av586020664,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/【钢琴】《大雾》(demo版）张一乔 - 1.dawu(Av417516306,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/【钢琴】《晴天》Oskar Roman Jezior 周杰伦 - 1.qingtian_POST(Av331213171,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/【钢琴】《撒野》罗曼耶卓 - 1.saye_POST(Av459374452,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/【钢琴】坂本龙一《圣诞快乐 劳伦斯先生》 罗曼耶卓 Oskar Roman Jezior - 1.mr_lawrence_POST(Av885864226,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】陈奕迅《富士山下》罗曼耶卓 Oskar Roman Jezior - 1.fuji_POST(Av288674149,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】花之舞 《Flower Dance》罗曼耶卓 Oskar Roman Jezior - 1.flower_dance_POST(Av331481248,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】暮光之城《A Thousand Years》罗曼耶卓 - 1.thousand_years_POST(Av289839694,P1).mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/Young and Beautiful.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/错位时空.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%80%BC%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">常用的值的类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">2.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.</span> <span class="toc-text">数据类型相互转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">5.</span> <span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python%E6%AF%94%E8%BE%83%E7%89%B9%E6%AE%8A%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">6.</span> <span class="toc-text">python比较特殊的运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B"><span class="toc-number">7.</span> <span class="toc-text">字符串类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%BC%95%E5%8F%B7%E9%97%AE%E9%A2%98"><span class="toc-number">7.1.</span> <span class="toc-text">关于引号问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="toc-number">8.</span> <span class="toc-text">字符串拼接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">9.</span> <span class="toc-text">字符串格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B2%BE%E5%BA%A6%E6%8E%A7%E5%88%B6"><span class="toc-number">10.</span> <span class="toc-text">字符串精度控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">11.</span> <span class="toc-text">表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5"><span class="toc-number">12.</span> <span class="toc-text">数据输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">13.</span> <span class="toc-text">布尔类型和比较运算符</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

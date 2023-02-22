@@ -2562,6 +2562,7 @@
 <p>但是从4.4的系统开始，很多的中高端机器都将自己的机身存储扩展到了8G以上，比如有的人的手机是16G的，有的人的手机是32G的，但是这个16G，32G是内部存储吗，不是的！！！，它们依然是外部存储，也就是说4.4系统及以上的手机将机身存储存储（手机自身带的存储叫做机身存储）在概念上分成了”内部存储internal” 和”外部存储external” 两部分。既然16G，32G是外部存储，那有人又有疑惑了，那4.4系统及以上的手机要是插了SD卡呢，SD卡又是什么呢，如果SD卡也是外部存储的话，那怎么区分机身存储的外部存储跟SD卡的外部存储呢？对，SD卡也是外部存储，那怎么区分呢，在4.4以后的系统中，API提供了这样一个方法来遍历手机的外部存储路径：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">File files;</span><br><span class="line">	<span class="keyword">if</span>(Build.Version.sdk_int&gt;=Build.VERSION_CODES.KITKAT)</span><br><span class="line">	&#123;</span><br><span class="line">		files = getExternalFilesDirs(Environment.MEDIA_MOUNTED);</span><br><span class="line">		<span class="keyword">for</span>(File file:files)&#123;</span><br><span class="line">			Log.i(<span class="string">&quot;main&quot;</span>,String.valueOf(file));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<p>$\delta$</p>
 <p>运行结果：</p>
 <p><img src="https://api2.mubu.com/v3/document_image/ceda83d6-8d67-4a76-8dfd-f5c83bdce5cb-16175743.jpg" alt="运行结果"></p>
 <p>图片看区别：</p>
@@ -2578,6 +2579,138 @@
       </categories>
       <tags>
         <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python前瞻学习Notes</title>
+    <url>/2022/09/04/Python%E9%80%89%E4%BF%AE%E8%AF%BE%E5%89%8D%E7%9E%BB%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="常用的值的类型"><a href="#常用的值的类型" class="headerlink" title="常用的值的类型"></a>常用的值的类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number</td>
+<td>- 整数、浮点数、复数、bool</td>
+<td>复数：4+3j，j结尾表示复数</td>
+</tr>
+<tr>
+<td>String</td>
+<td>描述文本的一种数据类型</td>
+<td>任意数量的字符，英文引号</td>
+</tr>
+<tr>
+<td>List</td>
+<td>有序的可变序列</td>
+<td>Py中使用最频繁的数据类型，可有序记录一堆数据</td>
+</tr>
+<tr>
+<td>Tuple</td>
+<td>有序的不可变序列</td>
+<td>有序记录一堆不可变的Py数据集合</td>
+</tr>
+<tr>
+<td>Set</td>
+<td>无序不重复集合</td>
+<td>无序记录一堆不重复的Py数据集合</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>无序Key-Value集合</td>
+<td>无序记录一堆Key-Value型的Py数据集合</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>单行：#开头</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 我是注释</span></span><br><span class="line"><span class="comment"># 通常#和后面的注释之间要空一格空格</span></span><br></pre></td></tr></table></figure>
+
+<p>多行：<br>“””<br>….<br>“””<br>支持换行</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    多行注释第一行</span></span><br><span class="line"><span class="string">    多行注释第二行</span></span><br><span class="line"><span class="string">    多行注释第三行</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>type()语句查看数据类型，<br>括号里面可以是变量&#x2F;字面量，返回值是 &lt;class ‘type’&gt;<br>type()方式查看的是数据类型，python中变量没有类型，相当于只是一个盒子。<br>这里存储type的变量也有类型，是“type”类型<br><img src="https://api2.mubu.com/v3/document_image/2d3b970b-3bd0-4404-80bd-bcb873aa1222-16175743.jpg" alt="type"></p>
+<h2 id="数据类型相互转换"><a href="#数据类型相互转换" class="headerlink" title="数据类型相互转换"></a>数据类型相互转换</h2><table>
+<thead>
+<tr>
+<th>语句</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int(x)</td>
+<td>将x转换成一个整数</td>
+</tr>
+<tr>
+<td>float(x)</td>
+<td>将x转换成一个浮点数</td>
+</tr>
+<tr>
+<td>str(x)</td>
+<td>将x转换成一个字符串</td>
+</tr>
+</tbody></table>
+<p>特别的，浮点数转换成整数会丢失精度。</p>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>python是允许中文作为标识符的，大小写敏感。</p>
+<h2 id="python比较特殊的运算符"><a href="#python比较特殊的运算符" class="headerlink" title="python比较特殊的运算符"></a>python比较特殊的运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+、-、*、&#x2F;</td>
+<td>加减乘除</td>
+<td>跟普通的加减乘除一样</td>
+</tr>
+<tr>
+<td>&#x2F;&#x2F;</td>
+<td>取整除</td>
+<td>只要整数部分的除法</td>
+</tr>
+<tr>
+<td>%</td>
+<td>取余</td>
+<td>略</td>
+</tr>
+<tr>
+<td>**</td>
+<td>指数</td>
+<td>2**3&#x3D;8</td>
+</tr>
+</tbody></table>
+<h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><p><img src="https://api2.mubu.com/v3/document_image/3384ba9b-330e-43bf-a437-1d76d5a5584a-16175743.jpg" alt="字符串"></p>
+<h3 id="关于引号问题"><a href="#关于引号问题" class="headerlink" title="关于引号问题"></a>关于引号问题</h3><ul>
+<li>单引号定义法，可以内含双引号</li>
+<li>双引号定义法，可以内含单引号</li>
+<li>可以用转义字符(\)来转义</li>
+</ul>
+<h2 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h2><p>可以用 + 来拼接字符串，但是只能拼接字符串，不能和其他的类型完成拼接。</p>
+<h2 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;szh&quot;</span></span><br><span class="line">school = <span class="string">&quot;BUPT&quot;</span></span><br><span class="line">message =  <span class="string">&quot;我的名字是%s,来自%s&quot;</span>%(name,school)</span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></table></figure>
+
+<p>其中，整数一般用%d，浮点数一般用%f。</p>
+<p>py中还有更加简单的字符串格式化方法，在字符串的前面加上f，后面就可以用大括号的方式往里面填空了，这种方法的特点是不限制数据类型，也不做精度控制。<br>这里的f可以理解为format。<br>例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;小明&quot;</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line">job = <span class="string">&quot;大学生&quot;</span></span><br><span class="line">money = <span class="number">18.8</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;name&#125;</span>今年<span class="subst">&#123;age&#125;</span>岁，是<span class="subst">&#123;job&#125;</span>,需要<span class="subst">&#123;money&#125;</span>元灵魂归位。&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串精度控制"><a href="#字符串精度控制" class="headerlink" title="字符串精度控制"></a>字符串精度控制</h2><p>使用%m.n的方式进行精度控制，m是总长度对齐，n是小数精度控制，如果只有一个数就默认是整数部分，即m。</p>
+<h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p>定义：具有明确执行结果的代码语句。</p>
+<h2 id="数据输入"><a href="#数据输入" class="headerlink" title="数据输入"></a>数据输入</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入姓名&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>input语句不管写入的是什么东西，统统当作str类型来处理。</p>
+<h2 id="布尔类型和比较运算符"><a href="#布尔类型和比较运算符" class="headerlink" title="布尔类型和比较运算符"></a>布尔类型和比较运算符</h2>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>python</tag>
       </tags>
   </entry>
 </search>
