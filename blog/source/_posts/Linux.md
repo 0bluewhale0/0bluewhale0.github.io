@@ -8,7 +8,7 @@ tags:
 	- course
 	- Linux
 
-cover: /img/Photo frame three-105065589.png
+cover: /img/The Sacred City by the Fall　滝の聖地-85675456.png
 ---
 
 大致是跟着老师上课的顺序写的，用于上课摸鱼时安慰一下自己QwQ
