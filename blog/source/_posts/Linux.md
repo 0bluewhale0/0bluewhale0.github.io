@@ -7,7 +7,7 @@ categories:
 tags:
 	- course
 	- Linux
-
+toc: true
 cover: /img/The Sacred City by the Fall　滝の聖地-85675456.png
 ---
 

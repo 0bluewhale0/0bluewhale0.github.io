@@ -10,7 +10,7 @@ tags:
 cover: /img/zhonglidrinktea.jpg
 ---
 
-纯纯进行一个课件的CTRL+C、CTRL+V，根本不知道是什么意思，哭。
+szh大废物的计组笔记。
 
 ## 第1章  计算机概述
 
