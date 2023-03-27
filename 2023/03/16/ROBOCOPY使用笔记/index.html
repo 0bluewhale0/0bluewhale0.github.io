@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Windows ROBOCOPY - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,ROBOCOPY是windows系统下面自带的复制文件的命令
+比windows文件系统的复制粘贴要快
+命令不区分大小写，如果命令行输入找不到的话可能是注册表里面没有注册
+可以到这个地方找
+进入C盘，,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Windows ROBOCOPY - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,ROBOCOPY是windows系统下面自带的复制文件的命令
+比windows文件系统的复制粘贴要快
+命令不区分大小写，如果命令行输入找不到的话可能是注册表里面没有注册
+可以到这个地方找
+进入C盘，,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Windows ROBOCOPY - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,ROBOCOPY是windows系统下面自带的复制文件的命令
+比windows文件系统的复制粘贴要快
+命令不区分大小写，如果命令行输入找不到的话可能是注册表里面没有注册
+可以到这个地方找
+进入C盘，,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Windows ROBOCOPY</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <!--
+ * @Date: 2023-03-05 08:54:47
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 16:23:49
+ * @FilePath: \diaspora\layout\_partial\post\article.ejs
+-->
+<div class="article">
+    <div class='main'>
+        <h1 class="title">Windows ROBOCOPY</h1>
+        <div class="stuff">
+            <span>三月 16, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Tips/" rel="tag">Tips</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/study/" rel="tag">study</a></li></ul>
+
+
+        </div>
+        
+        <div class="content markdown">
+            <h2 id="ROBOCOPY"><a href="#ROBOCOPY" class="headerlink" title="ROBOCOPY"></a>ROBOCOPY</h2><p>是windows系统下面自带的复制文件的命令</p>
+<p>比windows文件系统的复制粘贴要快</p>
+<p>命令不区分大小写，如果命令行输入找不到的话可能是注册表里面没有注册</p>
+<p>可以到这个地方找</p>
+<p>进入C盘，Windows&#x2F;WinSXS<br>然后开始搜索<code>Robocopy</code><br>或者直接在Windows文件夹下面开始搜也行<br>这个是笔者找到的<br><img src="https://api2.mubu.com/v3/document_image/bd48c571-074e-49be-90ee-886bab07d439-16175743.jpg" alt="2"></p>
+<h2 id="关于常用的一些参数"><a href="#关于常用的一些参数" class="headerlink" title="关于常用的一些参数"></a>关于常用的一些参数</h2><p>&#x2F;S：复制子目录，但不复制空的子目录。<br>&#x2F;E：复制子目录，包括空的子目录。<br>&#x2F;B：在备份模式下复制文件。<br>&#x2F;MOV：移动文件(复制后从源中删除)。<br>&#x2F;MOVE：移动文件和目录(复制后从源中删除)。<br>&#x2F;COPY:复制标记:: 要复制的文件内容(默认为 &#x2F;COPY:DAT)。(复制标记: D&#x3D;数据，A&#x3D;属性，T&#x3D;时间戳)。(S&#x3D;安全&#x3D;NTFS ACL，O&#x3D;所有者信息，U&#x3D;审核信息)。<br>&#x2F;COPYALL：复制所有文件信息(等同于 &#x2F;COPY:DATSOU)。</p>
+<h2 id="关于完整手册"><a href="#关于完整手册" class="headerlink" title="关于完整手册"></a>关于完整手册</h2><blockquote>
+<p>下列内容可以在命令行提示符中使用 <strong>&#x2F;?</strong> 得到</p>
+</blockquote>
+<p>用法 :: ROBOCOPY source destination [file [file]…] [options]</p>
+<pre><code>源 :: 源目录(驱动器:\路径或\\服务器\共享\路径)。
+</code></pre>
+<p>目标 :: 目标目录(驱动器:\路径或\服务器\共享\路径)。<br>文件 :: 要复制的文件(名称&#x2F;通配符: 默认为 “<em>.</em>“)。</p>
+<h3 id="复制选项"><a href="#复制选项" class="headerlink" title="复制选项"></a>复制选项</h3><p>&#x2F;S :: 复制子目录，但不复制空的子目录。<br>&#x2F;E :: 复制子目录，包括空的子目录。<br>&#x2F;LEV:n :: 仅复制源目录树的前 n 层。<br>&#x2F;Z :: 在可重新启动模式下复制文件。<br>&#x2F;B :: 在备份模式下复制文件。<br>&#x2F;ZB :: 使用可重新启动模式；如果拒绝访问，请使用备份模式。<br>&#x2F;J :: 复制时使用未缓冲的 I&#x2F;O (推荐在复制大文件时使用)。<br>&#x2F;EFSRAW :: 在 EFS RAW 模式下复制所有加密的文件。</p>
+<p>&#x2F;COPY:复制标记:: 要复制的文件内容(默认为 &#x2F;COPY:DAT)。<br>（复制标志：D&#x3D;Data、A&#x3D;Attributes、T&#x3D;Timestamps、X&#x3D;Skip alt 数据流（如果 &#x2F;B 或 &#x2F;ZB 则忽略 X）。<br>(S&#x3D;安全&#x3D;NTFS ACL，O&#x3D;所有者信息，U&#x3D;审核信息)。</p>
+<p>&#x2F;SEC :: 复制具有安全性的文件(等同于 &#x2F;COPY:DATS)。<br>&#x2F;COPYALL :: 复制所有文件信息(等同于 &#x2F;COPY:DATSOU)。<br>&#x2F;NOCOPY :: 不复制任何文件信息(与 &#x2F;PURGE 一起使用)。<br>&#x2F;SECFIX :: 修复所有文件的文件安全性，即使是跳过的文件。<br>&#x2F;TIMFIX :: 修复所有文件的文件时间，即使是跳过的文件。</p>
+<p>&#x2F;PURGE :: 删除源中不再存在的目标文件&#x2F;目录。<br>&#x2F;MIR :: 镜像目录树(等同于 &#x2F;E 加 &#x2F;PURGE)。</p>
+<p>&#x2F;MOV :: 移动文件(复制后从源中删除)。<br>&#x2F;MOVE :: 移动文件和目录(复制后从源中删除)。</p>
+<p>&#x2F;A+:[RASHCNET] :: 将给定的属性添加到复制的文件。<br>&#x2F;A-:[RASHCNETO]:: 从复制的文件中删除给定的属性。</p>
+<p>&#x2F;CREATE :: 仅创建目录树和长度为零的文件。<br>&#x2F;FAT :: 仅使用 8.3 FAT 文件名创建目标文件。<br>&#x2F;256 :: 关闭超长路径(&gt; 256 个字符)支持。</p>
+<p>&#x2F;MON:n :: 监视源；发现多于 n 个更改时再次运行。<br>&#x2F;MOT:m :: 监视源；如果更改，在 m 分钟时间后再次运行。</p>
+<p>&#x2F;RH:hhmm-hhmm :: 可以启动新的复制时运行的小时数 - 时间。<br>&#x2F;PF :: 基于每个文件(而不是每个步骤)来检查运行小时数。</p>
+<p>&#x2F;IPG:n :: 程序包间的间距(ms)，以释放低速线路上的带宽。</p>
+<p>&#x2F;SJ:: 将接合复制为接合而非接合目标。<br>&#x2F;SL:: 将符号链接复制为链接而非链接目标。</p>
+<p>&#x2F;MT[:n] :: 使用 n 个线程进行多线程复制(默认值为 8)。<br>        n 必须至少为 1，但不得大于 128。<br>        该选项与 &#x2F;IPG 和 &#x2F;EFSRAW 选项不兼容。<br>        使用 &#x2F;LOG 选项重定向输出以便获得最佳性能。</p>
+<p>&#x2F;DCOPY:复制标记:: 要复制的目录内容(默认为 &#x2F;DCOPY:DA)。<br>        (copyflag: D&#x3D;数据，A&#x3D;属性，T&#x3D;时间戳，E&#x3D;EA，X&#x3D;跳过替换数据流)。</p>
+<p>&#x2F;NODCOPY :: 不复制任何目录信息(默认情况下，执行 &#x2F;DCOPY:DA)。</p>
+<p>&#x2F;NOOFFLOAD :: 在不使用 Windows 复制卸载机制的情况下复制文件。</p>
+<p>&#x2F;COMPRESS :: 在文件传输期间请求网络压缩(如果适用)。</p>
+<p>&#x2F;SPARSE :: 复制期间启用保留稀疏状态</p>
+<h3 id="复制文件限制选项"><a href="#复制文件限制选项" class="headerlink" title="复制文件限制选项"></a>复制文件限制选项</h3><p>&#x2F;IoMaxSize:n[KMG] :: 每个{read,write}循环请求的 I&#x2F;O 的最大大小(n [KMG]字节)。</p>
+<p>&#x2F;IoRate: n[KMG] :: 请求的 I&#x2F;O 速率 ( n [KMG] 字节&#x2F;秒)。</p>
+<p>&#x2F;Threshold:n[KMG] :: 阻止的文件大小阈值，以 n [KMG] 个字节为单位 (请参阅备注)。</p>
+<h3 id="文件选择选项"><a href="#文件选择选项" class="headerlink" title="文件选择选项"></a>文件选择选项</h3><p>&#x2F;A :: 仅复制具有存档属性集的文件。<br>&#x2F;M :: 仅复制具有存档属性的文件并重置存档属性。<br>&#x2F;IA:[RASHCNETO] :: 仅包含具有任意给定属性集的文件。<br>&#x2F;XA:[RASHCNETO] :: 排除具有任意给定属性集的文件。</p>
+<p>&#x2F;XF 文件[文件]… :: 排除与给定名称&#x2F;路径&#x2F;通配符匹配的文件。<br>&#x2F;XD 目录[目录]… :: 排除与给定名称&#x2F;路径匹配的目录。</p>
+<p>&#x2F;XC :: 排除已更改的文件。<br>&#x2F;XN :: 排除较新的文件。<br>&#x2F;XO :: 排除较旧的文件。<br>&#x2F;XX :: 排除多余的文件和目录。<br>&#x2F;XL :: 排除孤立的文件和目录。<br>&#x2F;IS :: 包含相同文件。<br>&#x2F;IT :: 包含已调整的文件。</p>
+<p>&#x2F;MAX:n :: 最大的文件大小 - 排除大于 n 字节的文件。<br>&#x2F;MIN:n :: 最小的文件大小 - 排除小于 n 字节的文件。</p>
+<p>&#x2F;MAXAGE:n :: 最长的文件存在时间 - 排除早于 n 天&#x2F;日期的文件。<br>&#x2F;MINAGE:n :: 最短的文件存在时间 - 排除晚于 n 天&#x2F;日期的文件。<br>&#x2F;MAXLAD:n :: 最大的最后访问日期 - 排除自 n 以来未使用的文件。<br>&#x2F;MINLAD:n :: 最小的最后访问日期 - 排除自 n 以来使用的文件。<br>    (If n &lt; 1900 then n &#x3D; n days, else n &#x3D; YYYYMMDD date)。</p>
+<p>&#x2F;FFT :: 假设 FAT 文件时间(2 秒粒度)。<br>&#x2F;DST :: 弥补 1 小时的 DST 时间差。</p>
+<p>&#x2F;XJ:: 排除(文件和目录的)符号链接和接合点。<br>&#x2F;XJD:: 排除目录和接合点的符号链接。<br>&#x2F;XJF :: 排除文件的符号链接。</p>
+<p>&#x2F;IM :: 包含已修改的文件(更改时间不同)。</p>
+<h3 id="重试选项"><a href="#重试选项" class="headerlink" title="重试选项:"></a>重试选项:</h3><p>&#x2F;R:n :: 失败副本的重试次数: 默认为 1 百万。<br>&#x2F;W:n :: 两次重试间的等待时间: 默认为 30 秒。</p>
+<p>&#x2F;REG :: 将注册表中的 &#x2F;R:n 和 &#x2F;W:n 保存为默认设置。</p>
+<p>&#x2F;TBD :: 等待定义共享名称(重试错误 67)。</p>
+<p>&#x2F;LFSM :: 在低可用空间模式下运行，启用复制暂停和继续(参见“备注”)。</p>
+<p>&#x2F;LFSM:n[KMG] :: &#x2F;LFSM，指定下限大小 (n[K:kilo, M:mega, G:giga] 字节)。</p>
+<h3 id="日志记录选项"><a href="#日志记录选项" class="headerlink" title="日志记录选项"></a>日志记录选项</h3><p>&#x2F;L :: 仅列出 - 不复制、添加时间戳或删除任何文件。<br>&#x2F;X :: 报告所有多余的文件，而不只是选中的文件。<br>&#x2F;V :: 生成详细输出，同时显示跳过的文件。<br>&#x2F;TS :: 在输出中包含源文件的时间戳。<br>&#x2F;FP :: 在输出中包含文件的完整路径名称。<br>&#x2F;BYTES :: 以字节打印大小。</p>
+<p>&#x2F;NS :: 无大小 - 不记录文件大小。<br>&#x2F;NC :: 无类别 - 不记录文件类别。<br>&#x2F;NFL :: 无文件列表 - 不记录文件名。<br>&#x2F;NDL :: 无目录列表 - 不记录目录名称。</p>
+<p>&#x2F;NP :: 无进度 - 不显示已复制的百分比。<br>&#x2F;ETA :: 显示复制文件的预期到达时间。</p>
+<p>&#x2F;LOG:文件 :: 将状态输出到日志文件(覆盖现有日志)。<br>&#x2F;LOG+:文件 :: 将状态输出到日志文件(附加到现有日志中)。</p>
+<p>&#x2F;UNILOG:文件 :: 以 UNICODE 方式将状态输出到日志文件(覆盖现有日志)。<br>&#x2F;UNILOG+:文件 :: 以 UNICODE 方式将状态输出到日志文件(附加到现有日志中)。</p>
+<p>&#x2F;TEE :: 输出到控制台窗口和日志文件。</p>
+<p>&#x2F;NJH :: 没有作业标头。<br>&#x2F;NJS :: 没有作业摘要。</p>
+<p>&#x2F;UNICODE :: 以 UNICODE 方式输出状态。</p>
+<h3 id="作业选项"><a href="#作业选项" class="headerlink" title="作业选项"></a>作业选项</h3><p>&#x2F;JOB:作业名称 :: 从命名的作业文件中提取参数。<br>&#x2F;SAVE:作业名称 :: 将参数保存到命名的作业文件<br>&#x2F;QUIT :: 处理命令行后退出(以查看参数)。<br>&#x2F;NOSD :: 未指定源目录。<br>&#x2F;NODD :: 未指定目标目录。<br>&#x2F;IF :: 包含以下文件。</p>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p>以前在卷的根目录上使用 &#x2F;PURGE 或 &#x2F;MIR 导致<br>robocopy 也对“系统卷信息”目录内的<br>文件应用所请求的操作。现在不再是这种情形；如果<br>指定了任何一项，则 robocopy 将跳过<br>复制会话简要源目录和目标目录中具有该名称的任何文件或目录。</p>
+<p>已修改的文件分类仅在源<br>和目标文件系统支持更改时间戳(例如 NTFS)<br>以及源和目标文件具有不同的更改时间(否则相同)<br>时才适用。默认情况下不复制这些文件；指定 &#x2F;IM<br>以包含它们。</p>
+<p>&#x2F;DCOPY:E 标志请求扩展属性复制应该<br>针对目录进行尝试。请注意，如果目录的 EA 无法复制，<br>则当前 robocopy 将继续。&#x2F;COPYALL 中也未包括<br>在 &#x2F;COPYALL 中。</p>
+<p>如果指定了 &#x2F;IoMaxSize 或 &#x2F;IoRate，则 robocopy 将启用<br>复制文件限制 (目的是减少系统负载)。<br>两者都可以调整为允许值或最佳值；亦即，两者<br>指定所需的复制参数，但系统和 robocopy<br>允许根据需要将其调整为合理的&#x2F;允许的值。<br>如果还使用了&#x2F;Threshold，它将为文件大小指定最小值以<br>参与限制；低于该大小的文件将不会受到限制。<br>所有这三个参数的值后面都能加上可选后缀<br>字符(从集 [KMG](K, M, G)中)。</p>
+<p>使用 &#x2F;LFSM 请求 robocopy 在“低可用空间模式”下运行。<br>在该模式下，robocopy 会暂停(每当文件副本导致)<br>目标卷的可用空间低于可以<br>由 LFSM:n[KMG] 形式的标志明确指定的“下限”值时，robocopy 将会暂停。<br>如果指定了 &#x2F;LFSM，但没有显式下限值，则会将下限设置为<br>目标卷大小的百分之十。<br>低可用空间模式与 &#x2F;MT 和 &#x2F;EFSRAW不兼容。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/mine.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/诀别书.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/七年了，他还是走不出来.mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/《溯 Reverse》.mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/《託された想い (被寄托的思念)—増田俊郎》.mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】《所念皆星河 》.mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】陈奕迅《富士山下》.mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】花之舞 《Flower Dance》.mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/【钢琴】周杰伦《反方向的钟》.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/【钢琴】周杰伦《青花瓷》.mp3"></li>
+                        
+                    
+                        
+                            <li title="11" data-url="/music/I Really Like You.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ROBOCOPY"><span class="toc-text">ROBOCOPY</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0"><span class="toc-text">关于常用的一些参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AE%8C%E6%95%B4%E6%89%8B%E5%86%8C"><span class="toc-text">关于完整手册</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E9%80%89%E9%A1%B9"><span class="toc-text">复制选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E9%99%90%E5%88%B6%E9%80%89%E9%A1%B9"><span class="toc-text">复制文件限制选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E9%80%89%E9%A1%B9"><span class="toc-text">文件选择选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E8%AF%95%E9%80%89%E9%A1%B9"><span class="toc-text">重试选项:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E9%80%89%E9%A1%B9"><span class="toc-text">日志记录选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E9%80%89%E9%A1%B9"><span class="toc-text">作业选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E6%B3%A8"><span class="toc-text">备注</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

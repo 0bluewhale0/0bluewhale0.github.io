@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>形式语言与自动机_4 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,第四章  上下文无关文法与下推自动机上下文无关文法：CFG(contex free grammar)2型文法，产生式形如A-&amp;gt;a，A$\in$N
+几种文法的特点整理
+对应的识别器：下推自动机P,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="形式语言与自动机_4 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,第四章  上下文无关文法与下推自动机上下文无关文法：CFG(contex free grammar)2型文法，产生式形如A-&amp;gt;a，A$\in$N
+几种文法的特点整理
+对应的识别器：下推自动机P,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="形式语言与自动机_4 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,第四章  上下文无关文法与下推自动机上下文无关文法：CFG(contex free grammar)2型文法，产生式形如A-&amp;gt;a，A$\in$N
+几种文法的特点整理
+对应的识别器：下推自动机P,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">形式语言与自动机_4</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <!--
+ * @Date: 2023-03-05 08:54:47
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 16:23:49
+ * @FilePath: \diaspora\layout\_partial\post\article.ejs
+-->
+<div class="article">
+    <div class='main'>
+        <h1 class="title">形式语言与自动机_4</h1>
+        <div class="stuff">
+            <span>五月 12, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%BD%A2%E5%BC%8F%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA/" rel="tag">形式语言与自动机</a></li></ul>
+
+
+        </div>
+        
+        <div class="content markdown">
+            <h1 id="第四章-上下文无关文法与下推自动机"><a href="#第四章-上下文无关文法与下推自动机" class="headerlink" title="第四章  上下文无关文法与下推自动机"></a>第四章  上下文无关文法与下推自动机</h1><p>上下文无关文法：CFG(contex free grammar)<br>2型文法，产生式形如A-&gt;a，A$\in$N</p>
+<p><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/1647178722462b691.jpg">几种文法的特点整理</a></p>
+<p>对应的识别器：下推自动机<br>PDA（push down Automata）<br>PDA由输入带，有限控制器和下推栈组成<br><img src="https://api2.mubu.com/v3/document_image/24b4fce5-8f87-4dca-84a9-9352955a2392-16175743.jpg" alt="1"></p>
+<h2 id="归约和推导"><a href="#归约和推导" class="headerlink" title="归约和推导"></a>归约和推导</h2><p>推理字符串是否属于文法所定义的语言</p>
+<ul>
+<li>一种是自下而上的方法，称为递归推理(recursive inference），递归推理的过程习称为归约；</li>
+<li>一种是自上而下的方法，称为推导（derivation）.</li>
+<li>归约过程   将产生式的右部（body）替换为产生式的左部（ head ）.</li>
+<li>推导过程   将产生式的左部（ head ）替换为产生式的右部（ body ）</li>
+</ul>
+<p>例子：<br><img src="https://api2.mubu.com/v3/document_image/9bd456a1-7f21-40cb-aec1-055eeccc42b8-16175743.jpg" alt="归约"><br><img src="https://api2.mubu.com/v3/document_image/57a9fc01-11d8-4b9b-a469-09a31d167672-16175743.jpg" alt="推导"></p>
+<ul>
+<li>最左推导(leftmost derivations)<br>若推导过程的每一步总是替换出现在最左边的非终结符。<br><img src="https://api2.mubu.com/v3/document_image/9fb0447a-54b0-4f72-b822-d55cec7336c9-16175743.jpg" alt="l"></li>
+<li>最右推导(rightmost derivations)<br>若推导过程的每一步总是替换出现在最右边的非终结符。<br><img src="https://api2.mubu.com/v3/document_image/bf95a2f6-8124-49c1-bd4c-7a68e69df74f-16175743.jpg" alt="r"></li>
+</ul>
+<h2 id="推导树和文法的二义性"><a href="#推导树和文法的二义性" class="headerlink" title="推导树和文法的二义性"></a>推导树和文法的二义性</h2><h3 id="推导树"><a href="#推导树" class="headerlink" title="推导树"></a>推导树</h3><p>用图的方法表示一个句型的推导，这种图称为推导树（也称语法树或语法分析树）<br>文法的起始符为根，树的枝结点标记是非终结符，叶结点标记为终结符或$\sigma$。<br>若枝结点有直接子孙x1, x2,…, xk，则文法中有生成式A→x1x2…xk<br><img src="https://api2.mubu.com/v3/document_image/378f4ab9-9951-475b-996c-9cc934efc070-16175743.jpg" alt="li"><br><img src="https://api2.mubu.com/v3/document_image/378f4ab9-9951-475b-996c-9cc934efc070-16175743.jpg" alt="tu"><br>推导树是对文法G中一个<u>特定句子形式</u>的派生过程所做的一种自然描述。</p>
+<ul>
+<li>边缘<br>叶子从左向右组成的字符串称为推导树的边缘。</li>
+</ul>
+<h3 id="归约、推导与分析树之间关系"><a href="#归约、推导与分析树之间关系" class="headerlink" title="归约、推导与分析树之间关系"></a>归约、推导与分析树之间关系</h3><p>归约<br><img src="https://api2.mubu.com/v3/document_image/034d00dd-d424-4ef1-a4ed-bf831eb1516f-16175743.jpg" alt="归约"><br>推导<br><img src="https://api2.mubu.com/v3/document_image/bfa38244-02b0-4e7b-97f5-16c4befc3faf-16175743.jpg" alt="推导"><br>关系<br><img src="https://api2.mubu.com/v3/document_image/e9d33c57-17f4-4416-b8a8-63bad4e38309-16175743.jpg" alt="关系"><br>证明2-&gt;5:<br>设2型文法G&#x3D;（N，T，P，S），如果存在S<img src="https://api2.mubu.com/v3/document_image/03811fd1-79b9-46ae-9187-fee25974c922-16175743.jpg" alt="推导出">ω，当且仅当文法G中有一棵边缘为ω的推导树。</p>
+<ul>
+<li>子树：<br>一棵派生树的子树，是树中的某个顶点连同它的全部后裔，以及连接这些后裔的边。<br><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/09c3c42d-5fd5-415e-983d-4ac2fcbf359e-16175743.jpg">证明</a><br><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/87352b24-c498-4dae-b762-b8d55e66ec0a-16175743.jpg">证明步骤1</a><br><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/4650faf7-c73d-46df-aa3d-2f6c57288b96-16175743.jpg">证明步骤2</a></li>
+</ul>
+<h3 id="二义性"><a href="#二义性" class="headerlink" title="二义性"></a>二义性</h3><p>2型文法是二义的,当且仅当对于句子ω∈L(G),存在两棵不同的具有边缘为ω的推导树。<br>(即：如果文法是二义的, 那么它所产生的某个句子必然能从不同的最左(右)推导推出)。</p>
+<ul>
+<li>可有二个文法,一个有二义,一个无二义,但产生相同的语言.</li>
+<li>可否通过变换消除二义性? —— 无一般的算法!</li>
+</ul>
+<h2 id="上下文无关文法的变换"><a href="#上下文无关文法的变换" class="headerlink" title="上下文无关文法的变换"></a>上下文无关文法的变换</h2><ol>
+<li>CFG 的简化<ul>
+<li>消无用符号</li>
+<li>消$\varepsilon$产生式</li>
+<li>消单产生式</li>
+</ul>
+</li>
+<li>对生成式形式进行标准化</li>
+</ol>
+<p>生成式的标准形式:</p>
+<ol>
+<li>Chomsky范式 ：<br>  CNF - Chomsky Normal Form<br>  <img src="https://api2.mubu.com/v3/document_image/0b972e9e-9103-4285-9f11-7f404d2b45d5-16175743.jpg" alt="CNF"></li>
+<li>Greibach范式：(GNF)<br>  <img src="https://api2.mubu.com/v3/document_image/8d0a5097-0bbf-4510-9abb-af14a4c8335e-16175743.jpg" alt="GNF"></li>
+</ol>
+<h3 id="消去无用符号"><a href="#消去无用符号" class="headerlink" title="消去无用符号"></a>消去无用符号</h3><h4 id="有用符号X"><a href="#有用符号X" class="headerlink" title="有用符号X"></a>有用符号X</h4><p><img src="https://api2.mubu.com/v3/document_image/5c46692f-3ba3-4bd6-9dba-7ee1a79a2591-16175743.jpg" alt="X"></p>
+<ul>
+<li>生成符号 generating symbol<br><img src="https://api2.mubu.com/v3/document_image/de1c8e4b-b028-48bf-933f-cd2937e22558-16175743.jpg" alt="生成符号"></li>
+<li>可达符号 reachable symbol<br><img src="https://api2.mubu.com/v3/document_image/5c6aef7e-f00b-4260-9193-b75193bee158-16175743.jpg" alt="可达符号"></li>
+</ul>
+<h4 id="无用符号"><a href="#无用符号" class="headerlink" title="无用符号"></a>无用符号</h4><ul>
+<li>非生成符号</li>
+<li>不可达符号</li>
+</ul>
+<h4 id="消去无用符号的步骤"><a href="#消去无用符号的步骤" class="headerlink" title="消去无用符号的步骤"></a>消去无用符号的步骤</h4><ul>
+<li>计算生成符号集</li>
+<li>计算可达符号集</li>
+<li>消去非生成符号、不可达符号</li>
+<li>消去相关产生式</li>
+</ul>
+<h4 id="计算生成符号"><a href="#计算生成符号" class="headerlink" title="计算生成符号"></a>计算生成符号</h4><p>思路<br><img src="https://api2.mubu.com/v3/document_image/2872eb33-ddb9-4db1-8834-e79814953a22-16175743.jpg" alt="思路"><br>算法1:找出有用非终结符<br><img src="https://api2.mubu.com/v3/document_image/85a050c1-fc53-4c32-8bb9-ad81abfcd396-16175743.jpg" alt="算法1"><br>算法1图示:<br><img src="https://api2.mubu.com/v3/document_image/e8eeb259-84f4-4948-bced-32389df931f8-16175743.jpg" alt="图示"><br>一层层向外扩展，直至最外两层相等为止。所得集合即是算法1的有用符号。</p>
+<h4 id="计算可达符号集"><a href="#计算可达符号集" class="headerlink" title="计算可达符号集"></a>计算可达符号集</h4><p>思路<br><img src="https://api2.mubu.com/v3/document_image/3af1f690-10fa-4b64-b311-f854d46d985c-16175743.jpg" alt="计算可达符号集"><br>算法2：找出有用符号（从S出发可达的符号）<br><img src="https://api2.mubu.com/v3/document_image/e8094e10-e4bf-4ad9-86b2-f034d639b972-16175743.jpg" alt="算法2"><br>图示<br><img src="https://api2.mubu.com/v3/document_image/0f604071-1898-407d-8229-5b6f406f9481-16175743.jpg" alt="图示"></p>
+<h4 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h4><p><img src="https://api2.mubu.com/v3/document_image/c9e673b9-0573-4f99-80d6-bdc67adbdef8-16175743.jpg" alt="lizi"><br>注意：在删除一个无用符号时，要把与它相关的式子也删掉。<br>并且，<mark>一定要先执行算法1，保证每个符号是生成符号，再执行算法2，保证每个符号是可达符号。否则可能会导致一些无用符号无法消除。</mark>（这个例子就是不这么干的反例）</p>
+<p>一个定理：<br>任何非空的上下文无关语言,可由不存在无用符号的上下文无关语言产生(证明略)</p>
+<h3 id="消去-varepsilon-产生式"><a href="#消去-varepsilon-产生式" class="headerlink" title="消去$\varepsilon$产生式"></a>消去$\varepsilon$产生式</h3><p>目的：方便文法的设计, 利于文法规范化.<br>影响：消去$\varepsilon$产生式, 除了文法不能产生字符串$\varepsilon$外，不会影响到原文法相应的语言中其它字符串的产生.</p>
+<h4 id="可致空符号"><a href="#可致空符号" class="headerlink" title="可致空符号"></a>可致空符号</h4><p>nullable symbol<br><img src="https://api2.mubu.com/v3/document_image/daace5c0-2d0f-41d8-a022-f245a90d2803-16175743.jpg" alt="可致空符号"></p>
+<h4 id="算法3-生成无-varepsilon-文法"><a href="#算法3-生成无-varepsilon-文法" class="headerlink" title="算法3: 生成无$\varepsilon$文法"></a>算法3: 生成无$\varepsilon$文法</h4><p>定义：若G的生成式中无任何$\varepsilon$产生式，或只有一个生成式S→$\varepsilon$且S不出现在任何生成式的右边，则称G为无$\varepsilon$文法。</p>
+<p>思路：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/1d6d41c1-729e-4ac4-bf47-4e296f3ec652-16175743.jpg" alt="思路"></p>
+<p><mark>算法步骤</mark></p>
+<p><img src="https://api2.mubu.com/v3/document_image/c2829b36-1400-4476-8955-a96feefca3b5-16175743.jpg" alt="算法步骤"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/c9ff1e87-ea57-4e2f-967d-1afa35baf359-16175743.jpg" alt="2"><br>例子：<br><img src="https://api2.mubu.com/v3/document_image/c9c8141b-bc88-45af-8679-df1b572eaaff-16175743.jpg" alt="lizi"></p>
+<h3 id="消去单产生式"><a href="#消去单产生式" class="headerlink" title="消去单产生式"></a>消去单产生式</h3><p>什么是单产生式<br>单产生式  形如 A-&gt;B 的产生式，其中A、B 为非终结符.<br>目的：<br>可简化某些证明，减少推导步数, 利于文法规范化.</p>
+<h4 id="单元偶对-unit-pairs"><a href="#单元偶对-unit-pairs" class="headerlink" title="单元偶对 unit pairs"></a>单元偶对 unit pairs</h4><p><img src="https://api2.mubu.com/v3/document_image/7f563d59-edfa-4ab2-8303-90203d06e32d-16175743.jpg" alt="unit pairs"></p>
+<h4 id="消去单产生式的算法"><a href="#消去单产生式的算法" class="headerlink" title="消去单产生式的算法"></a>消去单产生式的算法</h4><h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><p><img src="https://api2.mubu.com/v3/document_image/ad2f4c73-516d-47c8-b469-9e1d07a124ce-16175743.jpg" alt="思路"></p>
+<h5 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h5><p><img src="https://api2.mubu.com/v3/document_image/a2717996-4489-4e8c-8a3c-cc250d9a5e94-16175743.jpg" alt="算法步骤"><br>$N_A$可以理解成所有和A是单元偶对的非终结符的集合<br><img src="https://api2.mubu.com/v3/document_image/859f5d77-0587-4525-94b5-da4095c29ca6-16175743.jpg" alt="算法步骤2"></p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p><img src="https://api2.mubu.com/v3/document_image/c7867368-350a-44d0-89e7-3ef3810d6721-16175743.jpg" alt="例子"><br><img src="https://api2.mubu.com/v3/document_image/aeeffb80-9874-4111-a53c-905b59a41550-16175743.jpg" alt="例子2"><br><img src="https://api2.mubu.com/v3/document_image/ca9cfaa9-3519-4113-a5fa-a990f0f8c1cd-16175743.jpg" alt="例子3"></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><img src="https://api2.mubu.com/v3/document_image/0d85c3d2-3151-4d32-8e7b-1e30e8a4adf2-16175743.jpg" alt="小结"><br>注意 以上简化步骤的次序.<br>设 CFG  G 的语言至少包含一个非  的字符串，通过上述步骤从 G 构造 G1 ，则有 L(G1)&#x3D; L(G) - {$\varepsilon$}.<br>必须按照顺序的原因：<br>消去空生成式的时候，可能会引入一些单生成式，而消除单生成式的时候又可能引入一些无用符号。</p>
+<h3 id="消除递归"><a href="#消除递归" class="headerlink" title="消除递归"></a>消除递归</h3><p>递归定义：<br><img src="https://api2.mubu.com/v3/document_image/7e94dd29-a89f-4f69-bd0b-42af73b3f5be-16175743.jpg" alt="dingyi"></p>
+<h4 id="生成式的代换"><a href="#生成式的代换" class="headerlink" title="生成式的代换"></a>生成式的代换</h4><p>引理1：<br><img src="https://api2.mubu.com/v3/document_image/e8952fc6-9135-4689-929b-a8cd7e9763d6-16175743.jpg" alt="引理1"><br>一个小例子：<br><img src="https://api2.mubu.com/v3/document_image/2a7b7faa-e60d-4c0b-a749-5a977b7a2e72-16175743.jpg" alt="一个小例子："></p>
+<h4 id="消除直接左递归"><a href="#消除直接左递归" class="headerlink" title="消除直接左递归"></a>消除直接左递归</h4><p>引理2<br><img src="https://api2.mubu.com/v3/document_image/7a19e78c-c34c-4c0b-8306-e92a46b1cf7f-16175743.jpg" alt="引理2"><br>例子：<br><img src="https://api2.mubu.com/v3/document_image/4e5120d2-63e7-476f-b65e-93b2faccee87-16175743.jpg" alt="例子："></p>
+<h5 id="为什么要消除左递归？"><a href="#为什么要消除左递归？" class="headerlink" title="为什么要消除左递归？"></a>为什么要消除左递归？</h5><ol>
+<li>以后的句法分析算法不适用于左递归,会引起死循环。</li>
+<li>对于给定的2型文法, 该文法不存在无用符号, 无循环且是无ε生成式的文法, 为了消除G中可能存在的左递归, 构成一个等效的无左递归的文法G1, 可用算法5。</li>
+<li>算法5在原理上与求解正规表达式方程组的算法类似.</li>
+</ol>
+<h5 id="算法5"><a href="#算法5" class="headerlink" title="算法5"></a>算法5</h5><p><img src="https://api2.mubu.com/v3/document_image/8b1fcac4-46ff-44bc-add8-e1bbb49e997b-16175743.jpg" alt="算法5"></p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p><img src="https://api2.mubu.com/v3/document_image/7d33cbe8-dd03-4731-a2fc-6cc3662ffef8-16175743.jpg" alt="示例"><br><img src="https://api2.mubu.com/v3/document_image/b7130afb-b6ba-4374-9bc4-b69a79cad139-16175743.jpg" alt="示例2"></p>
+<h2 id="下推自动机"><a href="#下推自动机" class="headerlink" title="下推自动机"></a>下推自动机</h2><h2 id="上下文无关语言的性质"><a href="#上下文无关语言的性质" class="headerlink" title="上下文无关语言的性质"></a>上下文无关语言的性质</h2><h1 id="Chomsky范式和Greibach范式"><a href="#Chomsky范式和Greibach范式" class="headerlink" title="Chomsky范式和Greibach范式"></a>Chomsky范式和Greibach范式</h1><h2 id="Chomsky-范式"><a href="#Chomsky-范式" class="headerlink" title="Chomsky 范式"></a>Chomsky 范式</h2><p>2型文法G＝（N，T，P，S）<br>生成式形如：<br>A→BC和A→a<br>称为Chomsky Normal Format<br>特别的，若ε∈L（G），则S→ε是P的一个生成式，但<strong>S不能在任何其它生成式的右边</strong></p>
+<p>构成步骤：</p>
+<ol>
+<li>消除ε生成式、无用符号、单生成式</li>
+<li>引入新的非终结符，凑</li>
+</ol>
+<p><img src="https://api2.mubu.com/v3/document_image/2c0e2f24-d00e-4b33-9077-aa2c92baa578-16175743.jpg" alt="CNF"></p>
+<h2 id="Greibach范式"><a href="#Greibach范式" class="headerlink" title="Greibach范式"></a>Greibach范式</h2><p>2型文法G＝（N，T，P，S）<br>若生成式的形式都是A→aβ，A∈N，a∈T，β∈N*<br>且G不含ε生成式，则称G为Greibach范式，记为GNF</p>
+<p>构成步骤：</p>
+<ol>
+<li>2型文法变换为CNF。（A→a，A→BC形式）</li>
+<li>对非终结符排序</li>
+<li>假如按下标递增，不能出现$A1-&gt;A2\beta$（A2高于A1）<ol>
+<li>把A2的生成式带入，直至满足上述条件</li>
+</ol>
+</li>
+<li>消除左递归（只对最高的Ai进行消除左递归，消除完了之后Ai就会满足GNF形式，即终结符a开头，但会引入新的非终结符Ai’,这些新的非终结符优先级是最低的）</li>
+<li>回代<ol>
+<li>依次回代Ai到Ai-1，Ai-1到Ai-2….一直到右部首字符都为终结符</li>
+</ol>
+</li>
+<li>将消除左递归时候引入的带’的右部进行代换，换成右部首字符都为终结符。</li>
+</ol>
+<p>GNF1：<br><img src="https://api2.mubu.com/v3/document_image/1f5f4619-f44c-4f1d-9120-7cd807e9874c-16175743.jpg" alt="GNF1"><br>GNF2：<br><img src="https://api2.mubu.com/v3/document_image/88f16a4c-5497-4016-b210-fde1e1179f3c-16175743.jpg" alt="GNF2"><br>GNF3：<br><img src="https://api2.mubu.com/v3/document_image/10a971db-617a-4b4f-8153-7db24755a189-16175743.jpg" alt="GNF3"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/mine.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/诀别书.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/七年了，他还是走不出来.mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/《溯 Reverse》.mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/《託された想い (被寄托的思念)—増田俊郎》.mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】《所念皆星河 》.mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】陈奕迅《富士山下》.mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】花之舞 《Flower Dance》.mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/【钢琴】周杰伦《反方向的钟》.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/【钢琴】周杰伦《青花瓷》.mp3"></li>
+                        
+                    
+                        
+                            <li title="11" data-url="/music/I Really Like You.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E4%B8%8E%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="toc-text">第四章  上下文无关文法与下推自动机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6%E5%92%8C%E6%8E%A8%E5%AF%BC"><span class="toc-text">归约和推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E5%AF%BC%E6%A0%91%E5%92%8C%E6%96%87%E6%B3%95%E7%9A%84%E4%BA%8C%E4%B9%89%E6%80%A7"><span class="toc-text">推导树和文法的二义性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E5%AF%BC%E6%A0%91"><span class="toc-text">推导树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6%E3%80%81%E6%8E%A8%E5%AF%BC%E4%B8%8E%E5%88%86%E6%9E%90%E6%A0%91%E4%B9%8B%E9%97%B4%E5%85%B3%E7%B3%BB"><span class="toc-text">归约、推导与分析树之间关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E4%B9%89%E6%80%A7"><span class="toc-text">二义性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E7%9A%84%E5%8F%98%E6%8D%A2"><span class="toc-text">上下文无关文法的变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E5%8E%BB%E6%97%A0%E7%94%A8%E7%AC%A6%E5%8F%B7"><span class="toc-text">消去无用符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E7%94%A8%E7%AC%A6%E5%8F%B7X"><span class="toc-text">有用符号X</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E7%94%A8%E7%AC%A6%E5%8F%B7"><span class="toc-text">无用符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E5%8E%BB%E6%97%A0%E7%94%A8%E7%AC%A6%E5%8F%B7%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">消去无用符号的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E7%94%9F%E6%88%90%E7%AC%A6%E5%8F%B7"><span class="toc-text">计算生成符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%8F%AF%E8%BE%BE%E7%AC%A6%E5%8F%B7%E9%9B%86"><span class="toc-text">计算可达符号集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90"><span class="toc-text">一个例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E5%8E%BB-varepsilon-%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="toc-text">消去$\varepsilon$产生式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%87%B4%E7%A9%BA%E7%AC%A6%E5%8F%B7"><span class="toc-text">可致空符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-%E7%94%9F%E6%88%90%E6%97%A0-varepsilon-%E6%96%87%E6%B3%95"><span class="toc-text">算法3: 生成无$\varepsilon$文法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E5%8E%BB%E5%8D%95%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="toc-text">消去单产生式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E5%81%B6%E5%AF%B9-unit-pairs"><span class="toc-text">单元偶对 unit pairs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E5%8E%BB%E5%8D%95%E4%BA%A7%E7%94%9F%E5%BC%8F%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-text">消去单产生式的算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4"><span class="toc-text">算法步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E9%80%92%E5%BD%92"><span class="toc-text">消除递归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E7%9A%84%E4%BB%A3%E6%8D%A2"><span class="toc-text">生成式的代换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E7%9B%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92"><span class="toc-text">消除直接左递归</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%B6%88%E9%99%A4%E5%B7%A6%E9%80%92%E5%BD%92%EF%BC%9F"><span class="toc-text">为什么要消除左递归？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%97%E6%B3%955"><span class="toc-text">算法5</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="toc-text">下推自动机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">上下文无关语言的性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chomsky%E8%8C%83%E5%BC%8F%E5%92%8CGreibach%E8%8C%83%E5%BC%8F"><span class="toc-text">Chomsky范式和Greibach范式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chomsky-%E8%8C%83%E5%BC%8F"><span class="toc-text">Chomsky 范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Greibach%E8%8C%83%E5%BC%8F"><span class="toc-text">Greibach范式</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

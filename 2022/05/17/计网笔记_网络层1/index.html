@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计网笔记_网络层 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,5.1网络层设计问题5.2路由算法路由算法的职责
+负责决定一个到来的包应该被传输到哪条输出线路如果子网内部使用数据报文，自从最好的路由上次被改变之后，对于每个数据包这个决定必须重新做。如果子网用的是,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="计网笔记_网络层 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,5.1网络层设计问题5.2路由算法路由算法的职责
+负责决定一个到来的包应该被传输到哪条输出线路如果子网内部使用数据报文，自从最好的路由上次被改变之后，对于每个数据包这个决定必须重新做。如果子网用的是,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="计网笔记_网络层 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,5.1网络层设计问题5.2路由算法路由算法的职责
+负责决定一个到来的包应该被传输到哪条输出线路如果子网内部使用数据报文，自从最好的路由上次被改变之后，对于每个数据包这个决定必须重新做。如果子网用的是,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计网笔记_网络层</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <!--
+ * @Date: 2023-03-05 08:54:47
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 16:23:49
+ * @FilePath: \diaspora\layout\_partial\post\article.ejs
+-->
+<div class="article">
+    <div class='main'>
+        <h1 class="title">计网笔记_网络层</h1>
+        <div class="stuff">
+            <span>五月 17, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%AE%A1%E7%BD%91/" rel="tag">计网</a></li></ul>
+
+
+        </div>
+        
+        <div class="content markdown">
+            <h2 id="5-1网络层设计问题"><a href="#5-1网络层设计问题" class="headerlink" title="5.1网络层设计问题"></a>5.1网络层设计问题</h2><h2 id="5-2路由算法"><a href="#5-2路由算法" class="headerlink" title="5.2路由算法"></a>5.2路由算法</h2><h3 id="路由算法的职责"><a href="#路由算法的职责" class="headerlink" title="路由算法的职责"></a>路由算法的职责</h3><ol>
+<li>负责决定一个到来的包应该被传输到哪条输出线路<br>如果子网内部使用数据报文，自从最好的路由上次被改变之后，对于每个数据包这个决定必须重新做。<br>如果子网用的是虚拟电路，路由决定会被做出仅当一个新的虚拟电路被建立之后。在这之后，数据包只是follow之前已经被建立的路由</li>
+<li>转发&amp;路由</li>
+</ol>
+<h3 id="路由算法的目标"><a href="#路由算法的目标" class="headerlink" title="路由算法的目标"></a>路由算法的目标</h3><ol>
+<li>正确</li>
+<li>简单</li>
+<li>健壮性</li>
+<li>稳定性（抖动的问题）</li>
+<li>公平性</li>
+<li>最优性<ol>
+<li>最小化包时延</li>
+<li>最大化网络通量</li>
+</ol>
+</li>
+</ol>
+<h3 id="路由算法的分类"><a href="#路由算法的分类" class="headerlink" title="路由算法的分类"></a>路由算法的分类</h3><ol>
+<li>static（静态的）<br>路由选择不会根据当前的拓扑和流量改变<br>线路断了也不会改变<br>就是路由器启动的时候下载到路由器里面的<blockquote>
+<p>拓扑的变化：<br> 加&#x2F;减一条线路，</p>
+</blockquote>
+</li>
+<li>adaptive 适应性的<br>随着 拓扑结构的变化，通常也包括traffic的变化 改变路由。<br>由于考虑traffic比较复杂，所以现在学的一般只考虑拓扑结构的变化。<br>拓扑结构的变化就是指的这个图上任何一个节点或者边发生变化，其他节点都能感受到。</li>
+</ol>
+<h3 id="最优化原则"><a href="#最优化原则" class="headerlink" title="最优化原则"></a>最优化原则</h3><p><img src="https://api2.mubu.com/v3/document_image/1f996d7b-76c8-4be2-8767-de89bb4c465e-16175743.jpg" alt="最优化"><br>如果J在I-&gt;K的最短路径上，显然，J-&gt;K的最短路径也是同样的route</p>
+<h3 id="sink-tree"><a href="#sink-tree" class="headerlink" title="sink tree"></a>sink tree</h3><p>从所有的源到某个特定的的目的地的最优化的路由形成了一个根节点是目的地的树。<br>不含任何loop，所以每个包会被在有限跳内传输<br>routing 算法的目标：</p>
+<ul>
+<li>针对所有的router发现并使用sink tree</li>
+<li>不用的router针对现有的拓扑结构可能有不同的理解，或者掌握的信息不一样<br><img src="https://api2.mubu.com/v3/document_image/56b996e5-cf09-4bd7-802c-f43c1b4ec12c-16175743.jpg" alt="sinktree"></li>
+</ul>
+<h3 id="最短路径路由（Shortest-Path-Router）"><a href="#最短路径路由（Shortest-Path-Router）" class="headerlink" title="最短路径路由（Shortest Path Router）"></a>最短路径路由（Shortest Path Router）</h3><ol>
+<li>建立一个有向带权图</li>
+<li>权值的方法：<ol>
+<li>几跳就是几</li>
+<li>地理上的千米距离</li>
+<li>排队和传输时延，决定于时间</li>
+<li>一个关于距离，带宽，平均traffic，交流开销，等等的函数</li>
+</ol>
+</li>
+<li>Dijkstra算法（已知拓扑，计算是容易的，难的是构造拓扑）</li>
+</ol>
+<h3 id="Flooding-路由算法"><a href="#Flooding-路由算法" class="headerlink" title="Flooding 路由算法"></a>Flooding 路由算法</h3><ol>
+<li>不需要网络拓扑信息</li>
+<li>每个路由器将收到的包发往除了输入端口之外的所有线路</li>
+</ol>
+<p>可能遇到的问题：<br>产生超级超级多的包</p>
+<p>措施：</p>
+<ol>
+<li>每个包的头有一个hop counter，每转发一次，计数器减一，计数器减小到0的时候，就discard</li>
+<li>源在每个包里面放一个sequence number，每个router记录收到的最大的seq，来判断那些包已经收到过了</li>
+<li>选择性的flooding<ol>
+<li>每个router记录收到的数据item，在数据库里面</li>
+<li>每个item有一个版本号</li>
+<li>只有新的data item才会被flooded</li>
+</ol>
+</li>
+</ol>
+<p>特征：</p>
+<ol>
+<li>所有可能的路线都会被尝试<ol>
+<li>非常滴鲁棒，适合用于部队内部通信这样的。</li>
+</ol>
+</li>
+<li>至少一个包会采用最小</li>
+<li>所有的节点都会被访问到</li>
+</ol>
+<h3 id="Distance-Vector-Routing：DV算法"><a href="#Distance-Vector-Routing：DV算法" class="headerlink" title="Distance Vector Routing：DV算法"></a>Distance Vector Routing：DV算法</h3><p>又叫贝尔曼·福特算法</p>
+<ol>
+<li>每个router维护一个表<ol>
+<li>到每个目的地的已知最好的距离<ol>
+<li>这里的distance可能是<strong>hops</strong>的数目，时延ms，etc.</li>
+</ol>
+</li>
+<li>使用哪条line</li>
+</ol>
+</li>
+<li>这个表会不断的通过跟邻居交换信息来update<ol>
+<li>发送routing信息（distance，destination）<ol>
+<li>周期性的发送</li>
+<li>当表改变的时候</li>
+</ol>
+</li>
+<li>接受routing信息<ol>
+<li>如果收到了一个更好的route，就更新</li>
+<li>refresh已经存在的routes（有个时戳，对应下面那个times out）</li>
+</ol>
+</li>
+<li>如果某个item times out 了，就删除这一项</li>
+</ol>
+</li>
+</ol>
+<p>例子1：<br><img src="https://api2.mubu.com/v3/document_image/1832a33b-d231-44c8-9aa1-6664c35a5c61-16175743.jpg" alt="E1"></p>
+<p>A I H K四列都是J收到的的邻居发的distance vector  </p>
+<p>下面那个大括号是J到几个邻居的最新距离。<br>假如要计算J到D的距离<br>那就是看D-&gt;X-&gt;J的最短距离，X是J的几个邻居<br>X&#x3D;A:40+8<br>X&#x3D;I:27+10<br>X&#x3D;H:8+12<br>X&#x3D;K:24+6  </p>
+<p>例子2：</p>
+<blockquote>
+<p>有时候无穷大认为是16</p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/38282183-0872-4cf3-8343-e3beca5c7b8d-16175743.jpg" alt="E2"><br><img src="https://api2.mubu.com/v3/document_image/9b1baf0a-f80f-42b1-b12d-648ffea3f545-16175743.jpg" alt="E2-1"><br><img src="https://api2.mubu.com/v3/document_image/8e32db72-e676-4442-8949-f49f359f580b-16175743.jpg" alt="E2-2"><br><img src="https://api2.mubu.com/v3/document_image/779adf84-9aa6-4b69-80ed-5d9822fcac7c-16175743.jpg" alt="E2-3"><br><img src="https://api2.mubu.com/v3/document_image/02571fad-26d6-4173-87e7-1c531eb533f7-16175743.jpg" alt="E2-4"><br><img src="https://api2.mubu.com/v3/document_image/786d8b13-9f8e-4c40-81d0-b414ec279794-16175743.jpg" alt="E2-5"></p>
+<p>可以发现，当网络规模不是特别大的时候，路由算法会收敛，也就是会稳定下来。</p>
+<p>一个问题：<br>Count-to-infinity<br>计数到无穷<br><img src="https://api2.mubu.com/v3/document_image/70eca855-4644-45dd-966b-ef781afc9919-16175743.jpg" alt="cti"><br>（a）是正常的时候，从无到收敛的过程<br>（b）是稳定之后，A出现故障的时候，由于A故障了，所以B只能从C得到到A的距离，然后依次这样，一直扩散扩散，形成环路，而实际上A已经不能到达了。直到到达无穷（16）的时候，会认为不可达了。通过这个例子可以知道网络的规模不能太大。</p>
+<p>另一个关于这个问题的说明：<br>初始：<br><img src="https://api2.mubu.com/v3/document_image/c9b4128c-4f24-422d-9d0c-98114a727f4e-16175743.jpg" alt="初始"><br>若干时间之后：<br><img src="https://api2.mubu.com/v3/document_image/cb4d204a-3e51-42b6-b6da-4bcbc184d1fb-16175743.jpg" alt="若干时间之后："></p>
+<p>RIP:set infinity to 16<br>这个RIP是routing information protocol</p>
+<p>可能出现的其他情况：<br><img src="https://api2.mubu.com/v3/document_image/1ccfc686-a470-4b0d-83f1-2442d4cfaf1f-16175743.jpg" alt="其他"></p>
+<p>一个09考研的例子  没题目，好像是让写出路由<br><img src="https://api2.mubu.com/v3/document_image/925c7b0c-6669-45b8-a1c4-7872519d00ac-16175743.jpg" alt="例"></p>
+<ul>
+<li>diatance vector routing<ul>
+<li>RIP协议</li>
+<li>CIsco EIGRP协议</li>
+</ul>
+</li>
+<li>一些问题：<ul>
+<li>当X告诉Y它有一条路，Y不知道自己是不是在这条路里面</li>
+<li>通过rumor构建路由</li>
+</ul>
+</li>
+<li>Path Vector Routing PV算法</li>
+</ul>
+<h3 id="Link-State-Routing-：LS算法"><a href="#Link-State-Routing-：LS算法" class="headerlink" title="Link State Routing ：LS算法"></a>Link State Routing ：LS算法</h3><p>中文名叫 链路状态路由选择算法<br>LS算法：<br>每个路由器都要干下面这些事儿：</p>
+<ol>
+<li>发现它的neighbors，学到他们的网络地址，就是通过打招呼找到的。（A跟B说hi~这样）</li>
+<li>按照统一的度量标准设置到自己邻居的distance或者cost</li>
+<li>建立一个链路状态数据包(LSP:Link-state Packet)，显示它“学”到的所有信息</li>
+<li>把这个包发给<strong>所有的</strong>路由器，用flooding扩散</li>
+<li>计算到除自己以外每个router的距离</li>
+</ol>
+<h4 id="从邻居那里学一些信息"><a href="#从邻居那里学一些信息" class="headerlink" title="从邻居那里学一些信息"></a>从邻居那里学一些信息</h4><ol>
+<li>HELLO包<br>广播网络broadcast network：使用广播报文<br>不是广播网络的：发unicast HELLO</li>
+<li>邻居发一个reply告诉它自己是谁<br>Names (Route IDs) must be globally unique</li>
+<li>简化拓扑<br>When two or more routers are connected by a LAN or other multi-access network</li>
+</ol>
+<h4 id="Artificial-Node"><a href="#Artificial-Node" class="headerlink" title="Artificial Node"></a>Artificial Node</h4><p>伪节点<br><img src="https://api2.mubu.com/v3/document_image/abf96ed0-62dd-4e68-bdcf-132664724d3d-16175743.jpg" alt="wjd"><br>这个N可以是A也可以是C，也可以是F，任选一个。假如选了A，那么A内部就可以有两个邻接矩阵。</p>
+<h4 id="设置-Link-Cost"><a href="#设置-Link-Cost" class="headerlink" title="设置 Link Cost"></a>设置 Link Cost</h4><ul>
+<li>The cost to each of its neighbors</li>
+<li>The cost to reach neighbors can be set automatically</li>
+<li>Configured by the network operator</li>
+<li>Make the cost inversely proportional to the bandwidth of the link</li>
+</ul>
+<h4 id="构造链路状态数据包"><a href="#构造链路状态数据包" class="headerlink" title="构造链路状态数据包"></a>构造链路状态数据包</h4><p><img src="https://api2.mubu.com/v3/document_image/1a39d0fd-bbfa-4b21-9a32-9325e5f98aff-16175743.jpg" alt="LSP"></p>
+<p>啥时候构造 LSP：</p>
+<ol>
+<li>周期性的构造</li>
+<li>当“大事情”发生的时候构造一下<br>就比如是一个line或者neighbor going down了&#x2F;come back up了，或者显著的改变性质了</li>
+</ol>
+<h4 id="分发LSP"><a href="#分发LSP" class="headerlink" title="分发LSP"></a>分发LSP</h4><p>懒得翻译了<br><img src="https://api2.mubu.com/v3/document_image/ae9dc435-cb6a-4395-9893-9529dbad3971-16175743.jpg" alt="distribute"></p>
+<h4 id="关于LSP"><a href="#关于LSP" class="headerlink" title="关于LSP"></a>关于LSP</h4><ul>
+<li>sequence number<ul>
+<li>新的LSP：向所有人转发</li>
+<li>复制的LSP：discard</li>
+<li>小于目前收到的最大的序列号：认为是废旧的</li>
+<li>如果一个router down（关掉）了，然后又restart（重启）了，（这样可能导致版本低了）就拒绝（旧版本的）</li>
+<li>如果序号wrap（回绕）了，具体的协议中是2^32次方个数，基本上用不完，可能需要100多年才能回绕</li>
+<li>受损：因为是可靠传输，所以会重传</li>
+</ul>
+</li>
+<li>age<ul>
+<li>指的是LSP的存活时间</li>
+<li>应用状态&#x2F;解决的问题<ul>
+<li>如果路由器关了</li>
+<li>如果路由器改变了它的routerid</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="LSP-flooding-算法的精巧-x2F-改进之处"><a href="#LSP-flooding-算法的精巧-x2F-改进之处" class="headerlink" title="LSP flooding 算法的精巧&#x2F;改进之处"></a>LSP flooding 算法的精巧&#x2F;改进之处</h4><p><img src="https://api2.mubu.com/v3/document_image/b97927b2-7246-4bae-9508-50b4d74362a0-16175743.jpg" alt="sdf"></p>
+<h4 id="计算新的Route"><a href="#计算新的Route" class="headerlink" title="计算新的Route"></a>计算新的Route</h4><p>当一个router收集到了一整套的LSP，它就可以建立整个图了<br>然后运行迪杰斯特拉算法，算最短路径<br>计算结果就被扔到routing table里面  </p>
+<p>一个例子</p>
+<!-- 还没抄过来（ -->
+<p><img src="https://api2.mubu.com/v3/document_image/a96a5f6b-ec04-405f-ae8a-53ac8967b566-16175743.jpg" alt="图1"><br><img src="https://api2.mubu.com/v3/document_image/2e9fdd3c-9238-434c-a947-ee2a75110d28-16175743.jpg" alt="图2"></p>
+<h4 id="LSR的例子"><a href="#LSR的例子" class="headerlink" title="LSR的例子"></a>LSR的例子</h4><p>了解即可<br><img src="https://api2.mubu.com/v3/document_image/3dcbe875-82ec-458a-9270-0b2b43cbc0c6-16175743.jpg" alt="例子"></p>
+<h3 id="Hierarchical-Routing-分层次的路由"><a href="#Hierarchical-Routing-分层次的路由" class="headerlink" title="Hierarchical Routing 分层次的路由"></a>Hierarchical Routing 分层次的路由</h3><p>简化路由表的例子：<br><img src="https://api2.mubu.com/v3/document_image/13296af2-2cea-4809-8140-bb2ed03a6062-16175743.jpg" alt="简化路由表"><br>就是把几个离得近的路由器划分成一个小组，然后抽象成原本的一个点</p>
+<h2 id="5-3-Congestion-Control-算法"><a href="#5-3-Congestion-Control-算法" class="headerlink" title="5.3 Congestion Control 算法"></a>5.3 Congestion Control 算法</h2><p>congestion：拥塞<br>出现拥塞的原因：太多的traffic被提供，网络性能剧烈下降<br><img src="https://api2.mubu.com/v3/document_image/4da34490-29fa-4712-a50a-04b3e19d3a3a-16175743.jpg" alt="yongsai"><br>次要因素：突发流量与缓冲队列(太长&#x2F;太短)<br>慢CPU忙于维护操作，转发操作太慢导致线路容量浪费<br>弄很长的内存可行吗？不能完全解决了，因为排的队比较长，时间太长，超时了，数据就无效了。</p>
+<h3 id="拥塞控制和流量控制的区别"><a href="#拥塞控制和流量控制的区别" class="headerlink" title="拥塞控制和流量控制的区别"></a>拥塞控制和流量控制的区别</h3><p>拥塞控制是一个<strong>全局的问题</strong><br>流量控制是<strong>2个站点之间的</strong>问题，是通过一些反馈信息减缓发送端的发送速度，从而使发送端的速度与接收端的接收或者处理速度相适配。</p>
+<h3 id="拥塞控制的方法"><a href="#拥塞控制的方法" class="headerlink" title="拥塞控制的方法"></a>拥塞控制的方法</h3><p><img src="https://api2.mubu.com/v3/document_image/d37a41af-0644-44c7-b3d9-b8cfb6a777e3-16175743.jpg" alt="approach"></p>
+<p>从左往右：<br>网络供给增加<br>流量感知路由<br>许可证的控制<br>流量的限制&#x2F;调节<br>Load shedding 甩负荷</p>
+<h3 id="Traffic-aware-Routing"><a href="#Traffic-aware-Routing" class="headerlink" title="Traffic-aware Routing"></a>Traffic-aware Routing</h3><p>有一些危险：<br>routing 表可能会剧烈的震荡，当两部分之间有两条类似的线路时</p>
+<h3 id="Admission-Control-准入控制"><a href="#Admission-Control-准入控制" class="headerlink" title="Admission Control 准入控制"></a>Admission Control 准入控制</h3><p>在<strong>虚电路</strong>中广泛被使用<br>如果网络拥塞了，就不让建立新的虚电路<br>traffic的描述：通过rate和shape来描述<br>shape有两种：leaky bucket，token bucket  </p>
+<h3 id="Traffic-Throttling-流量限制"><a href="#Traffic-Throttling-流量限制" class="headerlink" title="Traffic Throttling 流量限制"></a>Traffic Throttling 流量限制</h3><!-- 9：01 ppt66页-->
+<p>当即将发生拥塞的时候，网络告诉sender节流。<br>（有趣的是这里的“网络”指的是路由器，能“告诉”的只有路由器了）  </p>
+<ul>
+<li>路由器需要决定什么时候拥塞正在迫近，理想情况下是在拥塞到来之前就判定</li>
+<li>一般根据下面这些来判定：<ul>
+<li>输出线路的利用率</li>
+<li>队列的长度</li>
+<li>现在丢包的数量</li>
+<li>算平均值的方法：<br> EWMA：Exponentially Weighted Moving Average<br> $$d_{new}&#x3D;\alpha d_{old}+(1-\alpha)s$$<br> 上式中,s是当前的量，阿尔法是一个系数，一般取0.8</li>
+</ul>
+</li>
+<li>路由器需要<strong>周期性的</strong>向导致拥塞的sender发送反馈信息<ul>
+<li>Choke packets</li>
+<li>ECN</li>
+<li>Hop-by-Hop backpressure</li>
+</ul>
+</li>
+</ul>
+<h4 id="Choke-packets-抑制分组"><a href="#Choke-packets-抑制分组" class="headerlink" title="Choke packets 抑制分组"></a>Choke packets 抑制分组</h4><p>路由器选择一个在拥塞线路上发送的分组（拥塞分组），然后<strong>给源</strong>发送一个choke packet<br>（internet source quech message），让源端降速的一个消息</p>
+<h4 id="ECN（Explicit-Congestion-Notification）"><a href="#ECN（Explicit-Congestion-Notification）" class="headerlink" title="ECN（Explicit Congestion Notification）"></a>ECN（Explicit Congestion Notification）</h4><p>显式的拥塞通知<br>（其实上面那个也算显式的）</p>
+<ul>
+<li>路由器对每个packet加tag，来标记它<strong>沿途有</strong>拥塞</li>
+<li>当网络传输这个packet的时候，destination可以发现这个标记的拥塞，然后在回复的时候告诉sender（有另外一个可以打tag的bit位，reply的时候给打上）</li>
+<li>sender就像之前一样，节流了。</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/5df7da5e-9fa5-48a0-a6dc-3c7c92fc74e0-16175743.jpg" alt="图示"></p>
+<h4 id="隐式的拥塞通知"><a href="#隐式的拥塞通知" class="headerlink" title="隐式的拥塞通知"></a>隐式的拥塞通知</h4><p>当一个包经过了拥塞，就丢掉它，这样sender就会超时，而且本身网络的错误是比较少的，这样sender就会节流。</p>
+<h4 id="Hop-by-Hop-Choke-Packets"><a href="#Hop-by-Hop-Choke-Packets" class="headerlink" title="Hop-by-Hop Choke Packets"></a>Hop-by-Hop Choke Packets</h4><p>没听</p>
+<p>问题：<br>解决：  </p>
+<p>它可以很快的把流量降下来</p>
+<h3 id="Loading-Shedding"><a href="#Loading-Shedding" class="headerlink" title="Loading Shedding"></a>Loading Shedding</h3><p>当router已经满了，就扔掉它们</p>
+<p>Polices：</p>
+<ul>
+<li>Wine&amp;Milk<ul>
+<li>对应File transfer和multimedia</li>
+</ul>
+</li>
+<li>需要senders的配合</li>
+<li>包的优先级<ul>
+<li>视频压缩算法，重要的包打上tag，尽量保重点</li>
+<li>允许主机超过协议说好的带宽，但是超出的部分标上比较低的优先级</li>
+</ul>
+</li>
+</ul>
+<p>RED（random early detection）<br>随机早期检测</p>
+<ul>
+<li>在网络情况没有变成没有希望的时候就开始扔包</li>
+<li>router如何让source知道出现了问题呢？<ul>
+<li>发一个choke包</li>
+<li>丢掉选出来的包</li>
+</ul>
+</li>
+<li>sources 降低发送速率</li>
+</ul>
+<p>ECN&amp;RED</p>
+<ul>
+<li>RED 在剩余缓存空间到达临界值（不一定满）的时候就开始扔包，而ECN只在路由器的buffer满了的时候才会丢包。</li>
+<li>ECN 是通常更愿意选择的, 它显示的产生一个拥塞信号 rather than as a loss; 当主机不能接收显示的信号时，RED 就派上用场了。</li>
+</ul>
+<h2 id="5-4-QOS"><a href="#5-4-QOS" class="headerlink" title="5.4 QOS"></a>5.4 QOS</h2><ul>
+<li>Reliability</li>
+<li>Delay</li>
+<li>Jitter 抖动</li>
+<li>Bandwidth</li>
+</ul>
+<p>一些应用对上述几个标准的要求：<br><img src="https://api2.mubu.com/v3/document_image/da6848db-edd8-4cf5-b0c7-e44057adaef5-16175743.jpg" alt="需求"></p>
+<h3 id="Traffic-Shaping"><a href="#Traffic-Shaping" class="headerlink" title="Traffic Shaping"></a>Traffic Shaping</h3><p>需要解决的问题：<br>主机发送的数据包是不规律的，对网络不友好，可能产生拥塞  </p>
+<p>SLA:服务等级的约定（Service Level Agreement）<br>Between the user and the subnet</p>
+<ul>
+<li>The user: traffic shaping reduces congestion and helps carrier live up to its promise</li>
+<li>The carrier: traffic policing<br>(CAR: Committed Access Rate)</li>
+</ul>
+<p>Traffic shaping：</p>
+<ul>
+<li>Regulate the average rate and burstiness of data transmission, smooth out the traffic</li>
+</ul>
+<p>Traffic Policing：</p>
+<ul>
+<li>Monitoring a traffic flow</li>
+<li>Packets in excess of the agreed pattern might be dropped or marked as having lower priority</li>
+</ul>
+<h3 id="The-Bucket-Algorithm"><a href="#The-Bucket-Algorithm" class="headerlink" title="The Bucket Algorithm"></a>The Bucket Algorithm</h3><p><img src="https://api2.mubu.com/v3/document_image/03268813-0970-46e7-ae2b-a30b2c687aeb-16175743.jpg" alt="桶"></p>
+<h4 id="leaky-bucket"><a href="#leaky-bucket" class="headerlink" title="leaky bucket"></a>leaky bucket</h4><p>桶里面攒的是数据，固定速率，<strong>平缓</strong>的发送，减少拥塞的机会。</p>
+<h4 id="token-bucket"><a href="#token-bucket" class="headerlink" title="token bucket"></a>token bucket</h4><p>桶里面攒的不是数据，而是一堆<strong>令牌</strong>。相当于是有段时间没发送，然后攒了一堆令牌，然后突然有大量数据一下来了，就可以一下子发挺多。</p>
+<p>token bucket algorithm</p>
+<p><img src="https://api2.mubu.com/v3/document_image/8015024c-8d10-4347-a49b-f8efa474b6c2-16175743.jpg" alt="几张图"><br>这个图里面，每行是一组。<br>最后一组，令牌桶的容量是0，所以就相当于是漏桶。</p>
+<p>几个关键参数：</p>
+<p>S：burst length ，单位是sec，突发时间<br>B：，单位是byte，令牌桶的容量<br>R：，byte&#x2F;sec，令牌到达的速度  </p>
+<p>最大的output速度：M ，单位是byte&#x2F;sec</p>
+<p>$$<br>   B+RS&#x3D;MS<br>$$<br>$$<br>   S&#x3D;B&#x2F;(M-R)<br>$$</p>
+<p>举个例子：<br><img src="https://api2.mubu.com/v3/document_image/cb3bfe9f-3804-4aae-9f14-b97affcc1a9a-16175743.jpg" alt="例子"></p>
+<p>另一个例子：</p>
+<p>突发速率为10Mbps的一台主机通过一个令牌桶进行流量调整。令牌桶的令牌到达速率为2Mbps，令牌桶的初始容量为8Mb。请问该主机以10Mbps速率可以传输多长时间？</p>
+<p>相当于求S<br>$$<br>   S&#x3D;B&#x2F;(M-R)&#x3D;1*8Mbits&#x2F;(10-2)&#x3D;1s<br>$$</p>
+<h4 id="Packet-Scheduling-分组调度"><a href="#Packet-Scheduling-分组调度" class="headerlink" title="Packet Scheduling  分组调度"></a>Packet Scheduling  分组调度</h4><p>简单了解即可\</p>
+<p>算法：</p>
+<ul>
+<li>FIFO，（FCFS），tail drop 先来先服务（out）</li>
+<li>RED，讲过，随机早期检测，隐式的拥塞控制，扔包。</li>
+<li>FQ:fair queue，公平队列</li>
+</ul>
+<p>Round-robin Fair Queueing</p>
+<p><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/bc9b9f80-9e04-41f0-95e4-1365c363a956-16175743.jpg">循环调度</a><br>就轮着拿包，问题在于数据包的大小不一样，包小的就吃亏了。</p>
+<p>WFQ: Weighted Fair Queueing</p>
+<p><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/ab416ed4-692e-410c-9c9c-27a10444e99d-16175743.jpg">WFQ</a></p>
+<p>还有一种叫PQ：优先级队列<br>优先级高的先发送。</p>
+<h2 id="5-5-Internetworking"><a href="#5-5-Internetworking" class="headerlink" title="5.5 Internetworking"></a>5.5 Internetworking</h2><h3 id="网络不同在哪？"><a href="#网络不同在哪？" class="headerlink" title="网络不同在哪？"></a>网络不同在哪？</h3><p><img src="https://api2.mubu.com/v3/document_image/388f7267-9836-4e76-88b9-3bdae17dd795-16175743.jpg" alt="differ"></p>
+<p>不同的网络进行互联：</p>
+<ol>
+<li>用一种设备，转换一种网络到另一种网络，适用于网络种类比较少的情况</li>
+<li>在不同网络的上面加一个层次，在这一层进行转换，是目前ip网络选择的方案<br>俩人弄的这个，搞到了图灵奖：Vinton Cerf, Robert Kahn 1974, Turing Award 2004</li>
+</ol>
+<h3 id="不同网络是如何进行互联的呢？"><a href="#不同网络是如何进行互联的呢？" class="headerlink" title="不同网络是如何进行互联的呢？"></a>不同网络是如何进行互联的呢？</h3><p><img src="https://api2.mubu.com/v3/document_image/4a8a2b46-e403-481b-9df4-3053128597b6-16175743.jpg" alt="图片"></p>
+<p>网桥&amp;路由器</p>
+<h3 id="Tunneling隧道"><a href="#Tunneling隧道" class="headerlink" title="Tunneling隧道"></a>Tunneling隧道</h3><p><img src="https://api2.mubu.com/v3/document_image/0a08d72e-f114-44cb-b22f-1b02ad0c32f6-16175743.jpg" alt="tunneling"><br>vpn就是这个道理。</p>
+<h3 id="互联网络的路由"><a href="#互联网络的路由" class="headerlink" title="互联网络的路由"></a>互联网络的路由</h3><p>路由器看作顶点，网络看作路由。<br>内部网关协议 LS,DV<br>外部网关协议 PV</p>
+<h3 id="MTU-最大传输单元"><a href="#MTU-最大传输单元" class="headerlink" title="MTU 最大传输单元"></a>MTU 最大传输单元</h3><p>maximum transmission unit</p>
+<p><img src="https://api2.mubu.com/v3/document_image/f79652c4-50fe-44da-8727-213094823a7f-16175743.jpg" alt="数据包分段"></p>
+<p>MTU是一个<strong>网络内部</strong>允许（用户）传输的最大尺寸  </p>
+<p>Fragmentation 分片</p>
+<p>来了个大的数据包我就切成小的碎片。</p>
+<ol>
+<li>透明<strong>transparent</strong>分片，网络里的透明就是看不见的意思，简单来说，透明分片就是进入一个网络的时候切片，出去的时候再组装回去。<br>但透明分片太复杂了，因为每次都得这么倒腾一回，而且每个数据包都必须到达同一个路由器出口。<br>Recombination occurs at the exit gateway (ATM)</li>
+<li>非透明<strong>nontransparent</strong>分片，避免在任何一个路由器上重新组合。每个小分段都被当做一个完整的数据包来对待，只有到了目标主机才进行组合。<br>Recombination occurs only at the destination host (IP)<br>但是这个的问题在于，任何一个碎片丢了，目的端主机就装不回去了。</li>
+</ol>
+<p>IP协议是这么干的<br><img src="https://api2.mubu.com/v3/document_image/ff4ef6ff-885e-4c17-9760-7be8a054293e-16175743.jpg" alt="IP 分组命名"><br>头的中间那个东西是一个序号标识，就代表我这一个分段里，对应到原始包里，第一个字节前面有多少字节，拿（b）举例，I字节前面有8个字节，所以写8.</p>
+<h4 id="path-MTU-discovering的策略"><a href="#path-MTU-discovering的策略" class="headerlink" title="path MTU discovering的策略"></a>path MTU discovering的策略</h4><p>就是不断尝试，找到这一条路由能发送的最大的MTU，就是向下兼容，找到最小的口。<br><img src="https://api2.mubu.com/v3/document_image/69e1313a-a225-4d94-a438-d665e72ac930-16175743.jpg" alt="path"></p>
+<h2 id="5-6-The-Network-Layer-in-the-Internet"><a href="#5-6-The-Network-Layer-in-the-Internet" class="headerlink" title="5.6 The Network Layer in the Internet"></a>5.6 The Network Layer in the Internet</h2><p>其实就是ip<br>这里谈的就是<a href="#%E7%BD%91%E7%BB%9C%E4%B8%8D%E5%90%8C%E5%9C%A8%E5%93%AA%EF%BC%9F">不同网络进行互联</a>里面的第二个</p>
+<h3 id="10大通用设计原则（RFC文档）"><a href="#10大通用设计原则（RFC文档）" class="headerlink" title="10大通用设计原则（RFC文档）"></a>10大通用设计原则（RFC文档）</h3><p>由重要到不重要<br><img src="https://api2.mubu.com/v3/document_image/0c103f9e-0077-4b76-9e77-2f34f06336c3-16175743.jpg" alt="原则"></p>
+<h3 id="IPV4协议"><a href="#IPV4协议" class="headerlink" title="IPV4协议"></a>IPV4协议</h3><p><mark>（各个字段的作用&#x2F;含义是要掌握的）</mark></p>
+<p><img src="https://api2.mubu.com/v3/document_image/28d88ffa-961e-4848-bd87-89f72c438a34-16175743.jpg" alt="字段"></p>
+<p><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/1653290130860975a.jpg">图片1</a></p>
+<p><a target="_blank" rel="noopener" href="https://api2.mubu.com/v3/document_image/7b21e493-d5e7-4a54-9235-3283a7ed1e39-16175743.jpg">图片2</a></p>
+<p>下面是一些option的功能：<br><img src="https://api2.mubu.com/v3/document_image/60a00c2e-65d7-44b2-90dd-d3d38764009b-16175743.jpg" alt="一些option"></p>
+<h3 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a>ip地址</h3><p><img src="https://api2.mubu.com/v3/document_image/b02ef65c-9295-469e-87d0-6a163a5baa76-16175743.jpg" alt="dizhi"></p>
+<p>地址分为5类，其中ABC三种是给用户设备用的，其余的是特定的地址，不是给用户用的。<br>A B C:unioncast，<br>D：分组转发，multicast<br>E: broadcast  </p>
+<p>一些特殊的地址：<br><img src="https://api2.mubu.com/v3/document_image/c391e25c-6d9d-4ec6-a2ee-6be453d5e3ef-16175743.jpg" alt="special"></p>
+<p>全0：本机地址，我不知道我自己的地址，就全写0，一段时间之后，网上的服务器会给分配一个地址<br>network 全0：本网络的地址<br>全1：<strong>本地网络</strong>的广播<br>network+全1：<strong>远程的某个网络</strong>的广播<br>127+其他的任何东西：比如127.0.0.1，指的是本机的地址。<br>查看本地的ip路由表：netstat -rn<br>还有一共ipconfig 忘了是干啥的了。<br><strong>本地的计算机还是有路由表的</strong>。</p>
+<h4 id="prefix-前缀"><a href="#prefix-前缀" class="headerlink" title="prefix:前缀"></a>prefix:前缀</h4><p>两种表示方法，表示网络号的位数</p>
+<ol>
+<li>128.208.0.0&#x2F;24 (prefix length)<br>代表前24位是网络号</li>
+<li>128.208.0.0&#x2F;255.255.255.0 (netmask)这个东西就叫掩码<br>也代表前24位是网络号，具体实现是做与运算<br><img src="https://api2.mubu.com/v3/document_image/e9ab6305-179a-4223-bf8b-e5a56a6b8e16-16175743.jpg" alt="tup "></li>
+</ol>
+<p>两种方法的对应关系：<br><img src="https://api2.mubu.com/v3/document_image/c64b92f1-7672-47cf-ac59-31551f51cfa9-16175743.jpg" alt="关系"></p>
+<h4 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h4><p>有点像指令地址的划分，但又不是平均分的。<br>它是先一分为2，然后把其中一份再一分为2…..这样，根据$log_2(需要的地址数目)向上取整$，来决定怎么划分。<br>就是一个学校有一个网络号，然后拿出几个bit来标记分给不同的院系来使用。<br><img src="https://api2.mubu.com/v3/document_image/6b64d790-7ed2-46a2-b312-2473c2000476-16175743.jpg" alt="这样的"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/3cfc998d-0a82-4d16-bf43-0377207fbfec-16175743.jpg" alt="一个例子"></p>
+<p>就有点像切西瓜这样，先切一半，然后对其中一半再切。<br>由于全0全1基本不用，所以一般可用地址的数目要-2。<br>比如 8位，$2^8$个不同的数，但是只有$2^8-2$个有效地址。<br>然后可用的地址范围，拿这道题里面的LAN1来说，写1~95是不对的，因为划分范围是7位数的地址，满足大于95，它不一定是连续的，可以这一个用了，下一个不用这样，地址范围是$2^7-2$，然后写可用范围就是</p>
+<p>$$<br>   192.168.1.1~192.168.1.126<br>$$</p>
+<h4 id="CIDR——无类域间路由（子网划分的逆）"><a href="#CIDR——无类域间路由（子网划分的逆）" class="headerlink" title="CIDR——无类域间路由（子网划分的逆）"></a>CIDR——无类域间路由（子网划分的逆）</h4><p>Route aggregation：路由聚合</p>
+<p>多条路由汇聚成一条路由，跟子网划分是完全相反的一个过程。使得路由表长度减少。</p>
+<p>而且还比子网划分要简单，就找出来这几个路由的前面多少位是一样的就行了（</p>
+<p><img src="https://api2.mubu.com/v3/document_image/d286b872-4f74-4321-a90b-5ae139cce7bf-16175743.jpg" alt="聚合"></p>
+<p>但是一个问题是，右边的那几个地址没完全用完，如果不幸出现了下图状况：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/821de0b4-2ab4-4747-9b64-55b16c4dc506-16175743.jpg" alt="状况"></p>
+<p>就本来应该去san francisco 的就被发到lodon去了。<br>所以路由器匹配的一个基本原则就是<font color=red>“Longest matching prefix routing”</font>最长前缀匹配原则。</p>
+<h3 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h3><p>一个array包括[IP address, netmask, outgoing line, Next hop]</p>
+<p>扫描路由表：</p>
+<ol>
+<li>netmask 掩码和目的地址做与运算，然后到表里匹配。</li>
+<li>很可能多个都匹配，原则是最长匹配（longest mask）</li>
+</ol>
+<p>09年一个题<br><img src="https://api2.mubu.com/v3/document_image/47634218-05fb-4475-a67d-a1fb3917824b-16175743.jpg" alt="09年一个题"></p>
+<p>根据已知路由表进行路由选择：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/79b358f5-fe0d-4082-8ba5-74821d3c3da7-16175743.jpg" alt="route选择"></p>
+<h2 id="NAT-Network-address-translation"><a href="#NAT-Network-address-translation" class="headerlink" title="NAT(Network address translation)"></a>NAT(Network address translation)</h2><p>是为了解决ip地址不够用的速战速决的一个临时方法。<br><img src="https://api2.mubu.com/v3/document_image/a078a0c3-e306-4e19-a1c2-2825627247e5-16175743.jpg" alt="nat"><br><img src="https://api2.mubu.com/v3/document_image/a72a44f2-47f8-4492-89a6-45fd94fcc32f-16175743.jpg" alt="nat2"></p>
+<h2 id="IPV6"><a href="#IPV6" class="headerlink" title="IPV6"></a>IPV6</h2><p>128位地址，换算成16字节，可以说是永远用不完了。<br>IPV6的固定头：<br><img src="https://api2.mubu.com/v3/document_image/27efd199-d436-4582-923c-987f0cb77fa0-16175743.jpg" alt="ipv6头"><br><img src="https://api2.mubu.com/v3/document_image/53dd55cf-ad4a-4d45-9329-4ef1112ca503-16175743.jpg" alt="头"><br><img src="https://api2.mubu.com/v3/document_image/9039cc76-2ef8-4701-bd80-1027aa81a849-16175743.jpg" alt="解释"></p>
+<p>没有checksum字段了。没有protocol字段了。<br><img src="https://api2.mubu.com/v3/document_image/20074302-05da-4145-8c74-0e28b8cdf64a-16175743.jpg" alt=" "><br>虽然头部精简了很多，但是地址太长了。<br>IPV6还有扩展头，ppt134<br><img src="https://api2.mubu.com/v3/document_image/0c153a46-407e-42c9-bba0-f097b30a8243-16175743.jpg" alt="这样"></p>
+<p>IPV6的地址：<br>IPV4是点分16进制，IPV6叫冒分16进制表示法，两个字节一组，分8组。<br><img src="https://api2.mubu.com/v3/document_image/6aa3c2ea-4013-4c3a-9403-18319c9b0003-16175743.jpg" alt="j"><br>下面是3种简化的表示方法。<br>最后那个是v4地址转换成v6地址的方法，前面全0</p>
+<h2 id="Internet-控制协议"><a href="#Internet-控制协议" class="headerlink" title="Internet 控制协议"></a>Internet 控制协议</h2><h3 id="ICMP-Internet-Control-Message-Protocol"><a href="#ICMP-Internet-Control-Message-Protocol" class="headerlink" title="ICMP (Internet Control Message Protocol)"></a>ICMP (Internet Control Message Protocol)</h3><p>互联网控制消息协议<br>封装在IP packet里面<br>当路由器处理一个数据报出现了意外，可以通过ICMP向源端报告有关事件<br><img src="https://api2.mubu.com/v3/document_image/8089eea0-c411-4589-92d1-39a33fd3aeb8-16175743.jpg" alt="1"></p>
+<p>这里的回显ECHO和回显应答其实就是ping。所以ping是通过ICMP工作的。</p>
+<p>关于Trace route<br><img src="https://api2.mubu.com/v3/document_image/abce1be7-0bb5-4de3-9d8d-1f240fd860e0-16175743.jpg" alt=" "></p>
+<h3 id="ARP-Address-Resolution-Protocol"><a href="#ARP-Address-Resolution-Protocol" class="headerlink" title="ARP Address Resolution Protocol"></a>ARP Address Resolution Protocol</h3><p>地址解析协议<br>需要ARP的原因：<br><img src="https://api2.mubu.com/v3/document_image/4249195d-368f-41c1-9a72-3a3fcd60947c-16175743.jpg" alt=" "><br><img src="https://api2.mubu.com/v3/document_image/f5e07ad5-bee0-47ad-a1fa-537acda58cc6-16175743.jpg" alt=" "><br>路由表，直接交付与间接交付<br><img src="https://api2.mubu.com/v3/document_image/8f880e18-934d-44f5-b105-3e95b9d3a568-16175743.jpg" alt=" "><br>这里是IPi是ip地址，Ei是mac地址<br><img src="https://api2.mubu.com/v3/document_image/4249195d-368f-41c1-9a72-3a3fcd60947c-16175743.jpg" alt=" "><br><img src="https://api2.mubu.com/v3/document_image/f5e07ad5-bee0-47ad-a1fa-537acda58cc6-16175743.jpg" alt=" "></p>
+<p>一个形象的例子：<br><img src="https://api2.mubu.com/v3/document_image/07bb0e82-b88b-4daa-b258-8a5f8c90d867-16175743.jpg" alt=" "></p>
+<p>一些优化：</p>
+<p>找到目的地址之后还会放在缓存里保存一段时间。设置超时时间或者让每台新加入的机器广播他的映射关系。<br><img src="https://api2.mubu.com/v3/document_image/00b95e76-e204-46e2-8c2a-764cff369ea0-16175743.jpg" alt=" "></p>
+<p>ARP 代理：<br><img src="https://api2.mubu.com/v3/document_image/0bdb802d-a7b2-47a3-9d6b-b9d318e188c6-16175743.jpg" alt=" "><br>这个是为了解决早期一些机器的网络掩码不能改变，导致的问题</p>
+<h3 id="DHCP-Dynamic-Host-Configuration-Protocol"><a href="#DHCP-Dynamic-Host-Configuration-Protocol" class="headerlink" title="DHCP (Dynamic Host Configuration Protocol)"></a>DHCP (Dynamic Host Configuration Protocol)</h3><p>动态主机配置协议</p>
+<p>差不多是完成主机配置初始化这样一个工作，然后是自动完成的。<br><img src="https://api2.mubu.com/v3/document_image/30e67667-1f96-445d-9989-6d911d14d8e9-16175743.jpg" alt=" "><br>关键词：计算机初始接入网络没有IP地址，广播DISCOVER 报文，DHCP 转播助手(relay agent) ，DHCP服务器，IP租赁</p>
+<h2 id="OSPF-Open-Shortest-Path-First"><a href="#OSPF-Open-Shortest-Path-First" class="headerlink" title="OSPF (Open Shortest Path First)"></a>OSPF (Open Shortest Path First)</h2><p>开放最短路径优先，是一个普遍使用的 域内路由算法&#x2F;内部网关路由协议 （interior gateway protocol），开放指的是开源。<br><img src="https://api2.mubu.com/v3/document_image/fbf276a7-4c13-4c5b-a85e-18335637e893-16175743.jpg" alt=" "><br>AS（autonomous system）独立网络&#x2F;自治系统</p>
+<p>这个图上的(a)给出的就是一个AS<br><img src="https://api2.mubu.com/v3/document_image/ab361f2a-2394-4bbc-9c6a-50279c14186f-16175743.jpg" alt=" "></p>
+<p>这个图中LAN是虚拟的节点，是从周边的三个路由器中抽象出来的。<br>工作方式：<br><img src="https://api2.mubu.com/v3/document_image/e4de1067-f5cb-4e4a-a411-6c3c56e15ce5-16175743.jpg" alt=" "></p>
+<p>由于OSPF对于规模比较大的网络效率极低，所以需要对区域进行划分。<br><img src="https://api2.mubu.com/v3/document_image/38e72c93-d6f5-4edf-9894-7b034f6afc09-16175743.jpg" alt=" "></p>
+<p>OSPF Routers<br><img src="https://api2.mubu.com/v3/document_image/9ec2ad49-1d73-4364-8386-3ee80fc4ad8e-16175743.jpg" alt=" "></p>
+<p>5 Types of OSPF Messages</p>
+<p>OSPF是使用IP报文承载传送的，IP是不可靠的，尽力而为的报文，丢了就丢了，所以OSPF需要自己确认。RIP（路由信息协议，好像是那个会计数到无穷的）采用的是UDP数据，是不可靠的。<br><img src="https://api2.mubu.com/v3/document_image/8ab8781b-bc60-4246-9eef-d384fa1cdaf5-16175743.jpg" alt=" "><br><img src="https://api2.mubu.com/v3/document_image/199cdcda-15ba-4c32-835d-ac40e73029fe-16175743.jpg" alt=" "></p>
+<h2 id="BGP-Border-Gateway-Protocol"><a href="#BGP-Border-Gateway-Protocol" class="headerlink" title="BGP (Border Gateway Protocol)"></a>BGP (Border Gateway Protocol)</h2><p>边界网关协议，是一种外部网关路由协议，或者说是域间路由算法<br>底层是TCP connection  </p>
+<p><img src="https://api2.mubu.com/v3/document_image/64253129-478e-489c-a862-1aa532c7dc04-16175743.jpg" alt=" "><br><img src="https://api2.mubu.com/v3/document_image/3dc13f1c-4fb4-4f21-a230-b38fd817604a-16175743.jpg" alt=" "></p>
+<h2 id="word-table"><a href="#word-table" class="headerlink" title="word table"></a>word table</h2><blockquote>
+<p>Datagram n.【电脑】数据电报<br> optimality 最优性<br> optimal 最理想的，最佳的<br> adaptive a.适应的，适合的<br> estimate 估计，估价，判断，看法<br> datagram 数据报文<br> anew 重新，再<br> virtual circuits 虚拟电路<br> contradict v.矛盾，抵触<br> metric 公制的，米制的，度量标准<br> artificial adj. 人造的, 人工的, 假的<br> duplicate n. 完全一样的东西, 复制品adj. 完全一样的, 复制的<br> obsolete adj. 老式的；废弃的<br> router down：路由器关闭了，再重启可能造成版本低<br> Refinements n. 精致, 高尚, 精巧<br> <strong>Hierarchical</strong> adj. 分等级的，分层次的<br> Congestion 拥挤，拥塞<br> preventive adj. 预防的,防止的<br> reactive adj. 反应的<br> leaky adj. 漏的；有漏洞的<br> imminent adj. 迫近的；即将来临的<br> throttle 节流n&amp;v<br> utilization n. 利用<br> jitter 抖动<br> Round-robin 循环调度<br> flat 平坦的，平的<br> prefix 前缀<br> circumstances 情况，条件<br> out of order 次序颠倒，无次序的<br> hypothesis 假说，假设<br> hierarchy n. 等级制度<br> clusters 丛，簇<br> vicinity 临近，附近<br> consecutive a.连续的<br> aggregate vt. 总计达…vt. &amp; vi. (使)聚集<br> <mark>NIC</mark> 网卡 Network Interface Card<br> <mark>ISP</mark>一般指网络业务提供商 Internet Service Provider</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/mine.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/诀别书.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/七年了，他还是走不出来.mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/《溯 Reverse》.mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/《託された想い (被寄托的思念)—増田俊郎》.mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】《所念皆星河 》.mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】陈奕迅《富士山下》.mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】花之舞 《Flower Dance》.mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/【钢琴】周杰伦《反方向的钟》.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/【钢琴】周杰伦《青花瓷》.mp3"></li>
+                        
+                    
+                        
+                            <li title="11" data-url="/music/I Really Like You.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1%E7%BD%91%E7%BB%9C%E5%B1%82%E8%AE%BE%E8%AE%A1%E9%97%AE%E9%A2%98"><span class="toc-text">5.1网络层设计问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">5.2路由算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95%E7%9A%84%E8%81%8C%E8%B4%A3"><span class="toc-text">路由算法的职责</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="toc-text">路由算法的目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">路由算法的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E5%8C%96%E5%8E%9F%E5%88%99"><span class="toc-text">最优化原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sink-tree"><span class="toc-text">sink tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E8%B7%AF%E7%94%B1%EF%BC%88Shortest-Path-Router%EF%BC%89"><span class="toc-text">最短路径路由（Shortest Path Router）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flooding-%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="toc-text">Flooding 路由算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Distance-Vector-Routing%EF%BC%9ADV%E7%AE%97%E6%B3%95"><span class="toc-text">Distance Vector Routing：DV算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Link-State-Routing-%EF%BC%9ALS%E7%AE%97%E6%B3%95"><span class="toc-text">Link State Routing ：LS算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E9%82%BB%E5%B1%85%E9%82%A3%E9%87%8C%E5%AD%A6%E4%B8%80%E4%BA%9B%E4%BF%A1%E6%81%AF"><span class="toc-text">从邻居那里学一些信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Artificial-Node"><span class="toc-text">Artificial Node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-Link-Cost"><span class="toc-text">设置 Link Cost</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-text">构造链路状态数据包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%8F%91LSP"><span class="toc-text">分发LSP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ELSP"><span class="toc-text">关于LSP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LSP-flooding-%E7%AE%97%E6%B3%95%E7%9A%84%E7%B2%BE%E5%B7%A7-x2F-%E6%94%B9%E8%BF%9B%E4%B9%8B%E5%A4%84"><span class="toc-text">LSP flooding 算法的精巧&#x2F;改进之处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B0%E7%9A%84Route"><span class="toc-text">计算新的Route</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LSR%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">LSR的例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hierarchical-Routing-%E5%88%86%E5%B1%82%E6%AC%A1%E7%9A%84%E8%B7%AF%E7%94%B1"><span class="toc-text">Hierarchical Routing 分层次的路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-Congestion-Control-%E7%AE%97%E6%B3%95"><span class="toc-text">5.3 Congestion Control 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E5%92%8C%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">拥塞控制和流量控制的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">拥塞控制的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Traffic-aware-Routing"><span class="toc-text">Traffic-aware Routing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Admission-Control-%E5%87%86%E5%85%A5%E6%8E%A7%E5%88%B6"><span class="toc-text">Admission Control 准入控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Traffic-Throttling-%E6%B5%81%E9%87%8F%E9%99%90%E5%88%B6"><span class="toc-text">Traffic Throttling 流量限制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Choke-packets-%E6%8A%91%E5%88%B6%E5%88%86%E7%BB%84"><span class="toc-text">Choke packets 抑制分组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ECN%EF%BC%88Explicit-Congestion-Notification%EF%BC%89"><span class="toc-text">ECN（Explicit Congestion Notification）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E7%9A%84%E6%8B%A5%E5%A1%9E%E9%80%9A%E7%9F%A5"><span class="toc-text">隐式的拥塞通知</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hop-by-Hop-Choke-Packets"><span class="toc-text">Hop-by-Hop Choke Packets</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Loading-Shedding"><span class="toc-text">Loading Shedding</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-QOS"><span class="toc-text">5.4 QOS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Traffic-Shaping"><span class="toc-text">Traffic Shaping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Bucket-Algorithm"><span class="toc-text">The Bucket Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#leaky-bucket"><span class="toc-text">leaky bucket</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#token-bucket"><span class="toc-text">token bucket</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Packet-Scheduling-%E5%88%86%E7%BB%84%E8%B0%83%E5%BA%A6"><span class="toc-text">Packet Scheduling  分组调度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-Internetworking"><span class="toc-text">5.5 Internetworking</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E4%B8%8D%E5%90%8C%E5%9C%A8%E5%93%AA%EF%BC%9F"><span class="toc-text">网络不同在哪？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%92%E8%81%94%E7%9A%84%E5%91%A2%EF%BC%9F"><span class="toc-text">不同网络是如何进行互联的呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tunneling%E9%9A%A7%E9%81%93"><span class="toc-text">Tunneling隧道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%9C%E7%9A%84%E8%B7%AF%E7%94%B1"><span class="toc-text">互联网络的路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MTU-%E6%9C%80%E5%A4%A7%E4%BC%A0%E8%BE%93%E5%8D%95%E5%85%83"><span class="toc-text">MTU 最大传输单元</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#path-MTU-discovering%E7%9A%84%E7%AD%96%E7%95%A5"><span class="toc-text">path MTU discovering的策略</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-The-Network-Layer-in-the-Internet"><span class="toc-text">5.6 The Network Layer in the Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E5%A4%A7%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%EF%BC%88RFC%E6%96%87%E6%A1%A3%EF%BC%89"><span class="toc-text">10大通用设计原则（RFC文档）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPV4%E5%8D%8F%E8%AE%AE"><span class="toc-text">IPV4协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ip%E5%9C%B0%E5%9D%80"><span class="toc-text">ip地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#prefix-%E5%89%8D%E7%BC%80"><span class="toc-text">prefix:前缀</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="toc-text">子网划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CIDR%E2%80%94%E2%80%94%E6%97%A0%E7%B1%BB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1%EF%BC%88%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%E7%9A%84%E9%80%86%EF%BC%89"><span class="toc-text">CIDR——无类域间路由（子网划分的逆）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">路由表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT-Network-address-translation"><span class="toc-text">NAT(Network address translation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPV6"><span class="toc-text">IPV6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet-%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE"><span class="toc-text">Internet 控制协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMP-Internet-Control-Message-Protocol"><span class="toc-text">ICMP (Internet Control Message Protocol)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-Address-Resolution-Protocol"><span class="toc-text">ARP Address Resolution Protocol</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DHCP-Dynamic-Host-Configuration-Protocol"><span class="toc-text">DHCP (Dynamic Host Configuration Protocol)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF-Open-Shortest-Path-First"><span class="toc-text">OSPF (Open Shortest Path First)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BGP-Border-Gateway-Protocol"><span class="toc-text">BGP (Border Gateway Protocol)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#word-table"><span class="toc-text">word table</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>
