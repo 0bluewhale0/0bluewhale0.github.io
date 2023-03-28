@@ -1,3 +1,9 @@
+<!--
+ * @Date: 2023-03-05 08:54:48
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 11:35:58
+ * @FilePath: \myTeste:\Study\HexoBlog\blog\themes\landscape\layout\_partial\article.ejs
+-->
 <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
   <div class="article-meta">
     <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
@@ -11,14 +17,16 @@
       </header>
     <% } %>
     <div class="article-entry" itemprop="articleBody">
-      <% if (post.excerpt && index){ %>
+      <% if (post.excerpt && index){ %>    <!--01-->
         <%- post.excerpt %>
         <% if (theme.excerpt_link){ %>
           <p class="article-more-link">
             <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
           </p>
         <% } %>
-      <% } else { %>
+      <% } else { if (post.toc !== false) {%>   <!--02-->
+        <%- partial('post/toc') %>
+      <% } %>
         <%- post.content %>
       <% } %>
     </div>

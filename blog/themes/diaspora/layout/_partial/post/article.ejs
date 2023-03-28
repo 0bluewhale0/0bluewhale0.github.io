@@ -1,3 +1,9 @@
+<!--
+ * @Date: 2023-03-05 08:54:47
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 16:23:49
+ * @FilePath: \diaspora\layout\_partial\post\article.ejs
+-->
 <div class="article">
     <div class='main'>
         <h1 class="title"><%- page.title %></h1>
@@ -5,6 +11,7 @@
             <span><%- page.date.locale("zh-cn").format("MMMM DD, YYYY") %></span>
             <%- partial('_partial/post/tag', {post: page}) %>
         </div>
+        
         <div class="content markdown">
             <%- page.content %>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
@@ -27,7 +34,7 @@
     </div>
     <% if (theme.TOC == true){ %>
         <div class="side">
-			<%- toc(page.content, {list_number: true}) %>	
+			<%- toc(page.content, {list_number: false}) %>	
         </div>
     <%}%>
 </div>
