@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>并行计算笔记 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,第一章 并行计算概述1. 什么是并行计算2. 并行问题与并行计算模型BSP模型 是整体同步并行计算模型适用用于初学者整体程序分为大的几个同步模块，每个模块里面尝试并行每个模块里面要干的事情就是 局部,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="并行计算笔记 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,第一章 并行计算概述1. 什么是并行计算2. 并行问题与并行计算模型BSP模型 是整体同步并行计算模型适用用于初学者整体程序分为大的几个同步模块，每个模块里面尝试并行每个模块里面要干的事情就是 局部,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="并行计算笔记 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,第一章 并行计算概述1. 什么是并行计算2. 并行问题与并行计算模型BSP模型 是整体同步并行计算模型适用用于初学者整体程序分为大的几个同步模块，每个模块里面尝试并行每个模块里面要干的事情就是 局部,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">并行计算笔记</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <!--
+ * @Date: 2023-03-05 08:54:47
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 16:23:49
+ * @FilePath: \diaspora\layout\_partial\post\article.ejs
+-->
+<div class="article">
+    <div class='main'>
+        <h1 class="title">并行计算笔记</h1>
+        <div class="stuff">
+            <span>二月 27, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E4%B8%8ECUDA%E7%BC%96%E7%A8%8B/" rel="tag">并行计算与CUDA编程</a></li></ul>
+
+
+        </div>
+        
+        <div class="content markdown">
+            <h2 id="第一章-并行计算概述"><a href="#第一章-并行计算概述" class="headerlink" title="第一章 并行计算概述"></a>第一章 并行计算概述</h2><h3 id="1-什么是并行计算"><a href="#1-什么是并行计算" class="headerlink" title="1. 什么是并行计算"></a>1. 什么是并行计算</h3><h3 id="2-并行问题与并行计算模型"><a href="#2-并行问题与并行计算模型" class="headerlink" title="2. 并行问题与并行计算模型"></a>2. 并行问题与并行计算模型</h3><p>BSP模型 是整体同步并行计算模型<br>适用用于初学者<br>整体程序分为大的几个同步模块，每个模块里面尝试并行<br>每个模块里面要干的事情就是 局部计算，通信和同步</p>
+<blockquote>
+<p>补充：编程分为哪三个部分？<br>输入 计算 输出</p>
+</blockquote>
+<h3 id="并行编程模型"><a href="#并行编程模型" class="headerlink" title="并行编程模型"></a>并行编程模型</h3><ul>
+<li>共享存储模型</li>
+<li>线程模型</li>
+<li>消息传递模型</li>
+<li>数据并行模型</li>
+</ul>
+<h4 id="常见的并行编程模型-x2F-语言"><a href="#常见的并行编程模型-x2F-语言" class="headerlink" title="常见的并行编程模型&#x2F;语言"></a>常见的并行编程模型&#x2F;语言</h4><ul>
+<li>消息传递以及MPI</li>
+<li>OpenMP</li>
+<li>分区全局地址空间（Partitioned Global Address space <strong>PGAS</strong>），是把上面俩的好处结合起来了</li>
+</ul>
+<h3 id="什么是CUDA"><a href="#什么是CUDA" class="headerlink" title="什么是CUDA"></a>什么是CUDA</h3><p>CUDA: Compute Unified Device Architecture(计算统一设备架构)<br><img src="https://api2.mubu.com/v3/document_image/71835e52-d0ab-44dc-a707-7955e9737816-16175743.jpg" alt="2"><br>大多数的开发者，用的是Cuda Runtime的API<br>CUDA Libraries 又叫CUDAx，是为了满足各行各业的加速需求出现的更简单的封装接口</p>
+<h3 id="设计并行处理程序和系统"><a href="#设计并行处理程序和系统" class="headerlink" title="设计并行处理程序和系统"></a>设计并行处理程序和系统</h3><ul>
+<li>自动和手动并行</li>
+<li>理解问题和陈鼓型</li>
+<li>分块分割</li>
+<li>通信</li>
+<li>同步</li>
+<li>数据依赖</li>
+<li>负载均衡</li>
+<li>粒度</li>
+<li>I&#x2F;O</li>
+<li>成本</li>
+<li>性能分析和优化</li>
+</ul>
+<h3 id="本机GPU"><a href="#本机GPU" class="headerlink" title="本机GPU"></a>本机GPU</h3><p>NVIDIA GeForce RTX 3060 Laptop GPU<br><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/geforce/laptops/30-series/#geforce-now">官网详细信息</a></p>
+<p><img src="https://api2.mubu.com/v3/document_image/5da16b1d-69c4-4e70-a58a-04bd44e07a13-16175743.jpg" alt="2"></p>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><h3 id="CPU与GPU之间的数据传输"><a href="#CPU与GPU之间的数据传输" class="headerlink" title="CPU与GPU之间的数据传输"></a>CPU与GPU之间的数据传输</h3><p>cudaMalloc<br>该函数从设备内存中分配size字节的空间地址给devPtr。传递的时候要将devPtr的地址传递进去</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cudaError_t <span class="title function_">cudaMalloc</span><span class="params">(<span class="type">void</span> ** devPtr, <span class="type">size_t</span> size)</span>;</span><br><span class="line">返回值有两种可能：cudaSuccess和cudaErrorMemoryAllocation</span><br></pre></td></tr></table></figure>
+<p>cudaMallocHost() or cudaHostAlloc()<br>分配主机内存，这些内存是锁页的，可以被设备访问。<br>驱动程序跟踪用这个函数分配的虚拟内存范围，并自动加速对cudaMemcpy*()等函数的调用。<br>用于数据交换，或CPU与GPU之间的通讯。</p>
+<blockquote>
+<p>用cudaMallocHost()分配过多的内存可能会降低系统性<br>能，因为它减少了系统可用于分页的内存量</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__host__ cudaError_t <span class="title function_">cudaMallocHost</span> <span class="params">( <span class="type">void</span>** ptr, <span class="type">size_t</span> size )</span></span><br><span class="line">__host__ cudaError_t <span class="title function_">cudaHostAlloc</span> <span class="params">( <span class="type">void</span>** pHost, <span class="type">size_t</span> size, <span class="type">unsigned</span> <span class="type">int</span> flags</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://api2.mubu.com/v3/document_image/d955605c-553c-43d7-99ed-50222b3d0ee3-16175743.jpg"></p>
+<p>cudaMemcpy()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__host__ cudaError_t <span class="title function_">cudaMemcpy</span> <span class="params">( <span class="type">void</span>* dst, <span class="type">const</span> <span class="type">void</span>* src, <span class="type">size_t</span> count, cudaMemcpyKind kind )</span></span><br></pre></td></tr></table></figure>
+
+<p>dst – 目的内存地址 src – 源内存地址<br>count – 拷贝的大小，单位为字节<br>kind – 传输的类型。指定了拷贝的方向，取值如下： cudaMemcpyHostToHost, cudaMemcpyHostToDevice, cudaMemcpyDeviceToHost, cudaMemcpyDeviceToDevice, or cudaMemcpyDefaut</p>
+<p>推荐使用cudaMemcpyDefault, 这种情况下，传输的类型由指针的取值推测处理。</p>
+<p>cudaMemcpyToSymbol()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">__host__cudaError_t <span class="title function_">cudaMemorycpyToSymbol</span><span class="params">(<span class="type">const</span> T&amp; symbol,<span class="type">const</span> coid*src,<span class="type">size_t</span> count,<span class="type">size_t</span> offset = <span class="number">0</span>,cudaMemcpyKind kind = cudaMemcpyHostToDevice)</span></span><br></pre></td></tr></table></figure>
+
+<p>kind 取值可能为udaMemcpyHostToDevice, cudaMemcpyDeviceToDevice, or udaMemcpyDefault.<br>将src指向的内存区域的计数字节，复制到符号symbol开始的偏移字节所指向的内存区域。这些内存区域不能重叠（在DeviceToDevice时）。<br>symbol是一个<strong>驻留在设备全局或设备常量内存</strong>空间中的变量。</p>
+<p>cudaMemcpyFromSymbol()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">template &lt; <span class="class"><span class="keyword">class</span> <span class="title">T</span> &gt;</span></span><br><span class="line">__host__cudaError_t <span class="title function_">cudaMemcpyFromSymbol</span> <span class="params">( <span class="type">void</span>* dst, <span class="type">const</span> T&amp; symbol, <span class="type">size_t</span> count, <span class="type">size_t</span> offset = <span class="number">0</span>, cudaMemcpyKind kind = cudaMemcpyDeviceToHost )</span> </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="type">const</span> <span class="type">unsigned</span> <span class="type">int</span> N = <span class="number">1048576</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">unsigned</span> <span class="type">int</span> bytes = N * <span class="keyword">sizeof</span>(<span class="type">int</span>);</span><br><span class="line"><span class="type">int</span> *h_a = (<span class="type">int</span>*)<span class="built_in">malloc</span>(bytes);</span><br><span class="line"><span class="type">int</span> *d_a;</span><br><span class="line"><span class="comment">//可分页内存；</span></span><br><span class="line">cudaMalloc((<span class="type">int</span>**)&amp;d_a, bytes);</span><br><span class="line"><span class="built_in">memset</span>(h_a, <span class="number">0</span>, bytes);</span><br><span class="line"><span class="comment">//通用的CPU与GPU之间的数据传输。</span></span><br><span class="line">cudaMemcpy(d_a, h_a, bytes, cudaMemcpyHostToDevice);</span><br><span class="line">cudaMemcpy(h_a, d_a, bytes, cudaMemcpyDeviceToHost); </span><br><span class="line"><span class="comment">//这个还有一个好处，就是不用同步时钟了，通过这两步拷贝就可以保证同步。</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/mine.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/诀别书.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/七年了，他还是走不出来.mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/《溯 Reverse》.mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/《託された想い (被寄托的思念)—増田俊郎》.mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】《所念皆星河 》.mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】陈奕迅《富士山下》.mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】花之舞 《Flower Dance》.mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/【钢琴】周杰伦《反方向的钟》.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/【钢琴】周杰伦《青花瓷》.mp3"></li>
+                        
+                    
+                        
+                            <li title="11" data-url="/music/I Really Like You.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0"><span class="toc-text">第一章 并行计算概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97"><span class="toc-text">1. 什么是并行计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98%E4%B8%8E%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B"><span class="toc-text">2. 并行问题与并行计算模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">并行编程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B-x2F-%E8%AF%AD%E8%A8%80"><span class="toc-text">常见的并行编程模型&#x2F;语言</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFCUDA"><span class="toc-text">什么是CUDA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E5%92%8C%E7%B3%BB%E7%BB%9F"><span class="toc-text">设计并行处理程序和系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E6%9C%BAGPU"><span class="toc-text">本机GPU</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="toc-text">第二章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU%E4%B8%8EGPU%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="toc-text">CPU与GPU之间的数据传输</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>
