@@ -4237,7 +4237,7 @@
 <p>linux文件系统最有意思的是<strong>目录表也作为一个文件来管理</strong>，存于“文件<br>存储区”中，有其自己的i节点和数据存储块。</p>
 <p>目录和i节点的存储结构如下</p>
 <p><img src="https://api2.mubu.com/v3/document_image/eb0e05c8-271f-4c08-b82c-9ec4ab7e9df1-16175743.jpg" alt="i"></p>
-<h2 id="软连接和硬链接"><a href="#软连接和硬链接" class="headerlink" title="软连接和硬链接"></a>软连接和硬链接</h2><p>每个目录项指定的“文件名-i节点号”映射关系，叫做1个<strong>硬连接</strong><br>不允许对目录用ln命令建立硬连接<br>一般来说， $目录的link数&#x3D;直属子目录数+2$<br><img src="https://api2.mubu.com/v3/document_image/d7d2b329-28f6-4170-bdc5-faaa25db4fc9-16175743.jpg" alt="yinglianjie"></p>
+<h3 id="软连接和硬链接"><a href="#软连接和硬链接" class="headerlink" title="软连接和硬链接"></a>软连接和硬链接</h3><p>每个目录项指定的“文件名-i节点号”映射关系，叫做1个<strong>硬连接</strong><br>不允许对目录用ln命令建立硬连接<br>一般来说， $目录的link数&#x3D;直属子目录数+2$<br><img src="https://api2.mubu.com/v3/document_image/d7d2b329-28f6-4170-bdc5-faaa25db4fc9-16175743.jpg" alt="yinglianjie"></p>
 <p>符号连接也叫软连接 （不同文件系统间连接文件）<br>用特殊文件“符号连接文件”来实现<br>文件中仅包括了一个路径名</p>
 <p><img src="https://api2.mubu.com/v3/document_image/848ab5d5-cebe-4ea6-8376-8118fee83e0e-16175743.jpg" alt="软链接"><br>命令stat：读取i节点信息<br>命令ln -s</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln -s users_on sym.link</span><br></pre></td></tr></table></figure>
@@ -4246,9 +4246,7 @@
 <p>符号链接中的相对路径:若符号连接含相对路径名，是相对于符号链接文件<br>的位置(不是相对于调用进程的当前工作目录)</p>
 <p><img src="https://api2.mubu.com/v3/document_image/5e9dbd9b-c325-45a0-a309-fd945536cf16-16175743.jpg" alt="location"></p>
 <p>软硬连接的区别：是否有独立的i节点</p>
-<blockquote>
 <p>硬连接与符号连接的比较<br>硬连接</p>
-</blockquote>
 <ul>
 <li>在数据结构层次上实现</li>
 <li>只适用于文件，不适用于目录</li>
