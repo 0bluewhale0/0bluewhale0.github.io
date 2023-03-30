@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>交换原理三、四章 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,chapter3-电话交换侧音：打电话时候能听到自己的声音
+脉冲拨号方式：三个参数
+
+脉冲速度：表示拨号盘每秒钟发生的脉冲个数
+脉冲断续比：在一个脉冲周期里，断开电流时间和接通点六世纪之比
+位间隔：,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="交换原理三、四章 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,chapter3-电话交换侧音：打电话时候能听到自己的声音
+脉冲拨号方式：三个参数
+
+脉冲速度：表示拨号盘每秒钟发生的脉冲个数
+脉冲断续比：在一个脉冲周期里，断开电流时间和接通点六世纪之比
+位间隔：,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="交换原理三、四章 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,chapter3-电话交换侧音：打电话时候能听到自己的声音
+脉冲拨号方式：三个参数
+
+脉冲速度：表示拨号盘每秒钟发生的脉冲个数
+脉冲断续比：在一个脉冲周期里，断开电流时间和接通点六世纪之比
+位间隔：,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">交换原理三、四章</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <!--
+ * @Date: 2023-03-05 08:54:47
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 16:23:49
+ * @FilePath: \diaspora\layout\_partial\post\article.ejs
+-->
+<div class="article">
+    <div class='main'>
+        <h1 class="title">交换原理三、四章</h1>
+        <div class="stuff">
+            <span>三月 22, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" rel="tag">交换原理</a></li></ul>
+
+
+        </div>
+        
+        <div class="content markdown">
+            <h2 id="chapter3-电话交换"><a href="#chapter3-电话交换" class="headerlink" title="chapter3-电话交换"></a>chapter3-电话交换</h2><p>侧音：打电话时候能听到自己的声音</p>
+<p>脉冲拨号方式：三个参数</p>
+<ul>
+<li>脉冲速度：表示拨号盘每秒钟发生的脉冲个数</li>
+<li>脉冲断续比：在一个脉冲周期里，断开电流时间和接通点六世纪之比</li>
+<li>位间隔：&gt;&#x3D;350ms</li>
+</ul>
+<p>DTMF拨号方式：<br>拨号集成器发出的是双音频指令</p>
+<h3 id="3-2程控数字交换机的结构"><a href="#3-2程控数字交换机的结构" class="headerlink" title="3.2程控数字交换机的结构"></a>3.2程控数字交换机的结构</h3><p><img src="https://api2.mubu.com/v3/document_image/352a3dc4-5876-4609-8cd2-525c5c16fd2c-16175743.jpg" alt="2"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/01a50489-ea3e-4400-8052-a1715f707401-16175743.jpg" alt="2"></p>
+<p>结构树：</p>
+<p>数字程控电话交换系统</p>
+<ul>
+<li>话路子系统<ul>
+<li>接口设备<ul>
+<li>模拟用户电路 BORSCHT</li>
+<li>数字中继器 <font size=1>码型变换，帧同步，再定时，时钟提取，信令插入</font></li>
+<li>信令设备<font size=1>音信号发生器，DTMF接收器</font></li>
+</ul>
+</li>
+<li>交换网络TST</li>
+</ul>
+</li>
+<li>控制子系统<ul>
+<li>CPU与存储器</li>
+<li>外部设备</li>
+<li>远程端口</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3接口设备"><a href="#3-3接口设备" class="headerlink" title="3.3接口设备"></a>3.3接口设备</h3><h4 id="数字程控交换机的接口类型"><a href="#数字程控交换机的接口类型" class="headerlink" title="数字程控交换机的接口类型"></a>数字程控交换机的接口类型</h4><h4 id="用户电路"><a href="#用户电路" class="headerlink" title="用户电路"></a>用户电路</h4><p>用户电路功能：BORSCHT</p>
+<ul>
+<li>B馈电（Battery feeding）：向用户提供直流馈电电流，电压-48V。<br>电容：通交阻直<br>电感：通直阻交</li>
+<li>O过压保护（Overvoltage protection）：二极管用于钳制电压，无论外线电压高于或低于内线，都会由二极管钳制内线为-48V，R 为热敏电阻，可自行烧毁。</li>
+<li>R振铃控制（Ringing control）：控制是否向用户线发送 25Hz 铃流信号。</li>
+<li>S监视（Supervision）：监视用户环路的通断状态，通过电阻的直流压降得知用户是否摘机。</li>
+<li>C编译码和滤波（CODEC&amp;filters）：模拟话音信号与 64Kbps 数字话音信号转换。对模拟信号进行编码、对数字信号进行解码；为避免混叠失真、50Hz 干扰、3400Hz 以上频率分量，进行滤波。</li>
+<li>H混合电路（Hybrid circuit）：在用户话机的 2 线双向信号和 PCM 的 4 线单向信号之间进行 2&#x2F;4 转换。（发生在编码之前和译码之后）</li>
+<li>T测试（Test）：控制是否进行内外线的故障检测。</li>
+</ul>
+<blockquote>
+<p>用户摘机：<br>BOSC<br>其他功能：<br>主叫号码显示<br>极性倒转<br>计费脉冲发送</p>
+</blockquote>
+<h4 id="中继电路"><a href="#中继电路" class="headerlink" title="中继电路"></a>中继电路</h4><p>中继电路是交换机和中继线的接口设备,也叫做中继器。<br>交换机的中继电路有数字中继电路和模拟中继电路。本节重点介绍数字中继电路。</p>
+<p>数字中继电路是连接局间数字中继线的接口设备,用于与数字交换局或远端用户模块相连。</p>
+<p>数字中继电路</p>
+<ol>
+<li>码型变换<br>由于PCM线上使用的传输码型与交换网络内部的码型不同,码型变换的任务就是在接收和发送方向完成这两种码型的相互转换。</li>
+<li>帧同步<br>数字中继线上的PCM信号是以帧方式传输的<br>其帧格式为：<br><img src="https://api2.mubu.com/v3/document_image/9aae7a70-1b0e-497c-9703-d820b9bd5762-16175743.jpg" alt="frame"><br>帧同步就是从接收的数据流中搜索并识别到帧同步码,以确定一帧的开始,使接收端的帧结构排列和发送端的完全一致,从而保证数字信息的正确接收。帧同步码0011011在PCM偶帧的 TS0中。</li>
+<li>复帧同步<br>如果数字中继线上采用的是随路信令(中国No.1信令),则除了帧同步外,还要有复帧同步。<br>PCM的1个复帧由16个帧组成。复帧同步是使接收端与发送端的复帧结构排列完全一致。在随路信令方式中,各话路的线路信令在一个复帧的TS中的固定位置传送,如果复帧不同步,线路信令就会错路。复帧同步就是为了保证各路线路信令不错路。<br>复帧同步码在F(复帧的第1个帧)的TS,的高4个比特中传送,码字为0000。</li>
+<li>时钟提取<br>从输人的数据流中提取时钟信号,以便与远端的交换机保持同步。</li>
+<li>提取和插入信号<br>提取和插入的信号主要包括帧同步信号、复帧同步信号和告警信息的插入与提取</li>
+<li>帧定位（再定时）</li>
+</ol>
+<p>数字音频信号</p>
+<p>交换机——&gt;用户和其他交换局:拨号音、回铃音、MFC信号<br>用户——&gt;交换机：DTMF信号,MFC信号<br>交换机——&gt;交换机：当局间采用中国No.1信令时,交换机到交换机之间发送和接收的是局间多频互控(MFC)信号。</p>
+<p>用户向交换机发送的信号主要是被叫号码,它包括两种形式</p>
+<ol>
+<li>直流脉冲</li>
+<li>双音多频(DT-MF)</li>
+</ol>
+<p>直流脉冲一般采用软件收号,也叫做软收号,DTMF采用DTMF收号器来接收。</p>
+<p>通过上述分析可知,交换机应具备音频信号接口,既能产生单音频和双音频的信号,也应能接收双音频的信号。无论是信号音还是DTMF和 MFC信号,都是音频模拟信号。</p>
+<p>单音频信号产生的基本原理:<br>按照PCM编码原理,将信号按125 us间隔进行抽样(也就是8kHz的抽样频率),然后进行量化和编码,得到各抽样点的PCM信号值,按照顺序将其放到ROM中,在需要的时候按序读出。<br><img src="https://api2.mubu.com/v3/document_image/0b2720bb-67e0-40ac-a42a-aac37c36a289-16175743.jpg" alt="dan"></p>
+<h3 id="3-4话路建立"><a href="#3-4话路建立" class="headerlink" title="3.4话路建立"></a>3.4话路建立</h3><h4 id="复用器与分路器"><a href="#复用器与分路器" class="headerlink" title="复用器与分路器"></a>复用器与分路器</h4><blockquote>
+<p>关于为什么要有复用器和分路器：<br>PCM信号传输采用串行码,即一个时隙的8位码在一条线路上串行传输,而T接线器的话音存储器字长一般为8位,其写入和读出是以字长为单位进行的,即8位码并行同时写入或读出。数字程控交换系统的交换网络–般由T接线器或T和S接线器组合构成的,因此当话音信号进入交换网络交换时,先要将串行码转换为并行码,这个过程叫做串并变换;</p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/a2bdbb88-147a-454c-acaa-6a473a2a339d-16175743.jpg" alt="3"></p>
+<p>若进入每个复用器的PCM线路数为4，且每条PCM线路速率为2048kbit&#x2F;s<br>则①点速率为2048 kbit&#x2F;s,传输信号为串行码;<br>②点速率为256 kbit&#x2F;s,传输信号为8位并行码;这个是用2048&#x2F;8得到的，它速率看的是一条线上的速率，经过串并变换之后，一条线变成了同时前进的8条线，速率变为原本的1&#x2F;8.<br>③点速率为1024 kbit&#x2F;s,传输信号为8位并行码。这是用256*4得到的，因为原本是四路8位并行线路，复用合成一路了，不过还是8位并行，</p>
+<p><img src="https://api2.mubu.com/v3/document_image/2010a491-f9c4-4127-9368-af9e55333b01-16175743.jpg" alt="1dian"><br><img src="https://api2.mubu.com/v3/document_image/d5097361-c14c-4bc5-993a-89fa6efe42cb-16175743.jpg" alt="2dian"><br><img src="https://api2.mubu.com/v3/document_image/32bb88a3-6064-4707-9925-8becda211fcd-16175743.jpg" alt="3dian"></p>
+<h4 id="话路建立-细"><a href="#话路建立-细" class="headerlink" title="话路建立( 细)"></a>话路建立( 细)</h4><p>&lt;这块儿是重点&gt;<br><img src="https://api2.mubu.com/v3/document_image/14cf252d-72a4-4bdb-981f-97aa21e992c7-16175743.jpg" alt="2"><br><img src="https://api2.mubu.com/v3/document_image/c61bb621-118c-4f2e-b321-ead144ec3611-16175743.jpg" alt="p1"><br><img src="https://api2.mubu.com/v3/document_image/a7071137-31d6-4ef8-9f05-e7b32eb2bed3-16175743.jpg" alt="p2"></p>
+<p>关于：</p>
+<ol>
+<li>TS8-&gt;TS16:2*8+0</li>
+<li>TS20和TS52的关系：52&#x3D;20+64&#x2F;2</li>
+<li>TS20为什么要换到TS10：5*2+0&#x3D;10</li>
+<li>进入T交换器的PCM是64路：两个32路复用</li>
+</ol>
+<h3 id="3-5控制子系统"><a href="#3-5控制子系统" class="headerlink" title="3.5控制子系统"></a>3.5控制子系统</h3><h4 id="程控交换机对控制系统的基本要求"><a href="#程控交换机对控制系统的基本要求" class="headerlink" title="程控交换机对控制系统的基本要求"></a>程控交换机对控制系统的基本要求</h4><ol>
+<li>呼叫转移能力</li>
+<li>高可靠性</li>
+</ol>
+<p>系统开销&#x3D;固有开销+非固有开销</p>
+<p>$t&#x3D;a+bN$<br>t:系统开销<br>a:固有开销<br>b:交换机控制系统处理一次呼叫的非固有开销（avg）<br>N:单位时间内处理的呼叫次数（呼叫处理能力，BHCA）</p>
+<blockquote>
+<p>通常用最大忙时试呼次数(BHCA: maximum number of busy hour call attempts)来表示程控交换机的呼叫处理能力,即在单位时间内控制系统能够处理的呼叫次数。</p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/4a71ddf2-4076-40a2-bc47-29c679df6519-16175743.jpg" alt="bhca"></p>
+<p>如果在一个有效的时间间隔周期内(不包含峰值瞬间),出现在交换设备上的试呼次数,即话务负荷超过了交换机控制系统的设计处理能力时,则称该交换设备运行在过负荷状态。</p>
+<h4 id="控制系统（概念掌握）"><a href="#控制系统（概念掌握）" class="headerlink" title="控制系统（概念掌握）"></a>控制系统（概念掌握）</h4><p>控制方式</p>
+<ol>
+<li>集中控制<br>集中控制是指处理机可以对交换系统内的所有功能及资源实施统一控制。该控制系统可以由多个处理机构成,每一个处理机均可控制整个系统的正常运作。<br><img src="https://api2.mubu.com/v3/document_image/ea856ef2-ccb8-4197-87fe-ee8cce22259f-16175743.jpg" alt="2"><ul>
+<li>处理机直接控制所有功能的完成和资源的使用，因此控制关系简单，处理机间通信接口简单。</li>
+<li>单个处理机上的应用软件复杂、庞大。</li>
+<li>一旦处理机系统故障，整个控制系统失效。可靠性较低。</li>
+</ul>
+</li>
+<li>分散控制<br>分散控制是指对交换机所有功能的完成和资源使用的控制由多个处理机分担完成的,即每个处理机只完成交换机的部分功能及控制部分资源。<br><img src="https://api2.mubu.com/v3/document_image/a980733d-e112-47bf-a9e5-086eb6dac110-16175743.jpg" alt="2"><ol>
+<li>全分散控制<br>各个处理机之间独立工作，分别完成不同功能并对不同资源实施控制。<ul>
+<li>处理机之间不分等级，不存在控制与被控制关系。</li>
+<li>每台处理机只完成部分功能，要求各处理机协调配合完成整个系统功能，通信接口复杂。</li>
+<li>每台处理机应用软件只完成该处理机承担的功能，较为简单。</li>
+<li>可靠性较高。</li>
+<li>系统具有良好的扩充能力。</li>
+</ul>
+</li>
+<li>分级分散控制<br>控制系统由多个处理机构成，分别完成不同功能并对不同资源实施控制。<ul>
+<li>处理机之间分等级，高级别处理机控制低级别处理机。</li>
+<li>处理机之间通信接口较为集中，控制方式复杂，但比全分散简单。</li>
+<li>各处理机上应用软件复杂程度适中。</li>
+<li>控制系统的可靠性适中。<br> <img src="https://api2.mubu.com/v3/document_image/575d0c8d-6d72-473d-b5e8-a5509e399095-16175743.jpg" alt="2"></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>多处理机之间的工作分担方式：</p>
+<ul>
+<li>功能分担：多个处理机分别完成同一话务的不同功能（A 处理机和 B 处理机）。</li>
+<li>负荷（话务）分担：多个处理机各自完成一部分话务功能（A 处理机和 A 处理机）。</li>
+</ul>
+<p>多处理机的可靠性（冗余方式）：</p>
+<ul>
+<li>双机冗余配置：两套处理机系统，一个主用、一个备用。<ul>
+<li>同步方式：主备用机同步工作，同时执行指令并比较结果。</li>
+<li>互助方式：主备用机负荷均分，分别承担一半话务负荷。一台机器故障，负荷全部转移到另一台机器上。</li>
+<li>主备用方式：主机在线运行，备用机处于待机状态。（冷备用：不保存动态呼叫数据，故障切换时直接呼损。热备用：保存动态呼叫数据，故障切换时不会呼损。一般采用热备用。）</li>
+</ul>
+</li>
+<li>N+m 备份：N 个处理机在线运行，m 个处理机处于备用状态。</li>
+</ul>
+<h3 id="3-6程控交换软件技术"><a href="#3-6程控交换软件技术" class="headerlink" title="3.6程控交换软件技术"></a>3.6程控交换软件技术</h3><p>SDL</p>
+<p><img src="https://api2.mubu.com/v3/document_image/16800621880734dbc.jpg" alt="1"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/887223f6-1170-48d0-b650-efd4f187aba9-16175743.jpg" alt="sdl"></p>
+<h2 id="chapter4-分组交换"><a href="#chapter4-分组交换" class="headerlink" title="chapter4-分组交换"></a>chapter4-分组交换</h2><h3 id="5-1-分组交换技术的产生与发展"><a href="#5-1-分组交换技术的产生与发展" class="headerlink" title="5.1 分组交换技术的产生与发展"></a>5.1 分组交换技术的产生与发展</h3><h3 id="5-2分组交换的基本原理"><a href="#5-2分组交换的基本原理" class="headerlink" title="5.2分组交换的基本原理"></a>5.2分组交换的基本原理</h3><p>5.2.1 分组传送方式<br>5.2.2分组的形成<br>5.2.3 分组交换方式<br>5.2.4路由选择<br>5.2.5流量控制</p>
+<h3 id="5-3-分组交换协议——X-25协议"><a href="#5-3-分组交换协议——X-25协议" class="headerlink" title="5.3 分组交换协议——X.25协议"></a>5.3 分组交换协议——X.25协议</h3><p>5.3.1 分组交换协议5.3.2 X.25物理层<br>5.3.3X.25数据链路层——LAPB<br>5.3.4 X.25分组层</p>
+<h3 id="5-4分组交换机"><a href="#5-4分组交换机" class="headerlink" title="5.4分组交换机"></a>5.4分组交换机</h3><p>5.4.1 分组交换机的基本结构<br>5.4.2分组交换机的性能指标<br>5.4.3 DPN-100分组交换机</p>
+<h3 id="5-5-分组交换网"><a href="#5-5-分组交换网" class="headerlink" title="5.5 分组交换网"></a>5.5 分组交换网</h3><p>5.5.1分组交换网的构成<br>5.5.2 分组交换网的工作原理<br>5.5.3 中国公用分组交换<br>5.5.4网络编号——X.1215.5.5网间互连</p>
+<h3 id="5-6帧中继"><a href="#5-6帧中继" class="headerlink" title="5.6帧中继"></a>5.6帧中继</h3><p>5.6.1帧中继技术的发展与应用<br>5.6.2帧中继技术的特点<br>5.6.3 帧中继协议<br>5.6.4帧中继交换机小结</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/mine.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/诀别书.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/七年了，他还是走不出来.mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/《溯 Reverse》.mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/《託された想い (被寄托的思念)—増田俊郎》.mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】《所念皆星河 》.mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】陈奕迅《富士山下》.mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】花之舞 《Flower Dance》.mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/【钢琴】周杰伦《反方向的钟》.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/【钢琴】周杰伦《青花瓷》.mp3"></li>
+                        
+                    
+                        
+                            <li title="11" data-url="/music/I Really Like You.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter3-%E7%94%B5%E8%AF%9D%E4%BA%A4%E6%8D%A2"><span class="toc-text">chapter3-电话交换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E7%A8%8B%E6%8E%A7%E6%95%B0%E5%AD%97%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">3.2程控数字交换机的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E6%8E%A5%E5%8F%A3%E8%AE%BE%E5%A4%87"><span class="toc-text">3.3接口设备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%A8%8B%E6%8E%A7%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B"><span class="toc-text">数字程控交换机的接口类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%94%B5%E8%B7%AF"><span class="toc-text">用户电路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E7%BB%A7%E7%94%B5%E8%B7%AF"><span class="toc-text">中继电路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E8%AF%9D%E8%B7%AF%E5%BB%BA%E7%AB%8B"><span class="toc-text">3.4话路建立</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E7%94%A8%E5%99%A8%E4%B8%8E%E5%88%86%E8%B7%AF%E5%99%A8"><span class="toc-text">复用器与分路器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%9D%E8%B7%AF%E5%BB%BA%E7%AB%8B-%E7%BB%86"><span class="toc-text">话路建立( 细)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5%E6%8E%A7%E5%88%B6%E5%AD%90%E7%B3%BB%E7%BB%9F"><span class="toc-text">3.5控制子系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E6%8E%A7%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AF%B9%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82"><span class="toc-text">程控交换机对控制系统的基本要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88%E6%A6%82%E5%BF%B5%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-text">控制系统（概念掌握）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E7%A8%8B%E6%8E%A7%E4%BA%A4%E6%8D%A2%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF"><span class="toc-text">3.6程控交换软件技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter4-%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2"><span class="toc-text">chapter4-分组交换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%E7%9A%84%E4%BA%A7%E7%94%9F%E4%B8%8E%E5%8F%91%E5%B1%95"><span class="toc-text">5.1 分组交换技术的产生与发展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">5.2分组交换的基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E5%8D%8F%E8%AE%AE%E2%80%94%E2%80%94X-25%E5%8D%8F%E8%AE%AE"><span class="toc-text">5.3 分组交换协议——X.25协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">5.4分组交换机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E7%BD%91"><span class="toc-text">5.5 分组交换网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6%E5%B8%A7%E4%B8%AD%E7%BB%A7"><span class="toc-text">5.6帧中继</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

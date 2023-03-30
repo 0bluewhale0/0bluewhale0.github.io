@@ -1,0 +1,819 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Linux笔记 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,大致是跟着老师上课的顺序写的，用于上课摸鱼时安慰一下自己QwQ
+Chapter 11.1 Linux发展过程略，课件里的八卦部分可以抽空看
+1.2系统登录与退出终端称为tty是因为电传打字机 tel,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Linux笔记 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,大致是跟着老师上课的顺序写的，用于上课摸鱼时安慰一下自己QwQ
+Chapter 11.1 Linux发展过程略，课件里的八卦部分可以抽空看
+1.2系统登录与退出终端称为tty是因为电传打字机 tel,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Linux笔记 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,大致是跟着老师上课的顺序写的，用于上课摸鱼时安慰一下自己QwQ
+Chapter 11.1 Linux发展过程略，课件里的八卦部分可以抽空看
+1.2系统登录与退出终端称为tty是因为电传打字机 tel,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Linux笔记</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <!--
+ * @Date: 2023-03-05 08:54:47
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 16:23:49
+ * @FilePath: \diaspora\layout\_partial\post\article.ejs
+-->
+<div class="article">
+    <div class='main'>
+        <h1 class="title">Linux笔记</h1>
+        <div class="stuff">
+            <span>二月 23, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li></ul>
+
+
+        </div>
+        
+        <div class="content markdown">
+            <p>大致是跟着老师上课的顺序写的，用于上课摸鱼时安慰一下自己QwQ</p>
+<h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><h3 id="1-1-Linux发展过程"><a href="#1-1-Linux发展过程" class="headerlink" title="1.1 Linux发展过程"></a>1.1 Linux发展过程</h3><p>略，课件里的八卦部分可以抽空看</p>
+<h3 id="1-2系统登录与退出"><a href="#1-2系统登录与退出" class="headerlink" title="1.2系统登录与退出"></a>1.2系统登录与退出</h3><h4 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h4><p>称为tty是因为电传打字机 teletypewriter</p>
+<p>历史：</p>
+<ol>
+<li>typewriter</li>
+<li>teletypewriter 简称tty</li>
+<li>字符终端，就带屏幕的那种</li>
+</ol>
+<p>组成：</p>
+<ol>
+<li>键盘</li>
+<li>显示屏</li>
+<li>接口RS232串行通信接口（用于主机与终端的连接）</li>
+</ol>
+<h4 id="行律"><a href="#行律" class="headerlink" title="行律"></a>行律</h4><p>（是之前不知道的东西耶）</p>
+<p>line discipline，缓存、回显、编辑（比如backspace）、转换换行符\n为\r\n、<br>行律的调整：<br>stty</p>
+<ul>
+<li>stty erase ^H 另^H可以擦除一个字符，起到backspace的功能</li>
+<li>stty -a 显示行律的所有控制信息</li>
+</ul>
+<h4 id="终端转义序列"><a href="#终端转义序列" class="headerlink" title="终端转义序列"></a>终端转义序列</h4><p>转义字符：ESC ASCII码是1B，十进制的16+11&#x3D;27</p>
+<p>&#x3D;&#x3D;主机给重点方向发数据&#x3D;&#x3D;转义序列的功能：</p>
+<ol>
+<li>控制光标位置、字符颜色、大小</li>
+<li>选择终端的字符集</li>
+<li>控制终端上的打印机、刷卡机、磁条器、密码键盘</li>
+</ol>
+<p><img src="https://api2.mubu.com/v3/document_image/fd57507b-f87f-448d-ae64-1ff72ea4a572-16175743.jpg" alt="0"></p>
+<h4 id="主机和终端之间的流量控制问题"><a href="#主机和终端之间的流量控制问题" class="headerlink" title="主机和终端之间的流量控制问题"></a>主机和终端之间的流量控制问题</h4><p>两种流控方式</p>
+<ol>
+<li>硬件<br>RS232接口的CTS信号线 Clear to send</li>
+<li>软件<br>流控字符 Xon 和 Xoff<br><img src="https://api2.mubu.com/v3/document_image/6cc2142c-45c0-4e69-a5a1-7034b7735bc6-16175743.jpg" alt="1"></li>
+</ol>
+<h4 id="仿真终端和虚拟终端"><a href="#仿真终端和虚拟终端" class="headerlink" title="仿真终端和虚拟终端"></a>仿真终端和虚拟终端</h4><p>仿真：仿真软件来模拟中端</p>
+<p>虚拟：是远程连接的那种，比如xshell</p>
+<h4 id="Shell提示符"><a href="#Shell提示符" class="headerlink" title="Shell提示符"></a>Shell提示符</h4><p><img src="https://api2.mubu.com/v3/document_image/d40d4ed9-ba5f-47c6-a474-8e4533f55f20-16175743.jpg" alt="2"></p>
+<h4 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h4><p>在关机前必须执行关机命令shutdown,仅特权用户有此权限。</p>
+<p>死机：</p>
+<ul>
+<li>Unix系统稳定，应用程序不该导致死机</li>
+<li>死机现象是由于系统内核态程序有问题，常常是一些外设的驱动程序有BUG</li>
+</ul>
+<h3 id="1-3-使用系统命令"><a href="#1-3-使用系统命令" class="headerlink" title="1.3 使用系统命令"></a>1.3 使用系统命令</h3><ul>
+<li><p>man</p>
+<ul>
+<li>查阅手册</li>
+<li>manual</li>
+<li>man name</li>
+<li>man section name<ul>
+<li>1：命令</li>
+<li>2：系统调用</li>
+<li>3：库函数</li>
+<li>5：配置文件</li>
+</ul>
+</li>
+<li>man -k regexp 列出关键字keyword与正则表达式regexp匹配的手册项</li>
+</ul>
+</li>
+<li><p>date</p>
+<ul>
+<li>date “+%Y-%m-%d %H:%M:%S Day %j”</li>
+<li>date “+%s” 秒坐标，常用于计算时间间隔</li>
+<li>通过NTP协议校对系统：ntpdate -q 0.pool.ntp.org(查询)</li>
+<li>ntpdate 0.pool.ntp.org(设置)</li>
+<li>效果：<img src="https://api2.mubu.com/v3/document_image/933a84a9-b863-4d0a-b84c-ec4c889ca9a8-16175743.jpg" alt="1"></li>
+</ul>
+</li>
+<li><p>cal 打印日历</p>
+<ul>
+<li>cal 2023</li>
+<li>cal 10 2023</li>
+</ul>
+</li>
+<li><p>bc 计算器</p>
+<ul>
+<li>基本的计算器的功能，支持变量函数条件循环等编程功能</li>
+<li><strong>可以进行任意精度的计算</strong></li>
+<li>缺省为小数点后0位</li>
+<li>-l参数是20位</li>
+</ul>
+</li>
+<li><p>passwd 修改口令（密码）</p>
+<ul>
+<li>root可以直接改</li>
+<li>其他用户需要先输入当前口令</li>
+<li>修改超级用户的口令需要很谨慎捏</li>
+<li>关于口令的存储：<img src="https://api2.mubu.com/v3/document_image/4cde873f-ff30-45ee-95c8-dca743ffa29d-16175743.jpg" alt="2"></li>
+</ul>
+</li>
+<li><p>who 列出当前已经等登录入系统的用户</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/f2ed2e24-cda4-41a7-b163-55f3f89ee2e5-16175743.jpg" alt="3"></li>
+</ul>
+</li>
+<li><p>tty 打印出当前终端的设备文件名</p>
+</li>
+<li><p>who am i 当前终端上的登录用户</p>
+</li>
+<li><p>whoami 仅列出当前用户名，脚本程序会用到</p>
+</li>
+<li><p>uptime 已经开机的时间</p>
+<ul>
+<li>关于loda average：<img src="https://api2.mubu.com/v3/document_image/e1eec1e6-839d-4dff-b620-665695f4a07a-16175743.jpg" alt="4"></li>
+</ul>
+</li>
+<li><p>top 列出资源占用排名靠前的进程</p>
+</li>
+<li><p>w命令 列出终端的空闲时间IDLE、JCPU、PCPU、WHAT（）</p>
+</li>
+<li><p>ps 进程信息的一次性快照 process status</p>
+</li>
+<li><p>ps -ef 可以打出来很多信息<img src="https://api2.mubu.com/v3/document_image/12c78658-82c8-45d1-a05f-b2e6c0e72da2-16175743.jpg" alt="ppid"><br>PPID是父进程的id</p>
+</li>
+<li><p>free 检查系统内存使用情况</p>
+</li>
+<li><p>vmstat 检查系统负载<img src="https://api2.mubu.com/v3/document_image/1ab28fa9-6906-4444-82de-a4fbc93584c6-16175743.jpg" alt="vmstat"></p>
+</li>
+<li><p>UTF8和GBK</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $LANG</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://api2.mubu.com/v3/document_image/4bec4219-173e-47c0-bd9c-f1b55d4aca5d-16175743.jpg" alt="echo"></p>
+</li>
+<li><p>iconv 转换文件的编码方式</p>
+<ul>
+<li>-f from</li>
+<li>-t to</li>
+<li>ex:<blockquote>
+<p>iconv -f gbk -t utf8 inputFile.txt -o outputFile.txt.utf8</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>bc 计算器</p>
+<ul>
+<li>默认精度是小数点后0位</li>
+<li>-l 缺省精度位小数点后20位</li>
+<li>功能非常复杂和强大<ul>
+<li>支持数学函数库、变量、循环等编程功能</li>
+<li>可以进行任意精度的计算，可以通过设置scale自行决定小数点位数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>wall write to all 给所有人都发消息</p>
+</li>
+</ul>
+<h2 id="Chapter2-文本文件及处理工具"><a href="#Chapter2-文本文件及处理工具" class="headerlink" title="Chapter2 文本文件及处理工具"></a>Chapter2 文本文件及处理工具</h2><p>实现ls -l的输出作为sort程序的输入来执行：</p>
+<ul>
+<li>重定向机制<ul>
+<li>ls -l &gt; file.txt</li>
+<li>sort &lt; file.txt</li>
+</ul>
+</li>
+<li>管道机制<ul>
+<li>ls -l | sort</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2读取文件内容"><a href="#2-2读取文件内容" class="headerlink" title="2.2读取文件内容"></a>2.2读取文件内容</h3><ul>
+<li>more&#x2F;less 逐屏显示文件</li>
+<li>cat concatenate 串结，文本格式打印 （选项-n：行号）</li>
+<li>od octal dump 逐字节打印，默认是octal八进制（-c, -t c, -t x1，-t d1, -t u1选项）</li>
+<li>head&#x2F;tail 显示文件的头部或者尾部</li>
+<li>tee 三通，将从标准输入stdin得到的数据抄送到标准输出stdout显示，同时存入磁盘文件中</li>
+<li>wc 字计数（word count）<ul>
+<li>列出文件中一共有多少行，有多少个单词，多少字符</li>
+<li>当指定的文件数大于1时，最后还列出一个合计</li>
+<li>常用选项-l：只列出行计数</li>
+<li><img src="https://api2.mubu.com/v3/document_image/88190d8c-581e-42fe-a25a-d31d6b148b8e-16175743.jpg" alt="2"></li>
+</ul>
+</li>
+<li>sort 对文件内容排序</li>
+<li>tr 翻译字符,其实严格来说是替换<img src="https://api2.mubu.com/v3/document_image/43c301ef-3614-47a7-bfa9-e0e67d8626d7-16175743.jpg" alt="2"><br><img src="https://api2.mubu.com/v3/document_image/77f75fa6-ae88-4d39-8f91-bd0675c027d8-16175743.jpg" alt="2"></li>
+<li>uniq</li>
+</ul>
+<h3 id="2-3-正则表达式及应用"><a href="#2-3-正则表达式及应用" class="headerlink" title="2.3 正则表达式及应用"></a>2.3 正则表达式及应用</h3><p>Regular Expressions</p>
+<blockquote>
+<p>&#x2F;:slice 斜杠<br> :back slice 反斜杠<br> “人”</p>
+</blockquote>
+<h4 id="单字符正则表达式"><a href="#单字符正则表达式" class="headerlink" title="单字符正则表达式"></a>单字符正则表达式</h4><ul>
+<li>非特殊字符，匹配自身</li>
+<li>转义字符 ‘ \ ‘<br><mark>\.</mark>  <mark>\*</mark> <mark>\$</mark> <mark>\^</mark> <mark>\[</mark> <mark>\&lt;&#x2F;mark&gt;</li>
+<li>圆点 ‘ . ‘ 匹配任意单字符</li>
+<li>星号 ‘ * ‘：单字符正则表达式后跟*，匹配此单字符正则表达式的0次或任意多<br>次出现</li>
+<li>定义集合<ul>
+<li>在<strong>一对方括号之间</strong>的字符为集合的内容:单字符正则表达式[abcd]与a或b,c,d匹配</li>
+<li><strong>圆点,星号,反斜线</strong>在方括号内时，代表它们自己::[\*.]可匹配3个单字符</li>
+<li>用减号-定义一个区间（要在中间）:如[a-d] [A-Z] [a-zA-Z0-9]</li>
+<li>用 ^ 表示补集(要在开头):<strong>[^a-z]</strong> 匹配任一非小写字母，**[^ ][ ]** 匹配任一非中括号字符</li>
+</ul>
+</li>
+<li>锚点： $ 和 ^<ul>
+<li>$ 在尾部时有特殊意义，否则与其自身匹配<ul>
+<li>123$ 匹配文件中行尾的123，不在行尾的123</li>
+</ul>
+</li>
+<li>^ 在首部时有特殊意义，否则与其自身匹配<ul>
+<li>^printf匹配行首的printf字符串，不在行首的printf串不匹配</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="正则表达式扩展"><a href="#正则表达式扩展" class="headerlink" title="正则表达式扩展"></a>正则表达式扩展</h4><p><img src="https://api2.mubu.com/v3/document_image/2512c854-800d-4855-84a3-2f73836db3db-16175743.jpg" alt="2"></p>
+<h3 id="文本行筛选"><a href="#文本行筛选" class="headerlink" title="文本行筛选"></a>文本行筛选</h3><h4 id="grep-在文件中查找字符串"><a href="#grep-在文件中查找字符串" class="headerlink" title="grep:在文件中查找字符串"></a>grep:在文件中查找字符串</h4><p>grep（Global regular expression print）</p>
+<p>grep 模式 文件名列表</p>
+<p>例子：<br><img src="https://api2.mubu.com/v3/document_image/0cd5299c-e6e1-40ee-ac5f-9e3bf1ea46f1-16175743.jpg" alt="2"></p>
+<p>选项</p>
+<ul>
+<li>-n 显示时每行前面显示行号</li>
+<li>-v 显示所有不包含模式的行</li>
+<li>-i 字母比较时忽略字母的大小写</li>
+</ul>
+<h4 id="流编辑及正则表达式替换"><a href="#流编辑及正则表达式替换" class="headerlink" title="流编辑及正则表达式替换"></a>流编辑及正则表达式替换</h4><p>sed：流编辑</p>
+<ul>
+<li>sed ‘命令’ 文件名列表</li>
+<li>sed –e ‘命令1’ –e ‘命令2’ –e ‘命令3’ 文件名列表</li>
+<li>sed -f 命令文件 文件名列表</li>
+</ul>
+<p>一对斜线 &#x2F; &#x2F; 之内的部分为正则表达式<br><img src="https://api2.mubu.com/v3/document_image/7d4abf3b-0a17-4574-bf98-af2c5ee52c4c-16175743.jpg" alt="2"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/7c4e99bd-af91-4fdf-a592-8152a4124fb2-16175743.jpg" alt="3"></p>
+<h4 id="复杂筛选及加工awk"><a href="#复杂筛选及加工awk" class="headerlink" title="复杂筛选及加工awk"></a>复杂筛选及加工awk</h4><p>awk：逐行扫描进行文本处理,是逐行扫描进行文本处理的一门语言，a.w.k分别为该程序的三位设计者姓氏的第一个字母</p>
+<ul>
+<li>awk ‘程序’ 文件名列表</li>
+<li>awk -f 程序文件名 文件名列表</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/c1ea06fe-a4e5-4c0b-98bf-a47062351fd9-16175743.jpg" alt="3"></p>
+<p>$数字 指的是第几列。</p>
+<h4 id="sed和awk的区别"><a href="#sed和awk的区别" class="headerlink" title="sed和awk的区别"></a>sed和awk的区别</h4><ul>
+<li>sed：每次读入一行来处理的，sed 适合简单的文本替换和搜索，sed读取一行，以行作为单位，进行处理。</li>
+<li>awk：每次读入一行来处理的（同sed），但awk读取一行，切割成字段，以字段（列）为单位，进行细节处理。</li>
+<li>如果文件是格式化的，即由分隔符分为多个域的，优先使用awk。</li>
+<li>awk适合对文件的抽取整理，sed适合对文件的编辑。</li>
+<li>awk适合按列（域）操作，sed适合按行操作。</li>
+</ul>
+<h3 id="文件对比"><a href="#文件对比" class="headerlink" title="文件对比"></a>文件对比</h3><ul>
+<li>CMP<ul>
+<li>cmp命令逐个字节比较两个文件是否完全相同，两个文件完全相同时，不给出任何提示。当两个文件不同时，打印出第一个不同之处。这个命令常用来判断两个文件的内容是否完全一致，无论是ASCII码文件还是二进制格式的程序或数据文件。在Windows中有类似的命令COMP。</li>
+</ul>
+</li>
+<li>diff<ul>
+<li>许多读者使用过Windows下类似功能的FC命令(File Comparison)。UNIX用于完成这项功能的命令是diff。无论是Windows的FC命令，还是UNIX的diff命令，都可以逐行比较包括源程序文件在内的任意内容的文本格式文件。Windows的FC命令使用时经常需要&#x2F;N选项，在列出文本文件行时打印行号。</li>
+<li>命令diff file1 file2每发现两个文件中的一处不同，就列出一个如何将f1.c转化为f2.c的指令，这些指令有a(Add)，c(Change)和d(Delete)</li>
+<li><img src="https://api2.mubu.com/v3/document_image/d2b4adaf-3838-430a-8c83-99acdff1b875-16175743.jpg" alt="diff"></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>diff -u 的输出格式和git相同，而不是normal格式<br>normal 列出将file1转化为file2的指令</p>
+</blockquote>
+<h3 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:set number:每行左边显示行号</span><br><span class="line">:set tabstop=4 制表符位置为4格对齐</span><br></pre></td></tr></table></figure>
+
+<p><strong>命令前加一整数，表示这个命令连续执行多少遍</strong>，这句话针对很多命令都有效，比如5j（光标下移五行）、6ctrl-b（向前翻六页）</p>
+<p>编辑命令 i a 等，可以从命令状态转到文本状态</p>
+<blockquote>
+<p>i是insert a是append</p>
+</blockquote>
+<p>光标移动：</p>
+<ul>
+<li>上下左右<ul>
+<li>h 光标左移一列</li>
+<li>j 光标下移一行</li>
+<li>k 光标上移一行</li>
+<li>l 光标右移一列</li>
+<li>一般可以直接使用键盘上的方向键代替这四个字母</li>
+</ul>
+</li>
+<li>行尾行首<ul>
+<li>将光标移至当前行首 ^</li>
+<li>将光标移至当前行尾 $</li>
+</ul>
+</li>
+<li>移动一个单词<ul>
+<li>移到右一个单词 w</li>
+<li>移到左一个单词 b</li>
+</ul>
+</li>
+<li>移到指定的行<ul>
+<li><code>:45</code>移动到45行</li>
+<li><code>:$</code>将光标置于文件尾</li>
+<li><code>:.+10</code> 当前行号+10</li>
+<li><code>:$-5</code> 倒数第五行</li>
+</ul>
+</li>
+<li>括号配对<ul>
+<li>把光标移到一个花括号(或圆括号，或方括号)上，按%键，则光标自动定位到与它配对的那一个括号</li>
+</ul>
+</li>
+<li><code>x</code>删除当前字符，or<code>5x</code> 删除当前五个字符，这个好像相当于剪切命令，在x之后可以使用p来粘贴刚刚剪切的行。</li>
+<li>删除行<ul>
+<li>删除当前行的命令 dd</li>
+</ul>
+</li>
+<li>替换光标处字符 r<ul>
+<li>将当前光标处开始的三个字符依次替换为abc，则需要按命令rarbrc</li>
+</ul>
+</li>
+<li>取消上一次的编辑操作(undo)<mark> u </mark>。</li>
+<li>重复上一次的编辑操作<mark> . </mark>。</li>
+</ul>
+<p>翻页：</p>
+<ul>
+<li>Ctrl-b 向后翻页(Backward)</li>
+<li>Ctrl-f 向前翻页(Forward)</li>
+</ul>
+<p>文件操作命令</p>
+<ul>
+<li>存盘退出:<code>ZZ(大写)</code>&#x3D;&#x3D;<code>wq</code></li>
+<li>读入文件xyz.c插入到当前行之下 <code>:r xyz.c&lt;CR&gt;</code></li>
+<li>写文件,把第50行至文件尾的内容写到文件file1中 <code>:50,$w file1&lt;CR&gt;</code></li>
+</ul>
+<p>剪切板</p>
+<ul>
+<li>删除，并拷贝到剪贴板<ul>
+<li><code>:10,50d&lt;CR&gt;</code> 删除第10-50行</li>
+<li><code>:1,.d&lt;CR&gt;</code> 删除文件首至当前行的部分</li>
+<li><code>:.,$d&lt;CR&gt;</code> 删除当前行到文件尾</li>
+</ul>
+</li>
+<li>不删除，拷贝到剪贴板(yank)</li>
+<li>粘贴剪贴板信息（paste）</li>
+</ul>
+<p>块儿操作</p>
+<ul>
+<li>复制：<code>:5,10co56&lt;CR&gt;</code>复制第5-10行到第56行之下</li>
+<li>移动:<code>:8,34m78&lt;CR&gt;</code>移动第8-34行到第78行之下</li>
+</ul>
+<p>两行合并(Join) J：当前行下面的行合并到当前行</p>
+<p>刷新屏幕显示(load)：Ctrl-l</p>
+<p>状态显示 Ctrl-g：在屏幕最下面一行列出正在编辑的文件的名字，总行数，当前行号，文件是否被修改过等信息</p>
+<p>模式查找</p>
+<ul>
+<li>格式 &#x2F;pattern</li>
+<li>n 向下查找下一个next</li>
+<li>N 向上查找下一个</li>
+</ul>
+<p>模式替换</p>
+<ul>
+<li>替换命令：:n1,n2s&#x2F;pattern&#x2F;string&#x2F;g<br>有点像sed的格式</li>
+</ul>
+<h3 id="文件和目录的管理"><a href="#文件和目录的管理" class="headerlink" title="文件和目录的管理"></a>文件和目录的管理</h3><ul>
+<li>ls -F<ul>
+<li>若列出的是目录，就在名字后面缀以斜线 &#x2F;</li>
+<li>若列出的是可执行文件，就在名字后面缀以星号 *</li>
+<li>若列出的是符号连接文件，就在名字后面缀以符号@</li>
+<li>若列出的是普通文件，则名字面后无任何标记</li>
+</ul>
+</li>
+<li>ls -l<ul>
+<li>第1列：文件属性<ul>
+<li>普通文件</li>
+<li>b 块设备文件(Block)</li>
+<li>d 目录文件(Dir)</li>
+<li>c 字符设备文件(Char)</li>
+<li>l 符号连接文件(Link)</li>
+<li>p 命名管道文件(Pipe)</li>
+</ul>
+</li>
+<li>第2列：文件link数，涉及到此文件的目录项数</li>
+<li>第3列，第4列：文件主的名字和组名</li>
+<li>第五列，一个代表大小的数字，不同类型的文件这个数字的含义不同</li>
+<li>第6列：文件最后一次被修改的日期和时间</li>
+<li>第7列：文件名<ul>
+<li>对于符号连接文件，附带列出符号连接文件的内容</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ls -h （human-readable）</li>
+<li>ls -d (directory)<br>对比-d参数的作用：<br><img src="https://api2.mubu.com/v3/document_image/3ca46d32-014d-49b1-a67d-68ea5e211601-16175743.jpg" alt="-d"><br>ls与ls *的区别<br><img src="https://api2.mubu.com/v3/document_image/a8191984-b613-41bf-a42e-32f80f66be7e-16175743.jpg" alt="2"></li>
+<li>ls -a 列出文件名首字符为圆点的文件</li>
+<li>ls -A (功能与-a相同，除了不列出. 和..)</li>
+<li>ls -s (size)列出文件占用的磁盘空间</li>
+<li>ls -i (i-node)列出文件的i节点号</li>
+</ul>
+<h3 id="文件的复制与删除"><a href="#文件的复制与删除" class="headerlink" title="文件的复制与删除"></a>文件的复制与删除</h3><h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><p>命令的两种格式和功能</p>
+<ul>
+<li>cp file1 file2</li>
+<li>cp file1 file2 . dir<br>其中file1，……，filen为文件名，dir为已有目录名<br>第二种格式中： dir必须已经存在并且是一个目录<br>第一种格式中： file2不存在，则创建；file2存在且是文件，则覆盖；<br>file2存在且是目录，则按格式二处理</li>
+</ul>
+<p>一个有趣的例子，本质还是linux的shell对通配符的处理策略<br><img src="https://api2.mubu.com/v3/document_image/abcd20eb-be74-45ef-8d38-c17d574659a9-16175743.jpg" alt="2"></p>
+<h4 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h4><p>mv file1 file2<br>mv file1 file2 … filen dir<br>mv dir1 dir2<br>如果mv的最后一个参数是一个已存在的目录,不会对文件进行删改，只会改指针<br>使用mv命令可以将文件和目录改名<br>可以将文件和子目录从一个目录移动到另一个目录<br>mv dir1 dir2 两种执行情况（同文件系统，不同文件系统）<br>同文件系统其实就只是改个名字<br>不同文件系统就没办法了，得读出写入。</p>
+<h4 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h4><p>需要注意 rm * .bak （*后空格的错误），这种就把里面的东西都删了,j就算会报错找不到.bat文件，但是除了目录之外的能删的都已经删完了。</p>
+<p>-r 递归地(Recursive)删除实参表中的目录，也就是删除一<br>整棵目录树。<br>-i 每删除一个文件前需要操作员确认(Inform)<br>-f 强迫删除(Force)。只读文件也被删除并且无提示，<strong>无操作权限</strong>的文件强制删除也不能删掉</p>
+<p>这里又有一个有趣的小例子</p>
+<p>已知-i是rm的一个参数，如果目录下存在一个名字叫做-i的文件，想要删除它的时候怎么办呢<br>这个时候就可以用–显式地表示命令行参数列表中选项的结束，分隔选项和处理对象，也适用于其他命令<br><img src="https://api2.mubu.com/v3/document_image/9ca0ed1d-396a-4972-a386-b62a780b5891-16175743.jpg" alt="rm-i"><br><img src="https://api2.mubu.com/v3/document_image/d961ff7d-ecc0-485f-b948-549c090abb3e-16175743.jpg" alt="rm---i"></p>
+<h3 id="目录管理"><a href="#目录管理" class="headerlink" title="目录管理"></a>目录管理</h3><p>文件.与..<br>在目录表中确实有两个文件<br>这两个目录项由系统自动创建和删除<br>可以简单的把.理解为当前文件,..理解为上一级文件</p>
+<p>env 可以查看环境变量<br>pwd:print working directory<br>cd:change directory<br>cd :无参数的时候，widnows会打印当前工作目录<br>unix会回到用户的主目录</p>
+<p><strong>cd是shell的一个内部命令</strong>，硬盘上没有cd这个命令；shell自行完成改变当前进程工<br>作目录的操作。</p>
+<p>mkdir<br>选项-p，自动创建路径中不存在的目录。<br>例如：mkdir database&#x2F;2019&#x2F;09&#x2F;04&#x2F;log -p<br>删除目录rmdir<br>例：rmdir sun&#x2F;work.d<br>要求被删除的目录除.与..外无其它文件或目录<br>换句话说，这玩意儿只能删除空目录，里面有东西的目录它一点办法都没有</p>
+<p>cp 复制目录<br>cp -r dir1 dir2  递归的复制一个目录<br>选项–v，冗长(verbose)方式<br>复制目录时实时列出正在复制的文件的名字<br>cp命令选项–r，递归地复制一个目录</p>
+<p>根据dir2是否存在，执行结果有差异：</p>
+<ul>
+<li>若dir2不存在，则新建子目录dir2，把dir1下内容拷入dir2下</li>
+<li>若dir2已存在，则dir2下新建子目录dir1，把dir1下内容拷入dir2&#x2F;dir1下</li>
+</ul>
+<p>选项–u，增量拷贝(update)，便于备份目录</p>
+<ul>
+<li>根据文件的时戳，不拷贝相同的或者过时的版本的文件，以提高速度</li>
+<li>dir1和dir2不慎颠倒位置，不会出现灾难性后果</li>
+<li>Windows中类似功能的命令XCOPY，选项&#x2F;D可以用来实现增量拷贝(Date)</li>
+</ul>
+<p>rsync命令，完成远程同步，可以镜像整个目录树<br>rsync用一精巧的算法，将文件分块，在两主机间传播数据块的hash值，据此推出两版本文件之间区别，使得网络只传输文件的增、删、改部分</p>
+<h3 id="目录遍历的命令"><a href="#目录遍历的命令" class="headerlink" title="目录遍历的命令"></a>目录遍历的命令</h3><p>find命令从指定的查找范围开始，<strong>递归地</strong>查找子目录，凡满足条件的文件或目录，执行规定的动作<br>find命令有三个参数<br><img src="https://api2.mubu.com/v3/document_image/548d9fd9-ef14-4c16-b77f-b0d124a648ba-16175743.jpg" alt="find"></p>
+<p>有关条件的选项</p>
+<ul>
+<li>-name 需要引号，对通配符的解释由find完成</li>
+<li>-type<ul>
+<li>f:普通文件</li>
+<li>d:目录</li>
+<li>l:符号连接文件</li>
+<li>c:字符设备文件</li>
+<li>b:块设备文件</li>
+<li>p:管道文件</li>
+</ul>
+</li>
+<li>-size ±n单位：指定文件大小（大于+，等于，小于-）</li>
+<li>以用() –o !等表示多条件的“与”，“或”，“非”</li>
+</ul>
+<p>有关动作的选项</p>
+<ul>
+<li>-print 打印查找的文件的路径名</li>
+<li>-exec 对查找到的目标执行某一命令 在-exec及随后的分号之间的内容作为一条命令，在这命令的命令参数中，{}代表遍历到的目标文件的路径名</li>
+<li>-ok 与-exec类似，只是对查找到符合条件的目标执行一个命令前需要经过操作员确认</li>
+</ul>
+<h3 id="目录遍历的应用"><a href="#目录遍历的应用" class="headerlink" title="目录遍历的应用"></a>目录遍历的应用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find src -name \*.c -exec grep -n -- --help &#123;&#125; /dev/null \;</span><br></pre></td></tr></table></figure>
+
+<p>在目录src中所有.c文件中查找–help字符串<br>grep的-n选项：打印行号<br>–：grep的命令行选项结束，其后命令行参数为查找对象<br>&#x2F;dev&#x2F;null文件的作用：特殊设备文件，读不出写不入；陪伴{}中的每个文件，构成两个grep的待搜索文件，以打印文件名。</p>
+<h3 id="批量处理文件"><a href="#批量处理文件" class="headerlink" title="批量处理文件"></a>批量处理文件</h3><p>上面那个应用的例子，效率低，因为每个命中的对象都需要执行grep命令：创建一个进程，完成任务后进程消亡，然后再创建，再消亡。</p>
+<p>xargs</p>
+<p>命令xargs可以用来完成这个工作：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find src -name \*.c –print | xargs grep -n ----help</span><br></pre></td></tr></table></figure>
+
+<p><strong>xargs命令把标准输入追加到命令参数表后面</strong>，也就是上述grep…的后面，再作为一个命令来执行。</p>
+<blockquote>
+<p>这个跟管道重定向是不同的，如果是管道重定向的话，它仅仅是把find得到的结果（文件列表）作为一个文件进行输入，grep做的是在这个文件列表中寻找–help，而不会打开文件寻找，作为参数列表就不同了，grep会打开文件列表中的文件去寻找。</p>
+</blockquote>
+<h3 id="打包与压缩"><a href="#打包与压缩" class="headerlink" title="打包与压缩"></a>打包与压缩</h3><p>打包的例子：tar czvf mytar.zip.gz<br>解压的例子：tar xvf mytar.zip.gz<br>查看压缩包内容：tar tvf mytar.zip.gz</p>
+<p>参数详解：</p>
+<ul>
+<li>f: File。指定设备文件名</li>
+<li>z: 采用压缩格式(gzip算法)</li>
+<li>j: 采用压缩格式(bzip2算法)</li>
+</ul>
+<blockquote>
+<p>关于两种压缩算法<br>tar cvzf work.tar.gz work<br>(gzip压缩算法，对C程序体积为原来的20%)<br>tar cvjf work.tar.bz2 work<br>(bzip2压缩算法，对C程序17%，执行时间三倍)<br>通常采用gzip的算法，文件名后缀.tar,.tar.gz,.tar.bz2仅仅是惯例，不是系统级强制要求。</p>
+</blockquote>
+<h2 id="Chapter-3-文件系统管理"><a href="#Chapter-3-文件系统管理" class="headerlink" title="Chapter 3 文件系统管理"></a>Chapter 3 文件系统管理</h2><p>df: 文件系统空闲空间<br>（-h参数：human readable）</p>
+<h3 id="文件系统的存储管理"><a href="#文件系统的存储管理" class="headerlink" title="文件系统的存储管理"></a>文件系统的存储管理</h3><p><img src="https://api2.mubu.com/v3/document_image/32ad32ee-4d22-4b07-b463-d4b170cfd3b5-16175743.jpg" alt="zhengti"></p>
+<ul>
+<li>引导块(0号块)：启动系统，只有根文件系统引导块有效</li>
+<li>专用块(1号块)：也叫管理块，或者超级块<ul>
+<li>存放文件系统的<strong>管理信息</strong>。如：文件系统的大小，i节点区的大小，空闲空间大小，空闲块链表的头等等</li>
+<li>mkfs命令时初始化，df命令读出部分信息，df -i和df</li>
+</ul>
+</li>
+</ul>
+<p>i节点：(index node，简记为i-node)</p>
+<ul>
+<li>由若干块构成，在mkfs命令创建文件系统时确定</li>
+<li>每块可容若干个i节点，i节点大小固定（比如64字节）</li>
+<li>i节点从1开始编号，根据编号可以索引到磁盘块</li>
+<li>每个文件都对应一个i节点</li>
+</ul>
+<p>i节点包括</p>
+<ul>
+<li>指向文件存储区数据块的一些索引（index）指针（组成文件的逻辑块与硬盘的物理块之间的映射）</li>
+<li>文件类型，属主，组，权限，link数，大小，时戳（<strong>i节点内不含文件名</strong>）</li>
+</ul>
+<p>文件存储区<br>用于存放文件数据的区域，包括<strong>目录表</strong></p>
+<p>linux文件系统最有意思的是<strong>目录表也作为一个文件来管理</strong>，存于“文件<br>存储区”中，有其自己的i节点和数据存储块。</p>
+<p>目录和i节点的存储结构如下</p>
+<p><img src="https://api2.mubu.com/v3/document_image/eb0e05c8-271f-4c08-b82c-9ec4ab7e9df1-16175743.jpg" alt="i"></p>
+<h2 id="软连接和硬链接"><a href="#软连接和硬链接" class="headerlink" title="软连接和硬链接"></a>软连接和硬链接</h2><p>每个目录项指定的“文件名-i节点号”映射关系，叫做1个<strong>硬连接</strong><br>不允许对目录用ln命令建立硬连接<br>一般来说， $目录的link数&#x3D;直属子目录数+2$<br><img src="https://api2.mubu.com/v3/document_image/d7d2b329-28f6-4170-bdc5-faaa25db4fc9-16175743.jpg" alt="yinglianjie"></p>
+<p>符号连接也叫软连接 （不同文件系统间连接文件）<br>用特殊文件“符号连接文件”来实现<br>文件中仅包括了一个路径名</p>
+<p><img src="https://api2.mubu.com/v3/document_image/848ab5d5-cebe-4ea6-8376-8118fee83e0e-16175743.jpg" alt="软链接"><br>命令stat：读取i节点信息<br>命令ln -s</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s users_on sym.link</span><br></pre></td></tr></table></figure>
+
+<p>一旦建立了符号连接，删除操作删除的是符号连接文件，其它所有操作都将访问符号连接所引用的文件.</p>
+<p>符号链接中的相对路径:若符号连接含相对路径名，是相对于符号链接文件<br>的位置(不是相对于调用进程的当前工作目录)</p>
+<p><img src="https://api2.mubu.com/v3/document_image/5e9dbd9b-c325-45a0-a309-fd945536cf16-16175743.jpg" alt="location"></p>
+<p>软硬连接的区别：是否有独立的i节点</p>
+<blockquote>
+<p>硬连接与符号连接的比较<br>硬连接</p>
+</blockquote>
+<ul>
+<li>在数据结构层次上实现</li>
+<li>只适用于文件，不适用于目录</li>
+<li>不同文件系统之间也不行</li>
+<li>硬连接能够完成的功能软连接可以做到</li>
+</ul>
+<p>符号连接</p>
+<ul>
+<li>在算法软件上实现</li>
+<li>硬连接能够完成的功能软连接都可以做到</li>
+<li>适用于目录，也适用于不同的文件系统</li>
+<li>同硬连接相比要占用操作系统内核的一部分开销</li>
+<li>循环式符号连接，以及处理方法（解析路径时设置符号<br>链接解析计数器）</li>
+</ul>
+<h3 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h3><p><mark>系统调用与库函数在执行方式上的区别</mark><br>例如：获取进程ID的<font color=blue>getpid()</font>与字符串拷贝函数<font color=green>strcpy()</font><br>CPU的INT指令（<strong>软中断、内核态</strong>）; CALL指令（<strong>子程序调用、用户态</strong>）</p>
+<h4 id="整型变量errno"><a href="#整型变量errno" class="headerlink" title="整型变量errno"></a>整型变量errno</h4><p>这个很有意思<br>C标准库定义了errno，系统调用失败后自动填写错误代码，记录失败原因<br>#include &lt;errno.h&gt;之后，就可以直接使用errno</p>
+<figure class="highlight plaintext"><figcaption><span>*strerror(int errno);```:库函数strerror将数字形式的错误代码转换成一个可阅读的字符串</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">```printf的%m```:printf类函数格式字符串中的%m会被替换成上次系统调用失败的错误代码对应的消息（message）</span><br><span class="line"></span><br><span class="line">这里有一个例子：</span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line">#include &lt;fcntl.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;errno.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">int main(char argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">int fd;</span><br><span class="line">fd = open(argv[1], O_WRONLY);</span><br><span class="line">if (fd == -1) &#123;</span><br><span class="line">  //这里展示了两种输出错误代码对应的信息的方法</span><br><span class="line">printf(&quot;ERROR %d: %m\n&quot;, errno);</span><br><span class="line">printf(&quot;ERROR [%s]\n&quot;, strerror(errno));</span><br><span class="line">&#125;</span><br><span class="line">. . . . . .</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="访问i节点和目录"><a href="#访问i节点和目录" class="headerlink" title="访问i节点和目录"></a>访问i节点和目录</h3><p><strong>stat</strong>得到指定路径名的文件的i节点 （路径名）<br><strong>fstat</strong>得到已打开文件的i节点 （内存中节点）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">stat</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="keyword">struct</span> stat *buf)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">fstat</span><span class="params">(<span class="type">int</span> fd, <span class="keyword">struct</span> stat *buf)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>↓结构体stat,写coding作业2的时候会用到</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stat</span> &#123;</span></span><br><span class="line">  <span class="type">dev_t</span> st_dev; <span class="comment">/* 存储该文件的块设备的设备号ID，包括主设备号与次设备号*/</span></span><br><span class="line">  <span class="type">ino_t</span> st_ino; <span class="comment">/* inode号 */</span></span><br><span class="line">  <span class="type">mode_t</span> st_mode; <span class="comment">/* 访问权限及文件类型 */</span></span><br><span class="line">  <span class="type">nlink_t</span> st_nlink; <span class="comment">/* link数 */</span></span><br><span class="line">  <span class="type">uid_t</span> st_uid; <span class="comment">/* 文件主ID */</span></span><br><span class="line">  <span class="type">gid_t</span> st_gid; <span class="comment">/* 组ID */</span></span><br><span class="line">  <span class="type">dev_t</span> st_rdev; <span class="comment">/* device ID (if special file) */</span></span><br><span class="line">  <span class="type">off_t</span> st_size; <span class="comment">/* 文件大小（字节数）*/</span></span><br><span class="line">  <span class="type">blksize_t</span> st_blksize; <span class="comment">/* blocksize for filesystem I/O */</span></span><br><span class="line">  <span class="type">blkcnt_t</span> st_blocks; <span class="comment">/* 分配的512字节尺寸块个数 */</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">timespec</span> <span class="title">st_atim</span>;</span> <span class="comment">/* access时间 */</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">timespec</span> <span class="title">st_mtim</span>;</span> <span class="comment">/* modification时间 */</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">timespec</span> <span class="title">st_ctim</span>;</span> <span class="comment">/* change时间 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="目录访问的一组库函数"><a href="#目录访问的一组库函数" class="headerlink" title="目录访问的一组库函数"></a>目录访问的一组库函数</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;dirent.h&gt;</span></span></span><br><span class="line">DIR *<span class="title function_">opendir</span><span class="params">(<span class="type">char</span> *dirname)</span>;</span><br><span class="line"><span class="keyword">struct</span> dirent *<span class="title function_">readdir</span><span class="params">(DIR *dir)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">closedir</span><span class="params">(DIR *dir)</span>;</span><br></pre></td></tr></table></figure>
+<p>opendir打开目录得到句柄,readdir获取一个目录项.<br>用closedir关闭不再使用的目录句柄。</p>
+<p>目录访问程序</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">  DIR *dir;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">dirent</span> *<span class="title">entry</span>;</span></span><br><span class="line">  <span class="keyword">if</span> (argc != <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Usage : %s &lt;dirname&gt;\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ((dir = opendir(argv[<span class="number">1</span>])) == <span class="literal">NULL</span>) &#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Open directory \&quot;%s\&quot;: %s (ERROR %d)\n&quot;</span>,</span><br><span class="line">  argv[<span class="number">1</span>], strerror(errno), errno);</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ((entry = readdir(dir)) != <span class="literal">NULL</span>)</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d %s\n&quot;</span>, entry-&gt;d_ino, entry-&gt;d_name);</span><br><span class="line">  closedir(dir);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个的运行结果就是把当前目录下一层级的子目录输出出来。</p>
+<h2 id="补充1：远程登录服务器"><a href="#补充1：远程登录服务器" class="headerlink" title="补充1：远程登录服务器"></a>补充1：远程登录服务器</h2><h3 id="1-ssh"><a href="#1-ssh" class="headerlink" title="1.ssh"></a>1.ssh</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh [username]@[ipv4地址]</span><br></pre></td></tr></table></figure>
+
+<p>ex:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh jiang@<span class="number">82.156</span>.<span class="number">118.183</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以写一个 dos 批处理程序</p>
+<p>就是.bat文件<br>建立一个bupt.bat文件<br>里面的内容是</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh jiang@<span class="number">82.156</span>.<span class="number">118.183</span></span><br><span class="line">&lt;psw&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后运行命令</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bupt.bat</span><br></pre></td></tr></table></figure>
+
+<p>就可以不用每次都输入密码了</p>
+<h3 id="2-git-bash"><a href="#2-git-bash" class="headerlink" title="2.git bash"></a>2.git bash</h3><p>就拿来当cmd用，也是用ssh连的，不再赘述</p>
+<h3 id="3-putty"><a href="#3-putty" class="headerlink" title="3.putty"></a>3.putty</h3><p>略，没用过</p>
+<h3 id="4-secureCRT"><a href="#4-secureCRT" class="headerlink" title="4.secureCRT"></a>4.secureCRT</h3><p>略，看起来跟笔者常用的xshell差不多。</p>
+<h3 id="传输文件的软件"><a href="#传输文件的软件" class="headerlink" title="传输文件的软件"></a>传输文件的软件</h3><ol>
+<li>winSCP，图形化的界面，比较舒服</li>
+<li>远程连接的窗口有传输文件的专用命令rz sz</li>
+</ol>
+<h3 id="非对称性加密"><a href="#非对称性加密" class="headerlink" title="非对称性加密"></a>非对称性加密</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>查看和更改配置文件：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>不好使的话记得加sudo</p>
+<h2 id="补充2：word"><a href="#补充2：word" class="headerlink" title="补充2：word"></a>补充2：word</h2><ul>
+<li>SDK softerware Develop Kit 软件开发包</li>
+<li>DDK Drive Development Kit 驱动开发包</li>
+<li>小于32的ASCII码都是控制字符</li>
+</ul>
+<h2 id="附录1：关于安装yum"><a href="#附录1：关于安装yum" class="headerlink" title="附录1：关于安装yum"></a>附录1：关于安装yum</h2><p>在ubuntu上安装了yum，执行yum命令就报错：<br>There are no enabled repos. Run “yum repolist all” to see the repos you have. You can enable repos</p>
+<p>按照提示输入yum repolist all，啥也没有，百度查了一堆，乱七八糟，都不行。弄了我好久。后来知道为啥了。</p>
+<p>就不该安装yum，因为linux系统是Ubuntu。</p>
+<p>一般来说Linux系统基本上分两大类:</p>
+<p>RedHat系列：Redhat、Centos、F edora等</p>
+<p>Debian系列：Debian、Ubuntu等</p>
+<p>RedHat系列：</p>
+<p>1.常见的安装包格式rpm包、安装rpm包的命令：rpm-参数</p>
+<p>2.包管理工具yum</p>
+<p>3.支持tar包</p>
+<p>Debian系列：</p>
+<p>1.常见的安装包格式deb包、安装rpm包的命令：deb-参数</p>
+<p>2.包管理工具apt-get</p>
+<p>3.支持tar包</p>
+<p>所以，也就是说，直接用apt-get就行了，别用yum。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/mine.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/诀别书.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/七年了，他还是走不出来.mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/《溯 Reverse》.mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/《託された想い (被寄托的思念)—増田俊郎》.mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】《所念皆星河 》.mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】陈奕迅《富士山下》.mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】花之舞 《Flower Dance》.mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/【钢琴】周杰伦《反方向的钟》.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/【钢琴】周杰伦《青花瓷》.mp3"></li>
+                        
+                    
+                        
+                            <li title="11" data-url="/music/I Really Like You.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1"><span class="toc-text">Chapter 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Linux%E5%8F%91%E5%B1%95%E8%BF%87%E7%A8%8B"><span class="toc-text">1.1 Linux发展过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95%E4%B8%8E%E9%80%80%E5%87%BA"><span class="toc-text">1.2系统登录与退出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF"><span class="toc-text">终端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%8C%E5%BE%8B"><span class="toc-text">行律</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF%E8%BD%AC%E4%B9%89%E5%BA%8F%E5%88%97"><span class="toc-text">终端转义序列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E5%92%8C%E7%BB%88%E7%AB%AF%E4%B9%8B%E9%97%B4%E7%9A%84%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98"><span class="toc-text">主机和终端之间的流量控制问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%88%E7%AB%AF%E5%92%8C%E8%99%9A%E6%8B%9F%E7%BB%88%E7%AB%AF"><span class="toc-text">仿真终端和虚拟终端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Shell%E6%8F%90%E7%A4%BA%E7%AC%A6"><span class="toc-text">Shell提示符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E6%9C%BA"><span class="toc-text">关机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4"><span class="toc-text">1.3 使用系统命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter2-%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%8F%8A%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-text">Chapter2 文本文件及处理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-text">2.2读取文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8A%E5%BA%94%E7%94%A8"><span class="toc-text">2.3 正则表达式及应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%AD%97%E7%AC%A6%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">单字符正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%A9%E5%B1%95"><span class="toc-text">正则表达式扩展</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E8%A1%8C%E7%AD%9B%E9%80%89"><span class="toc-text">文本行筛选</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#grep-%E5%9C%A8%E6%96%87%E4%BB%B6%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">grep:在文件中查找字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%BC%96%E8%BE%91%E5%8F%8A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9B%BF%E6%8D%A2"><span class="toc-text">流编辑及正则表达式替换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E7%AD%9B%E9%80%89%E5%8F%8A%E5%8A%A0%E5%B7%A5awk"><span class="toc-text">复杂筛选及加工awk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sed%E5%92%8Cawk%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">sed和awk的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%AF%B9%E6%AF%94"><span class="toc-text">文件对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vi%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-text">vi编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-text">文件和目录的管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%A4%8D%E5%88%B6%E4%B8%8E%E5%88%A0%E9%99%A4"><span class="toc-text">文件的复制与删除</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cp"><span class="toc-text">cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mv"><span class="toc-text">mv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rm"><span class="toc-text">rm</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86"><span class="toc-text">目录管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-text">目录遍历的命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">目录遍历的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6"><span class="toc-text">批量处理文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E4%B8%8E%E5%8E%8B%E7%BC%A9"><span class="toc-text">打包与压缩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-3-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86"><span class="toc-text">Chapter 3 文件系统管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-text">文件系统的存储管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5"><span class="toc-text">软连接和硬链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-text">系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B%E5%8F%98%E9%87%8Ferrno"><span class="toc-text">整型变量errno</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AEi%E8%8A%82%E7%82%B9%E5%92%8C%E7%9B%AE%E5%BD%95"><span class="toc-text">访问i节点和目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E8%AE%BF%E9%97%AE%E7%9A%84%E4%B8%80%E7%BB%84%E5%BA%93%E5%87%BD%E6%95%B0"><span class="toc-text">目录访问的一组库函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%851%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">补充1：远程登录服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ssh"><span class="toc-text">1.ssh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-git-bash"><span class="toc-text">2.git bash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-putty"><span class="toc-text">3.putty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-secureCRT"><span class="toc-text">4.secureCRT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6%E7%9A%84%E8%BD%AF%E4%BB%B6"><span class="toc-text">传输文件的软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E6%80%A7%E5%8A%A0%E5%AF%86"><span class="toc-text">非对称性加密</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%852%EF%BC%9Aword"><span class="toc-text">补充2：word</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%951%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85yum"><span class="toc-text">附录1：关于安装yum</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>
