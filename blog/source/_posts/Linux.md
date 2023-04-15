@@ -584,7 +584,7 @@ linux文件系统最有意思的是**目录表也作为一个文件来管理**�
 
 ![i](https://api2.mubu.com/v3/document_image/eb0e05c8-271f-4c08-b82c-9ec4ab7e9df1-16175743.jpg)
 
-## 软连接和硬链接
+### 软连接和硬链接
 
 每个目录项指定的“文件名-i节点号”映射关系，叫做1个**硬连接**
 不允许对目录用ln命令建立硬连接
@@ -612,7 +612,7 @@ ln -s users_on sym.link
 
 软硬连接的区别：是否有独立的i节点
 
->硬连接与符号连接的比较
+硬连接与符号连接的比较
 硬连接
 
 - 在数据结构层次上实现
@@ -639,9 +639,24 @@ CPU的INT指令（**软中断、内核态**）; CALL指令（**子程序调用�
 
 这个很有意思
 C标准库定义了errno，系统调用失败后自动填写错误代码，记录失败原因
-#include <errno.h>之后，就可以直接使用errno
-```char *strerror(int errno);```:库函数strerror将数字形式的错误代码转换成一个可阅读的字符串
-```printf的%m```:printf类函数格式字符串中的%m会被替换成上次系统调用失败的错误代码对应的消息（message）
+
+```c
+#include <errno.h>
+```
+
+之后，就可以直接使用errno
+
+```c
+char *strerror(int errno);
+```
+
+库函数strerror将数字形式的错误代码转换成一个可阅读的字符串。
+
+```c
+printf的%m
+```
+
+printf类函数格式字符串中的%m会被替换成上次系统调用失败的错误代码对应的消息（message）
 
 这里有一个例子：
 
@@ -661,6 +676,7 @@ printf("ERROR [%s]\n", strerror(errno));
 }
 . . . . . .
 }
+
 ```
 
 ### 访问i节点和目录
@@ -668,7 +684,7 @@ printf("ERROR [%s]\n", strerror(errno));
 **stat**得到指定路径名的文件的i节点 （路径名）
 **fstat**得到已打开文件的i节点 （内存中节点）
 
-```c
+```C
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
