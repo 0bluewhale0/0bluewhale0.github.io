@@ -20,11 +20,13 @@ ICT:Information Communication Technology,是IT和CT的融合
 
 通信网的三要素：
 
+![image-20230603204414179](https://api2.mubu.com/v3/document_image/e44ce32d-f2ee-429d-b684-603525b06be4-16175743.jpg)
+
 - 交换设备
 - 传输设备
   - 用户与交换机之间的线叫用户线
   - 交换机与交换机之间的线叫中继线（Trunk）
-- 用户终端设备
+- (用户)终端设备
 无线通信：
 手机和基站是无线的，基站和基站之间还是有线的。
 PSTN:public switching telephone network
@@ -76,7 +78,7 @@ Q:电信网和计算机网？
 2. 如何找到对方？寻址
 3. 信息传递的额外要求：网络结构、带宽、复用、连接方式、security、QoS（巴普特的是连到西直门电话局）
 
-==通信的三对基本概念==：
+<mark>通信的三对基本概念</mark>：
 
 - 信息传送的方式
   - 面向连接:连接建立——信息传送——连接释放  公交车/专线
@@ -330,7 +332,7 @@ $M \times N$:容量，M条入线，N条出线
     因为是输入控制方式，格子里面填写的是出线的序号
     比如[30,3]=8,意思就是第三条入线的第30个时隙应该输出到第八条出线上，至于输出到第八条出线的哪个时隙上，因为S接线器不改变时隙，只改变空间，笔者认为应该是输出到第八条线的第30个时隙。
     ==这里还需要注意是是，CM中一共有N个**控制存储器**，而对于每个控制存储器，它的存储单元数目=n，而bit数=$\lceil log_2N \rceil$==
-  ![2](https://api2.mubu.com/v3/document_image/c9abf0e6-4c2e-4b89-b229-d60f578513a3-16175743.jpg)
+    ![2](https://api2.mubu.com/v3/document_image/c9abf0e6-4c2e-4b89-b229-d60f578513a3-16175743.jpg)
   - 输出控制方式 ==容易实现多播！==
   ![3](https://api2.mubu.com/v3/document_image/da1af8d1-5eab-4711-aa0a-66a8f8fb1039-16175743.jpg)
 - 空间交换单元的基本特点：
@@ -374,14 +376,14 @@ $kNV=B/T$（N 为入线数、V 为入线速率、B 为每时隙传送比特数�
 - 输出控制：顺序写入、控制读出
   - 前半周期写入，后半周期读出（SM）
   - 前半周期写入，后半周期读出（CM）
-![2](https://api2.mubu.com/v3/document_image/2816def7-c845-4750-ab81-1219b03c1af8-16175743.jpg)
+  ![2](https://api2.mubu.com/v3/document_image/2816def7-c845-4750-ab81-1219b03c1af8-16175743.jpg)
 
 缺点：复用级别越高，对控制电路要求越高，无法达成很大规模；**时隙转换延迟不定**。
 
 - 输入控制：
   - 前半周期读出，后半周期写入（SM）
   - 前半周期写入，后半周期读出（CM）
-![2](https://api2.mubu.com/v3/document_image/59e893f8-d3c4-422a-8fa3-4a40bec1e83b-16175743.jpg)
+  ![2](https://api2.mubu.com/v3/document_image/59e893f8-d3c4-422a-8fa3-4a40bec1e83b-16175743.jpg)
 
 ### 交换网络
 
