@@ -406,6 +406,7 @@
     <content><![CDATA[<p>开个坑，期末复习用。<br>ICT:Information Communication Technology,是IT和CT的融合</p>
 <h2 id="chapter0-交换通识概论"><a href="#chapter0-交换通识概论" class="headerlink" title="chapter0-交换通识概论"></a>chapter0-交换通识概论</h2><p>停电了电话还能打：电话通过双绞线连到供电局，是由供电局来供电的。</p>
 <p>通信网的三要素：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/e44ce32d-f2ee-429d-b684-603525b06be4-16175743.jpg" alt="image-20230603204414179"></p>
 <ul>
 <li>交换设备</li>
 <li>传输设备<ul>
@@ -413,7 +414,7 @@
 <li>交换机与交换机之间的线叫中继线（Trunk）</li>
 </ul>
 </li>
-<li>用户终端设备<br>无线通信：<br>手机和基站是无线的，基站和基站之间还是有线的。<br>PSTN:public switching telephone network</li>
+<li>(用户)终端设备<br>无线通信：<br>手机和基站是无线的，基站和基站之间还是有线的。<br>PSTN:public switching telephone network</li>
 </ul>
 <p>通信网的分层：（从上到下）</p>
 <ul>
@@ -450,7 +451,7 @@
 <li>如何找到对方？寻址</li>
 <li>信息传递的额外要求：网络结构、带宽、复用、连接方式、security、QoS（巴普特的是连到西直门电话局）</li>
 </ol>
-<p>&#x3D;&#x3D;通信的三对基本概念&#x3D;&#x3D;：</p>
+<p><mark>通信的三对基本概念</mark>：</p>
 <ul>
 <li>信息传送的方式<ul>
 <li>面向连接:连接建立——信息传送——连接释放  公交车&#x2F;专线</li>
@@ -4812,6 +4813,808 @@
       <tags>
         <tag>course</tag>
         <tag>计算机系统结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>现代交换原理（期末速成）</title>
+    <url>/2023/06/14/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86%EF%BC%88%E6%9C%9F%E6%9C%AB%E9%80%9F%E6%88%90%EF%BC%89/</url>
+    <content><![CDATA[<p>现代交换原理（期末速成）</p>
+<h2 id="第一章-交换概论"><a href="#第一章-交换概论" class="headerlink" title="第一章 交换概论"></a>第一章 交换概论</h2><h3 id="通信网的三要素"><a href="#通信网的三要素" class="headerlink" title="通信网的三要素"></a>通信网的<font color=red>三要素</font></h3><p><img src="https://api2.mubu.com/v3/document_image/e44ce32d-f2ee-429d-b684-603525b06be4-16175743.jpg" alt="image-20230603204414179"></p>
+<ul>
+<li>交换设备</li>
+<li>传输设备<ul>
+<li>用户与交换机之间的线叫用户线</li>
+<li>交换机与交换机之间的线叫中继线（Trunk）</li>
+</ul>
+</li>
+<li>(用户)终端设备<br>无线通信：<br>手机和基站是无线的，基站和基站之间还是有线的。<br>PSTN:public switching telephone network</li>
+</ul>
+<h3 id="通信的三对基本概念："><a href="#通信的三对基本概念：" class="headerlink" title="通信的三对基本概念："></a><mark>通信的三对基本概念</mark>：</h3><ul>
+<li><p><strong>信息传送</strong>的方式</p>
+<ul>
+<li>面向连接:连接建立——信息传送——连接释放  公交车&#x2F;专线</li>
+<li>无连接：边寻址边传递讯息  自行车春游</li>
+</ul>
+</li>
+<li><p><strong>时分复用</strong>（另一种复用是频分复用）</p>
+<ul>
+<li><p>同步时分复用</p>
+<p><img src="https://api2.mubu.com/v3/document_image/13e625cc-7a7f-4ec4-9d91-88e6a63a24d8-16175743.jpg"></p>
+<ul>
+<li>固定带宽分配</li>
+<li>位置化信道：依据信号在时间轴上的位置来区分每一路信号（逻辑信道），无信息传送时也占用信道。</li>
+<li>每帧定长、子信道信息流速率恒定。</li>
+</ul>
+</li>
+<li><p>异步（统计）时分复用</p>
+<p><img src="https://api2.mubu.com/v3/document_image/01d3b684-f9e4-4aab-aa36-6432a240f186-16175743.jpg" alt="123"></p>
+<ul>
+<li>按需分配，提高了利用率</li>
+<li>（动态带宽分配）</li>
+<li><strong>标志化信道</strong>：标志码表示哪路信息。</li>
+<li>分组长度可变或不可变，分组头用于定界。</li>
+<li>统计复用提高信道利用率。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>带宽分配</strong><br>类比：交通车道</p>
+<ul>
+<li>固定带宽分配，2G，信道是固定的</li>
+<li>动态带宽分配，4G，按需分配信道</li>
+</ul>
+</li>
+</ul>
+<h3 id="不同的交换方式"><a href="#不同的交换方式" class="headerlink" title="不同的交换方式"></a>不同的交换方式</h3><p><img src="https://api2.mubu.com/v3/document_image/863568db-f74a-4d4f-9bb1-becb15df791e-16175743.jpg" alt="1"></p>
+<p>在ATM交换方式的应用中，还存在<code>MPLS、软交换、IMS（IP多媒体子系统）</code>等新一代融合网络中出现的交换技术。</p>
+<h4 id="电路交换CTM"><a href="#电路交换CTM" class="headerlink" title="电路交换CTM"></a>电路交换CTM</h4><p><img src="https://api2.mubu.com/v3/document_image/f7dd1eac-b426-4f1f-91ca-4a6b0fd5ed87-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/d6e4f104-9bb3-4e40-983d-86dc14a5aa48-16175743.jpg"></p>
+<h5 id="电路交换的特点"><a href="#电路交换的特点" class="headerlink" title="电路交换的特点"></a>电路交换的特点</h5><ol>
+<li>面向连接的工作方式（物理连接)</li>
+<li>同步时分复用(固定带宽分配) PCM 64kb&#x2F;s </li>
+<li>无差错控制机制</li>
+<li>对通信信息不作处理（透明传输）（与分组交换对比）</li>
+<li>流量控制基于<strong>呼叫损失制</strong>（如果处理不过来，就不受理摘机呼叫，就打不通了）</li>
+</ol>
+<h5 id="为什么电话通信（PSTN）网采用电路交换方式？"><a href="#为什么电话通信（PSTN）网采用电路交换方式？" class="headerlink" title="为什么电话通信（PSTN）网采用电路交换方式？"></a>为什么电话通信（PSTN）网采用电路交换方式？</h5><p>业务需求：实时、恒定速率的话音业务</p>
+<p>实时性：面向连接、无差错控制、呼叫损失制、透明传输</p>
+<p>恒定速率：同步时分复用(固定带宽分配)</p>
+<h4 id="分组交换PTM"><a href="#分组交换PTM" class="headerlink" title="分组交换PTM"></a>分组交换PTM</h4><p>最基本的特点：<mark>存储转发</mark></p>
+<p><img src="https://api2.mubu.com/v3/document_image/635726e2-3140-42aa-b47a-b8ffc9372f61-16175743.jpg"></p>
+<p>分组：</p>
+<ul>
+<li>分组头：选路信息+控制信息</li>
+<li>分组大小：可变长，兼顾时延和开销</li>
+</ul>
+<h5 id="分组交换的分类"><a href="#分组交换的分类" class="headerlink" title="分组交换的分类"></a>分组交换的分类</h5><p>分组交换分为两种：虚电路和数据报</p>
+<h6 id="虚电路"><a href="#虚电路" class="headerlink" title="虚电路"></a>虚电路</h6><p><img src="https://api2.mubu.com/v3/document_image/4f5e3d1c-2f06-430f-ad89-04f498a82779-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/34a7dc65-2eff-4c94-bfb3-553c045b6fcd-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/04b5a2b8-e2d9-4596-93d1-a33d10732ea5-16175743.jpg"></p>
+<h6 id="数据报"><a href="#数据报" class="headerlink" title="数据报"></a>数据报</h6><p><strong>无连接</strong></p>
+<p><img src="https://api2.mubu.com/v3/document_image/b6f00fd3-31ff-436e-9943-b3adb9e6d603-16175743.jpg"></p>
+<h5 id="分组交换的时分复用方式"><a href="#分组交换的时分复用方式" class="headerlink" title="分组交换的时分复用方式"></a>分组交换的时分复用方式</h5><p><img src="https://api2.mubu.com/v3/document_image/05f7949d-14fe-487b-b2cd-aa1ca5e6e2a3-16175743.jpg"></p>
+<h5 id="分组交换的特点"><a href="#分组交换的特点" class="headerlink" title="分组交换的特点"></a>分组交换的特点</h5><ol>
+<li><p>面向连接方式（逻辑连接）和无连接方式</p>
+</li>
+<li><p>统计时分复用（动态分配带宽)</p>
+</li>
+<li><p>有差错控制机制</p>
+</li>
+<li><p>对通信信息作处理</p>
+<p>在数据通信里面，对可靠性要求高，比如计算机网络里面的校验位</p>
+</li>
+<li><p>流量控制基于<strong>呼叫延迟制</strong></p>
+<p>在拥挤的时候，不会拒绝发送，但会在包里面打上一个时间戳，在路由转发的过程中如果超时了，就丢弃</p>
+</li>
+</ol>
+<h5 id="虚电路和数据报的比较"><a href="#虚电路和数据报的比较" class="headerlink" title="虚电路和数据报的比较"></a>虚电路和数据报的比较</h5><table>
+<thead>
+<tr>
+<th></th>
+<th>虚电路</th>
+<th>数据报</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分组头</td>
+<td>简单（逻辑信道号）</td>
+<td>复杂（详细的选路信息）</td>
+</tr>
+<tr>
+<td>选路</td>
+<td>虚连接表</td>
+<td>每个分组独立选路</td>
+</tr>
+<tr>
+<td>分组顺序</td>
+<td>有序</td>
+<td>可能失序</td>
+</tr>
+<tr>
+<td>故障敏感性</td>
+<td>敏感</td>
+<td>可靠性高</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>连续数据流</td>
+<td>因为会失序，可以发送询问&#x2F;响应</td>
+</tr>
+</tbody></table>
+<p>but：IP包转发中的连续数据流实现：在包里面写个顺序号，收全了之后再排序</p>
+<h5 id="为什么数据通信网采用分组交换方式"><a href="#为什么数据通信网采用分组交换方式" class="headerlink" title="为什么数据通信网采用分组交换方式?"></a>为什么数据通信网采用分组交换方式?</h5><p>业务：可靠性要求高、可变速率的数据业务</p>
+<p>高可靠性：差错控制，对通信信息处理、路由的可靠性比较高</p>
+<p>可变速率：统计时分复用（按需分配）</p>
+<h4 id="CTM和PTM-的比较"><a href="#CTM和PTM-的比较" class="headerlink" title="CTM和PTM 的比较"></a>CTM和PTM 的比较</h4><ul>
+<li>对信息的损伤方面<ul>
+<li>电路交换——时间透明性好，延迟小</li>
+<li>分组交换——语义透明性好，错误少</li>
+</ul>
+</li>
+<li>支持多种业务方面<ul>
+<li>分组交换有更大的灵活性，可实现多速率交换，并允许多种业务共享网络资源</li>
+</ul>
+</li>
+<li>交换速率<ul>
+<li>电路交换可达到高速率的交换（硬件）</li>
+<li>分组交换的交换速率受到了限制（软件要看包头）</li>
+</ul>
+</li>
+<li>设备的复杂性<ul>
+<li>分组交换需要复杂的队列管理机制</li>
+<li>电路交换需要复杂的路由选择算法</li>
+</ul>
+</li>
+</ul>
+<h3 id="交换系统基本结构"><a href="#交换系统基本结构" class="headerlink" title="交换系统基本结构"></a>交换系统基本结构</h3><p><mark>交换网络</mark>是第二章的<mark>核心</mark>，又叫<mark>交换矩阵</mark>。</p>
+<p>以电信交换系统为例（其他的系统也都差不多）</p>
+<p><img src="https://api2.mubu.com/v3/document_image/30e7d70c-e397-409b-84a6-7c425d92b45b-16175743.jpg" alt="4"></p>
+<ul>
+<li><p>信息传送子系统：</p>
+<ul>
+<li>交换网络：完成交换，实现任意出线与入线的互联。</li>
+<li>各种接口：分为用户接口和中继接口，用途是<strong>进行信号转换</strong>。</li>
+</ul>
+</li>
+<li><p>控制子系统：由处理机系统构成，是交换系统的“指挥中心”。</p>
+<p>可以由多个或者单个处理机构成</p>
+</li>
+</ul>
+<h4 id="电信交换系统的基本技术"><a href="#电信交换系统的基本技术" class="headerlink" title="电信交换系统的基本技术"></a>电信交换系统的基本技术</h4><ul>
+<li>互连技术:<ul>
+<li>交换网络的拓扑结构、选路策略、控制机理、多播方式、阻塞特性、故障防卫</li>
+</ul>
+</li>
+<li>接口技术:<ul>
+<li>模拟用户接口、数字用户接口、模拟中继接口、数字中继接口</li>
+</ul>
+</li>
+<li>信令技术:<ul>
+<li>用户信令、局间信令</li>
+</ul>
+</li>
+<li>控制技术:<ul>
+<li>控制系统的结构方式、多处理机结构</li>
+</ul>
+</li>
+</ul>
+<h2 id="第二章-交换网络"><a href="#第二章-交换网络" class="headerlink" title="第二章 交换网络"></a>第二章 交换网络</h2><p><font color=blue>这一章是考试的重点，期末大概占40%。</font></p>
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>交换单元的基本功能就是要在人线与出线之间建立一定的连接,使信息能从入线交换到出线。</p>
+<p>交换单元的**连接特性(connectivity)**反映出交换单元从入线到出线的连接能力,是<u>交换单元的基本特性</u>。</p>
+<p>交换单元的连接特性有集合和函数两种描述方式。</p>
+<h4 id="集合描述方式："><a href="#集合描述方式：" class="headerlink" title="集合描述方式："></a>集合描述方式：</h4><p><img src="https://api2.mubu.com/v3/document_image/96afee49-9356-4928-8bc8-8142f5e1cc40-16175743.jpg"></p>
+<p>该集合表示该$M\times N$交换单元的入线$t$与一组出线$R$之间的连接，可以把$t$称为连接的起点,把$r∈R$称为连接的终点。</p>
+<h5 id="点到点和点到多点"><a href="#点到点和点到多点" class="headerlink" title="点到点和点到多点"></a><font color=green>点到点和点到多点</font></h5><p>如果$R_t$中只含有惟一的一个元素,那么把该连接称为<strong>点到点</strong>连接;</p>
+<p>如果$R_t$中包含多个元素,那么把该连接称为点到多点连接。</p>
+<h5 id="同发和广播"><a href="#同发和广播" class="headerlink" title="同发和广播"></a><font color=green>同发和广播</font></h5><p>特别地,对于点到多点的连接,如果$R_t \ne R$,称此连接具有同发功能;</p>
+<p>如果$R_t&#x3D;R$,称此连接具有广播功能。</p>
+<h4 id="函数表示方式："><a href="#函数表示方式：" class="headerlink" title="函数表示方式："></a>函数表示方式：</h4><p><img src="https://api2.mubu.com/v3/document_image/7480de51-1ab3-4f75-bfec-664c2a2897c8-16175743.jpg"></p>
+<p>上述表示连接方式的函数称为<strong>连接函数</strong>。可以有两种更直观的形式来表示连接函数:</p>
+<ol>
+<li><p>一种是排列表示形式</p>
+</li>
+<li><p>另一种是通过图形来表示。</p>
+</li>
+<li><p>对于点到点连接方式经常采用二进制函数表示方法。</p>
+</li>
+</ol>
+<h5 id="排列表达式"><a href="#排列表达式" class="headerlink" title="排列表达式"></a>排列表达式</h5><p><img src="https://api2.mubu.com/v3/document_image/43fcb661-7cba-4dbd-a3ed-3d5b2aa74f4b-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/4f196815-3cc1-4b17-9803-3b80736243fb-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/a76d9b6d-6318-46cb-bd84-b2aa80e72710-16175743.jpg"></p>
+<p>一个$N\times N$的交换单元最多可以有$N!$种不同的点到点连接方式。</p>
+<h5 id="图形表示"><a href="#图形表示" class="headerlink" title="图形表示"></a>图形表示</h5><p><img src="https://api2.mubu.com/v3/document_image/d953be33-d100-42f6-b54c-f542ffe0d247-16175743.jpg"></p>
+<h5 id="二进制函数"><a href="#二进制函数" class="headerlink" title="二进制函数"></a>二进制函数</h5><p><img src="https://api2.mubu.com/v3/document_image/8427dac5-0142-43e7-9107-7333af7b69f3-16175743.jpg"></p>
+<h4 id="常见的连接"><a href="#常见的连接" class="headerlink" title="常见的连接"></a>常见的连接</h4><p>课本42页 or <a href="https://blog.xqmmcqs.com/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0%20-%20%E7%AC%AC%E4%B8%80%E3%80%81%E4%BA%8C%E7%AB%A0/#%E8%BF%9E%E6%8E%A5%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F:~:text=%E7%9A%84%E8%BF%9E%E6%8E%A5%E8%83%BD%E5%8A%9B%E3%80%82-,%E8%BF%9E%E6%8E%A5%E3%80%81%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F,-%E8%BF%9E%E6%8E%A5">查看连接</a></p>
+<p>直线连接</p>
+<p>交叉连接</p>
+<p>蝶式连接</p>
+<p>均匀洗牌置换</p>
+<p>间隔交叉连接（方体置换）</p>
+<p>这部分系统结构里面更全，这个是系统结构互联网络互联函数里面的子集。</p>
+<h3 id="交换网络的构成"><a href="#交换网络的构成" class="headerlink" title="交换网络的构成"></a>交换网络的构成</h3><blockquote>
+<p><strong>Def:交换网络是由若干个交换单元按照一定的拓扑结构和控制方式构成的网络。</strong></p>
+</blockquote>
+<p><mark><strong>交换的基本功能</strong>是在任意的入线和出线之间建立连接</mark></p>
+<h3 id="交换网络的三个基本要素"><a href="#交换网络的三个基本要素" class="headerlink" title="交换网络的三个基本要素"></a>交换网络的<font color=red>三个基本要素</font></h3><p>交换网络的三个基本要素是：<strong>交换单元、不同交换单元间的拓扑结构和控制方式</strong>。</p>
+<p>&#x3D;&#x3D;交换单元是构成交换网络的最基本的部件。&#x3D;&#x3D;</p>
+<h3 id="交换单元"><a href="#交换单元" class="headerlink" title="交换单元"></a>交换单元</h3><p>SE :switch element</p>
+<p><img src="https://api2.mubu.com/v3/document_image/8f4e6c27-5974-4165-bfd9-d49918c69a96-16175743.jpg" alt="5"></p>
+<p>$M \times N$:容量，M条入线，N条出线</p>
+<h4 id="交换单元的分类"><a href="#交换单元的分类" class="headerlink" title="交换单元的分类"></a>交换单元的分类</h4><p>这里列出了几种分类方法</p>
+<ul>
+<li>入线和出线信息传送方向 <img src="https://api2.mubu.com/v3/document_image/f8f40cac-9aa7-4a5a-8407-d007be57a709-16175743.jpg" alt="2"><br><mark>关于K$\times $L ：</mark>从K个进入，只能从L个出来；而从L进入，只能从K个出来；并不是全联通的，要与N$\times $N区分开来。</li>
+<li>入线和出线的数量关系 <img src="https://api2.mubu.com/v3/document_image/5dd6e0be-7af0-4fab-a4be-aabf980f6244-16175743.jpg" alt="3"></li>
+<li>时分与空分(按照入线和出线之间是否共享单一通路) <img src="https://api2.mubu.com/v3/document_image/450d9921-ecbe-4b6b-ae9a-41379be92035-16175743.jpg" alt="4"></li>
+<li>按照交换单元所接收的信号<ul>
+<li>模拟交换单元（现在已经不用了）</li>
+<li>数字交换单元</li>
+</ul>
+</li>
+<li>全联通与部分联通交换单元</li>
+</ul>
+<h4 id="交换单元的基本特性"><a href="#交换单元的基本特性" class="headerlink" title="交换单元的基本特性"></a>交换单元的基本特性</h4><ul>
+<li><p>交换单元连接特性的描述方式：</p>
+<ul>
+<li>集合描述方式</li>
+<li>函数描述方式（排列、图形、二进制函数）</li>
+</ul>
+</li>
+<li><p>常见的连接方式：</p>
+<ul>
+<li>直接连接</li>
+<li>交叉连接（交换置换）</li>
+<li>蝶式连接</li>
+<li>均匀洗牌连接</li>
+<li>间隔交叉连接（方体置换）</li>
+</ul>
+</li>
+<li><p>交换单元的性能</p>
+<ul>
+<li><p>容量：<br>交换单元所有入线可以同时送入的总的信息量</p>
+</li>
+<li><p>接口：<br>交换单元需要规定自己的信号接口标准，即信号形式、速率及信息流方向</p>
+</li>
+<li><p>功能：<br>点到点、点到多点</p>
+</li>
+<li><p>质量：<br>完成交换动作的速度、任何情况下是否能完成指定连接、信息经过交换单元是否有损伤(时间、语义)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="开关阵列（空分）"><a href="#开关阵列（空分）" class="headerlink" title="开关阵列（空分）"></a>开关阵列（空分）</h4><p>在每条入线和每条出线直接都各自接上一个开关，构成开关阵列。</p>
+<ul>
+<li>开关的位置：入、出线交叉点</li>
+<li>开关的表示：$K_{ij}$（i 为入线，j 为出线）</li>
+<li>开关的状态：通、断</li>
+<li>开关的种类：单向、双向</li>
+</ul>
+<p>实现：全连通交换单元、部分连通交换单元、多路选择器……</p>
+<blockquote>
+<p>开关阵列的特性：<br>可以很容易的实现点到多点的传输，也就是说容易实现广播功能<br>开关阵列的时延，从（每路）入线到出线延迟时间均等<br>控制信号简单 每个开关就0和1两个信号<br>交换单元性能依赖于所使用的开关（电子的快，机械的慢）<br>适用于构成较小的交换单元（开关num反应实现复杂度和成本高低）</p>
+</blockquote>
+<p>实际使用的开关阵列</p>
+<ol>
+<li>继电器</li>
+<li>模拟电子开关</li>
+<li>数字电子开关</li>
+</ol>
+<p><img src="https://api2.mubu.com/v3/document_image/9bee64c1-c6eb-4667-81c2-27d8150c0a2f-16175743.jpg"></p>
+<h4 id="S-接线器（空分）"><a href="#S-接线器（空分）" class="headerlink" title="S 接线器（空分）"></a>S 接线器（空分）</h4><p>也叫<strong>空间接线器（Space Switch）</strong>，简称 <strong>S 单元</strong>或 <strong>S 接线器</strong> 。 用来完成多个输入服用先与多个输出复用线之间的空间交换，而不改变其时隙位置。</p>
+<blockquote>
+<p>每条线都是PCM，开关阵列不一定是PCM，但是S接线器是一定是PCM，也就是每一路上面有很多个时隙（老师举例子是32路PCM）。专为话音通信设计的。<br>特别的，S接线器，入线和出线的数目都是相等的，而且每条线的（whatever 入还是出）传输速率都是一样样的。</p>
+</blockquote>
+<ul>
+<li>构成：<ul>
+<li>交叉点矩阵（开关阵列）</li>
+<li>控制存储器（CM，Control Memory）</li>
+</ul>
+</li>
+<li>功能：输入输出线之间的空间交换</li>
+<li>S 接线器所含 CM 数量等于入（出）线数</li>
+<li>每个 CM 含有的存储单元个数等于入（出）线上的复用时隙数</li>
+<li>每个存储单元为 m 位 bit，且满足$N \le 2^m$，其中 N 为接线器的入（出）线数</li>
+<li>CM 具有输入控制方式与输出控制方式。<ul>
+<li>输入控制方式<br>关于CM里面记得是什么：<br>左侧的0~n-1是时隙的编号，如果按照老师说的是32路PCM，那么这里的n&#x3D;32<br>横着的是0-N-1，表示一共是N条入线（出线）<br>因为是输入控制方式，格子里面填写的是出线的序号<br>比如[30,3]&#x3D;8,意思就是第三条入线的第30个时隙应该输出到第八条出线上，至于输出到第八条出线的哪个时隙上，因为S接线器不改变时隙，只改变空间，笔者认为应该是输出到第八条线的第30个时隙。<br>&#x3D;&#x3D;这里还需要注意是是，CM中一共有N个<strong>控制存储器</strong>，而对于每个控制存储器，它的存储单元数目&#x3D;n，而bit数&#x3D;$\lceil log_2N \rceil$&#x3D;&#x3D;<br><img src="https://api2.mubu.com/v3/document_image/c9abf0e6-4c2e-4b89-b229-d60f578513a3-16175743.jpg" alt="2"></li>
+<li>输出控制方式 &#x3D;&#x3D;容易实现多播！&#x3D;&#x3D;<br><img src="https://api2.mubu.com/v3/document_image/da1af8d1-5eab-4711-aa0a-66a8f8fb1039-16175743.jpg" alt="3"></li>
+</ul>
+</li>
+<li>空间交换单元的基本特点：<ul>
+<li>只完成空间交换，不进行时隙交换</li>
+<li>空间接线器按时分方式工作</li>
+<li>输<u>出</u>控制方式易于实现多播</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>每秒钟抽样8000帧(?)，每一帧中有32个时隙，所以改变的周期是3.9$\mu s$<br><img src="https://api2.mubu.com/v3/document_image/397e2c45-52e4-49d0-b806-b83d572918e2-16175743.jpg" alt="image.png"></p>
+</blockquote>
+<h4 id="T-接线器"><a href="#T-接线器" class="headerlink" title="T 接线器"></a>T 接线器</h4><h5 id="时间（时分）交换单元"><a href="#时间（时分）交换单元" class="headerlink" title="时间（时分）交换单元"></a>时间（时分）交换单元</h5><p>这个玩意儿，其实只有一条线的输入和输出。<br>大家说的N路输入输出都是指的PCM，也就是说，本来就一个输入的口和输出的口，只是时隙不同。这一点非常重要，记住这个才可能理解后面的共享存储器和共享总线的工作机制。</p>
+<p>时分交换单元的一般构成</p>
+<p>分为：共享存储器型交换单元、共享总线型交换单元。</p>
+<ul>
+<li><p>共享存储器型：共 N 个出入线缓存。入线缓存（输入缓冲）控制读出，出线缓存（输出缓冲）控制写入。</p>
+<ul>
+<li>输入缓冲方式是指存储器中N个区域与N路输入信号一一对应,即0～N-1个区域分别对应存放在存储器的0~N-1个区域中,并在适当的时候输出到目的输出信道上。<font color=red>控制读出</font></li>
+<li>输出缓冲方式是指存储器中N个区域与N路输出信号一一对应,即存储器的0～N-1个区域分别对应0～N-1路输出信息。从不同输入信道来的信息如果要交换到输出信道中,就把信息放在这个输出信道所对应存储器的相应区域中,当输出时刻到来时输出信息。<font color=red>控制写入</font></li>
+</ul>
+</li>
+<li><p>共享总线型：总线按照时隙轮流分配给入线控制部件和出线控制部件使用。</p>
+<ul>
+<li>$kNV&#x3D;B&#x2F;T$（N 为入线数、V 为入线速率、B 为每时隙传送比特数、T 为时隙长度，k 为时隙分配因子）<?>这里没太懂</?></li>
+</ul>
+</li>
+</ul>
+<h5 id="T-接线器-1"><a href="#T-接线器-1" class="headerlink" title="T 接线器"></a>T 接线器</h5><ul>
+<li>T 接线器：共享存储器型SE<ul>
+<li>话音存储器（SM，Speech Memory）：暂存话音的数字编码信息<ul>
+<li>存储单元个数等于 PCM 线路每帧时隙数；每单元至少 8bit（一路话音）</li>
+</ul>
+</li>
+<li>控制存储器（CM，Control Memory）<ul>
+<li>存储单元个数等于 SM；每单元至少$log_2n（n 为时隙数）$比特</li>
+</ul>
+</li>
+<li>这俩其实是形成了一个映射，假设是输出控制，那么顺序写入的数据被顺序存储到SM话音存储器中去，数组下标与到来顺序存在一一对应，而CM相当于存储了一个对应关系，把构造的一个新的帧的每个时隙都对应了一个输入时隙的下标，这样根据CM里面的信息就可以按照原来的帧构造一个仅时隙顺序不同的新帧然后发送。</li>
+<li>如果是输入控制，那么输出的顺序就是SM里面的信息，一毛一样的，相当于输入来的时候就在一边接收一边构造输出的新帧了，它是存的时候看着CM里面的信息存，这种CM刚好是上面那个输出控制的CM横纵坐标反过来。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/bddbe224-219d-48f5-b1c6-f3809af42395-16175743.jpg" alt="2"></p>
+<ul>
+<li><p>输出控制：顺序写入、控制读出<a href="%5B%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86%EF%BC%88%E5%8D%9E%E4%BD%B3%E4%B8%BD%EF%BC%89_%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6MOOC(%E6%85%95%E8%AF%BE">chu</a> (icourse163.org)](<a href="https://www.icourse163.org/spoc/learn/BUPT-1462466164?tid=1470058464#/learn/content?type=detail&amp;id=1253274657&amp;cid=1283524078&amp;replay=true">https://www.icourse163.org/spoc/learn/BUPT-1462466164?tid=1470058464#/learn/content?type=detail&amp;id=1253274657&amp;cid=1283524078&amp;replay=true</a>))</p>
+<ul>
+<li>前半周期写入，后半周期读出（SM）</li>
+<li>前半周期写入，后半周期读出（CM）<br><img src="https://api2.mubu.com/v3/document_image/2816def7-c845-4750-ab81-1219b03c1af8-16175743.jpg" alt="2"></li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/48ee2b79-3031-42b5-893f-810a29a88ee2-16175743.jpg"></p>
+</li>
+</ul>
+<p>缺点：复用级别越高，对控制电路要求越高，无法达成很大规模；<strong>时隙转换延迟不定</strong>。</p>
+<ul>
+<li><p>输入控制：<a href="%5B%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86%EF%BC%88%E5%8D%9E%E4%BD%B3%E4%B8%BD%EF%BC%89_%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6MOOC(%E6%85%95%E8%AF%BE">ru</a> (icourse163.org)](<a href="https://www.icourse163.org/spoc/learn/BUPT-1462466164?tid=1470058464#/learn/content?type=detail&amp;id=1253274657&amp;cid=1283524079&amp;replay=true">https://www.icourse163.org/spoc/learn/BUPT-1462466164?tid=1470058464#/learn/content?type=detail&amp;id=1253274657&amp;cid=1283524079&amp;replay=true</a>))</p>
+<ul>
+<li>前半周期读出，后半周期写入（SM）</li>
+<li>前半周期写入，后半周期读出（CM）<br><img src="https://api2.mubu.com/v3/document_image/59e893f8-d3c4-422a-8fa3-4a40bec1e83b-16175743.jpg" alt="2"></li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/2537ce18-7108-46d1-9595-743a136ef47d-16175743.jpg"></p>
+</li>
+</ul>
+<h3 id="无阻塞网络"><a href="#无阻塞网络" class="headerlink" title="无阻塞网络"></a>无阻塞网络</h3><p>交换网络的阻塞是指从交换网络不同输入端来的信息在交换网络中交换时发生了<strong>对同一公共资源争抢</strong>的情况﹐这时在竞争资源中失败的信息就会被阻塞,直到这个公共资源被释放。</p>
+<ul>
+<li><mark>内部竞争</mark>：同时要交换的两路信息同抢交换单元内部的通路资源。</li>
+<li><mark>出线竞争</mark>：不同入端来的信息同时争抢交换网络同一个输出端口而发生的竞争。</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/9127786a-d636-438a-949f-f54a80cc6d64-16175743.jpg"></p>
+<p>无阻塞网络</p>
+<ul>
+<li><p><strong>严格无阻塞交换网络</strong>：任何时刻都可以在交换网络中建立一个连接（只要该连接起点、终点是空闲的）而不影响已建立的连接。（只要需要交换的入线与出线空闲，就可以通过交换网络建立一个连接。）</p>
+</li>
+<li><p><strong>可重排无阻塞网络</strong>：</p>
+<ul>
+<li>不管网络处于何种状态，任何时刻都可以在交换网络 中直接或对已有的连接重选路由来建立一个连接，只要这 个连接的起点、终点是空闲的，而不会影响网络中已建立 起来的连接。</li>
+<li>只要需要交换的入线与出线空闲，就可以通过交换网络直接地或对已有连接进行重排之后建立一个连接。</li>
+<li><img src="https://api2.mubu.com/v3/document_image/1f855c51-69a9-4c51-9a82-21d7cc8f0e3b-16175743.jpg" style="zoom: 50%;" /></li>
+</ul>
+</li>
+<li><p><strong>广义无阻塞网络</strong>：</p>
+<ul>
+<li>ppt定义：存在一种精巧的选路方法，使得只要需要交换的入线与出线空闲，<strong>不必重排</strong>，就可以通过交换网络建立连接。</li>
+<li>课本定义：如果在顺序建立各连接时遵循一定的规则选择路径,则任何时候都可在交换网络中建立一个连接,只要这个连接的起点和终点处于空闲状态。</li>
+</ul>
+</li>
+</ul>
+<h3 id="交换网络"><a href="#交换网络" class="headerlink" title="交换网络"></a>交换网络</h3><blockquote>
+<p>Def:交换网络是由（若干个）交换单元按照一定的拓扑结构拓展而成的。</p>
+</blockquote>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><h5 id="单级交换网络"><a href="#单级交换网络" class="headerlink" title="单级交换网络"></a>单级交换网络</h5><p>由一个或多个位于同一级交换单元构成的交换网络，信息从交换网络<strong>入线到出线只经过一个交换单元</strong>，并且<strong>同一级多个交换单元入线和出线之间可建立连接（交换单元需要发挥交换作用而非直连,别管单极还是多级，这玩意儿得是个网络嗷）</strong>。</p>
+<img src="https://api2.mubu.com/v3/document_image/099cc229-57b1-4300-bb70-013be375e93f-16175743.jpg" style="zoom:50%;" />
+
+<h5 id="多级（k-级）交换网络"><a href="#多级（k-级）交换网络" class="headerlink" title="多级（k 级）交换网络"></a>多级（k 级）交换网络</h5><p>如果一个交换网络中的交换单元可以分为K级，顺序明明为第1，2，…k级</p>
+<ul>
+<li>所有入线都只与第 1 级连接。</li>
+<li>所有第 1 级交换单元都只与入线和第 2 级连接。</li>
+<li>所有第 2 级交换单元都只与第 1 级和第 3 级连接。</li>
+<li>以此类推，所有第 k 级交换单元都只与第 k-1 级和出线连接。</li>
+</ul>
+<h5 id="单通道网络、多通道网络"><a href="#单通道网络、多通道网络" class="headerlink" title="单通道网络、多通道网络"></a>单通道网络、多通道网络</h5><p>任一条入线和出线之间只存在唯一的一条通路，则为单通道网络。</p>
+<blockquote>
+<p>对于2x2的交换网络，可以是两级的，也可以是三级的，三级交换网络的好处是：可以有多条通路，所以多接一级不是无意义的浪费。</p>
+</blockquote>
+<h5 id="有阻塞网络、无阻塞网络（略）"><a href="#有阻塞网络、无阻塞网络（略）" class="headerlink" title="有阻塞网络、无阻塞网络（略）"></a>有阻塞网络、无阻塞网络（略）</h5><p>见上一个标题</p>
+<h5 id="时分、空分交换网络"><a href="#时分、空分交换网络" class="headerlink" title="时分、空分交换网络"></a>时分、空分交换网络</h5><p>时分交换网络： 时分结构的基本特征是所有的输入与输出端口分时 共享单一的通信通路，具有时隙交换功能 。 </p>
+<p>空分交换网络： 空分结构的基本特征是可以在多对输入端口与输出 端口间同时并行地传送信息，具有空间交换的功能。</p>
+<h3 id="CLOS网络"><a href="#CLOS网络" class="headerlink" title="CLOS网络"></a>CLOS网络</h3><p>假设<code>CLOS</code>网络有M条入线和N条出线,如果M&#x3D;N,称该<code>CLOS</code>网络为对称的<code>CLOS</code>网络,否则为非对称的<code>CLOS</code>网络。对称的<code>CLOS</code>网络使用广泛，<strong>下文介绍的<code>CLOS</code>网络除特别说明一般指对称的<code>CLOS</code>网络</strong>。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/82fc201f-61fb-4d52-a654-36d6e70f6cd1-16175743.jpg" alt="2"></p>
+<blockquote>
+<p>CLOS网络可以是3级的，5级的，7级的。</p>
+</blockquote>
+<p>严格无阻、可重排无阻公式和构造</p>
+<p>3 级 CLOS 严格无阻：$m \geq 2n-1$<br>why？见下图所示。<br><img src="https://api2.mubu.com/v3/document_image/a528db77-0051-4200-8526-a4539ee81740-16175743.jpg" alt="2"></p>
+<p>3 级 CLOS 可重排无阻：$m \geq n$<br>（这个不懂是怎么推导的，死记吧）</p>
+<h3 id="TST网络"><a href="#TST网络" class="headerlink" title="TST网络"></a>TST网络</h3><p>应用场景</p>
+<p><img src="https://api2.mubu.com/v3/document_image/31b48574-640e-43f5-972c-e3b8a464a5e1-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/5b1b5818-f3cd-427a-b103-e2f52527c3f7-16175743.jpg" alt="2"></p>
+<p>T接线器只交换时隙，入线和出线都是同一条<strong>PCM</strong>； S接线器只交换物理线路，不改变时隙<br><img src="https://api2.mubu.com/v3/document_image/72cec5ea-6501-4d67-b639-152fdcec1d3b-16175743.jpg" alt="2"></p>
+<p>阻塞特性<br><strong>完全无阻</strong>塞的条件：$m（内部时隙数）&#x3D;2n（输入时隙数）$</p>
+<p>为减少选路次数，简化控制，可使两个方向的内部时隙具有一定 的对应关系，通常可相差半帧，俗称反相法，比如21&#x3D;5+32&#x2F;2&#x3D;5+16</p>
+<h3 id="BANYAN-网络"><a href="#BANYAN-网络" class="headerlink" title="BANYAN 网络"></a>BANYAN 网络</h3><p>特性：单通路、有阻塞（内部竞争）、基于树形结构所以能自选路由。</p>
+<p>我们要讨论的是L级的，规则的，（2x2）的矩形的banyan网络</p>
+<p><img src="https://api2.mubu.com/v3/document_image/de027d12-676c-4987-a6ee-017f947ee1b5-16175743.jpg" alt="2"></p>
+<p>banyan网络的级数跟几乘几是有关系的：</p>
+<p>按照规律进行banyan网络的递归构造</p>
+<p>构造 $N \times N$ 的 BANYAN 网络，需要 $\log_2N$ 级，每级 $N&#x2F;2$ 个 $2\times2$ 交换单元，共 $(N&#x2F;2)\times \log_2N$ 个。拿两个 $n \times n$ 网络，将 $n$ 个 $2\times 2$ 交换单元作为一级通过混洗连接到前部、或者通过反转混洗连接到尾部</p>
+<p>已有证明，若要完全消除$N \times N$的banyan网络的内部阻塞，至少需要$2log_2{N}-1$级。</p>
+<h4 id="BANYAN特性"><a href="#BANYAN特性" class="headerlink" title="BANYAN特性"></a>BANYAN特性</h4><ul>
+<li>树形结构的特性<ul>
+<li>从banyan的任意</li>
+</ul>
+</li>
+<li>自选路由特性<br><img src="https://api2.mubu.com/v3/document_image/751ec8d2-954f-4980-b2a1-ba939cf9866d-16175743.jpg" alt="2"></li>
+<li>单通路特性<ul>
+<li>从任意入段到任一出端，有且只有一条通道</li>
+</ul>
+</li>
+<li>内部阻塞特性<ul>
+<li>banyan网络的任意一条人线到任意一条出线之间都具有惟一的一条通路,但各入线与出线之间的单通路并非是完全分离的,会有公共的内部链路,因此内部竞争是不可避免的。如图所示,在某一时刻,信息要从人线0交换到出线3,同时还有信息要从入线﹖交换到出线2,所以在这一时刻会在第2级与第3级的公共链路上产生竞争,发生阻塞。banyan是有阻塞的网络。<br><img src="https://api2.mubu.com/v3/document_image/765a6644-48ef-46f6-b5df-0e46d8271d69-16175743.jpg" alt="2"></li>
+</ul>
+</li>
+<li>内部阻塞的解决<ul>
+<li>增加网络级数（如 BENES 网络），每增加一级，通路数翻倍。但同时失去唯一路径和自选路特性。<br><img src="https://api2.mubu.com/v3/document_image/23566d0b-ba7c-439e-96a5-e2c17392f577-16175743.jpg" alt="2"></li>
+<li>使用扩展型或膨胀型 BANYAN 网络。<br><img src="https://api2.mubu.com/v3/document_image/dc87d4c7-04f3-44c7-bd1e-dce6249939b1-16175743.jpg" alt="2"></li>
+<li>BATCHER-BANYAN（排序-BANYAN）网络：严格无阻塞、结构规整、自动选路。<ul>
+<li>banyan 网络存在着内部竞争,研究表明,如果将banyan网络输入的全部信息按交换的出线地址(也就是选路标签)进行单调递增(或递减)排列,那么就可以解决banyan网络的内部阻塞。为了满足banyan网络的无阻塞条件,可以在banyan 网络前加人排序网络—batcher网络,构成batcher-banyan网络(B-B网络)。</li>
+<li><img src="https://api2.mubu.com/v3/document_image/23566d0b-ba7c-439e-96a5-e2c17392f577-16175743.jpg" alt="2"></li>
+</ul>
+</li>
+<li>减少入线的信息量，加大入线缓存。</li>
+<li>增加平面数，构造多通道交换网络。（几平面就是几倍的交换单元）<blockquote>
+<p>多平面banyan 的每个输人端的信息可以随机地选择某个平面,也可以按负荷均分原则分配到各个平面,还可以广播到所有的平面。显然,平面数越多,内部冲突的机会越少。在一定的入线数目(或出线数目)N值下,平面数增加到–定值后可以得到无阻塞网络。多平面ban-yan 网络可显著提高网络的吞吐量,不仅如此,还可提高网络的可靠性,其中一个交换平面出&#96;错后,并不会影响到整个交换网络的连接,其缺点是硬件结构复杂。</p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/3bf2e24f-ce5a-428a-9e1b-05471745c626-16175743.jpg" alt="2"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="BENES网络"><a href="#BENES网络" class="headerlink" title="BENES网络"></a>BENES网络</h3><p> benes网络实际上相当于两个banyan类网络背对背相连接,然后将中间两级合并为1级。由于每个banyan类网络有Ib*N级,因此, benes网络共有21bN一1级。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/6b9b0ad2-ed67-4d25-86b3-dde0f2ab8cf3-16175743.jpg" alt="2"></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>严格无阻塞：CLOS TST</p>
+<p>可重排无阻塞： CLOS TST BENES</p>
+<h2 id="第三章-程控交换机"><a href="#第三章-程控交换机" class="headerlink" title="第三章 程控交换机"></a>第三章 程控交换机</h2><h3 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h3><h4 id="系统结构"><a href="#系统结构" class="headerlink" title="系统结构"></a>系统结构</h4><p><img src="https://api2.mubu.com/v3/document_image/3bc748b5-6c46-4c95-8322-28f6372fdf87-16175743.jpg"></p>
+<h4 id="用户电路"><a href="#用户电路" class="headerlink" title="用户电路"></a>用户电路</h4><p>用户电路功能：BORSCHT</p>
+<ul>
+<li>B馈电（Battery feeding）：向用户提供直流馈电电流，电压-48V。<br>电容：通交阻直<br>电感：通直阻交</li>
+<li>O过压保护（Overvoltage protection）：二极管用于钳制电压，无论外线电压高于或低于内线，都会由二极管钳制内线为-48V，R 为热敏电阻，可自行烧毁。</li>
+<li>R振铃控制（Ringing control）：控制是否向用户线发送 25Hz 铃流信号。</li>
+<li>S监视（Supervision）：监视用户环路的通断状态，通过电阻的直流压降得知用户是否摘机。</li>
+<li>C编译码和滤波（CODEC&amp;filters）：模拟话音信号与 64Kbps 数字话音信号转换。对模拟信号进行编码、对数字信号进行解码；为避免混叠失真、50Hz 干扰、3400Hz 以上频率分量，进行滤波。</li>
+<li>H混合电路（Hybrid circuit）：在用户话机的 2 线双向信号和 PCM 的 4 线单向信号之间进行 2&#x2F;4 转换。（发生在编码之前和译码之后）</li>
+<li>T测试（Test）：控制是否进行内外线的故障检测。</li>
+</ul>
+<blockquote>
+<p>用户摘机：<br>BOSC<br>其他功能：<br>主叫号码显示<br>极性倒转<br>计费脉冲发送</p>
+</blockquote>
+<blockquote>
+<p>用户通话：<br>BOSCH</p>
+</blockquote>
+<h4 id="数字中继器"><a href="#数字中继器" class="headerlink" title="数字中继器"></a>数字中继器</h4><h4 id="话路建立（数字交换网络）"><a href="#话路建立（数字交换网络）" class="headerlink" title="话路建立（数字交换网络）"></a>话路建立（数字交换网络）</h4><h5 id="复用器与分路器"><a href="#复用器与分路器" class="headerlink" title="复用器与分路器"></a>复用器与分路器</h5><blockquote>
+<p>关于为什么要有复用器和分路器：<br>PCM信号传输采用串行码,即一个时隙的8位码在一条线路上串行传输,而T接线器的话音存储器字长一般为8位,其写入和读出是以字长为单位进行的,即8位码并行同时写入或读出。数字程控交换系统的交换网络–般由T接线器或T和S接线器组合构成的,因此当话音信号进入交换网络交换时,先要将串行码转换为并行码,这个过程叫做串并变换;</p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/a2bdbb88-147a-454c-acaa-6a473a2a339d-16175743.jpg" alt="3"></p>
+<p>若进入每个复用器的PCM线路数为4，且每条PCM线路速率为2048kbit&#x2F;s<br>则①点速率为2048 kbit&#x2F;s,传输信号为串行码;<br>②点速率为256 kbit&#x2F;s,传输信号为8位并行码;这个是用2048&#x2F;8得到的，它速率看的是一条线上的速率，经过串并变换之后，一条线变成了同时前进的8条线，速率变为原本的1&#x2F;8.<br>③点速率为1024 kbit&#x2F;s,传输信号为8位并行码。这是用256*4得到的，因为原本是四路8位并行线路，复用合成一路了，不过还是8位并行，</p>
+<p><img src="https://api2.mubu.com/v3/document_image/2010a491-f9c4-4127-9368-af9e55333b01-16175743.jpg" alt="1dian"><br><img src="https://api2.mubu.com/v3/document_image/d5097361-c14c-4bc5-993a-89fa6efe42cb-16175743.jpg" alt="2dian"><br><img src="https://api2.mubu.com/v3/document_image/32bb88a3-6064-4707-9925-8becda211fcd-16175743.jpg" alt="3dian"></p>
+<h5 id="话路建立-细"><a href="#话路建立-细" class="headerlink" title="话路建立( 细)"></a>话路建立( 细)</h5><p><img src="https://api2.mubu.com/v3/document_image/14cf252d-72a4-4bdb-981f-97aa21e992c7-16175743.jpg" alt="2"><br><img src="https://api2.mubu.com/v3/document_image/c61bb621-118c-4f2e-b321-ead144ec3611-16175743.jpg" alt="p1"><br><img src="https://api2.mubu.com/v3/document_image/a7071137-31d6-4ef8-9f05-e7b32eb2bed3-16175743.jpg" alt="p2"></p>
+<p>关于：</p>
+<ol>
+<li>TS8-&gt;TS16:2*8+0</li>
+<li>TS20和TS52的关系：52&#x3D;20+64&#x2F;2</li>
+<li>TS20为什么要换到TS10：5*2+0&#x3D;10</li>
+<li>进入T交换器的PCM是64路：两个32路复用</li>
+</ol>
+<h4 id="控制部分"><a href="#控制部分" class="headerlink" title="控制部分"></a>控制部分</h4><p>见<a href="https://blog.xqmmcqs.com/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0%20-%20%E7%AC%AC%E4%B8%89%E3%80%81%E5%9B%9B%E7%AB%A0/#%E6%8E%A7%E5%88%B6%E9%83%A8%E5%88%86%E6%A6%82%E5%BF%B5%E6%8E%8C%E6%8F%A1:~:text=%E5%86%85%E9%83%A8%E6%97%B6%E9%9A%99-,%E6%8E%A7%E5%88%B6%E9%83%A8%E5%88%86%EF%BC%88%E6%A6%82%E5%BF%B5%E6%8E%8C%E6%8F%A1%EF%BC%89,-%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F%EF%BC%9A">这里</a>，写的很详细</p>
+<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><p>对运行软件的要求：实时性、并发性、业务的不间断性</p>
+<p>通信软件的重要特点：程序与数据分开</p>
+<h4 id="SDL"><a href="#SDL" class="headerlink" title="SDL"></a>SDL</h4><p>SDT支持SDL（详细设计）和MSC（概要设计）</p>
+<p>SDL是一个应用较为广泛的形式化描述语言</p>
+<p>MSC是消息流图的缩写，刻画交换设备之间的消息流和接口</p>
+<img src="https://api2.mubu.com/v3/document_image/a9deda89-7d01-400b-aeb9-13afd266b0f6-16175743.jpg" style="zoom:50%;" />
+
+<p><img src="https://api2.mubu.com/v3/document_image/887223f6-1170-48d0-b650-efd4f187aba9-16175743.jpg" alt="sdl"></p>
+<h4 id="呼叫处理"><a href="#呼叫处理" class="headerlink" title="呼叫处理"></a>呼叫处理</h4><h5 id="输入处理（数据采集部分"><a href="#输入处理（数据采集部分" class="headerlink" title="输入处理（数据采集部分)"></a>输入处理（数据采集部分)</h5><p>识别并接收外部输入的处理请求和信号，生成事件。</p>
+<h5 id="分析处理-内部数据处理部分"><a href="#分析处理-内部数据处理部分" class="headerlink" title="分析处理(内部数据处理部分)"></a>分析处理(内部数据处理部分)</h5><p>根据目前状态和输入信号进行分析、判别，决定下一步任务。</p>
+<ol>
+<li>去话分析</li>
+<li>号码分析</li>
+<li>来话分析</li>
+<li>状态分析</li>
+</ol>
+<h5 id="内部任务执行与输出处理-输出命令部分"><a href="#内部任务执行与输出处理-输出命令部分" class="headerlink" title="内部任务执行与输出处理(输出命令部分)"></a>内部任务执行与输出处理(输出命令部分)</h5><p>根据分析结果，发布控制命令。</p>
+<h4 id="任务分级和调度"><a href="#任务分级和调度" class="headerlink" title="任务分级和调度"></a>任务分级和调度</h4><h4 id="BHCA"><a href="#BHCA" class="headerlink" title="BHCA"></a>BHCA</h4><p>系统开销&#x3D;固有开销+非固有开销</p>
+<p>$t&#x3D;a+bN$</p>
+<p>t:系统开销</p>
+<p>a:固有开销</p>
+<p>b:交换机控制系统处理一次呼叫的非固有开销（avg）</p>
+<p>N:单位时间内处理的呼叫次数（呼叫处理能力，BHCA）</p>
+<p>&gt;通常用最大忙时试呼次数(BHCA: maximum number of busy hour call attempts)来表示程控交换机的呼叫处理能力,即在单位时间内控制系统能够处理的呼叫次数。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/4a71ddf2-4076-40a2-bc47-29c679df6519-16175743.jpg" alt="bhca"></p>
+<p>过负荷</p>
+<p>如果在一个有效的时间间隔周期内(不包含峰值瞬间),出现在交换设备上的试呼次数,即话务负荷超过了交换机控制系统的设计处理能力时,则称该交换设备运行在<strong>过负荷状态</strong>。</p>
+<p>如加入到交换设备上试呼总次数超过它的设计负荷能力的 10%时，此时称为 <strong>10%过负荷。</strong></p>
+<h4 id="交换软件的设计技术"><a href="#交换软件的设计技术" class="headerlink" title="交换软件的设计技术"></a>交换软件的设计技术</h4><ol>
+<li>群处理<br><img src="https://api2.mubu.com/v3/document_image/b12b47c1-0c80-4353-992c-0b88fe49269b-16175743.jpg" alt="4"></li>
+<li>逐次展开法<ol>
+<li>基于逐次展开的分析表，该表为多级检索表，呈树形结构</li>
+<li><img src="https://api2.mubu.com/v3/document_image/23bccbef-9261-44da-b1f1-372c6c4a2d93-16175743.jpg" alt="5"></li>
+<li>0的话表示下一级还有分析表，1的话指向结论表</li>
+<li>另一种实现：<img src="https://api2.mubu.com/v3/document_image/9ffca748-0a6f-4255-9ad6-125d2ceb4c36-16175743.jpg" alt="2"></li>
+</ol>
+</li>
+<li>表格驱动<ol>
+<li>表格驱动就是根据所给参数查表来启动程序执行的方法,它是程控交换软件设计中经常采用的一种技术,可灵活地实现程序的调用执行。表格驱动技术包括两部分内容:驱动表格和调度管理程序。</li>
+<li>这个的典型用法是用在周期级程序调度上</li>
+<li>表格驱动的例子<img src="https://api2.mubu.com/v3/document_image/56b21d99-6d26-404e-bb62-0460e890e55c-16175743.jpg" alt="6"></li>
+</ol>
+</li>
+<li>有限状态机的实现<ol>
+<li>二维数组法</li>
+<li>多级表法<br><img src="https://api2.mubu.com/v3/document_image/4cea29ca-2175-4781-ab7e-a35a53c6a798-16175743.jpg" alt="俩图"></li>
+</ol>
+</li>
+</ol>
+<h2 id="第四章-分组交换"><a href="#第四章-分组交换" class="headerlink" title="第四章 分组交换"></a>第四章 分组交换</h2><h2 id="第五章-信令与协议"><a href="#第五章-信令与协议" class="headerlink" title="第五章 信令与协议"></a>第五章 信令与协议</h2><h3 id="NO-7信令"><a href="#NO-7信令" class="headerlink" title="NO.7信令"></a>NO.7信令</h3><p>主要应用包括<br>智能网(IN)网络的操作、管理和维护公共陆地移动通信网(GSM)N-ISDN的部分补充业务</p>
+<h4 id="七号信令协议"><a href="#七号信令协议" class="headerlink" title="七号信令协议"></a>七号信令协议</h4><p>（分组网络）</p>
+<img src="https://api2.mubu.com/v3/document_image/74e0c056-3c0d-4bb1-948d-997371b4a1d8-16175743.jpg" style="zoom:67%;" />
+
+<p>传送的数据是”信令单元“，一共有三种。</p>
+<img src="https://api2.mubu.com/v3/document_image/fb53dc42-eebe-419f-832e-7e6660166d41-16175743.jpg" style="zoom: 50%;" />
+
+<img src="https://api2.mubu.com/v3/document_image/bb90196c-16d3-4287-adcd-0d6ce2eaa305-16175743.jpg" style="zoom: 50%;" />
+
+<p>分为两部分：</p>
+<h5 id="1-公共的消息传递部分"><a href="#1-公共的消息传递部分" class="headerlink" title="1 .公共的消息传递部分"></a>1 .公共的消息传递部分</h5><p><strong>（MTP:Message Transfer Part）</strong></p>
+<ul>
+<li><p>MTP的三级：MPT1,MTP2,MTP3<img src="https://api2.mubu.com/v3/document_image/ffdd13f1-0fb5-4b7d-92a6-00732862c900-16175743.jpg"></p>
+</li>
+<li><p>MTP1</p>
+</li>
+<li><p>MTP2：</p>
+<img src="https://api2.mubu.com/v3/document_image/5d2ad144-252d-4f11-83f7-e79d45c15c7b-16175743.jpg" style="zoom:50%;" />
+
+
+</li>
+<li><p>MTP3</p>
+<img src="https://api2.mubu.com/v3/document_image/9a2596eb-8e44-4ef4-876c-bbea4cf705f6-16175743.jpg" style="zoom:50%;" /></li>
+</ul>
+<h5 id="2-用户部分"><a href="#2-用户部分" class="headerlink" title="2. 用户部分"></a>2. 用户部分</h5><p><strong>（UP:User Part）</strong></p>
+<p>TUP 的消息类型</p>
+<ol>
+<li>前向地址消息(FAM)<ol>
+<li>IAM:初始地址消息。</li>
+<li>IAI:带附加信息的初始地址消息。</li>
+<li>SAM:后续地址消息</li>
+<li>SAO:只带一位号码的后续地址消息</li>
+<li>GSM:一般建立消息</li>
+</ol>
+</li>
+<li>后向建立消息（BSM)<ol>
+<li>GRQ:一般请求消息</li>
+</ol>
+</li>
+<li>成功的后向建立消息(SBM)<ol>
+<li>ACM:地址全消息，表示被叫空闲，呼叫建立成功。</li>
+</ol>
+</li>
+<li>不成功后向建立消息（UBM)<ol>
+<li>SLB市话忙</li>
+<li>STB长话忙</li>
+<li>CGC电路群拥塞</li>
+<li>SEC交换机拥塞</li>
+</ol>
+</li>
+<li>监视消息(CCM) <ol>
+<li>正常呼叫结束时电路释放监护消息(RLG)</li>
+</ol>
+</li>
+<li>呼叫监视消息(CSM) :<ol>
+<li>ANC被叫应答、计费消息</li>
+<li>ANN应答、免费</li>
+<li>CLF前向释放</li>
+<li>CBK后向释放</li>
+<li>CCL主叫挂机</li>
+</ol>
+</li>
+<li>电路群监视消息(GSM) :<ol>
+<li>对一群电路进行闭塞和解除闭塞，主要用于对整个PCM系统进行维护。</li>
+</ol>
+</li>
+<li>电路网管理消息(CNM) :<ol>
+<li>用于将交换机发生拥塞的信息通知邻接局，收到此消息的局应减少至拥塞局的去话话务量。</li>
+</ol>
+</li>
+</ol>
+<h5 id="信令传递"><a href="#信令传递" class="headerlink" title="信令传递"></a>信令传递</h5><p><img src="https://api2.mubu.com/v3/document_image/a0fa5944-5ae1-4d79-9cbb-3e846b8f83b6-16175743.jpg" style="zoom:33%;" /> <img src="https://api2.mubu.com/v3/document_image/ed9e66be-54de-4b15-9ce3-fbfb7a5ffb2d-16175743.jpg" style="zoom: 33%;" /></p>
+<h4 id="信令点编码"><a href="#信令点编码" class="headerlink" title="信令点编码"></a>信令点编码</h4><img src="https://api2.mubu.com/v3/document_image/14db3127-d49e-4c97-a4ce-bb8c41623b92-16175743.jpg" style="zoom: 80%;" /> 
+
+<h4 id="七号信令网"><a href="#七号信令网" class="headerlink" title="七号信令网"></a>七号信令网</h4><p>信令网由<strong>信令点(SP)</strong> 、<strong>信令转接点(STP</strong>)和<strong>信令链</strong>三部分组成。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/c2336666-1148-41e1-993b-2ea7f953a118-16175743.jpg" style="zoom:50%;" /><img src="https://api2.mubu.com/v3/document_image/c68de44c-3acd-456b-a406-bfb1a17ae975-16175743.jpg" style="zoom:50%;" /></p>
+<p>我国的NO.7信令网采用三级结构</p>
+<center>
+    <img src="https://api2.mubu.com/v3/document_image/623fce03-6e6d-4937-9f79-a62b3f453c69-16175743.jpg" style="zoom:33%;" /><img src="https://api2.mubu.com/v3/document_image/6f5159da-65ac-4afe-9e54-159cfebe252d-16175743.jpg" style="zoom:33%;" /><img src="https://api2.mubu.com/v3/document_image/6b0724a1-00a3-4be2-8983-5b33341c4eba-16175743.jpg" style="zoom:33%;" />
+</center>
+
+
+
+<p>信令网路由选择</p>
+<ul>
+<li>首先选择正常路由，当正常路由故障变为不能用时，再选择迂回路由;</li>
+<li>具有多个迂回路由时，按照优先级的先后顺序选择迂回路由。</li>
+<li>负荷分担的一个路由中一个信令链路故障，将它承担的信令业务倒换到采用负荷分担方式的其它信令链路。</li>
+<li>若有多个同一优先等级的多个路由(N)，它们之间采用负荷分担方式，每个路由承担整个信令负荷的1&#x2F;N.</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/8aaf4dc4-7140-4718-9523-2308a5138a6c-16175743.jpg" style="zoom:50%;" /> <img src="https://api2.mubu.com/v3/document_image/2d6ad06d-7117-4a4a-8709-b5958a51e9b4-16175743.jpg" style="zoom:50%;" /></p>
+<p><img src="https://api2.mubu.com/v3/document_image/9e52f8c6-2682-4cc4-b9a7-fefb089602df-16175743.jpg" style="zoom:50%;" /> <img src="https://api2.mubu.com/v3/document_image/7e64e6d9-7a5a-4ad9-a533-29a831999b36-16175743.jpg" style="zoom:50%;" /></p>
+<h4 id="例题（转-自-现代交换原理复习笔记-第五、六、七章-xqmmcqs’s-blog-https-blog-xqmmcqs-com-现代交换原理复习笔记-第五、六、七章-x2F-）"><a href="#例题（转-自-现代交换原理复习笔记-第五、六、七章-xqmmcqs’s-blog-https-blog-xqmmcqs-com-现代交换原理复习笔记-第五、六、七章-x2F-）" class="headerlink" title="例题（转[自]([现代交换原理复习笔记 - 第五、六、七章 - xqmmcqs’s blog](https://blog.xqmmcqs.com/现代交换原理复习笔记 - 第五、六、七章&#x2F;))）"></a>例题（转[自]([现代交换原理复习笔记 - 第五、六、七章 - xqmmcqs’s blog](<a href="https://blog.xqmmcqs.com/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0">https://blog.xqmmcqs.com/现代交换原理复习笔记</a> - 第五、六、七章&#x2F;))）</h4><p><img src="https://api2.mubu.com/v3/document_image/4c90f510-f6fe-4c63-8044-834fbd9ff1b7-16175743.jpg"></p>
+<h3 id="SIP"><a href="#SIP" class="headerlink" title="SIP"></a>SIP</h3><p>SIP是一种C&#x2F;S（客户-服务器）结构的协议</p>
+<ul>
+<li><p>SIP client发出Request，SIP Server给出Response</p>
+</li>
+<li><p>消息处理与HTTP类似，易于与其他应用集成</p>
+</li>
+</ul>
+<p>SIP协议是一种应用层会话控制协议，用于建立、修改、终止用户之间的多媒体会话</p>
+<h4 id="SIP消息类型"><a href="#SIP消息类型" class="headerlink" title="SIP消息类型"></a>SIP消息类型</h4><img src="https://api2.mubu.com/v3/document_image/b68e0b96-e147-4976-ab6f-83d6f014a3e9-16175743.jpg" style="zoom:67%;" />
+
+<img src="https://api2.mubu.com/v3/document_image/2f241d54-98fa-4795-bb35-9c27e6402eee-16175743.jpg" style="zoom: 80%;" />
+
+<h4 id="SIP消息结构"><a href="#SIP消息结构" class="headerlink" title="SIP消息结构"></a>SIP消息结构</h4><p><img src="https://api2.mubu.com/v3/document_image/fdd02dfe-8efa-4877-be3f-1b3b30d30712-16175743.jpg"></p>
+<p>端系统中的SIP应用称作SIP用户代理（<strong>UA</strong>）</p>
+<ul>
+<li>用户代理客户（UAC）：发送SIP请求</li>
+<li>用户代理服务器（UAS）<ul>
+<li>侦听呼叫请求 </li>
+<li>提示用户或执行程序作出响应</li>
+<li>UA&#x3D;UAC+UAS</li>
+</ul>
+</li>
+</ul>
+<p>网络服务器</p>
+<p>注册服务器（Register Server）</p>
+<p>代理服务器（Proxy Server）</p>
+<p>重定向服务器（Redirect Server）</p>
+<p><img src="https://api2.mubu.com/v3/document_image/69346364-f034-404e-b2ff-23544b4bb775-16175743.jpg"></p>
+<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p><strong>下面两个消息是sip server发出的消息，请回答：</strong></p>
+<p><img src="https://api2.mubu.com/v3/document_image/d012e607-7d34-4f34-bc71-f5b8f0594608-16175743.jpg"  /><img src="https://api2.mubu.com/v3/document_image/f744a8e5-6798-4a17-b82f-61a09335cc13-16175743.jpg" style="zoom:40%;" /></p>
+<h2 id="第六章-移动交换"><a href="#第六章-移动交换" class="headerlink" title="第六章 移动交换"></a>第六章 移动交换</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>入网、鉴权、切换、漫游、位置更新、网络附着</p>
+<h3 id="GSM"><a href="#GSM" class="headerlink" title="GSM"></a>GSM</h3><p><mark>2G的一个代表，主要支持无线的、语音通信的，基本交换模式是电路交换。</mark></p>
+<img src="https://api2.mubu.com/v3/document_image/28f12d75-3263-4cd8-b7ed-8ae2e28f70cc-16175743.jpg" style="zoom:67%;" />
+
+<p><strong>MS</strong>：移动台<br><strong>BSS</strong>：无线基站子系统</p>
+<p><strong>NSS</strong>：交换网络子系统</p>
+<p><strong>OMC</strong>：操作维护子系统</p>
+<p>在整个GSM系统中，采用的是电路交换的方式。</p>
+<p>因此，对于每一个呼叫，我们需要在MS和BSS之间分配空中的信道。在BSS和NSS之间分配有线的信道。 </p>
+<p><img src="https://api2.mubu.com/v3/document_image/acd03109-812b-4c45-bf39-7a27e6f296ac-16175743.jpg"></p>
+<p>[高清](<a href="https://github.com/0bluewhale0/cat9.github.io/blob/gh-pages/GSM.pdf">cat9.github.io&#x2F;GSM.pdf at gh-pages · 0bluewhale0&#x2F;cat9.github.io · GitHub</a>)</p>
+<blockquote>
+<p>例子：北京用户漫游到上海：</p>
+<p>已知VLR记录当前地区活跃用户，HLR始终记录注册用户，并且更新注册用户的最新位置。</p>
+<p>当移动用户A漫游到新的MSC控制区时，向该地区的<strong>VLR申请登记</strong>。<br>VLR从该用户的HLR查询有关参数，给该用户分配一个新的漫游号码( MSRN )，并<strong>通知其HLR修改该用户位置信息</strong>（同时把原地区的VLR中的记录给删了），准备为其它用户呼叫此移动用户时提供路由信息。</p>
+<p>当其他用户B呼叫该用户时，根据电话号码可以得到该用户的”原籍“是北京的，然后<strong>到北京的HLR里面去获取信息</strong>（可以获得到用户当前所处的地区，也就是当前位置）。</p>
+</blockquote>
+<p>呼叫流程</p>
+<p>位置更新&amp;切换</p>
+<p>MS从一个位置区移到另一个位置区时，必须进行登记，也就是说一旦MS发现其存储器中的位置区标识(LAI)与接收到的LAI发生了变化，便执行登记，这个过程就叫位置更新。</p>
+<ul>
+<li><p>不同MSC业务区间的位置更新</p>
+</li>
+<li><p>相同MSC不同位置区的位置更新</p>
+</li>
+</ul>
+<p>MS使用网络之前，网络检查其合法性的过程为鉴权。</p>
+<img src="https://api2.mubu.com/v3/document_image/717e4cfe-b7fc-4103-b6c5-4142a53e9332-16175743.jpg" alt="位置更新" style="zoom:67%;" />
+
+<img src="https://api2.mubu.com/v3/document_image/1864528f-aaff-4dda-a113-a19f59197714-16175743.jpg" alt="鉴权" style="zoom:50%;" />
+
+<p>切换：</p>
+<p>是不同小区内的切换，就好比开着车溜达。</p>
+<img src="https://api2.mubu.com/v3/document_image/06483f08-63a2-433b-a04b-2e91328c0539-16175743.jpg" style="zoom: 50%;" />
+
+<img src="https://api2.mubu.com/v3/document_image/d6364dc4-9859-4a1d-9e1c-47242a3a212f-16175743.jpg" style="zoom:50%;" />
+
+<img src="https://api2.mubu.com/v3/document_image/9734d7b2-3aeb-48ab-8b15-027b7636b807-16175743.jpg" style="zoom:50%;" />
+
+
+
+<h3 id="GPRS"><a href="#GPRS" class="headerlink" title="GPRS"></a>GPRS</h3><p><mark>2.5G的一个代表，在GSM的基础上增加了低速数据传输的服务。这个数据传输采用的是分组交换的形式。</mark></p>
+<p>（按需动态占用资源）</p>
+<p>GPRS是在GSM的基础上扩展的</p>
+<h4 id="网络架构如下图"><a href="#网络架构如下图" class="headerlink" title="网络架构如下图"></a>网络架构如下图</h4><p><img src="https://api2.mubu.com/v3/document_image/9d4b940a-57c7-4137-b54d-3a13b5b07fea-16175743.jpg"></p>
+<p>SGSN与GGSN之间采用<strong>隧道技术</strong>，允许多协议包在GPRS骨干网和GPRS支持节点(GGSN)之间的传输</p>
+<p>PCU<img src="https://api2.mubu.com/v3/document_image/1929b78f-09ed-49f2-bfe4-edf970449d8a-16175743.jpg" style="zoom:33%;" /></p>
+<p>SSGN<img src="https://api2.mubu.com/v3/document_image/c96f5fec-28cb-419a-91a8-0a792fabe9d1-16175743.jpg" style="zoom:33%;" /></p>
+<p>GGSN<img src="https://api2.mubu.com/v3/document_image/6dfaa5a3-d2dd-4685-9de2-56e391a515d8-16175743.jpg" style="zoom:33%;" /></p>
+<h4 id="GPRS同时支持电话和数据业务"><a href="#GPRS同时支持电话和数据业务" class="headerlink" title="GPRS同时支持电话和数据业务"></a>GPRS同时支持电话和数据业务</h4><p>电话业务走GSM的老信道，采用电路交换</p>
+<p>数据业务走新增的通道，采用分组交换</p>
+<p><img src="https://api2.mubu.com/v3/document_image/5e31afae-27d2-493b-b9c6-f5d43c9ec341-16175743.jpg"></p>
+<h4 id="手机从开机到可以进行数据传输"><a href="#手机从开机到可以进行数据传输" class="headerlink" title="手机从开机到可以进行数据传输"></a>手机从开机到可以进行数据传输</h4><p><img src="https://api2.mubu.com/v3/document_image/6b809066-c5b7-44b8-aa7d-cfb67d82b30e-16175743.jpg"></p>
+<h3 id="3G-4G-5G"><a href="#3G-4G-5G" class="headerlink" title="3G 4G 5G"></a>3G 4G 5G</h3><h4 id="3G"><a href="#3G" class="headerlink" title="3G"></a>3G</h4><p><mark>3G网络的目标是提供更高速的数据业务，支持更大的容量（重点是    WCDMA）</mark></p>
+<p>IMT2000是第三代移动通信系统标准</p>
+<p>3G的R5：（IMS）</p>
+<p>呼叫控制与媒体控制相分离</p>
+<p>呼叫控制与承载相分离</p>
+<p>业务处理与呼叫控制相分离</p>
+<h5 id="GSM网络向WCDMA网络演进"><a href="#GSM网络向WCDMA网络演进" class="headerlink" title="GSM网络向WCDMA网络演进"></a>GSM网络向WCDMA网络演进</h5><p><img src="https://api2.mubu.com/v3/document_image/ff1ca15a-7661-4c21-8d56-acf1b954a269-16175743.jpg"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/eabf42f1-42ff-46f2-ba5c-98aac20b1273-16175743.jpg"></p>
+<h4 id="4G"><a href="#4G" class="headerlink" title="4G"></a>4G</h4><p><mark>4G的一个重要特点，无论是语音还是数据，采用的是全IP的架构（重点是 LTE）</mark></p>
+<img src="https://api2.mubu.com/v3/document_image/202995a3-870a-45fc-8e23-2bc468ca2f16-16175743.jpg" style="zoom:67%;" />
+
+
+
+<h5 id="MD没耐心看，先跳过，做题遇到了再补"><a href="#MD没耐心看，先跳过，做题遇到了再补" class="headerlink" title="MD没耐心看，先跳过，做题遇到了再补"></a>MD没耐心看，先跳过，做题遇到了再补</h5><p>很好，做题没遇到，不补了（乐乐乐乐）</p>
+<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><h3 id="智能网"><a href="#智能网" class="headerlink" title="智能网"></a>智能网</h3><p>智能网：<strong>呼叫控制与业务处理物理分离</strong></p>
+<p>VOIP：网关功能的分离</p>
+<h3 id="软交换"><a href="#软交换" class="headerlink" title="软交换"></a>软交换</h3><p>四层：</p>
+<p>业务控制层<br>呼叫控制层<br>媒体交换层<br>接入层</p>
+<p>软交换技术产生的原因：</p>
+<ol>
+<li>分组交换的驱动</li>
+<li>业务需求的驱动</li>
+<li>网络开发的驱动</li>
+<li>网络融合的驱动</li>
+</ol>
+<p>四层体系结构，各层典型设备：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/0bfb8f84-804e-4de8-a850-49b31d5916e4-16175743.jpg"></p>
+<p>NGN:下一代网络，分组网络，包含多种业务，实现业务功能与底层传送技术的分离</p>
+<p><strong>业务处理与呼叫控制相分离（继承）</strong></p>
+<p><strong>呼叫控制与承载相分离（新特征）</strong></p>
+<p>下一代交换网：软交换IMS</p>
+<img src="https://api2.mubu.com/v3/document_image/0264c6fe-b93e-4956-9bd5-30c6655df958-16175743.jpg" style="zoom:67%;" />
+
+<img src="https://api2.mubu.com/v3/document_image/dbaa3cd8-d38c-4d05-b694-b31578fc7a62-16175743.jpg" style="zoom:33%;" />
+
+<p><img src="https://api2.mubu.com/v3/document_image/70aedba8-95a8-494f-994d-7a1900f3ad5d-16175743.jpg"></p>
+<h3 id="IMS"><a href="#IMS" class="headerlink" title="IMS"></a>IMS</h3><p>IP Multimedia Subsystem</p>
+<ol>
+<li>IMS最大限度地重用了互联网技术和协议</li>
+<li>IMS继承了移动通信特有的网络技术</li>
+</ol>
+<ol start="3">
+<li>IMS充分分借鉴了软交换网络技术</li>
+</ol>
+<p>IMS的重要特点是对控制层功能进一步分解：</p>
+<ol>
+<li><p>CSCF呼叫控制实体</p>
+</li>
+<li><p>MGCF媒体控制实体</p>
+</li>
+</ol>
+<p>（变得更灵活更开放了）</p>
+<p><font color=red>一张图</font>理清楚：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/a4f8db69-efb4-45ce-bdab-d8aef9fdd07b-16175743.jpg"></p>
+<h3 id="SDN"><a href="#SDN" class="headerlink" title="SDN"></a>SDN</h3><p>Software Defined Network</p>
+<p>SDN的特点</p>
+<p>具有松耦合的控制平面与数据平面、支持集中化的网络状态控制、实现底层网络设施对上层应用的透明，上层应用可以通过开放式API对网络进行控制。</p>
+<p>传统网络设备紧耦合的网络架构被分拆成<mark>应用、控制、转发</mark>三层分离的架构。<mark>控制功能被转移到了服务器。</mark></p>
+<p><img src="https://api2.mubu.com/v3/document_image/9919fc58-5b0a-462d-be6b-87d97e201397-16175743.jpg"></p>
+<p>转发平面也叫控制平面</p>
+<p>北向接口</p>
+<p>功能</p>
+<ol>
+<li>网络业务的开发者能以<strong>软件编程</strong>的形式调用各种网络资源</li>
+<li>上层的网络资源管理系统可以通过控制器的北向接口全局把控整个网网络的资源状态，并对资源进行统一调度。</li>
+</ol>
+<p>与南向接口方面已有OpenFlow等国际标准不同，北向接口方面还缺少业界公认的标准</p>
+<p>南向接口: OpenFlow</p>
+<p>OpenFlow的核心思想是控制与转发分离，SDN的概念正是在它的基础上提出</p>
+<p><img src="https://api2.mubu.com/v3/document_image/a2027b80-0f6d-46ec-8276-c82d4bae3d10-16175743.jpg"></p>
+<p>OpenFlow交换机由流表、安全通道、OpenFlow协议三个部分组成</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>交换原理</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>交换原理</tag>
       </tags>
   </entry>
 </search>
