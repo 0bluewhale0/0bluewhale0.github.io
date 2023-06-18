@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>系统结构笔记第九章 - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,第9章 互连网络概念：互连网络是一种由开关元件按照一定的拓扑结构和控制方式构成的网络，用来实现计算机系统中结点之间的相互连接。
+互连网络三要素：
+
+开关元件：网络中最基本模块，在不同系统和控制中，开,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="系统结构笔记第九章 - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,第9章 互连网络概念：互连网络是一种由开关元件按照一定的拓扑结构和控制方式构成的网络，用来实现计算机系统中结点之间的相互连接。
+互连网络三要素：
+
+开关元件：网络中最基本模块，在不同系统和控制中，开,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="系统结构笔记第九章 - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,第9章 互连网络概念：互连网络是一种由开关元件按照一定的拓扑结构和控制方式构成的网络，用来实现计算机系统中结点之间的相互连接。
+互连网络三要素：
+
+开关元件：网络中最基本模块，在不同系统和控制中，开,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">系统结构笔记第九章</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <!--
+ * @Date: 2023-03-05 08:54:47
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 16:23:49
+ * @FilePath: \diaspora\layout\_partial\post\article.ejs
+-->
+<div class="article">
+    <div class='main'>
+        <h1 class="title">系统结构笔记第九章</h1>
+        <div class="stuff">
+            <span>五月 08, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" rel="tag">计算机系统结构</a></li></ul>
+
+
+        </div>
+        
+        <div class="content markdown">
+            <h2 id="第9章-互连网络"><a href="#第9章-互连网络" class="headerlink" title="第9章 互连网络"></a>第9章 互连网络</h2><p>概念：互连网络是一种由<mark>开关元件</mark>按照一定的<mark>拓扑结构</mark>和<mark>控制方式</mark>构成的网络，用来实现计算机系统中<strong>结点</strong>之间的相互连接。</p>
+<p>互连网络三要素：</p>
+<ul>
+<li>开关元件：网络中最基本模块，在不同系统和控制中，开关元件所处的物理位置和工作状态不同。</li>
+<li>互连结构:网络合理布局关键，反映系统结构特征。用有向图或无向图表示，节点对应开关元件或处理机。边对应通信链路。</li>
+<li>控制方式：网络中各种开关的控制方法</li>
+</ul>
+<p>互连网络的基本特征</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>分类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>拓扑结构</td>
+<td>静态</td>
+</tr>
+<tr>
+<td></td>
+<td>动态</td>
+</tr>
+<tr>
+<td>控制策略</td>
+<td>集中式</td>
+</tr>
+<tr>
+<td></td>
+<td>分散式</td>
+</tr>
+<tr>
+<td>定时方式</td>
+<td>同步</td>
+</tr>
+<tr>
+<td></td>
+<td>异步</td>
+</tr>
+<tr>
+<td>交换方法</td>
+<td>线路交换</td>
+</tr>
+<tr>
+<td></td>
+<td>分组交换</td>
+</tr>
+</tbody></table>
+<p>拓扑结构</p>
+<ul>
+<li>静态网<br>各节点间有专用通信线路（链路），运行间不改变或重新组合。又称直接网络 (节点通过链路直接连接)<ul>
+<li>组成：由链路、结构及网络节点组成。</li>
+<li>结构: 线性、环形、树形、 立方体等。</li>
+</ul>
+</li>
+<li>动态网<br>各节点间有专用通信线路（链路）,可通过网络中开关重新组合。节点与节点的连接由程序或控制信号动态地改变，又称间接网络(节点与交换开关连接)。<ul>
+<li>组成：由链路、结构、开关及节点组成。</li>
+<li>结构: 总线、环状、 开关、(单)多级。</li>
+</ul>
+</li>
+</ul>
+<p>控制策略</p>
+<ul>
+<li>集中控制:全局控制器接收所有通信请求，设置互连网络的开关连接。</li>
+<li>分散控制: 通信请求和开关设置由互连网络分散地进行。</li>
+</ul>
+<p>定时方式</p>
+<ul>
+<li>同步系统：系统使用一个集中的统一时钟.</li>
+<li>异步系统：无统一时钟，节点根据各自情况独立工作。</li>
+</ul>
+<p>交换方法</p>
+<ul>
+<li>线路交换：源结点和目的结点间的物理通路在整个数据传送期间一直保持连接。</li>
+<li>分组交换：信息分割成组(包)，各组(包)通过多个不同路径传分别送入互连网络。传送不存在一个实际连接的固定通路。</li>
+</ul>
+<h3 id="9-1-互连函数"><a href="#9-1-互连函数" class="headerlink" title="9.1 互连函数"></a>9.1 互连函数</h3><p>互连网络的描述<br><img src="https://api2.mubu.com/v3/document_image/bcd9f186-15db-46b4-bfe3-24da3e7281fd-16175743.jpg" alt="description"></p>
+<p>基本的互连函数</p>
+<ol>
+<li>恒等函数<br>$I(x_{n-1}x_{n-2}…x_1x_0)&#x3D;x_{n-1}x_{n-2}…x_1x_0$</li>
+<li>交换函数:实现二进制地址编码中第k位互反的输入端与输出端之间的连接。<br>$E(x_{n-1}x_{n-2}…x_{k+1}x_kx_{k-1}…x_1x_0)&#x3D;(x_{n-1}x_{n-2}…x_{k+1}\overline{x_k}x_{k-1}…x_1x_0)$</li>
+<li>均匀洗牌函数:输入端二进制地址<strong>循环左移</strong>一位。<img src="https://api2.mubu.com/v3/document_image/41655942-33bf-4dc9-a93e-4706d0f00571-16175743.jpg" alt="poker"></li>
+<li>逆均匀洗牌函数: 输入端二进制地址<strong>循环右移</strong>一位。（左右左右，先左后右）<br><img src="https://api2.mubu.com/v3/document_image/73ef15eb-b193-4159-b2b7-92f6e32d15f8-16175743.jpg" alt="poker2"></li>
+<li>蝶式函数：把输入端的二进制编号的最高位与最低位互换位置，便得到了输出端的编号。<br>$\beta(x_{n−1}x_{n−2}…x_1x_0)&#x3D;x_0x_{n−2}…x_1x_{n−1}$<br><img src="https://api2.mubu.com/v3/document_image/e6296242-0fd8-4ded-9a86-59c798cc91d6-16175743.jpg" alt="butterfly"></li>
+<li>反位序函数：将输入端二进制编号的位序颠倒过来求得相应输出端的编号。<br>$\rho(x_{n−1}x_{n−2}…x_1x_0)&#x3D;x_0x_{1}…x_{n−2}x_{n−1}$</li>
+<li>移数函数：将各输入端都错开一定的位置(k)（别忘了模N）后连到输出端。<br>$\alpha(x)&#x3D;(x±k)mod N, 1≤x≤N-1，1≤k≤N-1$</li>
+<li>PM2I函数:P和M分别表示<font color=red>加</font>和<font color=blue>减</font>，2I表示$2^i$<br>$PM2+i(x) &#x3D; x＋2^i mod N$<br>$PM2-i(x) &#x3D; x－2^i mod N $<br>$0≤x≤N－1，0≤i≤n－1，n&#x3D;log_2N$，N为结点数。<br><img src="https://api2.mubu.com/v3/document_image/b751b748-a8f5-4fe5-95c1-0af9f6685852-16175743.jpg" alt="PM2I"><br>PM2I互连网络共有2n个互连函数:一加一减就两倍啦<br><img src="https://api2.mubu.com/v3/document_image/e2eec2c3-1385-4440-a9ad-cf557006325a-16175743.jpg" alt="2n"><br><img src="https://api2.mubu.com/v3/document_image/46f69f96-7d9d-4bd8-9281-d7193ef93bc0-16175743.jpg" alt="ex"></li>
+</ol>
+<blockquote>
+<p>逆函数<br>对于任意一种函数f(x)，如果存在g(x)，使得<br>$f(x)·g(x)&#x3D;I(x)$<br>则称g(x)是f(x)的逆函数，记为$f^{-1}(x)$。<br>$f^{-1}(x)&#x3D;g(x)$</p>
+</blockquote>
+<blockquote>
+<p>均匀洗牌，蝶式函数<strong>不能单独实现</strong>任意结点间互连。<br>它们与交换函数多级组合是构成复杂多级网络的基础.</p>
+</blockquote>
+<h3 id="9-2-互连网络的结构参数与性能指标"><a href="#9-2-互连网络的结构参数与性能指标" class="headerlink" title="9.2 互连网络的结构参数与性能指标"></a>9.2 互连网络的结构参数与性能指标</h3><p>互连网络的结构参数——互连网络的主要特性参数</p>
+<ul>
+<li><mark>网络规模N</mark>：网络中结点的个数。表示该网络所能连接的部件的数量。</li>
+<li><mark>结点度d</mark>：与结点相连接的边数（通道数），包括入度和出度。<ul>
+<li>进入结点的边数叫入度。</li>
+<li>从结点出来的边数叫出度。</li>
+</ul>
+</li>
+<li><mark>结点距离</mark>：对于网络中的任意两个结点，从一个结点出发到另一个结点终止所需要跨越的边数的最小值。</li>
+<li><mark>网络直径D</mark>：网络中任意两个结点之间距离的最大值。网络直径应当尽可能地小。</li>
+<li><mark>等分宽度b</mark>：把由N个结点构成的网络切成结点数相同（N&#x2F;2）的两半，在各种切法中，沿切口边数的最小值。<ul>
+<li>线等分宽度：B＝b×w</li>
+<li>其中：w为通道宽度（用位表示）</li>
+<li>该参数主要反映了网络最大流量。</li>
+</ul>
+</li>
+<li><mark>对称性</mark>：从任何结点看到的拓扑结构都是相同的网络称为对称网络。</li>
+</ul>
+<p>互连网络的性能指标<br>评估互连网络性能的<strong>两个基本指标</strong>：时延和带宽</p>
+<ol>
+<li><p><mark>通信时延</mark>:指从源结点到目的结点传送一条消息所需的总时间，由以下4部分构成</p>
+<ol>
+<li><mark>软件开销</mark>：在源结点和目的结点用于收发消息的软件所需的执行时间。<ol>
+<li>主要取决于两端端结点处理消息的软件内核。</li>
+</ol>
+</li>
+<li><mark>通道时延</mark>：通过通道传送消息所花的时间。<ol>
+<li>通路时延 &#x3D; 消息长度&#x2F;通道带宽</li>
+<li>通常由瓶颈链路的通道带宽决定。</li>
+</ol>
+</li>
+<li><mark>选路时延</mark>：消息在传送路径上所需的一系列选路决策所需的时间开销。<ol>
+<li>与传送路径上的结点数成正比。</li>
+</ol>
+</li>
+<li><mark>竞争时延</mark>：多个消息同时在网络中传送时，会发生争用网络资源的冲突。为避免或解决争用冲突所需的时间就是竞争时延。<ol>
+<li>很难预测，它取决于网络的传输状态。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><mark>网络时延</mark>:通道时延与选路时延的和。</p>
+<ol>
+<li>由网络硬件特征决定，与程序行为和网络传输状态无关。</li>
+</ol>
+</li>
+<li><p><mark>端口带宽</mark></p>
+<ol>
+<li>对互连网络中的任意一个端口，端口带宽是指单位时间内从该端口传送到其他端口的最大信息量。<ol>
+<li>在对称网络中，端口带宽与端口位置无关。网络的端口带宽与各端口的端口带宽相同。</li>
+<li>非对称网络的端口带宽则是指所有端口带宽的最小值。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><mark>聚集带宽</mark><br>网络从一半结点到另一半结点，单位时间内能够传送的最大信息量。</p>
+</li>
+<li><p><mark>等分带宽</mark><br>与等分宽度对应的切平面中，所有边合起来单位时间所能传送的最大信息量</p>
+</li>
+</ol>
+<h3 id="9-3-静态互连网络"><a href="#9-3-静态互连网络" class="headerlink" title="9.3 静态互连网络"></a>9.3 静态互连网络</h3><p>典型的静态互连网络</p>
+<h4 id="1-线性阵列"><a href="#1-线性阵列" class="headerlink" title="1. 线性阵列"></a>1. 线性阵列</h4><p>一种一维的线性网络，其中N个结点用N-1个链路连成一行。 （N表示结点的个数）</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>非对称</td>
+<td></td>
+</tr>
+<tr>
+<td>端结点的度</td>
+<td>1</td>
+</tr>
+<tr>
+<td>其余结点的度</td>
+<td>2</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>N－1</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h4 id="2-环和带弦环"><a href="#2-环和带弦环" class="headerlink" title="2. 环和带弦环"></a>2. 环和带弦环</h4><p>环：用一条附加链路将线性阵列的两个端点连接起来而构成。可以单向工作，也可以双向工作。</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对称</td>
+<td></td>
+</tr>
+<tr>
+<td>结点度</td>
+<td>2</td>
+</tr>
+<tr>
+<td>双向环的直径</td>
+<td>N&#x2F;2</td>
+</tr>
+<tr>
+<td>单向环的直径</td>
+<td>N</td>
+</tr>
+<tr>
+<td>环的等分宽度b</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<p><img src="https://api2.mubu.com/v3/document_image/462412d8-0e89-4da4-9e60-e87e1ab7e0c3-16175743.jpg" alt="circle"></p>
+<p>带弦环：增加的链路愈多，结点度愈高，网络直径就愈小。<br><img src="https://api2.mubu.com/v3/document_image/1e275ef7-e1a8-438b-bbfa-b2994175107c-16175743.jpg" alt="circlewitharcs"><br><img src="https://api2.mubu.com/v3/document_image/d251a7bd-4376-48e2-b1bd-9bb6cf2cd45f-16175743.jpg" alt="circlewitharcs"><br>全连接网络：<br><img src="https://api2.mubu.com/v3/document_image/ad75b322-3db8-4057-89ea-3831ad6079a2-16175743.jpg" alt="alltoall"></p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对称</td>
+<td></td>
+</tr>
+<tr>
+<td>结点度</td>
+<td>15</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h4 id="3-循环移数网络"><a href="#3-循环移数网络" class="headerlink" title="3. 循环移数网络"></a>3. 循环移数网络</h4><p>环上每个结点到所有与其距离为2的整数幂的结点之间都有一条链路。<br><img src="https://api2.mubu.com/v3/document_image/2daaded8-9faa-49c2-a66c-d3d2bb24c3fe-16175743.jpg" alt="2"><br>一般地，如果结点i和j间距离为2的整数幂，则结点i与结点j连接</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>结点度</td>
+<td>2n-1</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>n&#x2F;2</td>
+</tr>
+<tr>
+<td>网络规模</td>
+<td>$N&#x3D;2^n$</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>如, N&#x3D;16 n&#x3D;4<br>结点度：7<br>直径：2</p>
+</blockquote>
+<h4 id="4-树形和星形"><a href="#4-树形和星形" class="headerlink" title="4. 树形和星形"></a>4. 树形和星形</h4><p>一般说来，一棵k层完全平衡的二叉树有$N&#x3D;2^k-1$个结点。ex:k&#x3D;5,N&#x3D;31</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最大结点度</td>
+<td>3</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>2(k-1)&#x3D;8</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>1</td>
+</tr>
+<tr>
+<td><img src="https://api2.mubu.com/v3/document_image/c2230b96-957d-45b4-a6a7-3a27161fc506-16175743.jpg" alt="btree"></td>
+<td></td>
+</tr>
+<tr>
+<td>星形</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最大结点度</td>
+<td>N-1</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>2</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>$\lfloor N&#x2F;2\rfloor$</td>
+</tr>
+</tbody></table>
+<p>可靠性较差，中心结点出故障，整个系会瘫痪。<br><img src="https://api2.mubu.com/v3/document_image/a440f60e-cea6-445e-9c9f-03a3fbf1987d-16175743.jpg" alt="star"><br>胖树形：叶节点到根节点链路（通道宽度）逐渐增多<br><img src="https://api2.mubu.com/v3/document_image/6d7a1f02-4bc4-4de1-8fd0-fa25ee23d0cf-16175743.jpg" alt="fattree"></p>
+<h4 id="5-网格形和环网形"><a href="#5-网格形和环网形" class="headerlink" title="5. 网格形和环网形"></a>5. 网格形和环网形</h4><p>一个规模为N&#x3D;n×n的2维网格形网络</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内部结点的度</td>
+<td>4</td>
+</tr>
+<tr>
+<td>边结点的度</td>
+<td>3</td>
+</tr>
+<tr>
+<td>角结点的度</td>
+<td>2</td>
+</tr>
+<tr>
+<td>网络直径D</td>
+<td>2（n-1）</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>n</td>
+</tr>
+</tbody></table>
+<p>一个由N&#x3D;nk 个结点构成的k维网格形网络（每维n个结点）的内部结点度d&#x3D;2k，网络直径D&#x3D;k(n-1)(几维就走几条边)</p>
+<p>Illiac网络<br>把2维网格形网络的每一列的两个端结点连接起来，<br>再把每一行的尾结点与下一行的头结点连接起来，<br>并把最后一行的尾结点与第一行的头结点连接起来。<br>一个规模为n×n的Illiac网络</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所有结点的度d</td>
+<td>4</td>
+</tr>
+<tr>
+<td>网络直径D</td>
+<td>（n-1）只有纯网格形网络直径的一半</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>2n</td>
+</tr>
+</tbody></table>
+<p>环网形<br>把2维网格形网络的每一行的两个端结点连接起来，<br>把每一列的两个端结点也连接起来。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/823977b5-6c67-4326-8163-cb115a41dfea-16175743.jpg" alt="pic"></p>
+<p>一个n×n的环网形网</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>结点的度d</td>
+<td>4</td>
+</tr>
+<tr>
+<td>网络直径D</td>
+<td>2×（n-1）</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>2n</td>
+</tr>
+</tbody></table>
+<h4 id="6-超立方体"><a href="#6-超立方体" class="headerlink" title="6. 超立方体"></a>6. 超立方体</h4><p><img src="https://api2.mubu.com/v3/document_image/14ce560a-6600-45fd-836b-1f36fff2fa52-16175743.jpg" alt="2"><br>带环k-立方体（简称k-CCC）<br>k-立方体的变形，它通过用k个结点构成的环取代k-立方体中的每个结点而形成的。</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>网络规模</td>
+<td>$N&#x3D;k×2^k$</td>
+</tr>
+<tr>
+<td>网络直径D</td>
+<td>2k-1+ $\lfloor k&#x2F;2\rfloor$</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>N&#x2F;（2k）</td>
+</tr>
+</tbody></table>
+<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p><img src="https://api2.mubu.com/v3/document_image/bcd8059d-b642-4190-a252-ec31eafa8785-16175743.jpg" alt="summary"></p>
+<h3 id="9-4-动态互连网络"><a href="#9-4-动态互连网络" class="headerlink" title="9.4 动态互连网络"></a>9.4 动态互连网络</h3><p>动态网络(dynamic Networks): 由交换开关构成的互连网络，可按运行程序的要求改变网络的连接状态。</p>
+<h4 id="总线结构网络"><a href="#总线结构网络" class="headerlink" title="总线结构网络"></a>总线结构网络</h4><p>略</p>
+<h4 id="交叉开关网络"><a href="#交叉开关网络" class="headerlink" title="交叉开关网络"></a>交叉开关网络</h4><ol>
+<li>单级开关网络<br>交叉点开关在对偶节点(源，目的)之间动态连接，每个交叉点开关根据程序要求动态设置“开”或“关”。可同时实现多个对偶之间的无阻塞连接。带宽和互连特性最好。<br>一个n×n的交叉开关网络，可以无阻塞地实现n!种置换</li>
+<li>多处理机中处理机-存储器间的交叉开关网络。</li>
+<li>向量并行处理机(VPP 500)采用大型交叉开关网络。<br>PE为处理机，CP代表控制处理机。网络中每一行和一列只能接通一个交叉点开关。交叉开关实现处理机之间的置换连接（一对一）。n*n交叉开关网络一次最多可连通n个(源，目的)处理机对。</li>
+</ol>
+<h4 id="多级互连网络"><a href="#多级互连网络" class="headerlink" title="多级互连网络"></a>多级互连网络</h4><p>MIMD和SIMD计算机都采用多级互连网络MIN（Multistage Interconnection Network）</p>
+<p>一种通用的多级互连网络</p>
+<ul>
+<li>由a×b开关模块和级间连接构成的通用多级互连网络结构</li>
+<li>每一级都用了多个a×b开关<ul>
+<li>a个输入和b个输出</li>
+<li>在理论上，a和b不一定相等，然而实际上a和b经常选为2的整数幂，即$a＝b＝2^k，k≥1$。</li>
+</ul>
+</li>
+<li>相邻各级开关之间都有固定的级间连接</li>
+</ul>
+<p>多级立方体网络<br>包括STARAN网络和间接二进制n方体网络等。</p>
+<ul>
+<li>都采用二功能（直送和交换）的2×2开关。</li>
+<li>当第i级（0≤i≤n-1）交换开关处于交换状态时，实现的是Cubei互连函数。</li>
+<li>两者仅在控制方式上不同，在其他方面都是一样的。</li>
+</ul>
+<p>一个N输入的多级立方体网络有log2N级，每级用N&#x2F;2个2×2开关模块，共需要 $(log_2N×N&#x2F;2)$个开关。</p>
+<h3 id="9-5-消息传递机制"><a href="#9-5-消息传递机制" class="headerlink" title="9.5 消息传递机制"></a>9.5 消息传递机制</h3>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/mine.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/诀别书.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/七年了，他还是走不出来.mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/《溯 Reverse》.mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/《託された想い (被寄托的思念)—増田俊郎》.mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】《所念皆星河 》.mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】陈奕迅《富士山下》.mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】花之舞 《Flower Dance》.mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/【钢琴】周杰伦《反方向的钟》.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/【钢琴】周杰伦《青花瓷》.mp3"></li>
+                        
+                    
+                        
+                            <li title="11" data-url="/music/I Really Like You.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC9%E7%AB%A0-%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C"><span class="toc-text">第9章 互连网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-%E4%BA%92%E8%BF%9E%E5%87%BD%E6%95%B0"><span class="toc-text">9.1 互连函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BB%93%E6%9E%84%E5%8F%82%E6%95%B0%E4%B8%8E%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">9.2 互连网络的结构参数与性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-%E9%9D%99%E6%80%81%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C"><span class="toc-text">9.3 静态互连网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BA%BF%E6%80%A7%E9%98%B5%E5%88%97"><span class="toc-text">1. 线性阵列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%8E%AF%E5%92%8C%E5%B8%A6%E5%BC%A6%E7%8E%AF"><span class="toc-text">2. 环和带弦环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%BE%AA%E7%8E%AF%E7%A7%BB%E6%95%B0%E7%BD%91%E7%BB%9C"><span class="toc-text">3. 循环移数网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%A0%91%E5%BD%A2%E5%92%8C%E6%98%9F%E5%BD%A2"><span class="toc-text">4. 树形和星形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E7%BD%91%E6%A0%BC%E5%BD%A2%E5%92%8C%E7%8E%AF%E7%BD%91%E5%BD%A2"><span class="toc-text">5. 网格形和环网形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%B6%85%E7%AB%8B%E6%96%B9%E4%BD%93"><span class="toc-text">6. 超立方体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#summary"><span class="toc-text">summary</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4-%E5%8A%A8%E6%80%81%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C"><span class="toc-text">9.4 动态互连网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84%E7%BD%91%E7%BB%9C"><span class="toc-text">总线结构网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E5%BC%80%E5%85%B3%E7%BD%91%E7%BB%9C"><span class="toc-text">交叉开关网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C"><span class="toc-text">多级互连网络</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-5-%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6"><span class="toc-text">9.5 消息传递机制</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

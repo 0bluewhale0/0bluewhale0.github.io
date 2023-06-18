@@ -1077,58 +1077,6 @@
       </tags>
   </entry>
   <entry>
-    <title>系统结构笔记四、五章</title>
-    <url>/2023/03/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%20%E5%9B%9B%E3%80%81%E4%BA%94%E7%AB%A0/</url>
-    <content><![CDATA[<h2 id="第四章-向量处理机"><a href="#第四章-向量处理机" class="headerlink" title="第四章 向量处理机"></a>第四章 向量处理机</h2><blockquote>
-<p>重点<br>向量处理方法：横向处理、纵向处理、纵横处理<br>向量流水处理机结构：<br>    1. 存储器-存储器结构：纵向处理<br>    2. 寄存器-寄存器结构：纵横处理<br>提高向量处理机性能的方法：<br>    - 多功能部件的并行操作<br>    - 链接技术 WD 相关<br>    - 分段开采<br>    - 多处理机系统结构<br>向量处理机性能的主要参数：<br>    - 一条向量指令的处理时间<br>    - 一组向量指令的处理时间<br>    - 向量处理机的性能评估（MFLOPS 或一个浮点运算的时间）<br>第四章，重点是链接技术，一般出大题，pin</p>
-</blockquote>
-<h3 id="向量基本概念和处理方法"><a href="#向量基本概念和处理方法" class="headerlink" title="向量基本概念和处理方法"></a>向量基本概念和处理方法</h3><p>向量处理机：设置了向量数据表示和向量指令的流水线处理机。</p>
-<p>向量处理机方式：</p>
-<ul>
-<li>横向处理方式：向量按 column 的方式从左到右横向进行。适用于一般处理机，<strong>不适用于向量处理机的并行处理</strong>。<ul>
-<li>以 $D&#x3D;A \times (B+C)$为例</li>
-<li>每个向量的处理产生N次数据相关，2N次功能转移（向量长度特别长）</li>
-</ul>
-</li>
-<li><strong>纵向处理方式</strong>：向量按 row 的方式从上到下纵向进行。将整个向量按相同运算处理完之后，再进行别的运算。不产生数据相关，对向量长度 N 没有限制。</li>
-<li><strong>纵横处理方式</strong>：把向量分成若干组，组内按纵向方式处理，依次处理各组。对向量长度 N 没有限制，但以每 n 个元素分一组处理，n 的值固定。</li>
-</ul>
-<h3 id="向量处理机结构"><a href="#向量处理机结构" class="headerlink" title="向量处理机结构"></a>向量处理机结构</h3><h4 id="存储器-存储器结构"><a href="#存储器-存储器结构" class="headerlink" title="存储器-存储器结构"></a>存储器-存储器结构</h4><p><mark>适合纵向处理方式。</mark></p>
-<ul>
-<li><strong>源向量</strong>和<strong>目的向量</strong>都存放在存储器中，运算的中间结果需要送回存储器。</li>
-<li>对应的向量分量能并发访问，计算结果能并行地保存。</li>
-<li>普通存储器的 3 倍带宽：3 条独立数据通路，一个时钟周期读出两个操作数并写回一个结果。</li>
-</ul>
-<p><img src="https://api2.mubu.com/v3/document_image/2362ff86-2352-49f6-b62e-fa1337ccdc60-16175743.jpg" alt="2"></p>
-<p>为了满足运算器带宽要求，存储器采用多个存储器模块组成的结构方式，运算器与主存间有三条相互独立的数据通路，三条路之间可以并行工作，但每个模块同一时间只服务于一个《？？》</p>
-<h4 id="寄存器-寄存器结构"><a href="#寄存器-寄存器结构" class="headerlink" title="寄存器-寄存器结构"></a>寄存器-寄存器结构</h4><p><mark>适合纵横处理方式。</amrk></p>
-<ul>
-<li>若干级中间存储器形成有层次结构的存储系统，相当于寄存器。</li>
-<li>访问中间存储器速度更快(比直接访问存储器)。</li>
-<li>通过中间存储器形成新的数据结构，高效。</li>
-<li>中间存储器高带宽、多种寻址方式、支持流水线链接技术。</li>
-</ul>
-<p>CRAY-1向量处理机</p>
-<ul>
-<li>上课讲了，but没怎么听懂（草）。</li>
-</ul>
-<p>向量流水线并行条件：</p>
-<ul>
-<li>功能部件不冲突</li>
-<li>源寄存器不冲突</li>
-<li>结果寄存器不冲突</li>
-<li>数据不相关</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记 - 计算机系统结构</category>
-      </categories>
-      <tags>
-        <tag>course</tag>
-        <tag>计算机系统结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计组笔记_chapter1</title>
     <url>/2022/03/02/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_chapter1/</url>
     <content><![CDATA[<p>szh大废物的计组笔记。</p>
@@ -5615,6 +5563,788 @@
       <tags>
         <tag>course</tag>
         <tag>交换原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>系统结构笔记第九章</title>
+    <url>/2023/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%843/</url>
+    <content><![CDATA[<h2 id="第9章-互连网络"><a href="#第9章-互连网络" class="headerlink" title="第9章 互连网络"></a>第9章 互连网络</h2><p>概念：互连网络是一种由<mark>开关元件</mark>按照一定的<mark>拓扑结构</mark>和<mark>控制方式</mark>构成的网络，用来实现计算机系统中<strong>结点</strong>之间的相互连接。</p>
+<p>互连网络三要素：</p>
+<ul>
+<li>开关元件：网络中最基本模块，在不同系统和控制中，开关元件所处的物理位置和工作状态不同。</li>
+<li>互连结构:网络合理布局关键，反映系统结构特征。用有向图或无向图表示，节点对应开关元件或处理机。边对应通信链路。</li>
+<li>控制方式：网络中各种开关的控制方法</li>
+</ul>
+<p>互连网络的基本特征</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>分类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>拓扑结构</td>
+<td>静态</td>
+</tr>
+<tr>
+<td></td>
+<td>动态</td>
+</tr>
+<tr>
+<td>控制策略</td>
+<td>集中式</td>
+</tr>
+<tr>
+<td></td>
+<td>分散式</td>
+</tr>
+<tr>
+<td>定时方式</td>
+<td>同步</td>
+</tr>
+<tr>
+<td></td>
+<td>异步</td>
+</tr>
+<tr>
+<td>交换方法</td>
+<td>线路交换</td>
+</tr>
+<tr>
+<td></td>
+<td>分组交换</td>
+</tr>
+</tbody></table>
+<p>拓扑结构</p>
+<ul>
+<li>静态网<br>各节点间有专用通信线路（链路），运行间不改变或重新组合。又称直接网络 (节点通过链路直接连接)<ul>
+<li>组成：由链路、结构及网络节点组成。</li>
+<li>结构: 线性、环形、树形、 立方体等。</li>
+</ul>
+</li>
+<li>动态网<br>各节点间有专用通信线路（链路）,可通过网络中开关重新组合。节点与节点的连接由程序或控制信号动态地改变，又称间接网络(节点与交换开关连接)。<ul>
+<li>组成：由链路、结构、开关及节点组成。</li>
+<li>结构: 总线、环状、 开关、(单)多级。</li>
+</ul>
+</li>
+</ul>
+<p>控制策略</p>
+<ul>
+<li>集中控制:全局控制器接收所有通信请求，设置互连网络的开关连接。</li>
+<li>分散控制: 通信请求和开关设置由互连网络分散地进行。</li>
+</ul>
+<p>定时方式</p>
+<ul>
+<li>同步系统：系统使用一个集中的统一时钟.</li>
+<li>异步系统：无统一时钟，节点根据各自情况独立工作。</li>
+</ul>
+<p>交换方法</p>
+<ul>
+<li>线路交换：源结点和目的结点间的物理通路在整个数据传送期间一直保持连接。</li>
+<li>分组交换：信息分割成组(包)，各组(包)通过多个不同路径传分别送入互连网络。传送不存在一个实际连接的固定通路。</li>
+</ul>
+<h3 id="9-1-互连函数"><a href="#9-1-互连函数" class="headerlink" title="9.1 互连函数"></a>9.1 互连函数</h3><p>互连网络的描述<br><img src="https://api2.mubu.com/v3/document_image/bcd9f186-15db-46b4-bfe3-24da3e7281fd-16175743.jpg" alt="description"></p>
+<p>基本的互连函数</p>
+<ol>
+<li>恒等函数<br>$I(x_{n-1}x_{n-2}…x_1x_0)&#x3D;x_{n-1}x_{n-2}…x_1x_0$</li>
+<li>交换函数:实现二进制地址编码中第k位互反的输入端与输出端之间的连接。<br>$E(x_{n-1}x_{n-2}…x_{k+1}x_kx_{k-1}…x_1x_0)&#x3D;(x_{n-1}x_{n-2}…x_{k+1}\overline{x_k}x_{k-1}…x_1x_0)$</li>
+<li>均匀洗牌函数:输入端二进制地址<strong>循环左移</strong>一位。<img src="https://api2.mubu.com/v3/document_image/41655942-33bf-4dc9-a93e-4706d0f00571-16175743.jpg" alt="poker"></li>
+<li>逆均匀洗牌函数: 输入端二进制地址<strong>循环右移</strong>一位。（左右左右，先左后右）<br><img src="https://api2.mubu.com/v3/document_image/73ef15eb-b193-4159-b2b7-92f6e32d15f8-16175743.jpg" alt="poker2"></li>
+<li>蝶式函数：把输入端的二进制编号的最高位与最低位互换位置，便得到了输出端的编号。<br>$\beta(x_{n−1}x_{n−2}…x_1x_0)&#x3D;x_0x_{n−2}…x_1x_{n−1}$<br><img src="https://api2.mubu.com/v3/document_image/e6296242-0fd8-4ded-9a86-59c798cc91d6-16175743.jpg" alt="butterfly"></li>
+<li>反位序函数：将输入端二进制编号的位序颠倒过来求得相应输出端的编号。<br>$\rho(x_{n−1}x_{n−2}…x_1x_0)&#x3D;x_0x_{1}…x_{n−2}x_{n−1}$</li>
+<li>移数函数：将各输入端都错开一定的位置(k)（别忘了模N）后连到输出端。<br>$\alpha(x)&#x3D;(x±k)mod N, 1≤x≤N-1，1≤k≤N-1$</li>
+<li>PM2I函数:P和M分别表示<font color=red>加</font>和<font color=blue>减</font>，2I表示$2^i$<br>$PM2+i(x) &#x3D; x＋2^i mod N$<br>$PM2-i(x) &#x3D; x－2^i mod N $<br>$0≤x≤N－1，0≤i≤n－1，n&#x3D;log_2N$，N为结点数。<br><img src="https://api2.mubu.com/v3/document_image/b751b748-a8f5-4fe5-95c1-0af9f6685852-16175743.jpg" alt="PM2I"><br>PM2I互连网络共有2n个互连函数:一加一减就两倍啦<br><img src="https://api2.mubu.com/v3/document_image/e2eec2c3-1385-4440-a9ad-cf557006325a-16175743.jpg" alt="2n"><br><img src="https://api2.mubu.com/v3/document_image/46f69f96-7d9d-4bd8-9281-d7193ef93bc0-16175743.jpg" alt="ex"></li>
+</ol>
+<blockquote>
+<p>逆函数<br>对于任意一种函数f(x)，如果存在g(x)，使得<br>$f(x)·g(x)&#x3D;I(x)$<br>则称g(x)是f(x)的逆函数，记为$f^{-1}(x)$。<br>$f^{-1}(x)&#x3D;g(x)$</p>
+</blockquote>
+<blockquote>
+<p>均匀洗牌，蝶式函数<strong>不能单独实现</strong>任意结点间互连。<br>它们与交换函数多级组合是构成复杂多级网络的基础.</p>
+</blockquote>
+<h3 id="9-2-互连网络的结构参数与性能指标"><a href="#9-2-互连网络的结构参数与性能指标" class="headerlink" title="9.2 互连网络的结构参数与性能指标"></a>9.2 互连网络的结构参数与性能指标</h3><p>互连网络的结构参数——互连网络的主要特性参数</p>
+<ul>
+<li><mark>网络规模N</mark>：网络中结点的个数。表示该网络所能连接的部件的数量。</li>
+<li><mark>结点度d</mark>：与结点相连接的边数（通道数），包括入度和出度。<ul>
+<li>进入结点的边数叫入度。</li>
+<li>从结点出来的边数叫出度。</li>
+</ul>
+</li>
+<li><mark>结点距离</mark>：对于网络中的任意两个结点，从一个结点出发到另一个结点终止所需要跨越的边数的最小值。</li>
+<li><mark>网络直径D</mark>：网络中任意两个结点之间距离的最大值。网络直径应当尽可能地小。</li>
+<li><mark>等分宽度b</mark>：把由N个结点构成的网络切成结点数相同（N&#x2F;2）的两半，在各种切法中，沿切口边数的最小值。<ul>
+<li>线等分宽度：B＝b×w</li>
+<li>其中：w为通道宽度（用位表示）</li>
+<li>该参数主要反映了网络最大流量。</li>
+</ul>
+</li>
+<li><mark>对称性</mark>：从任何结点看到的拓扑结构都是相同的网络称为对称网络。</li>
+</ul>
+<p>互连网络的性能指标<br>评估互连网络性能的<strong>两个基本指标</strong>：时延和带宽</p>
+<ol>
+<li><p><mark>通信时延</mark>:指从源结点到目的结点传送一条消息所需的总时间，由以下4部分构成</p>
+<ol>
+<li><mark>软件开销</mark>：在源结点和目的结点用于收发消息的软件所需的执行时间。<ol>
+<li>主要取决于两端端结点处理消息的软件内核。</li>
+</ol>
+</li>
+<li><mark>通道时延</mark>：通过通道传送消息所花的时间。<ol>
+<li>通路时延 &#x3D; 消息长度&#x2F;通道带宽</li>
+<li>通常由瓶颈链路的通道带宽决定。</li>
+</ol>
+</li>
+<li><mark>选路时延</mark>：消息在传送路径上所需的一系列选路决策所需的时间开销。<ol>
+<li>与传送路径上的结点数成正比。</li>
+</ol>
+</li>
+<li><mark>竞争时延</mark>：多个消息同时在网络中传送时，会发生争用网络资源的冲突。为避免或解决争用冲突所需的时间就是竞争时延。<ol>
+<li>很难预测，它取决于网络的传输状态。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><mark>网络时延</mark>:通道时延与选路时延的和。</p>
+<ol>
+<li>由网络硬件特征决定，与程序行为和网络传输状态无关。</li>
+</ol>
+</li>
+<li><p><mark>端口带宽</mark></p>
+<ol>
+<li>对互连网络中的任意一个端口，端口带宽是指单位时间内从该端口传送到其他端口的最大信息量。<ol>
+<li>在对称网络中，端口带宽与端口位置无关。网络的端口带宽与各端口的端口带宽相同。</li>
+<li>非对称网络的端口带宽则是指所有端口带宽的最小值。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><mark>聚集带宽</mark><br>网络从一半结点到另一半结点，单位时间内能够传送的最大信息量。</p>
+</li>
+<li><p><mark>等分带宽</mark><br>与等分宽度对应的切平面中，所有边合起来单位时间所能传送的最大信息量</p>
+</li>
+</ol>
+<h3 id="9-3-静态互连网络"><a href="#9-3-静态互连网络" class="headerlink" title="9.3 静态互连网络"></a>9.3 静态互连网络</h3><p>典型的静态互连网络</p>
+<h4 id="1-线性阵列"><a href="#1-线性阵列" class="headerlink" title="1. 线性阵列"></a>1. 线性阵列</h4><p>一种一维的线性网络，其中N个结点用N-1个链路连成一行。 （N表示结点的个数）</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>非对称</td>
+<td></td>
+</tr>
+<tr>
+<td>端结点的度</td>
+<td>1</td>
+</tr>
+<tr>
+<td>其余结点的度</td>
+<td>2</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>N－1</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h4 id="2-环和带弦环"><a href="#2-环和带弦环" class="headerlink" title="2. 环和带弦环"></a>2. 环和带弦环</h4><p>环：用一条附加链路将线性阵列的两个端点连接起来而构成。可以单向工作，也可以双向工作。</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对称</td>
+<td></td>
+</tr>
+<tr>
+<td>结点度</td>
+<td>2</td>
+</tr>
+<tr>
+<td>双向环的直径</td>
+<td>N&#x2F;2</td>
+</tr>
+<tr>
+<td>单向环的直径</td>
+<td>N</td>
+</tr>
+<tr>
+<td>环的等分宽度b</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<p><img src="https://api2.mubu.com/v3/document_image/462412d8-0e89-4da4-9e60-e87e1ab7e0c3-16175743.jpg" alt="circle"></p>
+<p>带弦环：增加的链路愈多，结点度愈高，网络直径就愈小。<br><img src="https://api2.mubu.com/v3/document_image/1e275ef7-e1a8-438b-bbfa-b2994175107c-16175743.jpg" alt="circlewitharcs"><br><img src="https://api2.mubu.com/v3/document_image/d251a7bd-4376-48e2-b1bd-9bb6cf2cd45f-16175743.jpg" alt="circlewitharcs"><br>全连接网络：<br><img src="https://api2.mubu.com/v3/document_image/ad75b322-3db8-4057-89ea-3831ad6079a2-16175743.jpg" alt="alltoall"></p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对称</td>
+<td></td>
+</tr>
+<tr>
+<td>结点度</td>
+<td>15</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h4 id="3-循环移数网络"><a href="#3-循环移数网络" class="headerlink" title="3. 循环移数网络"></a>3. 循环移数网络</h4><p>环上每个结点到所有与其距离为2的整数幂的结点之间都有一条链路。<br><img src="https://api2.mubu.com/v3/document_image/2daaded8-9faa-49c2-a66c-d3d2bb24c3fe-16175743.jpg" alt="2"><br>一般地，如果结点i和j间距离为2的整数幂，则结点i与结点j连接</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>结点度</td>
+<td>2n-1</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>n&#x2F;2</td>
+</tr>
+<tr>
+<td>网络规模</td>
+<td>$N&#x3D;2^n$</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>如, N&#x3D;16 n&#x3D;4<br>结点度：7<br>直径：2</p>
+</blockquote>
+<h4 id="4-树形和星形"><a href="#4-树形和星形" class="headerlink" title="4. 树形和星形"></a>4. 树形和星形</h4><p>一般说来，一棵k层完全平衡的二叉树有$N&#x3D;2^k-1$个结点。ex:k&#x3D;5,N&#x3D;31</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最大结点度</td>
+<td>3</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>2(k-1)&#x3D;8</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>1</td>
+</tr>
+<tr>
+<td><img src="https://api2.mubu.com/v3/document_image/c2230b96-957d-45b4-a6a7-3a27161fc506-16175743.jpg" alt="btree"></td>
+<td></td>
+</tr>
+<tr>
+<td>星形</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最大结点度</td>
+<td>N-1</td>
+</tr>
+<tr>
+<td>直径</td>
+<td>2</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>$\lfloor N&#x2F;2\rfloor$</td>
+</tr>
+</tbody></table>
+<p>可靠性较差，中心结点出故障，整个系会瘫痪。<br><img src="https://api2.mubu.com/v3/document_image/a440f60e-cea6-445e-9c9f-03a3fbf1987d-16175743.jpg" alt="star"><br>胖树形：叶节点到根节点链路（通道宽度）逐渐增多<br><img src="https://api2.mubu.com/v3/document_image/6d7a1f02-4bc4-4de1-8fd0-fa25ee23d0cf-16175743.jpg" alt="fattree"></p>
+<h4 id="5-网格形和环网形"><a href="#5-网格形和环网形" class="headerlink" title="5. 网格形和环网形"></a>5. 网格形和环网形</h4><p>一个规模为N&#x3D;n×n的2维网格形网络</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内部结点的度</td>
+<td>4</td>
+</tr>
+<tr>
+<td>边结点的度</td>
+<td>3</td>
+</tr>
+<tr>
+<td>角结点的度</td>
+<td>2</td>
+</tr>
+<tr>
+<td>网络直径D</td>
+<td>2（n-1）</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>n</td>
+</tr>
+</tbody></table>
+<p>一个由N&#x3D;nk 个结点构成的k维网格形网络（每维n个结点）的内部结点度d&#x3D;2k，网络直径D&#x3D;k(n-1)(几维就走几条边)</p>
+<p>Illiac网络<br>把2维网格形网络的每一列的两个端结点连接起来，<br>再把每一行的尾结点与下一行的头结点连接起来，<br>并把最后一行的尾结点与第一行的头结点连接起来。<br>一个规模为n×n的Illiac网络</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所有结点的度d</td>
+<td>4</td>
+</tr>
+<tr>
+<td>网络直径D</td>
+<td>（n-1）只有纯网格形网络直径的一半</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>2n</td>
+</tr>
+</tbody></table>
+<p>环网形<br>把2维网格形网络的每一行的两个端结点连接起来，<br>把每一列的两个端结点也连接起来。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/823977b5-6c67-4326-8163-cb115a41dfea-16175743.jpg" alt="pic"></p>
+<p>一个n×n的环网形网</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>结点的度d</td>
+<td>4</td>
+</tr>
+<tr>
+<td>网络直径D</td>
+<td>2×（n-1）</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>2n</td>
+</tr>
+</tbody></table>
+<h4 id="6-超立方体"><a href="#6-超立方体" class="headerlink" title="6. 超立方体"></a>6. 超立方体</h4><p><img src="https://api2.mubu.com/v3/document_image/14ce560a-6600-45fd-836b-1f36fff2fa52-16175743.jpg" alt="2"><br>带环k-立方体（简称k-CCC）<br>k-立方体的变形，它通过用k个结点构成的环取代k-立方体中的每个结点而形成的。</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>网络规模</td>
+<td>$N&#x3D;k×2^k$</td>
+</tr>
+<tr>
+<td>网络直径D</td>
+<td>2k-1+ $\lfloor k&#x2F;2\rfloor$</td>
+</tr>
+<tr>
+<td>等分宽度b</td>
+<td>N&#x2F;（2k）</td>
+</tr>
+</tbody></table>
+<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p><img src="https://api2.mubu.com/v3/document_image/bcd8059d-b642-4190-a252-ec31eafa8785-16175743.jpg" alt="summary"></p>
+<h3 id="9-4-动态互连网络"><a href="#9-4-动态互连网络" class="headerlink" title="9.4 动态互连网络"></a>9.4 动态互连网络</h3><p>动态网络(dynamic Networks): 由交换开关构成的互连网络，可按运行程序的要求改变网络的连接状态。</p>
+<h4 id="总线结构网络"><a href="#总线结构网络" class="headerlink" title="总线结构网络"></a>总线结构网络</h4><p>略</p>
+<h4 id="交叉开关网络"><a href="#交叉开关网络" class="headerlink" title="交叉开关网络"></a>交叉开关网络</h4><ol>
+<li>单级开关网络<br>交叉点开关在对偶节点(源，目的)之间动态连接，每个交叉点开关根据程序要求动态设置“开”或“关”。可同时实现多个对偶之间的无阻塞连接。带宽和互连特性最好。<br>一个n×n的交叉开关网络，可以无阻塞地实现n!种置换</li>
+<li>多处理机中处理机-存储器间的交叉开关网络。</li>
+<li>向量并行处理机(VPP 500)采用大型交叉开关网络。<br>PE为处理机，CP代表控制处理机。网络中每一行和一列只能接通一个交叉点开关。交叉开关实现处理机之间的置换连接（一对一）。n*n交叉开关网络一次最多可连通n个(源，目的)处理机对。</li>
+</ol>
+<h4 id="多级互连网络"><a href="#多级互连网络" class="headerlink" title="多级互连网络"></a>多级互连网络</h4><p>MIMD和SIMD计算机都采用多级互连网络MIN（Multistage Interconnection Network）</p>
+<p>一种通用的多级互连网络</p>
+<ul>
+<li>由a×b开关模块和级间连接构成的通用多级互连网络结构</li>
+<li>每一级都用了多个a×b开关<ul>
+<li>a个输入和b个输出</li>
+<li>在理论上，a和b不一定相等，然而实际上a和b经常选为2的整数幂，即$a＝b＝2^k，k≥1$。</li>
+</ul>
+</li>
+<li>相邻各级开关之间都有固定的级间连接</li>
+</ul>
+<p>多级立方体网络<br>包括STARAN网络和间接二进制n方体网络等。</p>
+<ul>
+<li>都采用二功能（直送和交换）的2×2开关。</li>
+<li>当第i级（0≤i≤n-1）交换开关处于交换状态时，实现的是Cubei互连函数。</li>
+<li>两者仅在控制方式上不同，在其他方面都是一样的。</li>
+</ul>
+<p>一个N输入的多级立方体网络有log2N级，每级用N&#x2F;2个2×2开关模块，共需要 $(log_2N×N&#x2F;2)$个开关。</p>
+<h3 id="9-5-消息传递机制"><a href="#9-5-消息传递机制" class="headerlink" title="9.5 消息传递机制"></a>9.5 消息传递机制</h3>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>计算机系统结构</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计算机系统结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>系统结构笔记一、三章</title>
+    <url>/2023/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h2 id="第一章-基础知识"><a href="#第一章-基础知识" class="headerlink" title="第一章 基础知识"></a>第一章 基础知识</h2><h3 id="1-1基本概念"><a href="#1-1基本概念" class="headerlink" title="1.1基本概念"></a>1.1基本概念</h3><p>计算机系统的<strong>层次结构</strong><br><img src="https://api2.mubu.com/v3/document_image/ecbda4a7-2b0f-472e-b610-4b2f5c30f0d0-16175743.jpg" alt="0"></p>
+<p><strong>计算机系统结构</strong>的定义：<strong>计算机系统结构(Computer Architecture)的经典定义是1964 年Amdahl在介绍IBM360系统时提出的:计算机系统结构是指传统机器程序员所看到的计算机属性,即概念性结构与功能特性。</strong></p>
+<p><strong>计算机组成</strong>的定义：计算机组成(Computer Organization)指的是计算机系统结构的逻辑实现,包含物理机器级中的<strong>数据流</strong>和<strong>控制流</strong>的组成以及<strong>逻辑设计</strong>等。它着眼于物理机器级内各事件的排序方式与控制方式,各部件的功能以及各部件之间的联系。</p>
+<p><strong>计算机实现</strong>的定义：计算机实现(Computer Implementation)指的是计算机组成的物理实现,包括处理机、主存等部件的物理结构,器件的集成度和速度,模块、插件、底板的划分与连接,信号传输﹐电源、冷却及整机装配技术等。它着眼于器件技术和微组装技术,其中器件技术在实现技术中起主导作用。</p>
+<p>举例辨析：</p>
+<blockquote>
+<p>(1)确定指令系统中是否有乘法指令属于计算机系统结构的内容,但乘法指令是用专门的乘法器实现,还是用加法器经多步操作来实现,属于计算机组成。而乘法器、加法器的物理实现﹐如器件的选定及所用的微组装技术等,属于计算机实现。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>(2）主存容量与编址方式(按位、按字节或按字访问等)的确定属于计算机系统结构。为了达到给定的性能价格比,主存速度应多快、逻辑结构是否采用多体交叉等属于计算机组成。而主存系统的物理实现,如器件的选定、逻辑电路的设计,微组装技术的使用等均属于计算机实现。</p>
+</blockquote>
+<p>计算机系统结构的<strong>分类</strong></p>
+<ul>
+<li>Flynn分类法：按照指令流和数据流的多倍性进行分类<br><img src="https://api2.mubu.com/v3/document_image/b0833a78-f9b2-495f-9a5f-983e9068cd19-16175743.jpg" alt="2"></li>
+<li>冯式分类法：用系统的最大并行度对计算机进行分类<br><img src="https://api2.mubu.com/v3/document_image/476313ef-9aea-4ae2-ba9a-9f3d3631d873-16175743.jpg" alt="2"></li>
+<li>Handler分类法：把计算机的硬件结构分成三个层次，并分别考虑它们的可并行-流水处理程度，将计算机用3对整数表示。<br>三个层次：<br><img src="https://api2.mubu.com/v3/document_image/571debbd-8e6a-438e-b164-4a04b9f182a8-16175743.jpg" alt="3"><br><img src="https://api2.mubu.com/v3/document_image/02b74744-0f6b-4233-bc6e-0a944b726fdb-16175743.jpg" alt="4"></li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/6D382E7290C141121677477905.jpg" alt="1"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/1677489160735e4b7.jpg" alt="1-2"></p>
+<h3 id="1-2-计算机系统的设计"><a href="#1-2-计算机系统的设计" class="headerlink" title="1.2 计算机系统的设计"></a>1.2 计算机系统的设计</h3><h4 id="1-2-1-计算机系统设计的定量原理"><a href="#1-2-1-计算机系统设计的定量原理" class="headerlink" title="1.2.1 计算机系统设计的定量原理"></a>1.2.1 计算机系统设计的定量原理</h4><h5 id="大概率事件优先原理"><a href="#大概率事件优先原理" class="headerlink" title="大概率事件优先原理"></a>大概率事件优先原理</h5><p>（又叫经常性事件原则）: 优先加速使用频率高的部件。</p>
+<ul>
+<li>为获得明显的系统性能。对大概率 (经常性)事件，<br>赋予优先处理权和资源使用权。</li>
+<li>加快处理频繁出现事件对系统的影响远比加速<br>处理很少出现事件的影响。</li>
+</ul>
+<h5 id="Amdahl定律"><a href="#Amdahl定律" class="headerlink" title="Amdahl定律"></a>Amdahl定律</h5><p>加快某部件执行速度所获得的系统性能(加速比)，与该部件在系统中总执行时间的比例（重要性）有关。<br><img src="https://api2.mubu.com/v3/document_image/493b86a0-5a70-47a5-af79-948f07288e1d-16175743.jpg" alt="2"><br><img src="https://api2.mubu.com/v3/document_image/c5e48e51-0bd1-4572-818b-d3a120ee87d0-16175743.jpg" alt="2"></p>
+<p>加速比公式依赖于两个因素</p>
+<ol>
+<li>部件加速比 $S_e$</li>
+<li>可改进比例 $F_e$</li>
+</ol>
+<h5 id="程序的局部性原理"><a href="#程序的局部性原理" class="headerlink" title="程序的局部性原理"></a>程序的局部性原理</h5><ul>
+<li>程序的时间局部性<ul>
+<li>程序即将用到的信息很可能就是目前正在使用的信息。</li>
+</ul>
+</li>
+<li>程序的空间局部<ul>
+<li>程序即将用到的信息很可能与目前正在使用的信息在空间上相邻或者临近。</li>
+</ul>
+</li>
+</ul>
+<h5 id="CPU性能公式"><a href="#CPU性能公式" class="headerlink" title="CPU性能公式"></a>CPU性能公式</h5><p>$$<br>CPU_{时间} &#x3D; IC \times CPI \times t<br>$$<br>$$<br>&#x3D; \sum (CPI_i \times IC_i)<br>$$</p>
+<p>$IC$:执行程序的指令条数<br>$CPI$:指令的平均时钟周期数<br>其中，$t&#x3D;\cfrac{1}{f}$</p>
+<h4 id="1-2-2-计算机系统设计的主要内容"><a href="#1-2-2-计算机系统设计的主要内容" class="headerlink" title="1.2.2 计算机系统设计的主要内容"></a>1.2.2 计算机系统设计的主要内容</h4><p>工作方面：</p>
+<ol>
+<li>需求分析</li>
+<li>软硬件功能划分： 经常使用的部分使用硬件加速</li>
+<li>前瞻性</li>
+</ol>
+<h3 id="1-2-3-系统设计的主要方法"><a href="#1-2-3-系统设计的主要方法" class="headerlink" title="1.2.3 系统设计的主要方法"></a>1.2.3 系统设计的主要方法</h3><ol>
+<li>top-down 设计</li>
+<li>bottom-up 设计</li>
+<li>middle-out 设计： 一般认为这个啥best的</li>
+</ol>
+<h3 id="1-3-计算机系统的性能评测"><a href="#1-3-计算机系统的性能评测" class="headerlink" title="1.3 计算机系统的性能评测"></a>1.3 计算机系统的性能评测</h3><h4 id="指标"><a href="#指标" class="headerlink" title="指标"></a>指标</h4><ol>
+<li>执行时间</li>
+<li>速度<ul>
+<li>MIPS 每秒百万条指令数 million instructions per second</li>
+<li>MFLOPS 每秒百万次浮点运算次数 million floating point operations per second</li>
+</ul>
+</li>
+</ol>
+<h5 id="MIPS"><a href="#MIPS" class="headerlink" title="MIPS"></a>MIPS</h5><p>$MIPS &#x3D; I_{N} &#x2F;(T_E \times 10^6)$<br>$&#x3D;I_{N} &#x2F;(I_{N} \times CPI \times t \times 10^6)$<br>$&#x3D;1 &#x2F; (CPI \times 10^6)$</p>
+<p>$I_{N}$: 程序中的指令总数<br>$T_E$:执行程序的时间</p>
+<p>只适用于评估标量计算机，对于并行计算的机器不能很好的评价。</p>
+<h5 id="MFLOPS"><a href="#MFLOPS" class="headerlink" title="MFLOPS"></a>MFLOPS</h5><p>$MFLOPS &#x3D; I_{FN} &#x2F;(T_E \times 10^6)$</p>
+<p>$I_{FN}$: 程序中的浮点运算次数<br>$T_E$:执行程序的时间</p>
+<p>一般大型机都用MFLOPS来衡量计算机的速度，因为他不依赖于指令系统，与编译系统没有太大关系。</p>
+<h4 id="测试程序"><a href="#测试程序" class="headerlink" title="测试程序"></a>测试程序</h4><ol>
+<li>real程序</li>
+<li>核心程序</li>
+<li>小测试程序</li>
+<li>综合测试程序</li>
+</ol>
+<p>性能比较：</p>
+<ul>
+<li>平均执行时间</li>
+<li>加权平均</li>
+<li>调和平均（？ $H_m$ 用于计算速度的<br>$$<br>H_m&#x3D;\cfrac{n}{\sum_{i&#x3D;1}^{n} \cfrac{1}{R_i}}<br>&#x3D; \cfrac{n}{\sum_{i&#x3D;1}^{n} T_i}<br>$$</li>
+<li>几何平均（ $G_m$ 这个也是用来算速度的<ul>
+<li>普通几何平均<br>$$<br>G_m &#x3D; \sqrt[n]{\prod_{i&#x3D;1}^n R_i}<br>&#x3D; \sqrt[n]{\prod_{i&#x3D;1}^n \cfrac{1}{T_i}}<br>$$</li>
+<li>加权几何平均<br>$$<br>G_m &#x3D; \prod_{i&#x3D;1}^n (R_i)^{W_i}<br>$$</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-计算机系统结构的发展"><a href="#1-4-计算机系统结构的发展" class="headerlink" title="1.4 计算机系统结构的发展"></a>1.4 计算机系统结构的发展</h3><h4 id="1-4-1-冯诺依曼结构"><a href="#1-4-1-冯诺依曼结构" class="headerlink" title="1.4.1 冯诺依曼结构"></a>1.4.1 冯诺依曼结构</h4><ul>
+<li>ALU为中心</li>
+<li>指令和数据被存储器认为是一样的玩意儿</li>
+<li>存储器编码方式是一维的</li>
+<li>指令由OP和ADDR组成，而且顺序执行</li>
+</ul>
+<p>改进：</p>
+<ul>
+<li>并行处理</li>
+<li>指令系统系统的精简：CISC-&gt;RISC的转变，使CPI得到了很大的提高</li>
+<li>输入输出方式的改进</li>
+</ul>
+<h4 id="1-4-2-软件对系统结构的影响"><a href="#1-4-2-软件对系统结构的影响" class="headerlink" title="1.4.2 软件对系统结构的影响"></a>1.4.2 软件对系统结构的影响</h4><p>软件可移植的ways：</p>
+<ul>
+<li><p>统一的高级语言：理想情况下的最方便的办法</p>
+</li>
+<li><p>系列机：就一个厂家生产的具有相同的系统结构，但是不同的组成&#x2F;实现的机器，比如intel？？？<br>  系列机又称兼容机，兼容包括：</p>
+<ul>
+<li>向上兼容：上下是指的机器的档次</li>
+<li>向下兼容</li>
+<li>向前兼容：前后指的是机器的版次</li>
+<li>向后兼容</li>
+</ul>
+<p>  <strong>向后兼容是系列机的</strong> &#x3D;&#x3D;根本特征&#x3D;&#x3D;<br>  <img src="https://api2.mubu.com/v3/document_image/4612839b-f01f-4194-8db1-f603cf6f3573-16175743.jpg" alt="2"></p>
+</li>
+<li><p>模拟与仿真</p>
+<ul>
+<li>模拟：用软件方法中一台现有的机器上实现另一个机器的指令集，就是虚拟机</li>
+<li>仿真：用<strong>微程序</strong> 在一台现有机器上实现另一台机器的指令集<ul>
+<li>仿真只能在俩结构差别不大的机子之间使用，但是它快一点</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-4-3-器件发展对系统结构的影响"><a href="#1-4-3-器件发展对系统结构的影响" class="headerlink" title="1.4.3 器件发展对系统结构的影响"></a>1.4.3 器件发展对系统结构的影响</h4><p>第几代计算机上按照 <strong>器件</strong> 来划分的</p>
+<h4 id="1-4-4-应用对系统结构的影响"><a href="#1-4-4-应用对系统结构的影响" class="headerlink" title="1.4.4 应用对系统结构的影响"></a>1.4.4 应用对系统结构的影响</h4><p>应用需求上促使计算机系统结构发展的<strong>最根本的动力</strong><br>（需求带动发展）</p>
+<p>专用性 和 通用性</p>
+<h3 id="1-5-计算机系统结构中并行性的发展"><a href="#1-5-计算机系统结构中并行性的发展" class="headerlink" title="1.5 计算机系统结构中并行性的发展"></a>1.5 计算机系统结构中并行性的发展</h3><p>并行等级的发展：</p>
+<ul>
+<li>字串位串</li>
+<li>字串位并：同时对一个字的全部位进行操作</li>
+<li>字并位串：对许多字的同一位 ，位片</li>
+<li>全并行：同时对 许多字的 全部&#x2F;部分位进行处理，是最高一级的并行</li>
+</ul>
+<h3 id="补充：Words"><a href="#补充：Words" class="headerlink" title="补充：Words"></a>补充：Words</h3><ul>
+<li>CPI: clocks per instruction</li>
+<li>IC: instruction counts</li>
+<li>MIPS million instructions per second</li>
+<li>MFLOPS million floating point operations per second</li>
+<li>CISC 复杂指令集计算机</li>
+<li>RISC 精简指令集计算机</li>
+</ul>
+<h2 id="第三章-流水线技术"><a href="#第三章-流水线技术" class="headerlink" title="第三章 流水线技术"></a>第三章 流水线技术</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="什么是流水线"><a href="#什么是流水线" class="headerlink" title="什么是流水线"></a>什么是流水线</h4><p>把一个重复的过程<strong>分解为若干个子过程</strong>,每个子过程由<strong>专门的功能部件</strong>来实现。把多个处理过程在<strong>时间上</strong>错开,依次通过各功能段,这样,每个子过程就可以与其他的子过程并行进行。<strong>这就是流水线技术(pipelining)。</strong></p>
+<p>流水线中的<strong>每个子过程及其功能部件</strong>称为流水线的<strong>级或段</strong>(stage),段与段相互连接形成流水线。流水线的<strong>段数称为流水线的深度</strong>(Pipeline Depth)。</p>
+<p>流水线技术的<strong>核心：部件功能专用化</strong>。</p>
+<ol>
+<li>一件工作按功能分隔为若干相互联系的部分</li>
+<li>每一部分指定给专门部件（段）完成</li>
+<li>各部件（段）执行过程时间重叠（时间并行性，并发性）</li>
+<li>所有部件依次序分工完成工作。</li>
+</ol>
+<p>典型的指令流水线：</p>
+<ul>
+<li>三段：<strong>取指、分析、执行</strong><br>分别用独立的 取指、分析和执行 部件来实现<br>理想中是可以达到三倍</li>
+<li>四段：<strong>取指</strong>（<strong>访问主存，取出指令</strong>，并送到<strong>指令寄存器</strong>）、<strong>译码</strong>（指令译码，分析，形成操作数地址并读取操作数）、<strong>执行</strong>（完成指令的功能）、<strong>存结果</strong>（将运算结果写回寄存器或主存）</li>
+</ul>
+<p>流水线的表示</p>
+<ol>
+<li>连接图<br><img src="https://api2.mubu.com/v3/document_image/41d793dc-7d91-44f1-a453-48240749298d-16175743.jpg" alt="ljt"></li>
+<li>时空图<br><img src="https://api2.mubu.com/v3/document_image/b7ded8fd-6429-4ff4-b42a-38a31d704369-16175743.jpg" alt="skt"><br><img src="https://api2.mubu.com/v3/document_image/4b12b6c2-34bd-49fc-b77e-2cda16fd166e-16175743.jpg" alt="skt2"></li>
+</ol>
+<p>流水线<strong>通过时间</strong>和<strong>排空时间</strong>：</p>
+<ul>
+<li>通过时间：第一个任务从进入流水线到流出结果所需的时间，又称装入时间</li>
+<li>排空时间：最后一个任务从进入流水线到流出结果所需的时间</li>
+</ul>
+<p>在装入和排空的过程中，流水线不满载。</p>
+<p>各流水段时间尽可能相等，否则引起流水线堵塞、断流。指令通过流水线时间最长的段称为<strong>流水线瓶颈</strong>。</p>
+<p>一个处理过程分解为若干个子过程（段），每个子过程以一个专门的功能部件来实现</p>
+<p>每段流水线后面有一个缓冲寄存器，称为流水寄存器。有缓冲、隔离、同步作用。</p>
+<h4 id="流水线的分类"><a href="#流水线的分类" class="headerlink" title="流水线的分类"></a>流水线的分类</h4><ul>
+<li>按照流水线等级<ul>
+<li>部件级流水线（运算操作流水线）：各类型的运算操作按流水方式进行。</li>
+<li>处理机级流水线（指令流水线）：把一条指令的执行过程分段，按流水方式执行。</li>
+<li>系统级流水线（宏流水线）：把多台处理机串行连接起来，每个处理机完成整个任务中的一部分。</li>
+</ul>
+</li>
+<li>按照流水线所完成的功能分类<ul>
+<li>单功能流水线：只能完成固定功能。</li>
+<li>多功能流水线：流水线的各段可以进行不同连接，实现不同功能。</li>
+</ul>
+</li>
+<li>针对多功能流水线做进一步分类<ul>
+<li>静态流水线：同一时间内，多功能流水线中的各段只能按同一种功能的连接方式进行工作。</li>
+<li>动态流水线：同一时间内，多功能流水线中的各段可以按照不同方式连接，同时执行多种功能。（而不需等到排空之后重新装入）</li>
+</ul>
+</li>
+<li>按照流水线中是否有反馈回路<ul>
+<li>线性流水线：流水线各段串行连接，每个段最多流过一次。</li>
+<li>非线性流水线：流水线中有反馈回路，每个段可以流过多次。</li>
+</ul>
+</li>
+<li>根据任务流入和流出的顺序是否相同来分类（考虑有多条流水线的机器）<ul>
+<li>顺序流水线：流水线输出的任务顺序与输入的任务顺序相同。</li>
+<li>乱序流水线：流水线输出的任务顺序与输入的顺序可以不同。（也称无序、错序、异步流水线）</li>
+</ul>
+</li>
+</ul>
+<h3 id="流水线性能计算和分析"><a href="#流水线性能计算和分析" class="headerlink" title="流水线性能计算和分析"></a>流水线性能计算和分析</h3><blockquote>
+<p>主要的性能指标：<br><strong>吞吐率</strong><br><strong>加速比</strong><br><strong>效率</strong><br>流水线<strong>最佳段数</strong>也是一个重要指标<br>*公式可以不用背，理解概念就行</p>
+</blockquote>
+<h4 id="吞吐率-TP"><a href="#吞吐率-TP" class="headerlink" title="吞吐率 TP"></a><mark>吞吐率 TP</h4><p>单位时间内流水线<strong>完成的任务数量</strong>或<strong>输出结果的数量</strong>。(有的时候这两个不一定是一致的，这个时候我们倾向于采用输出结果的数量作为吞吐率的计算指标)</p>
+<p>$$<br>T_p &#x3D; \cfrac{n}{T_k}<br>$$</p>
+<ul>
+<li>各段时间相等的流水线<br>理想的 k 段线性流水线完成 n 个连续任务的时间：$T_k &#x3D; (k+n-1) \Delta t$<br>实际吞吐率：$\cfrac{n}{(k+n-1) \Delta t}$<br>最大吞吐率：$TP_{max}&#x3D;\lim\limits_{n \to \infty} \cfrac{n}{(k+n-1) \Delta t} &#x3D; \cfrac{1}{\Delta t}$</li>
+<li>各段时间不等的流水线<br>时间最长段称为流水线的瓶颈<br>$T_k &#x3D; \sum\limits_{i&#x3D;1}^k \Delta t_i + (n-1) \max (\Delta t_1,\Delta t_2,···,\Delta t_k)$</li>
+</ul>
+<p>这里配合ppt17页的图理解更佳<br>如下<br><img src="https://api2.mubu.com/v3/document_image/dfd7b368-77a1-4c9b-8cad-7e090ff6a034-16175743.jpg" alt="17"></p>
+<p><strong>解决流水线瓶颈的方法</strong>：</p>
+<ol>
+<li>重复设置瓶颈段：让多个瓶颈流水段并行工作。<br>  相当于同一个活一个人干得三份时间，于是喊三个人来一起干<br>  <img src="https://api2.mubu.com/v3/document_image/7e23244b-ba2c-4d86-bf8d-5e527c4d7263-16175743.jpg" alt="2"></li>
+<li>瓶颈段再细分：细分为多个子流水段（每个子流水段用时和非瓶颈段相同），形成超流水线。<br>  这个是把一个部件的功能再给往细了划分</li>
+</ol>
+<blockquote>
+<p>Attention:<br>重复设置瓶颈段和瓶颈段再细分得到的T、TP和E是一样的。<br>且瓶颈段可能不仅仅只有一段，当有一段50+50+100+200的流水时，100和200都是瓶颈段。</p>
+</blockquote>
+<h4 id="加速比-S"><a href="#加速比-S" class="headerlink" title="加速比 S"></a><mark>加速比 S</h4><p>完成同样任务，不使用流水线所用时间与使用流水线所用时间之比。<br>$T_s:不使用流水线，T_k:使用流水线$<br>$$<br>S &#x3D; \cfrac{T_s}{T_k}<br>$$</p>
+<ul>
+<li>各段时间相等的 k 段流水线：<br>$S &#x3D; \cfrac{n \times k \Delta t}{(k+n-1) \Delta t}$<br>最大加速比：k</li>
+<li>各段时间不等的流水线：<br>$S &#x3D; \cfrac{n \sum\limits_{i&#x3D;1}^k \Delta t_i}{\sum\limits_{i&#x3D;1}^k \Delta t_i + (n-1) \max (\Delta t_1,\Delta t_2,···,\Delta t_k)}$</li>
+</ul>
+<h4 id="效率-E"><a href="#效率-E" class="headerlink" title="效率 E"></a><mark>效率 E</h4><p>流水线中的设备实际使用时间与整个运行时间的比值，又称流水线设备利用率。</p>
+<p>就是算的 <strong>时空图中有效的面积 &#x2F; 整个面积</strong></p>
+<ul>
+<li>连续完成 n 个任务，每段的效率计算：每段都执行了 n 个任务，用时$n \Delta t$，效率<br>$e &#x3D; \cfrac{n \Delta t}{(k+n-1) \Delta t}$</li>
+<li>整条流水线的效率$E &#x3D; \cfrac{e_1+e_2+…+e_k}{k}&#x3D; \cfrac{n}{k+n-1}$</li>
+</ul>
+<h4 id="TP、S、E-关系"><a href="#TP、S、E-关系" class="headerlink" title="TP、S、E 关系"></a><mark>TP、S、E 关系</h4><p>$E &#x3D; \cfrac{S}{k}$<br>$E &#x3D; P \times \Delta t$</p>
+<h4 id="流水线的最佳段数"><a href="#流水线的最佳段数" class="headerlink" title="流水线的最佳段数"></a>流水线的最佳段数</h4><p>流水线段数增加，吞吐率、加速比和价格均提高。<br>PCR 定义为单位价格的最大吞吐率。<br>$PCR &#x3D; \frac{P_{max}}{C}$，其中$P_{max} &#x3D; \frac{1}{\frac{t}{k}+d}$，$C &#x3D; \frac{1}{a+b \times k}$。t 为非流水机器串行完成一个任务的时间，d 为锁存器延迟，a 为流水段本身价格，b 为锁存器价格。<br>对 k 求导可得 PCR 极大值，以及对应的最佳段数$k_0$。$k_0 &#x3D; \sqrt{\frac{t \times a}{d \times b}}$<br>大于等于 8 段的流水线称为超流水线。</p>
+<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p>例2：</p>
+<blockquote>
+<p>注意，不要把$\Delta t$丢了，吞吐率的结果是带着$\Delta t$的<br>计算设备利用效率的时候，直接算使用的部分，别拿整个的去减。</p>
+</blockquote>
+<p>例3：</p>
+<p>流水线的性能分析举例，课本例题3.1<br><img src="https://static.xqmmcqs.com/2022-06-07-00-07-41-L6JcLw.png" alt="流水线的性能分析举例"></p>
+<p>例4：</p>
+<p>课本例题3.2<br><img src="https://static.xqmmcqs.com/2022-06-07-00-07-41-L6JcLw.png" alt="课本例题3.2"></p>
+<h3 id="流水线相关与冲突（五段流水线）"><a href="#流水线相关与冲突（五段流水线）" class="headerlink" title="流水线相关与冲突（五段流水线）"></a>流水线相关与冲突（五段流水线）</h3><h4 id="经典五段RISC流水线"><a href="#经典五段RISC流水线" class="headerlink" title="经典五段RISC流水线"></a>经典五段RISC流水线</h4><p>经典五段RISC流水线：分为 IF、ID、EX、MEM、WB 五个周期。<br><strong>从第三个周期EX开始，不同类指令在各周期含义不同</strong><br>这里的不同指令，可以大致分为ALU指令，Load&#x2F;store指令&#x2F;Branch指令</p>
+<ul>
+<li>IF：以程序计数器 PC 中的内容作为地址，从存储器中取出指令并放入指令寄存器 IR。PC 指向顺序的下一条指令。</li>
+<li>ID：指令译码，用 IR 中的寄存器地址去访问通用寄存器组，读出所需操作数。</li>
+<li>EX：<ul>
+<li>ALU 指令：（寄存器——寄存器）ALU 对从通用寄存器组读出的数据进行运算。</li>
+<li>load 和 store 指令：ALU 把指定寄存器的内容与偏移量相加，形成访存有效地址。</li>
+<li>分支指令：ALU 把偏移量与 PC 值相加，形成转移目标的地址。同时，判断分支是否成功。</li>
+</ul>
+</li>
+<li>MEM：存储器访问&#x2F;分支完成<ul>
+<li>load 和 store 指令：根据有效地址从存储器读出相应数据，或把指定数据写入有效地址指向的存储单元。</li>
+<li>分支指令：如果分支成功，就把在前一个周期中计算好的转移目标地址送入 PC。分支指令执行完成。否则，不进行任何操作。</li>
+<li><strong>ALU 指令此周期不进行操作</strong>。</li>
+</ul>
+</li>
+<li>WB：把结果写入通用寄存器组。<ul>
+<li>对于 ALU 指令，结果来自 ALU。</li>
+<li>对于 load 指令，结果来自存储器。</li>
+<li>对于分支或者store指令，空操作</li>
+</ul>
+</li>
+<li>分支和ALU,store指令需要四个后期，load指令需要5个周期</li>
+</ul>
+<p>不同类指令中各流水段的具体操作(fromppt)</p>
+<p><img src="https://api2.mubu.com/v3/document_image/b01f9717-5f4d-4980-8596-9e800a6b92ec-16175743.jpg" alt="2"></p>
+<p>容易发生的冲突：</p>
+<ol>
+<li>存储器冲突：访存指令在ME段访问主存，其它指令IF段访问主存</li>
+<li>寄存器冲突: ID 段读寄存器，ALU指令在WB 段写寄存器。避免同时读写同一寄存器。</li>
+</ol>
+<p>注意事项：</p>
+<ul>
+<li>为了避免ID段和WB段都访问同意寄存器时产生冲突，默认写操作在前半拍，读操作在后半拍。</li>
+<li>如果是单周期延迟分支，则分支指令在 ID 段完成计算目标地址和判断分支是否成功。</li>
+</ul>
+<h4 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h4><p>两条指令之间存在某种依赖关系，以至于他们可能无法在流水线中重叠执行，或只能部分重叠。</p>
+<p>相关有三种类型：<strong>数据相关（真相关）、名相关、控制相关</strong>。非流水线中，指令顺序执行，不存在相关问题</p>
+<ul>
+<li><p><mark>数据相关</mark>：下述条件之一成立，则称指令之间数据相关。</p>
+<ul>
+<li>指令 a 使用指令 b 产生的结果。（后一条指令只用前一条指令的写结果）</li>
+<li>指令 a 与指令 b 数据相关，而指令 b 与指令 c 数据相关。第二个条件表明数据相关具有<strong>传递性</strong>。</li>
+</ul>
+</li>
+<li><p><mark>名相关</mark>：名指指令访问的<strong>寄存器</strong>或<strong>存储器单元</strong>的名称。两条指令使用了相同的名，但<strong>并没有数据流动关系</strong>，则称为名相关。名相关分为两种。</p>
+<ul>
+<li>反相关：<strong>先读后写相关</strong> 指令 b 写的名与指令 a 读的名相同。反相关指令之间的执行顺序必须严格遵守，保证 b 读的值是正确的。</li>
+<li>输出相关：<strong>写写相关</strong> 指令 b 与指令 a 写的名相同。输出相关指令的执行顺序也必须严格遵守，保证最后的结果是指令 b 写进去的。</li>
+</ul>
+<p>名相关的两条指令之间没有数据的传送，只是恰巧用了相同的名。可以通过<strong>换名技术</strong>（改变指令中操作数的名）消除名相关。对于寄存器操作数换名称为<strong>寄存器换名</strong>。寄存器换名既可以通过<strong>编译器</strong>静态实现，也可以<strong>硬件</strong>动态完成。</p>
+</li>
+<li><p><mark>控制相关</mark>：分支指令和其它会改变 PC 值的指令引起的相关。需要根据分支指令的执行结果来确定后面该执行哪个分支上的指令。<br><img src="https://api2.mubu.com/v3/document_image/d0f6269d-57f8-4655-b834-dc96e55684f4-16175743.jpg" alt="2"></p>
+<blockquote>
+<p>补充一下，课本上的更详细<img src="https://api2.mubu.com/v3/document_image/734d9668-6ef0-4ec1-b5e5-78fdfbd75c4c-16175743.jpg" alt="2"></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="流水线冲突"><a href="#流水线冲突" class="headerlink" title="流水线冲突"></a>流水线冲突</h4><p>对于具体的流水线，由于相关的存在，指令流中的下一条指令不能在指定的时钟周期开始执行。有三种类型，<strong>结构冲突、数据冲突、控制冲突。</strong><br>流水线冲突的影响：导致错误的执行结果，导致流水线停顿，降低性能。</p>
+<p>约定：<strong>当一条指令被暂停时，在该指令之后流出的所有指令都要被暂停，而之前流出的指令仍继续进行</strong>。</p>
+<h5 id="1-结构冲突"><a href="#1-结构冲突" class="headerlink" title="1.结构冲突"></a>1.结构冲突</h5><p>某种指令组合因为硬件资源冲突而不能正常执行，称具有结构冲突。功能部件不是完全流水或硬件资源份数不够时发生。解决方法：插入暂停周期（stall），或增加 Cache 等硬件资</p>
+<h5 id="2-数据冲突"><a href="#2-数据冲突" class="headerlink" title="2.数据冲突"></a>2.数据冲突</h5><p>相关的指令靠得足够近，他们在流水线中的重叠执行或重新排序会改变指令读&#x2F;写操作数的顺序，使结果错误，谓数据冲突。</p>
+<ul>
+<li>写后读冲突（R<mark>A</mark>W、WR）：对应真数据相关。<mark>这里的A 是After的意思</mark></li>
+<li>写后写冲突（WAW、WW）：对应输出相关。写后写冲突仅发生在“不止一个段可以进行写操作，或指令被重新排序”的流水线中。前述五段流水线不发生 WAW 冲突。</li>
+<li>读后写冲突（WAR、RW）：对应反相关。读后写冲突仅发生在“有些指令的写结果操作被提前、有些指令的读操作被滞后，或指令被重新排序”的流水线中。前述五段流水线不发生 WAR 冲突。<br>数据冲突的解决：</li>
+<li>定向技术（绿色通道）<br>（旁路技术）减少数据冲突引起的停顿：将计算结果从其产生的地方（ALU 出口）直接送到其他指令需要它的地方（ALU 的入口），可以<strong>避免或者减少流水线的停顿</strong>。</li>
+<li>停顿<br>需要停顿的数据冲突（例如 LD 后接一个算术指令）：对于无法通过定向技术解决的数据冲突，需要设置一个“流水线互锁机制”的功能部件保证指令正确执行。其作用是检测和发现数据冲突，并使流水线停顿（stall）直至冲突消失。<blockquote>
+<p>补充：访存指令的周期：<br>取指-译码-计算目标地址-访问存储器-写入寄存器</p>
+</blockquote>
+</li>
+<li>编译器解决<br>在编译时让编译器重新组织指令顺序来消除冲突。称为<strong>指令调度</strong>或<strong>流水线调度</strong>。</li>
+</ul>
+<h5 id="3-控制冲突"><a href="#3-控制冲突" class="headerlink" title="3.控制冲突"></a><mark>3.控制冲突</mark></h5><p>分支指令和其它会改变 PC 值的指令引起的冲突。<strong>处理分支指令最简单的方法是“冻结”(“排空”)流水线</strong> ，“冻结”流水线的处理方式：在 ID 段检测到分支指令时，立即暂停流水线输入，进行 EX、MEM，确定是否分支成功并计算出新的 PC 值，这样带来 3 个时钟周期的延迟。<br>为了减少分支延迟，可以采取：</p>
+<ol>
+<li>尽早判断出（或猜测）分支转移是否成功。</li>
+<li>尽早计算出分支目标地址。<br>这两步工作若提前到ID段完成（针对简单的转移指令是可以做到这一点的），分支延迟将为一个时钟周期。</li>
+</ol>
+<blockquote>
+<p>关于条件分支和无条件分支：<br>条件控制分支包括if-else、while、do-while、for<br>而无条件分支控制包括return、break和continue</p>
+</blockquote>
+<h6 id="通过编译器减少分支延迟的方法"><a href="#通过编译器减少分支延迟的方法" class="headerlink" title="通过编译器减少分支延迟的方法"></a>通过编译器减少分支延迟的方法</h6><ol>
+<li><strong>预测分支失败</strong>：在检测到分支指令之后，沿分支失败的分支继续处理指令。<ul>
+<li>当确定分支是失败时（预测分支失败成功），流水线正常流动。</li>
+<li>否则（预测分支失败失败），把在分支指令之后取出的指令转化为空操作，按分支目标地址重新取指执行。</li>
+<li>预测分支失败成功（分支失败）：0 延迟；预测分支失败失败（分支成功）：1 延迟。</li>
+<li><mark>例题</mark><br><img src="https://api2.mubu.com/v3/document_image/b2c28bfc-abfc-432a-8971-cf54d56244a7-16175743.jpg" alt="2"><br><img src="https://api2.mubu.com/v3/document_image/50c33649-5c80-4478-88ae-73975d7f0d49-16175743.jpg" alt="3"></li>
+</ul>
+</li>
+<li><strong>预测分支成功</strong>：这种方法按分支成功的假设进行处理。当流水线ID段检测到分支指令后，一旦计算出了分支目标地址,就开始从该目标地址取指令执行。<br>  在前述<strong>5段流水</strong>线中,由于判断分支是否成功与分支目标地址计算是在同一流水段完成的,所以<strong>这种方法对减少该流水线的分支延迟没有任何好处</strong>。但在其他的一些流水线处理机中,特别是那些具有隐含设置条件码或分支条件更复杂(因而更慢)的流水线处理机中，在确定分支是否成功之前,就能得到分支的目标地址。这时采用这种方法便可以减少分支延迟。</li>
+<li><strong>延迟分支</strong>：把无论是否分支成功都必须执行的指令，紧接着分支指令执行（放入延迟槽），延迟槽中的指令替换了原本必须插入的暂停周期。绝大多数延迟槽仅容纳一条指令。</li>
+</ol>
+<p>  <strong>延迟槽</strong>：一条或几条与转移指令结果无关而有用的指令。<br>     1. 从前调度：被调度的指令必须与分支无关，适合任何情况<br>     2. 从目标处调度：分支成功时起作用。分支成功概率高时采用<br>     3. 从失败处调度：分支失败时起作用。不能从前调度时可用。<br><img src="https://api2.mubu.com/v3/document_image/b5b880e2-8db2-4807-95ff-f440e9c3c736-16175743.jpg" alt="3"></p>
+<h6 id="控制冲突的例题"><a href="#控制冲突的例题" class="headerlink" title="控制冲突的例题"></a>控制冲突的例题</h6><p><img src="https://api2.mubu.com/v3/document_image/76E4FD3FFB6A44201679212034.jpg" alt="2"><br>需要特别注意预测分支失败不需要一个额外的周期来计算目标地址，直接拿下一条指令执行就可以了；但是预测分支成功不行，就算赌它成功了也得等它ex出来下一跳地址才行。这也是为什么预测分支失败更好。</p>
+]]></content>
+      <categories>
+        <category>笔记 - 计算机系统结构</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>计算机系统结构</tag>
       </tags>
   </entry>
 </search>
