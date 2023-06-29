@@ -8,7 +8,7 @@ tags:
 	- course
 	- 交换原理
 
-cover: /img/Photo frame three-105065589.png
+cover: /img/106842843_p0_master1200.jpg
 ---
 
 开个坑，期末复习用。

@@ -8,7 +8,7 @@ tags:
 	- course
 	- 交换原理
 
-cover: /img/Photo frame three-105065589.png
+cover: /img/106842843_p0_master1200.jpg
 ---
 
 ## chapter3-电话交换
@@ -194,7 +194,7 @@ N:单位时间内处理的呼叫次数（呼叫处理能力，BHCA）
         - 处理机之间通信接口较为集中，控制方式复杂，但比全分散简单。
         - 各处理机上应用软件复杂程度适中。
         - 控制系统的可靠性适中。
-    ![2](https://api2.mubu.com/v3/document_image/575d0c8d-6d72-473d-b5e8-a5509e399095-16175743.jpg)
+       ![2](https://api2.mubu.com/v3/document_image/575d0c8d-6d72-473d-b5e8-a5509e399095-16175743.jpg)
 
 多处理机之间的工作分担方式：
 
