@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="zh" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>服务器部署gpt3_based_demo - SZH&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanzhihan&#39;s blog,"> 
+    <meta name="description" content="一生所求是做个温柔又强大的人,环境使用uname --all查看当前环境
+1Linux 164 4.15.0-142-generic #146~16.04.1-Ubuntu SMP Tue Apr 13 09:27:15 UTC,"> 
+    <meta name="author" content="szh"> 
+    <link rel="alternative" href="atom.xml" title="SZH&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/icoon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="服务器部署gpt3_based_demo - SZH&#39;s blog"/>
+    <meta name="twitter:description" content="一生所求是做个温柔又强大的人,环境使用uname --all查看当前环境
+1Linux 164 4.15.0-142-generic #146~16.04.1-Ubuntu SMP Tue Apr 13 09:27:15 UTC,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="SZH&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="服务器部署gpt3_based_demo - SZH&#39;s blog"/>
+    <meta property="og:description" content="一生所求是做个温柔又强大的人,环境使用uname --all查看当前环境
+1Linux 164 4.15.0-142-generic #146~16.04.1-Ubuntu SMP Tue Apr 13 09:27:15 UTC,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">SZH&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://blog.szhhh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">服务器部署gpt3_based_demo</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <!--
+ * @Date: 2023-03-05 08:54:47
+ * @LastEditors: ShanZhihan
+ * @LastEditTime: 2023-03-18 16:23:49
+ * @FilePath: \diaspora\layout\_partial\post\article.ejs
+-->
+<div class="article">
+    <div class='main'>
+        <h1 class="title">服务器部署gpt3_based_demo</h1>
+        <div class="stuff">
+            <span>二月 27, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/course/" rel="tag">course</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/gpt/" rel="tag">gpt</a></li></ul>
+
+
+        </div>
+        
+        <div class="content markdown">
+            <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>使用<code>uname --all</code>查看当前环境</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux 164 4.15.0-142-generic #146~16.04.1-Ubuntu SMP Tue Apr 13 09:27:15 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="安装conda"><a href="#安装conda" class="headerlink" title="安装conda"></a>安装conda</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget [anaconda下载链接]</span><br><span class="line">chomd +x [下载的安装包名称]</span><br><span class="line">./[下载的安装包名称]</span><br></pre></td></tr></table></figure>
+
+<p>命令行运行conda<br>发现不成功，于是添加到path</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;~/anaconda3/bin:$PATH&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="寻找可用的开源demo"><a href="#寻找可用的开源demo" class="headerlink" title="寻找可用的开源demo"></a>寻找可用的开源demo</h3><p><a target="_blank" rel="noopener" href="https://huggingface.co/facebook/opt-1.3b">opt-1.3b</a></p>
+<blockquote>
+<p>Intro<br>OPT : Open Pre-trained Transformer Language Models<br>引用<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.01068">官方文件</a>的前两段</p>
+<blockquote>
+<p>Large language models trained on massive text collections have shown surprising emergent capabilities to generate text and perform zero- and few-shot learning. While in some cases the public can interact with these models through paid APIs, full model access is currently limited to only a few highly resourced labs. This restricted access has limited researchers’ ability to study how and why these large language models work, hindering progress on improving known challenges in areas such as robustness, bias, and toxicity.We present Open Pretrained Transformers (OPT), a suite of decoder-only pre-trained transformers ranging from 125M to 175B parameters, which we aim to fully and responsibly share with interested researchers.<br>We train the OPT models to <mark>roughly match the performance and sizes of the GPT-3 class of models, </mark>while also applying the latest best practices in data collection and efficient training. Our aim in developing this suite of OPT models is to enable reproducible and responsible research at scale, and to bring more voices to the table in studying the impact of these LLMs. Definitions of risk, harm, bias, and toxicity, etc., should be articulated by the collective research community as a whole, which is only possible when models are available for study.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/opt#overview">Transformer的module</a>，网址内含示例代码</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/nvidia/nemo-megatron-gpt-1.3B">nemo-megatron-gpt-1.3B</a></p>
+<blockquote>
+<p>Intro<br>Megatron-GPT 1.3B is a transformer-based language model. GPT refers to a class of transformer decoder-only models similar to GPT-2 and 3 while 1.3B refers to the total trainable parameter count (1.3 Billion) [1, 2]. It has Tensor Parallelism (TP) of 1, Pipeline Parallelism (PP) of 1 and <mark>should fit on a single NVIDIA GPU.</mark><br>This model was trained with <a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/nemo/user-guide/docs/en/stable/nlp/nemo_megatron/intro.html">NeMo Megatron</a>.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/EleutherAI/gpt-neo/">gpt-neo</a></p>
+<blockquote>
+<p>Intro<br>2021年八月不再维护<br>新的版本是<a target="_blank" rel="noopener" href="https://github.com/EleutherAI/gpt-neox/">GPT-NeoX</a><br>新版本的框架基于NVIDIA Megatron-LM的，并已通过 DeepSpeed 的技术以及一些新颖的优化进行了增强。（似乎需要从头开始训？见readme的加粗字体）<br><img src="https://api2.mubu.com/v3/document_image/7ab89669-c70a-4faa-9485-b30a005f5443-16175743.jpg" alt="readme"></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/THUDM/GLM">清华大学GLM</a></p>
+<blockquote>
+<p>Info<br>一篇介绍性的文章<a target="_blank" rel="noopener" href="https://keg.cs.tsinghua.edu.cn/glm-130b/zh/posts/glm-130b/">GLM-130B：开源的双语预训练模型</a><br>GLM-130B 是一个 1300 亿参数规模的双语（中文和英文）双向语言模型。它的<mark>底层架构是基于通用语言模型（GLM1）</mark>(跟gpt3是不一样的)，在超过 4000 亿个文本标识符上预训练完成。GLM-130B 利用自回归空白填充作为其主要的预训练目标，以图 4 中的句子为例，它掩盖了随机的连续文本区间（例如，“complete unkown”），并对其进行自回归预测。</p>
+</blockquote>
+<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p>总的来看opt看起来跟gpt最像，经进一步查询资料发现transformer库已经有opt模型<br>Nividia的nemo-megatron-gpt-1.3有比较详细的部署文档，但是还不太清楚megatron是起了什么作用。</p>
+<h3 id="检查本机环境是否符合demo运行要求"><a href="#检查本机环境是否符合demo运行要求" class="headerlink" title="检查本机环境是否符合demo运行要求"></a>检查本机环境是否符合demo运行要求</h3><p>查看服务器内存<br><img src="https://mubu.com/document_image/1681750250699f2c8.jpg" alt="mem"></p>
+<p>检查python版本<br><img src="https://api2.mubu.com/v3/document_image/910e7207-1dd8-45fb-8f6f-89cd3756f46a-16175743.jpg" alt="py-ver"></p>
+<p>检查GPU以及驱动</p>
+<p><img src="https://api2.mubu.com/v3/document_image/0abcbbd9-52cd-4b74-8637-7e8548716cb2-16175743.jpg" alt="gpu"></p>
+<h3 id="安装pytorch"><a href="#安装pytorch" class="headerlink" title="安装pytorch"></a>安装pytorch</h3><p>根据<a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/installation">transformer的安装文档</a><br>Transformers is tested on Python 3.6+, PyTorch 1.1.0+, TensorFlow 2.0+, and Flax.<br>安装对应CUDA版本的pytorch</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">CUDA 10.2</span></span><br><span class="line">conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=10.2 -c pytorch</span><br></pre></td></tr></table></figure>
+
+<p>检验pytorch</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;torch.__version__&quot;</span>, torch.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;torch.cuda.is_available():&quot;</span>, torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/ead8f836-0d08-4ed6-9a31-0e8981c4b15e-16175743.jpg" alt="2"></p>
+<h3 id="安装transformer"><a href="#安装transformer" class="headerlink" title="安装transformer"></a>安装transformer</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/huggingface/transformers.git</span><br><span class="line">cd transformers</span><br><span class="line">pip install -e .</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行模型"><a href="#运行模型" class="headerlink" title="运行模型"></a>运行模型</h3><p>复制transformer示例,添加输出，把模型和输入张量放到GPU上去，保存为<code>0_test.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoTokenizer, OPTForCausalLM</span><br><span class="line"></span><br><span class="line">model = OPTForCausalLM.from_pretrained(<span class="string">&quot;facebook/opt-350m&quot;</span>).cuda()</span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(<span class="string">&quot;facebook/opt-350m&quot;</span>)</span><br><span class="line"></span><br><span class="line">prompt = <span class="string">&quot;Hey, are you consciours? Can you talk to me?&quot;</span></span><br><span class="line">inputs = tokenizer(prompt, return_tensors=<span class="string">&quot;pt&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate</span></span><br><span class="line">generate_ids = model.generate(inputs.input_ids.cuda(), max_length=<span class="number">30</span>)</span><br><span class="line">ans = tokenizer.batch_decode(generate_ids, skip_special_tokens=<span class="literal">True</span>, clean_up_tokenization_spaces=<span class="literal">False</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python 0_test.py</span><br></pre></td></tr></table></figure>
+
+<p>输出结果</p>
+<p><img src="https://api2.mubu.com/v3/document_image/e1ed4c88-4df4-4b20-9dba-e88d3ec3d108-16175743.jpg" alt="res"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/music/溯.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/music/mine.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/music/诀别书.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/music/七年了，他还是走不出来.mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/music/《溯 Reverse》.mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/music/《託された想い (被寄托的思念)—増田俊郎》.mp3"></li>
+                        
+                    
+                        
+                            <li title="6" data-url="/music/【钢琴】《所念皆星河 》.mp3"></li>
+                        
+                    
+                        
+                            <li title="7" data-url="/music/【钢琴】陈奕迅《富士山下》.mp3"></li>
+                        
+                    
+                        
+                            <li title="8" data-url="/music/【钢琴】花之舞 《Flower Dance》.mp3"></li>
+                        
+                    
+                        
+                            <li title="9" data-url="/music/【钢琴】周杰伦《反方向的钟》.mp3"></li>
+                        
+                    
+                        
+                            <li title="10" data-url="/music/【钢琴】周杰伦《青花瓷》.mp3"></li>
+                        
+                    
+                        
+                            <li title="11" data-url="/music/I Really Like You.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="86a92b9df49e55c6beaf"
+        data-cs="b740ee88f80bbd33b4109f0c18a4f049a00a6439"
+        data-r="CommentRepo"
+        data-o="0bluewhale0"
+        data-a="0bluewhale0"
+        data-d="true"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85conda"><span class="toc-text">安装conda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E5%8F%AF%E7%94%A8%E7%9A%84%E5%BC%80%E6%BA%90demo"><span class="toc-text">寻找可用的开源demo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#summary"><span class="toc-text">summary</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E6%9C%AC%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88demo%E8%BF%90%E8%A1%8C%E8%A6%81%E6%B1%82"><span class="toc-text">检查本机环境是否符合demo运行要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85pytorch"><span class="toc-text">安装pytorch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85transformer"><span class="toc-text">安装transformer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%9E%8B"><span class="toc-text">运行模型</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

@@ -336,7 +336,7 @@
   </entry>
   <entry>
     <title>szh的博客</title>
-    <url>/2024/04/11/SZH%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+    <url>/2029/04/11/SZH%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p><em>为天地立心，为生民立命，为往圣继绝学，为万世开太平</em></p>
 ]]></content>
   </entry>
@@ -6374,6 +6374,116 @@ k-立方体的变形，它通过用k个结点构成的环取代k-立方体中的
       <tags>
         <tag>course</tag>
         <tag>计算机系统结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2024/12/03/github%20commit%20%E9%A2%9C%E8%89%B2/</url>
+    <content><![CDATA[<h1 id="github的红蓝绿灰"><a href="#github的红蓝绿灰" class="headerlink" title="github的红蓝绿灰"></a>github的红蓝绿灰</h1><h2 id="2-github网页的commit"><a href="#2-github网页的commit" class="headerlink" title="2.github网页的commit"></a>2.github网页的commit</h2><ol>
+<li><p>打开Github找到要查看的提交版本，选择 split 视图，左侧为前一版本，右侧为 当前选中版本<br><img src="https://img-blog.csdnimg.cn/img_convert/fa36b7e344c10939310b105de229c589.png" alt="image-20221204110103037"></p>
+</li>
+<li><p>颜色说明</p>
+<blockquote>
+<p><strong>蓝色</strong>代表相同代码，他会自动帮你折叠</p>
+<p><strong>红色</strong>代表被修改的代码</p>
+<p><strong>绿色</strong>为修改后的代码</p>
+<p><strong>灰色</strong>空白表示消失的代码</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="2-本地仓库中的文件颜色"><a href="#2-本地仓库中的文件颜色" class="headerlink" title="2.本地仓库中的文件颜色"></a>2.本地仓库中的文件颜色</h2><p><img src="https://img-blog.csdnimg.cn/119ef931f2b04b59a319b7d63db57e92.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5ZOU5ZOp5ZOU5ZOpIC0gKCDjgpwtIOOCnCnjgaTjg60g5Lm-5p2v,size_6,color_FFFFFF,t_70,g_se,x_16" alt="![请添加图片描述](https://img-blog.csdnimg.cn/99aad409a928433a98eeae9120ea94e0.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5ZOU5ZOp5ZOU5ZOpIC0gKCDjgpwtIOOCnCnjgaTjg60g5Lm-5p2v,size_6,color_FFFFFF,t_70,g_se,"></p>
+<p><strong>绿色，已经加入控制暂未提交<br>红色，未加入版本控制<br>蓝色，加入，已提交，有改动<br>白色，加入，已提交，无改动<br>灰色：版本控制已忽略文件。</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/21925cf25b63460cb4fd9a6dcbaca32c.png" alt="在这里插入图片描述"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2024/12/03/kernel%E5%85%A5%E9%97%A8-C%E8%AF%AD%E8%A8%80%E5%AE%8F%E5%AE%9A%E4%B9%89/</url>
+    <content><![CDATA[<h1 id="C语言宏定义"><a href="#C语言宏定义" class="headerlink" title="C语言宏定义"></a>C语言宏定义</h1><p><code>include/uapi/linux/const.h</code></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */</span></span><br><span class="line"><span class="comment">/* const.h: Macros for dealing with constants.  */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _UAPI_LINUX_CONST_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _UAPI_LINUX_CONST_H</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Some constant macros are used in both assembler and</span></span><br><span class="line"><span class="comment"> * C code.  Therefore we cannot annotate them always with</span></span><br><span class="line"><span class="comment"> * &#x27;UL&#x27; and other type specifiers unilaterally.  We</span></span><br><span class="line"><span class="comment"> * use the following macros to deal with this.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Similarly, _AT() will cast an expression with a type in C, but</span></span><br><span class="line"><span class="comment"> * leave it unchanged in asm.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> __ASSEMBLY__</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _AC(X,Y)	X</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _AT(T,X)	X</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __AC(X,Y)	(X##Y)   <span class="comment">//把XY连接起来，输出为XY</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _AC(X,Y)	__AC(X,Y)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _AT(T,X)	((T)(X))</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _UL(x)		(_AC(x, UL))<span class="comment">//把x变成xUL</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _ULL(x)		(_AC(x, ULL))</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _BITUL(x)	(_UL(1) &lt;&lt; (x))</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _BITULL(x)	(_ULL(1) &lt;&lt; (x))</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">/* _UAPI_LINUX_CONST_H */</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>UL后缀：</p>
+<p>这是常见的类型后缀，类似的还有：</p>
+<p><code>U/UL/ULL/L/LL</code></p>
+<p>表示unsigned、unsigned long等。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>ReBoot</title>
+    <url>/2025/02/21/%E3%80%90ReBoot%E3%80%91/</url>
+    <content><![CDATA[<p>由于和<a href="https://fail.lingfei.xyz/">某飞神</a>讨论域名的年费并且非常开心的发现他的域名年租一百多而我的只要区区32并且一直不涨价这件事又找回了这个博客，觉得就算是<strong>只需要区区32比一百多便宜了三倍不止</strong>一年也不好一直买了放着，多少有点浪费了，还是用来更点东西吧。</p>
+<p>这一年也认识了很多新朋友，也有老朋友不再联系了。</p>
+<p>不管怎么样，希望大家都好吧，过去的事情多少有些懒得管了。</p>
+<p>下一篇准备来记一下关于网络配置的一些东西，先在此恶毒诅咒实验室虽然有公网ip但开了防火墙所以导致就算有公网ip也不能用来做什么的网。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>少年听雨</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务器部署gpt3_based_demo</title>
+    <url>/2023/02/27/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2gpt3_based_demo/</url>
+    <content><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>使用<code>uname --all</code>查看当前环境</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">Linux 164 4.15.0-142-generic #146~16.04.1-Ubuntu SMP Tue Apr 13 09:27:15 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="安装conda"><a href="#安装conda" class="headerlink" title="安装conda"></a>安装conda</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget [anaconda下载链接]</span><br><span class="line">chomd +x [下载的安装包名称]</span><br><span class="line">./[下载的安装包名称]</span><br></pre></td></tr></table></figure>
+
+<p>命令行运行conda<br>发现不成功，于是添加到path</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export PATH=&quot;~/anaconda3/bin:$PATH&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="寻找可用的开源demo"><a href="#寻找可用的开源demo" class="headerlink" title="寻找可用的开源demo"></a>寻找可用的开源demo</h3><p><a href="https://huggingface.co/facebook/opt-1.3b">opt-1.3b</a></p>
+<blockquote>
+<p>Intro<br>OPT : Open Pre-trained Transformer Language Models<br>引用<a href="https://arxiv.org/abs/2205.01068">官方文件</a>的前两段</p>
+<blockquote>
+<p>Large language models trained on massive text collections have shown surprising emergent capabilities to generate text and perform zero- and few-shot learning. While in some cases the public can interact with these models through paid APIs, full model access is currently limited to only a few highly resourced labs. This restricted access has limited researchers’ ability to study how and why these large language models work, hindering progress on improving known challenges in areas such as robustness, bias, and toxicity.We present Open Pretrained Transformers (OPT), a suite of decoder-only pre-trained transformers ranging from 125M to 175B parameters, which we aim to fully and responsibly share with interested researchers.<br>We train the OPT models to <mark>roughly match the performance and sizes of the GPT-3 class of models, </mark>while also applying the latest best practices in data collection and efficient training. Our aim in developing this suite of OPT models is to enable reproducible and responsible research at scale, and to bring more voices to the table in studying the impact of these LLMs. Definitions of risk, harm, bias, and toxicity, etc., should be articulated by the collective research community as a whole, which is only possible when models are available for study.</p>
+</blockquote>
+<p><a href="https://huggingface.co/docs/transformers/model_doc/opt#overview">Transformer的module</a>，网址内含示例代码</p>
+</blockquote>
+<p><a href="https://huggingface.co/nvidia/nemo-megatron-gpt-1.3B">nemo-megatron-gpt-1.3B</a></p>
+<blockquote>
+<p>Intro<br>Megatron-GPT 1.3B is a transformer-based language model. GPT refers to a class of transformer decoder-only models similar to GPT-2 and 3 while 1.3B refers to the total trainable parameter count (1.3 Billion) [1, 2]. It has Tensor Parallelism (TP) of 1, Pipeline Parallelism (PP) of 1 and <mark>should fit on a single NVIDIA GPU.</mark><br>This model was trained with <a href="https://docs.nvidia.com/deeplearning/nemo/user-guide/docs/en/stable/nlp/nemo_megatron/intro.html">NeMo Megatron</a>.</p>
+</blockquote>
+<p><a href="https://github.com/EleutherAI/gpt-neo/">gpt-neo</a></p>
+<blockquote>
+<p>Intro<br>2021年八月不再维护<br>新的版本是<a href="https://github.com/EleutherAI/gpt-neox/">GPT-NeoX</a><br>新版本的框架基于NVIDIA Megatron-LM的，并已通过 DeepSpeed 的技术以及一些新颖的优化进行了增强。（似乎需要从头开始训？见readme的加粗字体）<br><img src="https://api2.mubu.com/v3/document_image/7ab89669-c70a-4faa-9485-b30a005f5443-16175743.jpg" alt="readme"></p>
+</blockquote>
+<p><a href="https://github.com/THUDM/GLM">清华大学GLM</a></p>
+<blockquote>
+<p>Info<br>一篇介绍性的文章<a href="https://keg.cs.tsinghua.edu.cn/glm-130b/zh/posts/glm-130b/">GLM-130B：开源的双语预训练模型</a><br>GLM-130B 是一个 1300 亿参数规模的双语（中文和英文）双向语言模型。它的<mark>底层架构是基于通用语言模型（GLM1）</mark>(跟gpt3是不一样的)，在超过 4000 亿个文本标识符上预训练完成。GLM-130B 利用自回归空白填充作为其主要的预训练目标，以图 4 中的句子为例，它掩盖了随机的连续文本区间（例如，“complete unkown”），并对其进行自回归预测。</p>
+</blockquote>
+<h4 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h4><p>总的来看opt看起来跟gpt最像，经进一步查询资料发现transformer库已经有opt模型<br>Nividia的nemo-megatron-gpt-1.3有比较详细的部署文档，但是还不太清楚megatron是起了什么作用。</p>
+<h3 id="检查本机环境是否符合demo运行要求"><a href="#检查本机环境是否符合demo运行要求" class="headerlink" title="检查本机环境是否符合demo运行要求"></a>检查本机环境是否符合demo运行要求</h3><p>查看服务器内存<br><img src="https://mubu.com/document_image/1681750250699f2c8.jpg" alt="mem"></p>
+<p>检查python版本<br><img src="https://api2.mubu.com/v3/document_image/910e7207-1dd8-45fb-8f6f-89cd3756f46a-16175743.jpg" alt="py-ver"></p>
+<p>检查GPU以及驱动</p>
+<p><img src="https://api2.mubu.com/v3/document_image/0abcbbd9-52cd-4b74-8637-7e8548716cb2-16175743.jpg" alt="gpu"></p>
+<h3 id="安装pytorch"><a href="#安装pytorch" class="headerlink" title="安装pytorch"></a>安装pytorch</h3><p>根据<a href="https://huggingface.co/docs/transformers/installation">transformer的安装文档</a><br>Transformers is tested on Python 3.6+, PyTorch 1.1.0+, TensorFlow 2.0+, and Flax.<br>安装对应CUDA版本的pytorch</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">CUDA 10.2</span></span><br><span class="line">conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=10.2 -c pytorch</span><br></pre></td></tr></table></figure>
+
+<p>检验pytorch</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;torch.__version__&quot;</span>, torch.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;torch.cuda.is_available():&quot;</span>, torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/ead8f836-0d08-4ed6-9a31-0e8981c4b15e-16175743.jpg" alt="2"></p>
+<h3 id="安装transformer"><a href="#安装transformer" class="headerlink" title="安装transformer"></a>安装transformer</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/huggingface/transformers.git</span><br><span class="line">cd transformers</span><br><span class="line">pip install -e .</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行模型"><a href="#运行模型" class="headerlink" title="运行模型"></a>运行模型</h3><p>复制transformer示例,添加输出，把模型和输入张量放到GPU上去，保存为<code>0_test.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoTokenizer, OPTForCausalLM</span><br><span class="line"></span><br><span class="line">model = OPTForCausalLM.from_pretrained(<span class="string">&quot;facebook/opt-350m&quot;</span>).cuda()</span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(<span class="string">&quot;facebook/opt-350m&quot;</span>)</span><br><span class="line"></span><br><span class="line">prompt = <span class="string">&quot;Hey, are you consciours? Can you talk to me?&quot;</span></span><br><span class="line">inputs = tokenizer(prompt, return_tensors=<span class="string">&quot;pt&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate</span></span><br><span class="line">generate_ids = model.generate(inputs.input_ids.cuda(), max_length=<span class="number">30</span>)</span><br><span class="line">ans = tokenizer.batch_decode(generate_ids, skip_special_tokens=<span class="literal">True</span>, clean_up_tokenization_spaces=<span class="literal">False</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python 0_test.py</span><br></pre></td></tr></table></figure>
+
+<p>输出结果</p>
+<p><img src="https://api2.mubu.com/v3/document_image/e1ed4c88-4df4-4b20-9dba-e88d3ec3d108-16175743.jpg" alt="res"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>course</tag>
+        <tag>gpt</tag>
       </tags>
   </entry>
 </search>
